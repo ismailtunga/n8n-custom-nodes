@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:spc" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:spc">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:spc"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="DeleteAttCauseRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+   <xsd:element name="iddefect" type="xsd:string"/>
+   <xsd:element name="idcause" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeleteAttCauseResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeleteAttDefectRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+   <xsd:element name="iddefect" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeleteAttDefectResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeleteSampleAttRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeleteSampleAttResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeleteSampleVarRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeleteSampleVarResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImportAttCauseRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+   <xsd:element name="iddefect" type="xsd:string"/>
+   <xsd:element name="idcause" type="xsd:string"/>
+   <xsd:element name="qtcause" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImportAttCauseResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImportAttDefectRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+   <xsd:element name="iddefect" type="xsd:string"/>
+   <xsd:element name="qtdefect" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImportAttDefectResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImportSampleAttRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+   <xsd:element name="dtsample" type="xsd:string"/>
+   <xsd:element name="tmsample" type="xsd:string"/>
+   <xsd:element name="config" type="xsd:string"/>
+   <xsd:element name="idmachine" type="xsd:string"/>
+   <xsd:element name="idoperator" type="xsd:string"/>
+   <xsd:element name="idinspector" type="xsd:string"/>
+   <xsd:element name="idshift" type="xsd:string"/>
+   <xsd:element name="idgage" type="xsd:string"/>
+   <xsd:element name="nmlot" type="xsd:string"/>
+   <xsd:element name="nmmo" type="xsd:string"/>
+   <xsd:element name="qtitens" type="xsd:string"/>
+   <xsd:element name="qtdefectsitem" type="xsd:string"/>
+   <xsd:element name="qtrejectsitem" type="xsd:string"/>
+   <xsd:element name="idprocess" type="xsd:string"/>
+   <xsd:element name="defect" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImportSampleAttResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImportSampleVarRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+   <xsd:element name="dtsample" type="xsd:string"/>
+   <xsd:element name="tmsample" type="xsd:string"/>
+   <xsd:element name="config" type="xsd:string"/>
+   <xsd:element name="idmachine" type="xsd:string"/>
+   <xsd:element name="idoperator" type="xsd:string"/>
+   <xsd:element name="idinspector" type="xsd:string"/>
+   <xsd:element name="idshift" type="xsd:string"/>
+   <xsd:element name="idgage" type="xsd:string"/>
+   <xsd:element name="nmlot" type="xsd:string"/>
+   <xsd:element name="nmmo" type="xsd:string"/>
+   <xsd:element name="readings" type="xsd:string"/>
+   <xsd:element name="idprocess" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImportSampleVarResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ChangeStatusSampleRequestType">
+  <xsd:all>
+   <xsd:element name="idcollect" type="xsd:string"/>
+   <xsd:element name="idcharacteristic" type="xsd:string"/>
+   <xsd:element name="idsequencesample" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ChangeStatusSampleResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="DeleteAttCause" type="tns:DeleteAttCauseRequestType"/>
+ <xsd:element name="DeleteAttCauseResponse" type="tns:DeleteAttCauseResponseType"/>
+ <xsd:element name="DeleteAttDefect" type="tns:DeleteAttDefectRequestType"/>
+ <xsd:element name="DeleteAttDefectResponse" type="tns:DeleteAttDefectResponseType"/>
+ <xsd:element name="DeleteSampleAtt" type="tns:DeleteSampleAttRequestType"/>
+ <xsd:element name="DeleteSampleAttResponse" type="tns:DeleteSampleAttResponseType"/>
+ <xsd:element name="DeleteSampleVar" type="tns:DeleteSampleVarRequestType"/>
+ <xsd:element name="DeleteSampleVarResponse" type="tns:DeleteSampleVarResponseType"/>
+ <xsd:element name="ImportAttCause" type="tns:ImportAttCauseRequestType"/>
+ <xsd:element name="ImportAttCauseResponse" type="tns:ImportAttCauseResponseType"/>
+ <xsd:element name="ImportAttDefect" type="tns:ImportAttDefectRequestType"/>
+ <xsd:element name="ImportAttDefectResponse" type="tns:ImportAttDefectResponseType"/>
+ <xsd:element name="ImportSampleAtt" type="tns:ImportSampleAttRequestType"/>
+ <xsd:element name="ImportSampleAttResponse" type="tns:ImportSampleAttResponseType"/>
+ <xsd:element name="ImportSampleVar" type="tns:ImportSampleVarRequestType"/>
+ <xsd:element name="ImportSampleVarResponse" type="tns:ImportSampleVarResponseType"/>
+ <xsd:element name="ChangeStatusSample" type="tns:ChangeStatusSampleRequestType"/>
+ <xsd:element name="ChangeStatusSampleResponse" type="tns:ChangeStatusSampleResponseType"/>
+</xsd:schema>
+</types>
+<message name="DeleteAttCauseRequest">
+  <part name="parameters" element="tns:DeleteAttCause" /></message>
+<message name="DeleteAttCauseResponse">
+  <part name="parameters" element="tns:DeleteAttCauseResponse" /></message>
+<message name="DeleteAttDefectRequest">
+  <part name="parameters" element="tns:DeleteAttDefect" /></message>
+<message name="DeleteAttDefectResponse">
+  <part name="parameters" element="tns:DeleteAttDefectResponse" /></message>
+<message name="DeleteSampleAttRequest">
+  <part name="parameters" element="tns:DeleteSampleAtt" /></message>
+<message name="DeleteSampleAttResponse">
+  <part name="parameters" element="tns:DeleteSampleAttResponse" /></message>
+<message name="DeleteSampleVarRequest">
+  <part name="parameters" element="tns:DeleteSampleVar" /></message>
+<message name="DeleteSampleVarResponse">
+  <part name="parameters" element="tns:DeleteSampleVarResponse" /></message>
+<message name="ImportAttCauseRequest">
+  <part name="parameters" element="tns:ImportAttCause" /></message>
+<message name="ImportAttCauseResponse">
+  <part name="parameters" element="tns:ImportAttCauseResponse" /></message>
+<message name="ImportAttDefectRequest">
+  <part name="parameters" element="tns:ImportAttDefect" /></message>
+<message name="ImportAttDefectResponse">
+  <part name="parameters" element="tns:ImportAttDefectResponse" /></message>
+<message name="ImportSampleAttRequest">
+  <part name="parameters" element="tns:ImportSampleAtt" /></message>
+<message name="ImportSampleAttResponse">
+  <part name="parameters" element="tns:ImportSampleAttResponse" /></message>
+<message name="ImportSampleVarRequest">
+  <part name="parameters" element="tns:ImportSampleVar" /></message>
+<message name="ImportSampleVarResponse">
+  <part name="parameters" element="tns:ImportSampleVarResponse" /></message>
+<message name="ChangeStatusSampleRequest">
+  <part name="parameters" element="tns:ChangeStatusSample" /></message>
+<message name="ChangeStatusSampleResponse">
+  <part name="parameters" element="tns:ChangeStatusSampleResponse" /></message>
+<portType name="SPCPortType">
+  <operation name="DeleteAttCause">
+    <documentation>Örnekleme ait kusur nedenlerini siler (nedenleri sıfırla)&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDEFECT         -&gt; Hata&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCAUSE          -&gt; Neden ID #&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:DeleteAttCauseRequest"/>
+    <output message="tns:DeleteAttCauseResponse"/>
+  </operation>
+  <operation name="DeleteAttDefect">
+    <documentation>Örneklemin kusurlarını siler (nedenleri sıfırla)&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDEFECT         -&gt; Hata&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:DeleteAttDefectRequest"/>
+    <output message="tns:DeleteAttDefectResponse"/>
+  </operation>
+  <operation name="DeleteSampleAtt">
+    <documentation>Bir Ek Alan Örneğini Silebilir.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:DeleteSampleAttRequest"/>
+    <output message="tns:DeleteSampleAttResponse"/>
+  </operation>
+  <operation name="DeleteSampleVar">
+    <documentation>Bir Değişken Örneğini Silebilir.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:DeleteSampleVarRequest"/>
+    <output message="tns:DeleteSampleVarResponse"/>
+  </operation>
+  <operation name="ImportAttCause">
+    <documentation>Bir nitelik karakteristiği örnekleminde bulunan kusurların nedenlerinin sayılarını değiştirir&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDEFECT         -&gt; Hata&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCAUSE          -&gt; Neden ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTCAUSE          -&gt; Nedenlerin sayısı&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:ImportAttCauseRequest"/>
+    <output message="tns:ImportAttCauseResponse"/>
+  </operation>
+  <operation name="ImportAttDefect">
+    <documentation>Bir nitelik karakteristiği örnekleminde bulunan kusurların sayılarını değiştirir&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDEFECT         -&gt; Hata&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTDEFECT         -&gt; Hata Miktarı&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:ImportAttDefectRequest"/>
+    <output message="tns:ImportAttDefectResponse"/>
+  </operation>
+  <operation name="ImportSampleAtt">
+    <documentation>Ek Alan karakteristiğinin var olan örneğini düzenleyecek veya yeni bir örnek ekleyecek.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CONFIG           -&gt; Genel veri konfigürasyonu [ 1 - Genel verileri önceki örneğe göre tut; 2 - Genel veriyi karakteristik konfigürasyonuna göre tut ]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTITENS          -&gt; Öğelerin Sayısı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTDEFECTSITEM    -&gt; Hatalı Öğelerin Sayısı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTREJECTSITEM    -&gt; Reddedilen Öğelerin Sayısı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTSAMPLE    -&gt; Örnek tarih&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TMSAMPLE    -&gt; Örnek zamanı&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMACHINE   -&gt; Makine ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOPERATOR  -&gt; Uygulayıcı ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDINSPECTOR -&gt; Denetçi ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSHIFT     -&gt; Vardiya ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDGAGE      -&gt; Ölçüm ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMLOT       -&gt; Parti&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMMO        -&gt; PO&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPROCESS   -&gt; Süreç ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DEFECT      -&gt; Hatalar(Biçim: DEF01:5;DEF02:3)&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:ImportSampleAttRequest"/>
+    <output message="tns:ImportSampleAttResponse"/>
+  </operation>
+  <operation name="ImportSampleVar">
+    <documentation>Değişken karakteristiğinin var olan örneğini düzenleyecek veya yeni bir örnek ekleyecek.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CONFIG           -&gt; Genel veri konfigürasyonu [ 1 - Genel verileri önceki örneğe göre tut; 2 - Genel veriyi karakteristik konfigürasyonuna göre tut ]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTSAMPLE    -&gt; Örnek tarih&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TMSAMPLE    -&gt; Örnek zamanı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;OKUMALAR -&gt; Okumalar. Ör : 1 ; 2 ; 3 ; 4 ; 5&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMACHINE   -&gt; Makine ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOPERATOR  -&gt; Uygulayıcı ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDINSPECTOR -&gt; Denetçi ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSHIFT     -&gt; Vardiya ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDGAGE      -&gt; Ölçüm ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMLOT       -&gt; Parti&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMMO        -&gt; PO&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPROCESS   -&gt; Süreç ID #&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:ImportSampleVarRequest"/>
+    <output message="tns:ImportSampleVarResponse"/>
+  </operation>
+  <operation name="ChangeStatusSample">
+    <documentation>Etkinleştir/Devre dışı bırak Örnek&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOLLECT        -&gt; Koleksiyon ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSEQUENCESAMPLE -&gt; Numune ID #&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:ChangeStatusSampleRequest"/>
+    <output message="tns:ChangeStatusSampleResponse"/>
+  </operation>
+</portType>
+<binding name="SPCBinding" type="tns:SPCPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="DeleteAttCause">
+    <soap:operation soapAction="urn:spc#DeleteAttCause" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+  <operation name="DeleteAttDefect">
+    <soap:operation soapAction="urn:spc#DeleteAttDefect" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+  <operation name="DeleteSampleAtt">
+    <soap:operation soapAction="urn:spc#DeleteSampleAtt" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+  <operation name="DeleteSampleVar">
+    <soap:operation soapAction="urn:spc#DeleteSampleVar" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+  <operation name="ImportAttCause">
+    <soap:operation soapAction="urn:spc#ImportAttCause" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+  <operation name="ImportAttDefect">
+    <soap:operation soapAction="urn:spc#ImportAttDefect" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+  <operation name="ImportSampleAtt">
+    <soap:operation soapAction="urn:spc#ImportSampleAtt" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+  <operation name="ImportSampleVar">
+    <soap:operation soapAction="urn:spc#ImportSampleVar" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+  <operation name="ChangeStatusSample">
+    <soap:operation soapAction="urn:spc#ChangeStatusSample" style="document"/>
+    <input><soap:body use="literal" namespace="urn:spc"/></input>
+    <output><soap:body use="literal" namespace="urn:spc"/></output>
+  </operation>
+</binding>
+<service name="SPC">
+  <port name="SPCPort" binding="tns:SPCBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/spc_ws.php"/>
+  </port>
+</service>
+</definitions>

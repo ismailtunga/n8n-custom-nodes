@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.n11.com/ws/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.n11.com/ws/schemas" targetNamespace="http://www.n11.com/ws/schemas">
+    <wsdl:types>
+        <xs:schema xmlns:n11="http://www.n11.com/ws/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.n11.com/ws/schemas">
+            <xs:element name="TicketListingBelongsToSellerRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="sellerId" type="xs:long"/>
+                        <xs:element name="first" type="xs:int"/>
+                        <xs:element name="pageSize" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketListingBelongsToSellerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="ticket" type="n11:TicketDto"/>
+                        <xs:element name="ticketList" type="n11:TicketsDtoList"/>
+                        <xs:element name="creator" type="n11:PersonDto"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketListingAssignedToSellerRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="sellerId" type="xs:long"/>
+                        <xs:element name="first" type="xs:int"/>
+                        <xs:element name="pageSize" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketListingAssignedToSellerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="ticket" type="n11:TicketDto"/>
+                        <xs:element name="ticketList" type="n11:TicketsDtoList"/>
+                        <xs:element name="seller" type="n11:PersonDto"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketAnswerRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="sellerId" type="xs:long"/>
+                        <xs:element name="ticketId" type="xs:long"/>
+                        <xs:element name="content" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketAnswerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketCreateRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="reasonId" type="xs:long"/>
+                        <xs:element name="sellerId" type="xs:long"/>
+                        <xs:element name="header" type="xs:string"/>
+                        <xs:element name="content" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketCreateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketReasonsRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketReasonsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="allTicketReasons" type="n11:ReasonDtoList"/>
+                        <xs:element name="reason" type="n11:ReasonDto"/>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketReadRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="ticketId" type="xs:long"/>
+                        <xs:element name="sellerId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TicketReadResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="BaseResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResultInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseRequest">
+                <xs:sequence>
+                    <xs:element name="authentication" type="n11:Authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Authentication">
+                <xs:sequence>
+                    <xs:element name="appKey" type="xs:string"/>
+                    <xs:element name="appSecret" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TicketsDtoList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="ticket" type="n11:TicketDto"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AnswerDtoList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="answer" type="n11:AnswerDto"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TicketDto">
+                <xs:sequence>
+                    <xs:element name="ticketId" type="xs:long"/>
+                    <xs:element name="header" type="xs:string"/>
+                    <xs:element name="content" type="xs:string"/>
+                    <xs:element name="createDate" type="xs:date"/>
+                    <xs:element name="ticketStatus" type="n11:TicketStatus"/>
+                    <xs:element name="creator" type="n11:PersonDto"/>
+                    <xs:element name="seller" type="n11:PersonDto"/>
+                    <xs:element name="reason" type="n11:QuestionGroupDto"/>
+                    <xs:element name="answers" type="n11:AnswerDtoList"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TicketStatus">
+                <xs:sequence>
+                    <xs:element name="OPENED" type="xs:string"/>
+                    <xs:element name="CLOSED" type="xs:string"/>
+                    <xs:element name="WAITING" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PersonDto">
+                <xs:sequence>
+                    <xs:element name="Id" type="xs:long"/>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="nickName" type="xs:string"/>
+                    <xs:element name="email" type="xs:string"/>
+                    <xs:element name="phone" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="QuestionGroupDto">
+                <xs:sequence>
+                    <xs:element name="Id" type="xs:long"/>
+                    <xs:element name="name" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AnswerDto">
+                <xs:sequence>
+                    <xs:element name="Id" type="xs:long"/>
+                    <xs:element name="content" type="xs:string"/>
+                    <xs:element name="createDate" type="xs:string"/>
+                    <xs:element name="creator" type="n11:PersonDto"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ReasonDtoList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="reason" type="n11:ReasonDto"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ReasonDto">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="isRequired" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="TicketListingBelongsToSellerRequest">
+        <wsdl:part element="tns:TicketListingBelongsToSellerRequest" name="TicketListingBelongsToSellerRequest"/>
+    </wsdl:message>
+    <wsdl:message name="TicketListingBelongsToSellerResponse">
+        <wsdl:part element="tns:TicketListingBelongsToSellerResponse" name="TicketListingBelongsToSellerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="TicketListingAssignedToSellerRequest">
+        <wsdl:part element="tns:TicketListingAssignedToSellerRequest" name="TicketListingAssignedToSellerRequest"/>
+    </wsdl:message>
+    <wsdl:message name="TicketListingAssignedToSellerResponse">
+        <wsdl:part element="tns:TicketListingAssignedToSellerResponse" name="TicketListingAssignedToSellerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="TicketAnswerRequest">
+        <wsdl:part element="tns:TicketAnswerRequest" name="TicketAnswerRequest"/>
+    </wsdl:message>
+    <wsdl:message name="TicketAnswerResponse">
+        <wsdl:part element="tns:TicketAnswerResponse" name="TicketAnswerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="TicketCreateRequest">
+        <wsdl:part element="tns:TicketCreateRequest" name="TicketCreateRequest"/>
+    </wsdl:message>
+    <wsdl:message name="TicketCreateResponse">
+        <wsdl:part element="tns:TicketCreateResponse" name="TicketCreateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="TicketReasonsRequest">
+        <wsdl:part element="tns:TicketReasonsRequest" name="TicketReasonsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="TicketReasonsResponse">
+        <wsdl:part element="tns:TicketReasonsResponse" name="TicketReasonsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="TicketReadRequest">
+        <wsdl:part element="tns:TicketReadRequest" name="TicketReadRequest"/>
+    </wsdl:message>
+    <wsdl:message name="TicketReadResponse">
+        <wsdl:part element="tns:TicketReadResponse" name="TicketReadResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="TicketServicePort">
+        <wsdl:operation name="TicketListingBelongsToSeller">
+            <wsdl:input message="tns:TicketListingBelongsToSellerRequest" name="TicketListingBelongsToSellerRequest"/>
+            <wsdl:output message="tns:TicketListingBelongsToSellerResponse" name="TicketListingBelongsToSellerResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="TicketListingAssignedToSeller">
+            <wsdl:input message="tns:TicketListingAssignedToSellerRequest" name="TicketListingAssignedToSellerRequest"/>
+            <wsdl:output message="tns:TicketListingAssignedToSellerResponse" name="TicketListingAssignedToSellerResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="TicketAnswer">
+            <wsdl:input message="tns:TicketAnswerRequest" name="TicketAnswerRequest"/>
+            <wsdl:output message="tns:TicketAnswerResponse" name="TicketAnswerResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="TicketCreate">
+            <wsdl:input message="tns:TicketCreateRequest" name="TicketCreateRequest"/>
+            <wsdl:output message="tns:TicketCreateResponse" name="TicketCreateResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="TicketReasons">
+            <wsdl:input message="tns:TicketReasonsRequest" name="TicketReasonsRequest"/>
+            <wsdl:output message="tns:TicketReasonsResponse" name="TicketReasonsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="TicketRead">
+            <wsdl:input message="tns:TicketReadRequest" name="TicketReadRequest"/>
+            <wsdl:output message="tns:TicketReadResponse" name="TicketReadResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TicketServicePortSoap11" type="tns:TicketServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="TicketListingBelongsToSeller">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="TicketListingBelongsToSellerRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TicketListingBelongsToSellerResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TicketListingAssignedToSeller">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="TicketListingAssignedToSellerRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TicketListingAssignedToSellerResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TicketAnswer">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="TicketAnswerRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TicketAnswerResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TicketCreate">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="TicketCreateRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TicketCreateResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TicketReasons">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="TicketReasonsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TicketReasonsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TicketRead">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="TicketReadRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TicketReadResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TicketServicePortService">
+        <wsdl:port binding="tns:TicketServicePortSoap11" name="TicketServicePortSoap11">
+            <soap:address location="https://api.n11.com/ws/ticketService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

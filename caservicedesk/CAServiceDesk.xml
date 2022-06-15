@@ -1,0 +1,945 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.mn.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="servicesService" targetNamespace="http://service.mn.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.mn.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.mn.com/">
+  <xs:element name="UpdateStatus" type="tns:UpdateStatus"/>
+  <xs:element name="UpdateStatusResponse" type="tns:UpdateStatusResponse"/>
+  <xs:element name="activity" type="tns:activity"/>
+  <xs:element name="addAtachment" type="tns:addAtachment"/>
+  <xs:element name="addAtachmentByte" type="tns:addAtachmentByte"/>
+  <xs:element name="addAtachmentByteResponse" type="tns:addAtachmentByteResponse"/>
+  <xs:element name="addAtachmentResponse" type="tns:addAtachmentResponse"/>
+  <xs:element name="category" type="tns:category"/>
+  <xs:element name="createAsset" type="tns:createAsset"/>
+  <xs:element name="createAssetResponse" type="tns:createAssetResponse"/>
+  <xs:element name="createContact" type="tns:createContact"/>
+  <xs:element name="createContactResponse" type="tns:createContactResponse"/>
+  <xs:element name="createLogComment" type="tns:createLogComment"/>
+  <xs:element name="createLogCommentResponse" type="tns:createLogCommentResponse"/>
+  <xs:element name="createTicket" type="tns:createTicket"/>
+  <xs:element name="createTicketResponse" type="tns:createTicketResponse"/>
+  <xs:element name="getActivity" type="tns:getActivity"/>
+  <xs:element name="getActivityResponse" type="tns:getActivityResponse"/>
+  <xs:element name="getCategories" type="tns:getCategories"/>
+  <xs:element name="getCategoriesDept" type="tns:getCategoriesDept"/>
+  <xs:element name="getCategoriesDeptResponse" type="tns:getCategoriesDeptResponse"/>
+  <xs:element name="getCategoriesResponse" type="tns:getCategoriesResponse"/>
+  <xs:element name="getClientIP" type="tns:getClientIP"/>
+  <xs:element name="getClientIPResponse" type="tns:getClientIPResponse"/>
+  <xs:element name="getContactDetail" type="tns:getContactDetail"/>
+  <xs:element name="getContactDetailResponse" type="tns:getContactDetailResponse"/>
+  <xs:element name="getDepartments" type="tns:getDepartments"/>
+  <xs:element name="getDepartmentsResponse" type="tns:getDepartmentsResponse"/>
+  <xs:element name="getRequest" type="tns:getRequest"/>
+  <xs:element name="getRequestResponse" type="tns:getRequestResponse"/>
+  <xs:element name="test" type="tns:test"/>
+  <xs:element name="testResponse" type="tns:testResponse"/>
+  <xs:element name="ticket" type="tns:ticket"/>
+  <xs:element name="updateAsset" type="tns:updateAsset"/>
+  <xs:element name="updateAssetResponse" type="tns:updateAssetResponse"/>
+  <xs:element name="updateContact" type="tns:updateContact"/>
+  <xs:element name="updateContactResponse" type="tns:updateContactResponse"/>
+  <xs:element name="updateTicket" type="tns:updateTicket"/>
+  <xs:element name="updateTicketResponse" type="tns:updateTicketResponse"/>
+  <xs:complexType name="getCategoriesDept">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="persid" type="xs:string"/>
+      <xs:element minOccurs="0" name="departmentID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCategoriesDeptResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:category"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="category">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="persid" type="xs:string"/>
+      <xs:element minOccurs="0" name="sym" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="userId" type="xs:string"/>
+      <xs:element minOccurs="0" name="crPersid" type="xs:string"/>
+      <xs:element minOccurs="0" name="comment" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateStatusResponse">
+    <xs:sequence>
+      <xs:element name="_return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActivity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="userId" type="xs:string"/>
+      <xs:element minOccurs="0" name="persid" type="xs:string"/>
+      <xs:element minOccurs="0" name="internal" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="type" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActivityResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:activity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="activity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="actionDesc" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="error" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="internal" type="xs:string"/>
+      <xs:element minOccurs="0" name="persid" type="xs:string"/>
+      <xs:element minOccurs="0" name="sym" type="xs:string"/>
+      <xs:element minOccurs="0" name="systemTime" type="xs:string"/>
+      <xs:element minOccurs="0" name="type" type="xs:string"/>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="persid" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="responsElem" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRequestResponse">
+    <xs:sequence>
+      <xs:element name="_return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="test">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="test" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="testResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addAtachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="userId" type="xs:string"/>
+      <xs:element minOccurs="0" name="file" type="xs:string"/>
+      <xs:element minOccurs="0" name="crPersid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addAtachmentResponse">
+    <xs:sequence>
+      <xs:element name="_return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateAsset">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="serialNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateAssetResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addAtachmentByte">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="userId" type="xs:string"/>
+      <xs:element minOccurs="0" name="fileName" type="xs:string"/>
+      <xs:element minOccurs="0" name="file" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="crPersid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addAtachmentByteResponse">
+    <xs:sequence>
+      <xs:element name="_return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createTicket">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="customer" type="xs:string"/>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="properties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:int"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createTicketResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:ticket"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticket">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="create" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="persid" type="xs:string"/>
+      <xs:element minOccurs="0" name="refnum" type="xs:string"/>
+      <xs:element minOccurs="0" name="response" type="xs:string"/>
+      <xs:element minOccurs="0" name="update" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCategories">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="persid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCategoriesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:category"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getClientIP">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getClientIPResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createAsset">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="serial_number" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="type" type="xs:string"/>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createAssetResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createLogComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="userId" type="xs:string"/>
+      <xs:element minOccurs="0" name="crPersid" type="xs:string"/>
+      <xs:element minOccurs="0" name="comment" type="xs:string"/>
+      <xs:element minOccurs="0" name="timeSpent" type="xs:int"/>
+      <xs:element minOccurs="0" name="internal" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createLogCommentResponse">
+    <xs:sequence>
+      <xs:element name="_return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getContactDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="contact_uuid" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="responsElem" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getContactDetailResponse">
+    <xs:sequence>
+      <xs:element name="_return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDepartments">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDepartmentsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:department"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="department">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="persid" type="xs:string"/>
+      <xs:element minOccurs="0" name="sym" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="contact_uuid" type="xs:string"/>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateContactResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:caContact"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="caContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accessType" type="xs:string"/>
+      <xs:element minOccurs="0" name="alias" type="xs:string"/>
+      <xs:element minOccurs="0" name="contactType" type="xs:string"/>
+      <xs:element minOccurs="0" name="department" type="xs:string"/>
+      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="functionalOrganization" type="xs:string"/>
+      <xs:element name="inactive" type="xs:int"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="location" type="xs:string"/>
+      <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="response" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="UUID" type="xs:string"/>
+      <xs:element minOccurs="0" name="userID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createContactResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:caContact"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateTicket">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="ticketPersid" type="xs:string"/>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="properties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:int"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateTicketResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:ticket"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exception" type="tns:Exception"/>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getCategoriesDept">
+    <wsdl:part element="tns:getCategoriesDept" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateStatus">
+    <wsdl:part element="tns:UpdateStatus" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRequest">
+    <wsdl:part element="tns:getRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createLogCommentResponse">
+    <wsdl:part element="tns:createLogCommentResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCategoriesDeptResponse">
+    <wsdl:part element="tns:getCategoriesDeptResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAtachmentByteResponse">
+    <wsdl:part element="tns:addAtachmentByteResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateTicketResponse">
+    <wsdl:part element="tns:updateTicketResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAsset">
+    <wsdl:part element="tns:updateAsset" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAssetResponse">
+    <wsdl:part element="tns:updateAssetResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRequestResponse">
+    <wsdl:part element="tns:getRequestResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCategories">
+    <wsdl:part element="tns:getCategories" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClientIP">
+    <wsdl:part element="tns:getClientIP" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAssetResponse">
+    <wsdl:part element="tns:createAssetResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getContactDetail">
+    <wsdl:part element="tns:getContactDetail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateContact">
+    <wsdl:part element="tns:updateContact" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createContact">
+    <wsdl:part element="tns:createContact" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClientIPResponse">
+    <wsdl:part element="tns:getClientIPResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDepartmentsResponse">
+    <wsdl:part element="tns:getDepartmentsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getActivity">
+    <wsdl:part element="tns:getActivity" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="test">
+    <wsdl:part element="tns:test" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createContactResponse">
+    <wsdl:part element="tns:createContactResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAtachment">
+    <wsdl:part element="tns:addAtachment" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAtachmentResponse">
+    <wsdl:part element="tns:addAtachmentResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateContactResponse">
+    <wsdl:part element="tns:updateContactResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createTicketResponse">
+    <wsdl:part element="tns:createTicketResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getContactDetailResponse">
+    <wsdl:part element="tns:getContactDetailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAtachmentByte">
+    <wsdl:part element="tns:addAtachmentByte" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getActivityResponse">
+    <wsdl:part element="tns:getActivityResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createTicket">
+    <wsdl:part element="tns:createTicket" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAsset">
+    <wsdl:part element="tns:createAsset" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createLogComment">
+    <wsdl:part element="tns:createLogComment" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="testResponse">
+    <wsdl:part element="tns:testResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCategoriesResponse">
+    <wsdl:part element="tns:getCategoriesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDepartments">
+    <wsdl:part element="tns:getDepartments" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateStatusResponse">
+    <wsdl:part element="tns:UpdateStatusResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateTicket">
+    <wsdl:part element="tns:updateTicket" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="services">
+    <wsdl:operation name="getCategoriesDept">
+      <wsdl:input message="tns:getCategoriesDept" name="getCategoriesDept">
+    </wsdl:input>
+      <wsdl:output message="tns:getCategoriesDeptResponse" name="getCategoriesDeptResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatus">
+      <wsdl:input message="tns:UpdateStatus" name="UpdateStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:UpdateStatusResponse" name="UpdateStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivity">
+      <wsdl:input message="tns:getActivity" name="getActivity">
+    </wsdl:input>
+      <wsdl:output message="tns:getActivityResponse" name="getActivityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRequest">
+      <wsdl:input message="tns:getRequest" name="getRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getRequestResponse" name="getRequestResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <wsdl:input message="tns:test" name="test">
+    </wsdl:input>
+      <wsdl:output message="tns:testResponse" name="testResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addAtachment">
+      <wsdl:input message="tns:addAtachment" name="addAtachment">
+    </wsdl:input>
+      <wsdl:output message="tns:addAtachmentResponse" name="addAtachmentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAsset">
+      <wsdl:input message="tns:updateAsset" name="updateAsset">
+    </wsdl:input>
+      <wsdl:output message="tns:updateAssetResponse" name="updateAssetResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAtachmentByte">
+      <wsdl:input message="tns:addAtachmentByte" name="addAtachmentByte">
+    </wsdl:input>
+      <wsdl:output message="tns:addAtachmentByteResponse" name="addAtachmentByteResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTicket">
+      <wsdl:input message="tns:createTicket" name="createTicket">
+    </wsdl:input>
+      <wsdl:output message="tns:createTicketResponse" name="createTicketResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories">
+      <wsdl:input message="tns:getCategories" name="getCategories">
+    </wsdl:input>
+      <wsdl:output message="tns:getCategoriesResponse" name="getCategoriesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientIP">
+      <wsdl:input message="tns:getClientIP" name="getClientIP">
+    </wsdl:input>
+      <wsdl:output message="tns:getClientIPResponse" name="getClientIPResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAsset">
+      <wsdl:input message="tns:createAsset" name="createAsset">
+    </wsdl:input>
+      <wsdl:output message="tns:createAssetResponse" name="createAssetResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createLogComment">
+      <wsdl:input message="tns:createLogComment" name="createLogComment">
+    </wsdl:input>
+      <wsdl:output message="tns:createLogCommentResponse" name="createLogCommentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactDetail">
+      <wsdl:input message="tns:getContactDetail" name="getContactDetail">
+    </wsdl:input>
+      <wsdl:output message="tns:getContactDetailResponse" name="getContactDetailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartments">
+      <wsdl:input message="tns:getDepartments" name="getDepartments">
+    </wsdl:input>
+      <wsdl:output message="tns:getDepartmentsResponse" name="getDepartmentsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateContact">
+      <wsdl:input message="tns:updateContact" name="updateContact">
+    </wsdl:input>
+      <wsdl:output message="tns:updateContactResponse" name="updateContactResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createContact">
+      <wsdl:input message="tns:createContact" name="createContact">
+    </wsdl:input>
+      <wsdl:output message="tns:createContactResponse" name="createContactResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTicket">
+      <wsdl:input message="tns:updateTicket" name="updateTicket">
+    </wsdl:input>
+      <wsdl:output message="tns:updateTicketResponse" name="updateTicketResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="servicesServiceSoapBinding" type="tns:services">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCategoriesDept">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCategoriesDept">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCategoriesDeptResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatus">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="UpdateStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getActivity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getActivityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRequest">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRequestResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="test">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="testResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addAtachment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addAtachment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addAtachmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAsset">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateAsset">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateAssetResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAtachmentByte">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addAtachmentByte">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addAtachmentByteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTicket">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createTicket">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createTicketResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategories">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCategories">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCategoriesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientIP">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getClientIP">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getClientIPResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAsset">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createAsset">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createAssetResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createLogComment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createLogComment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createLogCommentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactDetail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getContactDetail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getContactDetailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartments">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDepartments">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDepartmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateContact">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateContact">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateContactResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createContact">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createContact">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createContactResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTicket">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateTicket">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateTicketResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="servicesService">
+    <wsdl:port binding="tns:servicesServiceSoapBinding" name="servicesPort">
+      <soap:address location="http://support.btbilgi.com.tr:8082/middleware/axis/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

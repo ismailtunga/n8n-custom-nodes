@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:admin" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:admin">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:admin"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="ArrayOfString">
+  <xsd:sequence>
+   <xsd:element name="codes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="newUserRequestType">
+  <xsd:all>
+   <xsd:element name="IDUSER" type="xsd:string"/>
+   <xsd:element name="NAME" type="xsd:string"/>
+   <xsd:element name="LOGIN" type="xsd:string"/>
+   <xsd:element name="PASS" type="xsd:string"/>
+   <xsd:element name="EMAIL" type="xsd:string"/>
+   <xsd:element name="LANGUAGE" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="IDAREA" type="xsd:string"/>
+   <xsd:element name="IDFUNC" type="xsd:string"/>
+   <xsd:element name="IDACCGROUP" type="xsd:string"/>
+   <xsd:element name="CDLEADER" type="xsd:string" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newUserResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+   <xsd:element name="RecordId" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editUserRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+   <xsd:element name="NAME" type="xsd:string"/>
+   <xsd:element name="LOGIN" type="xsd:string"/>
+   <xsd:element name="PASS" type="xsd:string"/>
+   <xsd:element name="EMAIL" type="xsd:string"/>
+   <xsd:element name="LANGUAGE" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="CDLEADER" type="xsd:string" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editUserResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+   <xsd:element name="RecordId" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="disableUserRequestType">
+  <xsd:all>
+   <xsd:element name="cd" type="tns:ArrayOfString"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="disableUserResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editUserDepartmentRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+   <xsd:element name="IDAREA" type="xsd:string"/>
+   <xsd:element name="IDFUNC" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editUserDepartmentResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+   <xsd:element name="RecordId" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editPositionRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+   <xsd:element name="DESC" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editPositionResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newPositionRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+   <xsd:element name="DESC" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newPositionResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+   <xsd:element name="RecordId" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeptPos">
+  <xsd:all>
+   <xsd:element name="DepartmentID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DepartmentName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="PositionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="PositionName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DeptPosArray">
+  <xsd:sequence>
+   <xsd:element name="DeptPos" type="tns:DeptPos" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="importUserV2RequestType">
+  <xsd:all>
+   <xsd:element name="UserId" type="xsd:string"/>
+   <xsd:element name="UserName" type="xsd:string"/>
+   <xsd:element name="UserLogin" type="xsd:string"/>
+   <xsd:element name="UserPassword" type="xsd:string"/>
+   <xsd:element name="UserCounterSign" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UserLanguage" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="IsActive" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="IsEnabled" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="NumMaxConnections" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UserPhone" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UserEmail" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="LeaderId" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UserPhoto" type="xsd:base64Binary" minOccurs="0"/>
+   <xsd:element name="UserDomainId" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="DomainId" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="AccGroupIdArray" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="DeptPosArray" type="tns:DeptPosArray" minOccurs="0"/>
+   <xsd:element name="TeamIdArray" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UpdateType" type="xsd:int" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importUserV2ResponseType">
+  <xsd:all>
+   <xsd:element name="UserId" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserAbsenceRequestType">
+  <xsd:all>
+   <xsd:element name="AbsentUser" type="xsd:string"/>
+   <xsd:element name="ResponsibleUser" type="xsd:string"/>
+   <xsd:element name="InitialDate" type="xsd:string"/>
+   <xsd:element name="EndDate" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="Reason" type="xsd:string" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserAbsenceResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="changeUserStatusRequestType">
+  <xsd:all>
+   <xsd:element name="IdUser" type="xsd:string"/>
+   <xsd:element name="UserStatus" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="changeUserStatusResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editOrganizationalUnitRequestType">
+  <xsd:all>
+   <xsd:element name="Id" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="IdUpper" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editOrganizationalUnitResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserToAccessGroupRequestType">
+  <xsd:all>
+   <xsd:element name="IdUser" type="xsd:string"/>
+   <xsd:element name="IdAccessGroup" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserToAccessGroupResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addAttribProfileValueRequestType">
+  <xsd:all>
+   <xsd:element name="IDUSER" type="xsd:string"/>
+   <xsd:element name="NMATTRIBUTE" type="xsd:string"/>
+   <xsd:element name="VLATTRIBUTE" type="xsd:string"/>
+   <xsd:element name="DSATTRIBUTE" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addAttribProfileValueResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addAttributeRequestType">
+  <xsd:all>
+   <xsd:element name="IDATTRIBUTE" type="xsd:string"/>
+   <xsd:element name="NMATTRIBUTE" type="xsd:string"/>
+   <xsd:element name="IDUSER" type="xsd:string"/>
+   <xsd:element name="FGATTRIBUTETYPE" type="xsd:string"/>
+   <xsd:element name="FGDATATYPE" type="xsd:string"/>
+   <xsd:element name="FGSELECTIONTYPE" type="xsd:string"/>
+   <xsd:element name="FGMULTIVALUED" type="xsd:string"/>
+   <xsd:element name="CDISOSYSTEM" type="xsd:string"/>
+   <xsd:element name="FGMASKTYPE" type="xsd:string"/>
+   <xsd:element name="DSMASK" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addAttributeResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addAttribValueRequestType">
+  <xsd:all>
+   <xsd:element name="IDATTRIBUTE" type="xsd:string"/>
+   <xsd:element name="VLATTRIBUTE" type="xsd:string"/>
+   <xsd:element name="FGDEFAULTVALUE" type="xsd:string"/>
+   <xsd:element name="IDUSER" type="xsd:string"/>
+   <xsd:element name="IDDATASOURCE" type="xsd:string"/>
+   <xsd:element name="DSCONNDBSQL" type="xsd:string"/>
+   <xsd:element name="NMFILTERFIELD" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addAttribValueResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCompanyRequestType">
+  <xsd:all>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCOMPANY" type="xsd:string"/>
+   <xsd:element name="DSADDRESS" type="xsd:string"/>
+   <xsd:element name="NMCITY" type="xsd:string"/>
+   <xsd:element name="IDSTATE" type="xsd:string"/>
+   <xsd:element name="NMCOUNTRY" type="xsd:string"/>
+   <xsd:element name="IDZIPCODE" type="xsd:string"/>
+   <xsd:element name="IDPHONE" type="xsd:string"/>
+   <xsd:element name="IDFAX" type="xsd:string"/>
+   <xsd:element name="NMHOMEPAGE" type="xsd:string"/>
+   <xsd:element name="FGCUSTOMER" type="xsd:string"/>
+   <xsd:element name="FGSUPPLIER" type="xsd:string"/>
+   <xsd:element name="FGMANUFACTURER" type="xsd:string"/>
+   <xsd:element name="DSCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDCOMPANYTYPE" type="xsd:string"/>
+   <xsd:element name="CDISOSYSTEM" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCompanyResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCompContactRequestType">
+  <xsd:all>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCONTACT" type="xsd:string"/>
+   <xsd:element name="NMDEPARTMENT" type="xsd:string"/>
+   <xsd:element name="NMPOSITION" type="xsd:string"/>
+   <xsd:element name="IDPHONE" type="xsd:string"/>
+   <xsd:element name="IDFAX" type="xsd:string"/>
+   <xsd:element name="NMEMAIL" type="xsd:string"/>
+   <xsd:element name="DSCONTACT" type="xsd:string"/>
+   <xsd:element name="FGDEFAULT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCompContactResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addDepartmentPositionRequestType">
+  <xsd:all>
+   <xsd:element name="IDAREA" type="xsd:string"/>
+   <xsd:element name="IDFUNC" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addDepartmentPositionResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addMeasUnityRequestType">
+  <xsd:all>
+   <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+   <xsd:element name="NMMEASUNITY" type="xsd:string"/>
+   <xsd:element name="CDISOSYSTEM" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addMeasUnityResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserDepartmentRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+   <xsd:element name="IDAREA" type="xsd:string"/>
+   <xsd:element name="IDFUNC" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserDepartmentResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="changePositionStatusRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="changePositionStatusResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="compAtribAssocRequestType">
+  <xsd:all>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="IDATTRIBUTE" type="xsd:string"/>
+   <xsd:element name="VLATTRIBUTE" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="compAtribAssocResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteCompanyRequestType">
+  <xsd:all>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCOMPANY" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteCompanyResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteCompContactRequestType">
+  <xsd:all>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCONTACT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteCompContactResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteDepartmentRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteDepartmentResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteMeasUnityRequestType">
+  <xsd:all>
+   <xsd:element name="idmeasunity" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteMeasUnityResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteUserRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteUserResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteUserDepartmentRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+   <xsd:element name="IDAREA" type="xsd:string"/>
+   <xsd:element name="IDFUNC" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteUserDepartmentResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteUserAccessGroupRequestType">
+  <xsd:all>
+   <xsd:element name="USERID" type="xsd:string"/>
+   <xsd:element name="IDACCGROUP" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteUserAccessGroupResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+   <xsd:element name="detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteUserLeaderRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteUserLeaderResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editDepartmentRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+   <xsd:element name="DESC" type="xsd:string"/>
+   <xsd:element name="IDUPPER" type="xsd:string" nillable="true"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string" nillable="true"/>
+   <xsd:element name="FGDEPTTYPE" type="xsd:string" nillable="true"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editDepartmentResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getAttribDataRequestType">
+  <xsd:all>
+   <xsd:element name="IDATTRIBS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getAttribDataResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newDepartmentRequestType">
+  <xsd:all>
+   <xsd:element name="ID" type="xsd:string"/>
+   <xsd:element name="DESC" type="xsd:string"/>
+   <xsd:element name="IDPOS" type="xsd:string" nillable="true"/>
+   <xsd:element name="IDUPPER" type="xsd:string" nillable="true"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string" nillable="true"/>
+   <xsd:element name="FGDEPTTYPE" type="xsd:string" nillable="true"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newDepartmentResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importUserRequestType">
+  <xsd:all>
+   <xsd:element name="UserId" type="xsd:string"/>
+   <xsd:element name="UserName" type="xsd:string"/>
+   <xsd:element name="UserLogin" type="xsd:string"/>
+   <xsd:element name="UserPassword" type="xsd:string"/>
+   <xsd:element name="UserCounterSign" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UserLanguage" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="IsActive" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="IsEnabled" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="NumMaxConnections" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UserPhone" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UserEmail" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="LeaderId" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UserPhoto" type="xsd:base64Binary" minOccurs="0"/>
+   <xsd:element name="UserDomainId" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="DomainId" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="AccGroupIdArray" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="RolPosIdArray" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="TeamIdArray" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="UpdateType" type="xsd:int" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importUserResponseType">
+  <xsd:all>
+   <xsd:element name="UserId" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="synchUserRequestType">
+  <xsd:all>
+   <xsd:element name="nmdomainuid" type="xsd:string"/>
+   <xsd:element name="id" type="xsd:string"/>
+   <xsd:element name="login" type="xsd:string"/>
+   <xsd:element name="name" type="xsd:string"/>
+   <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="fglanguage" type="xsd:string"/>
+   <xsd:element name="fguserenabled" type="xsd:string"/>
+   <xsd:element name="fguserblocked" type="xsd:string"/>
+   <xsd:element name="fgnotice" type="xsd:string"/>
+   <xsd:element name="idarea" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="nmarea" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="idfunc" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="nmfunc" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="nmdefsynchfilter" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="oidconnection" type="xsd:string"/>
+   <xsd:element name="cdleader" type="xsd:string" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="synchUserResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="updateEmployeeProfileRequestType">
+  <xsd:all>
+   <xsd:element name="IDUSER" type="xsd:string"/>
+   <xsd:element name="IDEDULEVEL" type="xsd:string"/>
+   <xsd:element name="FGEDULEVELSTATUS" type="xsd:string"/>
+   <xsd:element name="DTBIRTHDAY" type="xsd:string"/>
+   <xsd:element name="DTADMISSION" type="xsd:string"/>
+   <xsd:element name="DTDEMISSION" type="xsd:string"/>
+   <xsd:element name="DSADDRESS" type="xsd:string"/>
+   <xsd:element name="DSOBS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="updateEmployeeProfileResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="newUser" type="tns:newUserRequestType"/>
+ <xsd:element name="newUserResponse" type="tns:newUserResponseType"/>
+ <xsd:element name="editUser" type="tns:editUserRequestType"/>
+ <xsd:element name="editUserResponse" type="tns:editUserResponseType"/>
+ <xsd:element name="disableUser" type="tns:disableUserRequestType"/>
+ <xsd:element name="disableUserResponse" type="tns:disableUserResponseType"/>
+ <xsd:element name="editUserDepartment" type="tns:editUserDepartmentRequestType"/>
+ <xsd:element name="editUserDepartmentResponse" type="tns:editUserDepartmentResponseType"/>
+ <xsd:element name="editPosition" type="tns:editPositionRequestType"/>
+ <xsd:element name="editPositionResponse" type="tns:editPositionResponseType"/>
+ <xsd:element name="newPosition" type="tns:newPositionRequestType"/>
+ <xsd:element name="newPositionResponse" type="tns:newPositionResponseType"/>
+ <xsd:element name="importUserV2" type="tns:importUserV2RequestType"/>
+ <xsd:element name="importUserV2Response" type="tns:importUserV2ResponseType"/>
+ <xsd:element name="addUserAbsence" type="tns:addUserAbsenceRequestType"/>
+ <xsd:element name="addUserAbsenceResponse" type="tns:addUserAbsenceResponseType"/>
+ <xsd:element name="changeUserStatus" type="tns:changeUserStatusRequestType"/>
+ <xsd:element name="changeUserStatusResponse" type="tns:changeUserStatusResponseType"/>
+ <xsd:element name="editOrganizationalUnit" type="tns:editOrganizationalUnitRequestType"/>
+ <xsd:element name="editOrganizationalUnitResponse" type="tns:editOrganizationalUnitResponseType"/>
+ <xsd:element name="addUserToAccessGroup" type="tns:addUserToAccessGroupRequestType"/>
+ <xsd:element name="addUserToAccessGroupResponse" type="tns:addUserToAccessGroupResponseType"/>
+ <xsd:element name="addAttribProfileValue" type="tns:addAttribProfileValueRequestType"/>
+ <xsd:element name="addAttribProfileValueResponse" type="tns:addAttribProfileValueResponseType"/>
+ <xsd:element name="addAttribute" type="tns:addAttributeRequestType"/>
+ <xsd:element name="addAttributeResponse" type="tns:addAttributeResponseType"/>
+ <xsd:element name="addAttribValue" type="tns:addAttribValueRequestType"/>
+ <xsd:element name="addAttribValueResponse" type="tns:addAttribValueResponseType"/>
+ <xsd:element name="addCompany" type="tns:addCompanyRequestType"/>
+ <xsd:element name="addCompanyResponse" type="tns:addCompanyResponseType"/>
+ <xsd:element name="addCompContact" type="tns:addCompContactRequestType"/>
+ <xsd:element name="addCompContactResponse" type="tns:addCompContactResponseType"/>
+ <xsd:element name="addDepartmentPosition" type="tns:addDepartmentPositionRequestType"/>
+ <xsd:element name="addDepartmentPositionResponse" type="tns:addDepartmentPositionResponseType"/>
+ <xsd:element name="addMeasUnity" type="tns:addMeasUnityRequestType"/>
+ <xsd:element name="addMeasUnityResponse" type="tns:addMeasUnityResponseType"/>
+ <xsd:element name="addUserDepartment" type="tns:addUserDepartmentRequestType"/>
+ <xsd:element name="addUserDepartmentResponse" type="tns:addUserDepartmentResponseType"/>
+ <xsd:element name="changePositionStatus" type="tns:changePositionStatusRequestType"/>
+ <xsd:element name="changePositionStatusResponse" type="tns:changePositionStatusResponseType"/>
+ <xsd:element name="compAtribAssoc" type="tns:compAtribAssocRequestType"/>
+ <xsd:element name="compAtribAssocResponse" type="tns:compAtribAssocResponseType"/>
+ <xsd:element name="deleteCompany" type="tns:deleteCompanyRequestType"/>
+ <xsd:element name="deleteCompanyResponse" type="tns:deleteCompanyResponseType"/>
+ <xsd:element name="deleteCompContact" type="tns:deleteCompContactRequestType"/>
+ <xsd:element name="deleteCompContactResponse" type="tns:deleteCompContactResponseType"/>
+ <xsd:element name="deleteDepartment" type="tns:deleteDepartmentRequestType"/>
+ <xsd:element name="deleteDepartmentResponse" type="tns:deleteDepartmentResponseType"/>
+ <xsd:element name="deleteMeasUnity" type="tns:deleteMeasUnityRequestType"/>
+ <xsd:element name="deleteMeasUnityResponse" type="tns:deleteMeasUnityResponseType"/>
+ <xsd:element name="deleteUser" type="tns:deleteUserRequestType"/>
+ <xsd:element name="deleteUserResponse" type="tns:deleteUserResponseType"/>
+ <xsd:element name="deleteUserDepartment" type="tns:deleteUserDepartmentRequestType"/>
+ <xsd:element name="deleteUserDepartmentResponse" type="tns:deleteUserDepartmentResponseType"/>
+ <xsd:element name="deleteUserAccessGroup" type="tns:deleteUserAccessGroupRequestType"/>
+ <xsd:element name="deleteUserAccessGroupResponse" type="tns:deleteUserAccessGroupResponseType"/>
+ <xsd:element name="deleteUserLeader" type="tns:deleteUserLeaderRequestType"/>
+ <xsd:element name="deleteUserLeaderResponse" type="tns:deleteUserLeaderResponseType"/>
+ <xsd:element name="editDepartment" type="tns:editDepartmentRequestType"/>
+ <xsd:element name="editDepartmentResponse" type="tns:editDepartmentResponseType"/>
+ <xsd:element name="getAttribData" type="tns:getAttribDataRequestType"/>
+ <xsd:element name="getAttribDataResponse" type="tns:getAttribDataResponseType"/>
+ <xsd:element name="newDepartment" type="tns:newDepartmentRequestType"/>
+ <xsd:element name="newDepartmentResponse" type="tns:newDepartmentResponseType"/>
+ <xsd:element name="importUser" type="tns:importUserRequestType"/>
+ <xsd:element name="importUserResponse" type="tns:importUserResponseType"/>
+ <xsd:element name="synchUser" type="tns:synchUserRequestType"/>
+ <xsd:element name="synchUserResponse" type="tns:synchUserResponseType"/>
+ <xsd:element name="updateEmployeeProfile" type="tns:updateEmployeeProfileRequestType"/>
+ <xsd:element name="updateEmployeeProfileResponse" type="tns:updateEmployeeProfileResponseType"/>
+</xsd:schema>
+</types>
+<message name="newUserRequest">
+  <part name="parameters" element="tns:newUser" /></message>
+<message name="newUserResponse">
+  <part name="parameters" element="tns:newUserResponse" /></message>
+<message name="editUserRequest">
+  <part name="parameters" element="tns:editUser" /></message>
+<message name="editUserResponse">
+  <part name="parameters" element="tns:editUserResponse" /></message>
+<message name="disableUserRequest">
+  <part name="parameters" element="tns:disableUser" /></message>
+<message name="disableUserResponse">
+  <part name="parameters" element="tns:disableUserResponse" /></message>
+<message name="editUserDepartmentRequest">
+  <part name="parameters" element="tns:editUserDepartment" /></message>
+<message name="editUserDepartmentResponse">
+  <part name="parameters" element="tns:editUserDepartmentResponse" /></message>
+<message name="editPositionRequest">
+  <part name="parameters" element="tns:editPosition" /></message>
+<message name="editPositionResponse">
+  <part name="parameters" element="tns:editPositionResponse" /></message>
+<message name="newPositionRequest">
+  <part name="parameters" element="tns:newPosition" /></message>
+<message name="newPositionResponse">
+  <part name="parameters" element="tns:newPositionResponse" /></message>
+<message name="importUserV2Request">
+  <part name="parameters" element="tns:importUserV2" /></message>
+<message name="importUserV2Response">
+  <part name="parameters" element="tns:importUserV2Response" /></message>
+<message name="addUserAbsenceRequest">
+  <part name="parameters" element="tns:addUserAbsence" /></message>
+<message name="addUserAbsenceResponse">
+  <part name="parameters" element="tns:addUserAbsenceResponse" /></message>
+<message name="changeUserStatusRequest">
+  <part name="parameters" element="tns:changeUserStatus" /></message>
+<message name="changeUserStatusResponse">
+  <part name="parameters" element="tns:changeUserStatusResponse" /></message>
+<message name="editOrganizationalUnitRequest">
+  <part name="parameters" element="tns:editOrganizationalUnit" /></message>
+<message name="editOrganizationalUnitResponse">
+  <part name="parameters" element="tns:editOrganizationalUnitResponse" /></message>
+<message name="addUserToAccessGroupRequest">
+  <part name="parameters" element="tns:addUserToAccessGroup" /></message>
+<message name="addUserToAccessGroupResponse">
+  <part name="parameters" element="tns:addUserToAccessGroupResponse" /></message>
+<message name="addAttribProfileValueRequest">
+  <part name="parameters" element="tns:addAttribProfileValue" /></message>
+<message name="addAttribProfileValueResponse">
+  <part name="parameters" element="tns:addAttribProfileValueResponse" /></message>
+<message name="addAttributeRequest">
+  <part name="parameters" element="tns:addAttribute" /></message>
+<message name="addAttributeResponse">
+  <part name="parameters" element="tns:addAttributeResponse" /></message>
+<message name="addAttribValueRequest">
+  <part name="parameters" element="tns:addAttribValue" /></message>
+<message name="addAttribValueResponse">
+  <part name="parameters" element="tns:addAttribValueResponse" /></message>
+<message name="addCompanyRequest">
+  <part name="parameters" element="tns:addCompany" /></message>
+<message name="addCompanyResponse">
+  <part name="parameters" element="tns:addCompanyResponse" /></message>
+<message name="addCompContactRequest">
+  <part name="parameters" element="tns:addCompContact" /></message>
+<message name="addCompContactResponse">
+  <part name="parameters" element="tns:addCompContactResponse" /></message>
+<message name="addDepartmentPositionRequest">
+  <part name="parameters" element="tns:addDepartmentPosition" /></message>
+<message name="addDepartmentPositionResponse">
+  <part name="parameters" element="tns:addDepartmentPositionResponse" /></message>
+<message name="addMeasUnityRequest">
+  <part name="parameters" element="tns:addMeasUnity" /></message>
+<message name="addMeasUnityResponse">
+  <part name="parameters" element="tns:addMeasUnityResponse" /></message>
+<message name="addUserDepartmentRequest">
+  <part name="parameters" element="tns:addUserDepartment" /></message>
+<message name="addUserDepartmentResponse">
+  <part name="parameters" element="tns:addUserDepartmentResponse" /></message>
+<message name="changePositionStatusRequest">
+  <part name="parameters" element="tns:changePositionStatus" /></message>
+<message name="changePositionStatusResponse">
+  <part name="parameters" element="tns:changePositionStatusResponse" /></message>
+<message name="compAtribAssocRequest">
+  <part name="parameters" element="tns:compAtribAssoc" /></message>
+<message name="compAtribAssocResponse">
+  <part name="parameters" element="tns:compAtribAssocResponse" /></message>
+<message name="deleteCompanyRequest">
+  <part name="parameters" element="tns:deleteCompany" /></message>
+<message name="deleteCompanyResponse">
+  <part name="parameters" element="tns:deleteCompanyResponse" /></message>
+<message name="deleteCompContactRequest">
+  <part name="parameters" element="tns:deleteCompContact" /></message>
+<message name="deleteCompContactResponse">
+  <part name="parameters" element="tns:deleteCompContactResponse" /></message>
+<message name="deleteDepartmentRequest">
+  <part name="parameters" element="tns:deleteDepartment" /></message>
+<message name="deleteDepartmentResponse">
+  <part name="parameters" element="tns:deleteDepartmentResponse" /></message>
+<message name="deleteMeasUnityRequest">
+  <part name="parameters" element="tns:deleteMeasUnity" /></message>
+<message name="deleteMeasUnityResponse">
+  <part name="parameters" element="tns:deleteMeasUnityResponse" /></message>
+<message name="deleteUserRequest">
+  <part name="parameters" element="tns:deleteUser" /></message>
+<message name="deleteUserResponse">
+  <part name="parameters" element="tns:deleteUserResponse" /></message>
+<message name="deleteUserDepartmentRequest">
+  <part name="parameters" element="tns:deleteUserDepartment" /></message>
+<message name="deleteUserDepartmentResponse">
+  <part name="parameters" element="tns:deleteUserDepartmentResponse" /></message>
+<message name="deleteUserAccessGroupRequest">
+  <part name="parameters" element="tns:deleteUserAccessGroup" /></message>
+<message name="deleteUserAccessGroupResponse">
+  <part name="parameters" element="tns:deleteUserAccessGroupResponse" /></message>
+<message name="deleteUserLeaderRequest">
+  <part name="parameters" element="tns:deleteUserLeader" /></message>
+<message name="deleteUserLeaderResponse">
+  <part name="parameters" element="tns:deleteUserLeaderResponse" /></message>
+<message name="editDepartmentRequest">
+  <part name="parameters" element="tns:editDepartment" /></message>
+<message name="editDepartmentResponse">
+  <part name="parameters" element="tns:editDepartmentResponse" /></message>
+<message name="getAttribDataRequest">
+  <part name="parameters" element="tns:getAttribData" /></message>
+<message name="getAttribDataResponse">
+  <part name="parameters" element="tns:getAttribDataResponse" /></message>
+<message name="newDepartmentRequest">
+  <part name="parameters" element="tns:newDepartment" /></message>
+<message name="newDepartmentResponse">
+  <part name="parameters" element="tns:newDepartmentResponse" /></message>
+<message name="importUserRequest">
+  <part name="parameters" element="tns:importUser" /></message>
+<message name="importUserResponse">
+  <part name="parameters" element="tns:importUserResponse" /></message>
+<message name="synchUserRequest">
+  <part name="parameters" element="tns:synchUser" /></message>
+<message name="synchUserResponse">
+  <part name="parameters" element="tns:synchUserResponse" /></message>
+<message name="updateEmployeeProfileRequest">
+  <part name="parameters" element="tns:updateEmployeeProfile" /></message>
+<message name="updateEmployeeProfileResponse">
+  <part name="parameters" element="tns:updateEmployeeProfileResponse" /></message>
+<portType name="AdministrationPortType">
+  <operation name="newUser">
+    <documentation>Yeni kullanıcı ekler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUSER     -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NAME       -&gt; Kullanıcı Adı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;LOGIN      -&gt; Kullanıcı oturum açma &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;PASS       -&gt; Kullanıcı Şifresi &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;LANGUAGE      -&gt; Dil &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EMAIL      -&gt; E-posta &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDAREA     -&gt; Departman ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDFUNC     -&gt; Pozisyon ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDACCGROUP -&gt; Erişim grubu ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CDLEADER   -&gt; Lider kaydı &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı  : Birincil Anahtar (CDUSER)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata -1 : Beklenmeyen Hata   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 2 : Var olmayan erişim grubu   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 3 : Bu alan için maksimum uzunluk { 0 } dır   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 4 : Kullanıcıyı tanımlamak için hata. Aynı girişle birden fazla kayıt var.   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 5 : Tırnak işaretlerine giriş alanında izin verilmez   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 6 : Anlamsız Kullanıcı Girişi   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 7 : Anlamsız kullanıcı ID #   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 8 : Anlamsız Kullanıcı Adı   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 9 : Anlamsız Parola   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 10 : Anlamsız veya Varolmayan Dil   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 11 : Lider girdisi bulunmuyor   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 12 : Kullanıcı bulunamıyor   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 13 : Anlamsız Pozisyon ID #   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 14 : Anlamsız Departman ID #   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 15 : Varolmayan Departman   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 16 : Varolmayan Pozisyon   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 17 : Departman ve pozisyon arasında var olmayan ilişki   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 18 : Kullanıcı ID si lider ID si ile aynı olamaz   &lt;BR&gt;</documentation>
+    <input message="tns:newUserRequest"/>
+    <output message="tns:newUserResponse"/>
+  </operation>
+  <operation name="editUser">
+    <documentation>Kullanıcı bilgilerini düzenler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID    -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NAME  -&gt; Kullanıcı Adı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;LOGIN -&gt; Kullanıcı oturum açma &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;PASS  -&gt; Kullanıcı Şifresi &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;LANGUAGE      -&gt; Dil &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EMAIL -&gt; E-posta &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CDLEADER   -&gt; Lider kaydı &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı  : Birincil Anahtar (CDUSER)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 3 : Bu alan için maksimum uzunluk { 0 } dır   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 4 : Kullanıcıyı tanımlamak için hata. Aynı girişle birden fazla kayıt var.   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 5 : Tırnak işaretlerine giriş alanında izin verilmez   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 6 : Anlamsız Kullanıcı Girişi   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 7 : Anlamsız kullanıcı ID #   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 8 : Anlamsız Kullanıcı Adı   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 9 : Anlamsız Parola   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 10 : Anlamsız veya Varolmayan Dil   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 11 : Lider girdisi bulunmuyor   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 12 : Kullanıcı bulunamıyor   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 15 : Varolmayan Departman   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 16 : Varolmayan Pozisyon   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 18 : Kullanıcı ID si lider ID si ile aynı olamaz   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 19 : Departman ve pozisyon arasında var olmayan ilişki   &lt;BR&gt;</documentation>
+    <input message="tns:editUserRequest"/>
+    <output message="tns:editUserResponse"/>
+  </operation>
+  <operation name="disableUser">
+    <documentation>Synchronize User. Parameters: CD-&gt;Primary of the User; Return values: SUCCESS-&gt;0; FAILURE:-1.</documentation>
+    <input message="tns:disableUserRequest"/>
+    <output message="tns:disableUserResponse"/>
+  </operation>
+  <operation name="editUserDepartment">
+    <documentation>Edita um relacionamento entre usuário, área e função.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID     -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDAREA -&gt; Departman ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDFUNC -&gt; Pozisyon ID # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDUSER)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata -1 : Beklenmeyen Hata   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 12 : Kullanıcı bulunamıyor   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 15 : Varolmayan Departman   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 16 : Varolmayan Pozisyon   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 17 : Departman ve pozisyon arasında var olmayan ilişki   &lt;BR&gt;</documentation>
+    <input message="tns:editUserDepartmentRequest"/>
+    <output message="tns:editUserDepartmentResponse"/>
+  </operation>
+  <operation name="editPosition">
+    <documentation>Bir pozisyonun bilgilerini düzenler. &lt;BR&gt;Gerekli Parametreler : &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID   -&gt; Pozisyon ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DESC -&gt; Açıklama &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDPOSITION)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 13 : Anlamsız Pozisyon ID #   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 16 : Varolmayan Pozisyon   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 22 : Anlamsız Pozisyon Adı   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 23 : Mevcut Pozisyon   &lt;BR&gt;</documentation>
+    <input message="tns:editPositionRequest"/>
+    <output message="tns:editPositionResponse"/>
+  </operation>
+  <operation name="newPosition">
+    <documentation>Yeni pozisyon ekler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID   -&gt; Pozisyon ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DESC -&gt; Açıklama &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDPOSITION)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 13 : Anlamsız Pozisyon ID #   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 16 : Varolmayan Pozisyon   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 22 : Anlamsız Pozisyon Adı   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 23 : Mevcut Pozisyon   &lt;BR&gt;</documentation>
+    <input message="tns:newPositionRequest"/>
+    <output message="tns:newPositionResponse"/>
+  </operation>
+  <operation name="importUserV2">
+    <documentation>Yeni kullanıcı ekler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserID         -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserName           -&gt; Kullanıcı Adı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserLogin          -&gt; Kullanıcı oturum açma &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserPassword       -&gt; Kullanıcı Şifresi &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserCounterSign    -&gt; Parola &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserLanguage       -&gt; Kullanıcı Dili &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IsActive         -&gt; Statü [1 - Aktif kullanıcı ; 2 - İnaktif kullanıcı] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IsEnabled        -&gt; Etkin &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NumMaxConnections -&gt; Maksimum Bağlantı Sayısı: &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserPhone          -&gt; Telefon &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserEmail          -&gt; E-posta &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;LeaderId       -&gt; Lider kaydı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserPhoto          -&gt; Resim &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserDomainId     -&gt; Domain ID &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DomainId         -&gt; Domain Kontrolcüsü &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AccGroupIdArray     -&gt; Erişim grubu ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DeptPosArray     -&gt; Kullanıcı departman ve pozisyon verisi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UpdateType         -&gt; Takım &lt;BR&gt;Geri Dönüş değeri&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserId         -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Status         -&gt; Statü: &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Detail         -&gt; Ayrıntılar &lt;BR&gt;</documentation>
+    <input message="tns:importUserV2Request"/>
+    <output message="tns:importUserV2Response"/>
+  </operation>
+  <operation name="addUserAbsence">
+    <documentation>Adds a new absence to a user&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AbsentUser            -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ResponsibleUser       -&gt; Sorumlu kullanıcının bulunmadığı durumlarda görevler için atanan kullanıcı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;InitialDate           -&gt; Başlangıç Tarihi &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EndDate               -&gt; Bitiş Tarihi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Reason                -&gt; Devamsızlık nedeni &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı 1:    &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata -1 : Beklenmeyen Hata   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 32 : Absent user not entered   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 33 : Absent user not found   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 34 : Responsible user not entered   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 35 : Responsible user not found   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 36 : Start date not entered   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 37 : Başlangıç tarihi yanlış girildi   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 38 : Bitiş tarihi yanlış girildi   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 39 : Bitiş tarihi başlangıç tarihinden önce olamaz   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 40 : Başlangıç tarihi şuanki tarihten daha önce olamaz.   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 41 : Absent user cannot be the same as the responsible user   &lt;BR&gt;</documentation>
+    <input message="tns:addUserAbsenceRequest"/>
+    <output message="tns:addUserAbsenceResponse"/>
+  </operation>
+  <operation name="changeUserStatus">
+    <documentation>This method allows enabling or disabling a system user&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IdUser -&gt;Kullanıcı ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserStatus -&gt;Etkinleştirilmiş kayıt [ 1 - Evet; 2 - Hayır ]&lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı 1 : Enabled user   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı 1 : Disabled user   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata -1 : Beklenmeyen Hata   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 7 : Anlamsız kullanıcı ID #   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 12 : Kullanıcı bulunamıyor   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 50 : UserStatus not entered   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 51 : The UserStatus field accepts only the (1, 2) values   &lt;BR&gt;</documentation>
+    <input message="tns:changeUserStatusRequest"/>
+    <output message="tns:changeUserStatusResponse"/>
+  </operation>
+  <operation name="editOrganizationalUnit">
+    <documentation>Edits the information of an organizational unit &lt;BR&gt;Gerekli Parametreler : &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Id   -&gt; Organizational unit ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Name -&gt; Organizational unit name &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IdUpper -&gt; Üst organizasyon birimi &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı 1 : Record successfully edited   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 43 : ID # nin değeri yoktur   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 44 : Adın değeri yoktur   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 52 : Inexistent organizational unit   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 53 : Inexistent upper level organizational unit   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 54 : The [%s1] is a sublevel of [%s2]   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 57 : Bir organizasyon birimi bir bölümün alt seviyesi olamaz   &lt;BR&gt;</documentation>
+    <input message="tns:editOrganizationalUnitRequest"/>
+    <output message="tns:editOrganizationalUnitResponse"/>
+  </operation>
+  <operation name="addUserToAccessGroup">
+    <documentation>Adds a user to an access group&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IdUser                             -&gt; Kullanıcı ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IdAccessGroup                      -&gt; Erişim grubu ID # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı 1:    &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata -1 : Beklenmeyen Hata  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 2 : Var olmayan erişim grubu   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 12 : Kullanıcı bulunamıyor   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 55 : Access group ID # not entered  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 56 : User ID # not entered  &lt;BR&gt;</documentation>
+    <input message="tns:addUserToAccessGroupRequest"/>
+    <output message="tns:addUserToAccessGroupResponse"/>
+  </operation>
+  <operation name="addAttribProfileValue">
+    <documentation>Çalışan profili ekalan değeri&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUSER      -&gt; Çalışanın kaydı   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMATTRIBUTE -&gt; EkAlan ID no   &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLATTRIBUTE -&gt; EkAlan Değeri   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSATTRIBUTE -&gt; EkAlan Değeri   &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: 1               &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:addAttribProfileValueRequest"/>
+    <output message="tns:addAttribProfileValueResponse"/>
+  </operation>
+  <operation name="addAttribute">
+    <documentation>Nitelikleri ekler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDATTRIBUTE     -&gt; EkAlan ID no &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMATTRIBUTE     -&gt; EkAlan Adı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUSER          -&gt; Kullanıcı ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGATTRIBUTETYPE -&gt; EkAlan Tipi [1 - Değerler Listesi [ Ayrık ]; 2 - Ayrık olmayan; 3 - Harici ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDATATYPE      -&gt; Nitelik veri tipi: [1 - Metin, 2 - Numerik, 3 - Tarih, 4 - Not, 5 - Para birimi] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGSELECTIONTYPE -&gt; Seçim Modu [1 - Yakinlastirma; 2 - Kombo] &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGMULTIVALUED   -&gt; Çok değerli EkAlan [ 1 - Evet; 2 - Hayır ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CDISOSYSTEM     -&gt; Niteliğin ilişkilendirileceği SE Suite bileşininin kodu ( &quot;;&quot; ile ayrılır ). Örneğin: 109;107. &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGMASKTYPE      -&gt; Maske Tipi [1 - Basit maske; 2 - Düzenli ifade]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSMASK          -&gt; Maskeleme &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:addAttributeRequest"/>
+    <output message="tns:addAttributeResponse"/>
+  </operation>
+  <operation name="addAttribValue">
+    <documentation>Niteliklere değerler ekler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDATTRIBUTE    -&gt; EkAlan ID no &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUSER         -&gt; Kullanıcı ID # &lt;BR&gt;Gerekli Parametreler : Değer Listesi&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLATTRIBUTE    -&gt; EkAlan Değeri (Nitelik tipi harici ise gerekliDeğer Listesi)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDEFAULTVALUE -&gt; Varsayılan olarak kullan: [1 - Evet, 2 - Hayır] (Nitelik tipi harici ise gerekliDeğer Listesi)&lt;BR&gt;Gerekli Parametreler : Harici Ek Alan&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDATASOURCE   -&gt; Veri Kaynağı ID (Nitelik tipi harici ise gerekliHarici Ek Alan)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSCONNDBSQL    -&gt; SQL (Nitelik tipi harici ise gerekliHarici Ek Alan)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMFILTERFIELD  -&gt; Arama Alanı (Nitelik tipi harici ise gerekliHarici Ek Alan)&lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:addAttribValueRequest"/>
+    <output message="tns:addAttribValueResponse"/>
+  </operation>
+  <operation name="addCompany">
+    <documentation>Yeni bir firma ekler veya var olan firmayı düzenler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL   -&gt; Şirket ID &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOMPANY      -&gt; Şirket İsmi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGCUSTOMER     -&gt; Müşteri olan firma: [1 - Evet, 2 - Hayır] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGSUPPLIER     -&gt; Tedarikçi olan firma: [1 - Evet, 2 - Hayır] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGMANUFACTURER -&gt; Üretici olan firma [1 - Evet, 2 - Hayır] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANYTYPE  -&gt; Firma tipi ID # &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSADDRESS      -&gt; Adres &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCITY         -&gt; Şehir &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSTATE        -&gt; Eyalet &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOUNTRY      -&gt; Ülke &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDZIPCODE      -&gt; ZIP (Posta) Kodu &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPHONE        -&gt; Telefon &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDFAX          -&gt; Faks &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMHOMEPAGE     -&gt; Ana Sayfa &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSCOMPANY      -&gt; Açıklama &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY      -&gt; Şirket kodu &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CDISOSYSTEM    -&gt; Firmanın ilişkilendirileceği SE Suite bileşeninin kodu ( &quot;;&quot; ile ayrılır). Örneğin: 109;107. &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:addCompanyRequest"/>
+    <output message="tns:addCompanyResponse"/>
+  </operation>
+  <operation name="addCompContact">
+    <documentation>Bir firmaya irtibatlar ekler veya var olan irtibatları düzenler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Şirket ID &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCONTACT    -&gt; Bağlantı &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMDEPARTMENT -&gt; Departman &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMPOSITION   -&gt; Pozisyon &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPHONE      -&gt; Telefon &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDFAX        -&gt; Faks &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMEMAIL      -&gt; E-posta &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSCONTACT    -&gt; Açıklama &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDEFAULT    -&gt; Varsayılan olarak kullan: [1 -Evet, 2 -Hayır] &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:addCompContactRequest"/>
+    <output message="tns:addCompContactResponse"/>
+  </operation>
+  <operation name="addDepartmentPosition">
+    <documentation>Departman ve pozisyon arasında bir ilişki ekler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDAREA -&gt; Departman ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDFUNC -&gt; Pozisyon ID # &lt;BR&gt;</documentation>
+    <input message="tns:addDepartmentPositionRequest"/>
+    <output message="tns:addDepartmentPositionResponse"/>
+  </operation>
+  <operation name="addMeasUnity">
+    <documentation>Yeni bir ölçüm birimi ekler veya var olan bir ölçüm birimini düzenler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMEASUNITY -&gt; ID # (Ölçüm Birimi).&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMMEASUNITY -&gt; Ad (Ölçüm Birimi).&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CDISOSYSTEM    -&gt; Firmanın ilişkilendirileceği SE Suite bileşeninin kodu ( &quot;;&quot; ile ayrılır). Örneğin: 109;107. &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:addMeasUnityRequest"/>
+    <output message="tns:addMeasUnityResponse"/>
+  </operation>
+  <operation name="addUserDepartment">
+    <documentation>Kullanıcı,departman ve pozisyon arasında ilişki ekler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID     -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDAREA -&gt; Departman ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDFUNC -&gt; Pozisyon ID # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDUSER)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1  &lt;BR&gt;</documentation>
+    <input message="tns:addUserDepartmentRequest"/>
+    <output message="tns:addUserDepartmentResponse"/>
+  </operation>
+  <operation name="changePositionStatus">
+    <documentation>Altera o status de uma função&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID -&gt; Pozisyon ID # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDPOSITION)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1  &lt;BR&gt;</documentation>
+    <input message="tns:changePositionStatusRequest"/>
+    <output message="tns:changePositionStatusResponse"/>
+  </operation>
+  <operation name="compAtribAssoc">
+    <documentation>Nitelik değerlerini firmalarla ilişkilendirir&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Şirket ID &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDATTRIBUTE  -&gt; EkAlan ID no &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLATTRIBUTE  -&gt; EkAlan Değeri &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:compAtribAssocRequest"/>
+    <output message="tns:compAtribAssocResponse"/>
+  </operation>
+  <operation name="deleteCompany">
+    <documentation>Firmayı siler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL   -&gt; Şirket ID &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOMPANY      -&gt; Şirket İsmi &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla silindi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:deleteCompanyRequest"/>
+    <output message="tns:deleteCompanyResponse"/>
+  </operation>
+  <operation name="deleteCompContact">
+    <documentation>Firmaya ait irtibar bilgilerini siler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL   -&gt; Şirket ID &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCONTACT      -&gt; Bağlantı &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla silindi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:deleteCompContactRequest"/>
+    <output message="tns:deleteCompContactResponse"/>
+  </operation>
+  <operation name="deleteDepartment">
+    <documentation>Departman siler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID -&gt; Departman ID # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDDEPARTMENT)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1                &lt;BR&gt;</documentation>
+    <input message="tns:deleteDepartmentRequest"/>
+    <output message="tns:deleteDepartmentResponse"/>
+  </operation>
+  <operation name="deleteMeasUnity">
+    <documentation>Ölçüm birimini siler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMEASUNITY -&gt; ID # (Ölçüm Birimi).&lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Kayıt başarıyla silindi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:deleteMeasUnityRequest"/>
+    <output message="tns:deleteMeasUnityResponse"/>
+  </operation>
+  <operation name="deleteUser">
+    <documentation>Kullanıcı siler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDUSER)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1  &lt;BR&gt;</documentation>
+    <input message="tns:deleteUserRequest"/>
+    <output message="tns:deleteUserResponse"/>
+  </operation>
+  <operation name="deleteUserDepartment">
+    <documentation>Kullanıcı departman ve pozisyon arasındaki ilişkiyi siler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID     -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDAREA -&gt; Departman ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDFUNC -&gt; Pozisyon ID # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDUSER)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1  &lt;BR&gt;</documentation>
+    <input message="tns:deleteUserDepartmentRequest"/>
+    <output message="tns:deleteUserDepartmentResponse"/>
+  </operation>
+  <operation name="deleteUserAccessGroup">
+    <documentation>Deletes a relationship between the user and access group.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;USERID     -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDACCGROUP -&gt; Erişim grubu ID # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDGROUP)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1  &lt;BR&gt;</documentation>
+    <input message="tns:deleteUserAccessGroupRequest"/>
+    <output message="tns:deleteUserAccessGroupResponse"/>
+  </operation>
+  <operation name="deleteUserLeader">
+    <documentation>Kullanıcı bilgilerini düzenler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID    -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDUSER)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1  &lt;BR&gt;</documentation>
+    <input message="tns:deleteUserLeaderRequest"/>
+    <output message="tns:deleteUserLeaderResponse"/>
+  </operation>
+  <operation name="editDepartment">
+    <documentation>Departman bilgilerini düzenler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID         -&gt; Departman ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DESC       -&gt; Açıklama &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUPPER    -&gt; Üst Düzey Departman &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY  -&gt; Şirket kodu &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDEPTTYPE -&gt; Bölüm tipi [1 - Bölüm; 2 - İşletme Birimi] &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDDEPARTMENT)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1  &lt;BR&gt;</documentation>
+    <input message="tns:editDepartmentRequest"/>
+    <output message="tns:editDepartmentResponse"/>
+  </operation>
+  <operation name="getAttribData">
+    <documentation>Nitelik bilgileri için arama yap&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDATTRIBS            -&gt; Nitelik ID #, bir ID # den daha fazla olabilir. Örneğin: &quot;Nitelik1,Nitelik2,Nitelik3&quot; &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GERIDONUS:                        &lt;BR&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; CDATTRIBUTE     -&gt; EkAlan Kodu &lt;BR&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; NMATTRIBUTE     -&gt; EkAlan ID no &lt;BR&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; FGDATATYPE      -&gt; Nitelik veri tipi: [1 - Metin, 2 - Numerik, 3 - Tarih, 4 - Not, 5 - Para birimi] &lt;BR&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; FGATTRIBUTETYPE -&gt; EkAlan Tipi &lt;BR&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ETIKETADI -&gt;Ek Alan Etiketi ;                    &lt;BR&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; FGMULTIVALUED   -&gt; Çok değerli EkAlan [ 1 - Evet; 2 - Hayır ] &lt;BR&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; VALUE           -&gt; Ekalan değerleri listesi &lt;BR&gt;</documentation>
+    <input message="tns:getAttribDataRequest"/>
+    <output message="tns:getAttribDataResponse"/>
+  </operation>
+  <operation name="newDepartment">
+    <documentation>Yeni bir departman ekler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID         -&gt; Departman ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DESC       -&gt; Açıklama &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPOS      -&gt; Pozisyon ID # &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUPPER    -&gt; Üst Düzey Departman &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY  -&gt; Şirket kodu &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDEPTTYPE -&gt; Bölüm tipi [1 - Bölüm; 2 - İşletme Birimi] &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: Birincil Anahtar (CDDEPARTMENT)  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: -1  &lt;BR&gt;</documentation>
+    <input message="tns:newDepartmentRequest"/>
+    <output message="tns:newDepartmentResponse"/>
+  </operation>
+  <operation name="importUser">
+    <documentation>Yeni kullanıcı ekler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserID         -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserName           -&gt; Kullanıcı Adı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserLogin          -&gt; Kullanıcı oturum açma &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserPassword       -&gt; Kullanıcı Şifresi &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserCounterSign    -&gt; Parola &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserLanguage       -&gt; Kullanıcı Dili &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IsActive         -&gt; Statü [1 - Aktif kullanıcı ; 2 - İnaktif kullanıcı] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IsEnabled        -&gt; Etkin &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NumMaxConnections -&gt; Maksimum Bağlantı Sayısı: &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserPhone          -&gt; Telefon &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserEmail          -&gt; E-posta &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;LeaderId       -&gt; Lider kaydı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserPhoto          -&gt; Resim &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserDomainId     -&gt; Domain ID &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DomainId         -&gt; Domain Kontrolcüsü &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AccGroupIdArray     -&gt; Erişim grubu ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RolPosIdArray     -&gt; Kullanıcı departman ve pozisyon verisi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UpdateType         -&gt; Takım &lt;BR&gt;Geri Dönüş değeri&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UserId         -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Status         -&gt; Statü: &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Detail         -&gt; Ayrıntılar &lt;BR&gt;</documentation>
+    <input message="tns:importUserRequest"/>
+    <output message="tns:importUserResponse"/>
+  </operation>
+  <operation name="synchUser">
+    <documentation>[THIS METHOD IS DEPRECATED] Synchronize User. Parameters: nmdomainuid-&gt;Unique user identifier on Domain Controller
+                                        ID-&gt;Identifier for the User; Name-&gt;The user's name;
+                                        Login-&gt;The user's login;
+                                        Email-&gt;Email address for this user;
+                                        Fglanguage-&gt;Default languge of this user
+                                        Fguserenabled-&gt;User enabled
+                                        Fguserblocked-&gt;User blocked
+                                        Fgnotice-&gt;Enviar email
+                                        Idarea-&gt;User department;
+                                        nmarea-&gt;User department name;
+                                        Idposition-&gt;User position
+                                        nmposition-&gt;User position name
+                                        nmdefsynchfilter-&gt;First time synch field
+                                        oidconnection-&gt;Connection identifier
+                                        cdleader-&gt;Leader id
+                                        Return values: SUCCESS-&gt;Primary key value for the user(CDUSER); FAILURE:-1.</documentation>
+    <input message="tns:synchUserRequest"/>
+    <output message="tns:synchUserResponse"/>
+  </operation>
+  <operation name="updateEmployeeProfile">
+    <documentation>Updates employee profile information&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUSER           -&gt; Kullanıcı Reg. Kod # &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDEDULEVEL       -&gt; Eğitim seviyesi ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGEDULEVELSTATUS -&gt; Eğitim Seviyesi [1 - Eksiksiz; 2 - Eksik] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTBIRTHDAY       -&gt; Doğum Tarihi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTADMISSION      -&gt; Bir aktiviteyi başka bir kullanıcı için yetkilendirirken , yorum alanına bir açıklama girmeniz gerekir. &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTDEMISSION      -&gt; İşten Çıkış Tarihi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSADDRESS        -&gt; Adres &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSOBS            -&gt; Yorumlar &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: 1               &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:updateEmployeeProfileRequest"/>
+    <output message="tns:updateEmployeeProfileResponse"/>
+  </operation>
+</portType>
+<binding name="AdministrationBinding" type="tns:AdministrationPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="newUser">
+    <soap:operation soapAction="urn:admin#newUser" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="editUser">
+    <soap:operation soapAction="urn:admin#editUser" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="disableUser">
+    <soap:operation soapAction="urn:admin#disableUser" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="editUserDepartment">
+    <soap:operation soapAction="urn:admin#editUserDepartment" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="editPosition">
+    <soap:operation soapAction="urn:admin#editPosition" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="newPosition">
+    <soap:operation soapAction="urn:admin#newPosition" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="importUserV2">
+    <soap:operation soapAction="urn:admin#importUserV2" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addUserAbsence">
+    <soap:operation soapAction="urn:admin#addUserAbsence" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="changeUserStatus">
+    <soap:operation soapAction="urn:admin#changeUserStatus" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="editOrganizationalUnit">
+    <soap:operation soapAction="urn:admin#editOrganizationalUnit" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addUserToAccessGroup">
+    <soap:operation soapAction="urn:admin#addUserToAccessGroup" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addAttribProfileValue">
+    <soap:operation soapAction="urn:admin#addAttribProfileValue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addAttribute">
+    <soap:operation soapAction="urn:admin#addAttribute" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addAttribValue">
+    <soap:operation soapAction="urn:admin#addAttribValue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addCompany">
+    <soap:operation soapAction="urn:admin#addCompany" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addCompContact">
+    <soap:operation soapAction="urn:admin#addCompContact" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addDepartmentPosition">
+    <soap:operation soapAction="urn:admin#addDepartmentPosition" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addMeasUnity">
+    <soap:operation soapAction="urn:admin#addMeasUnity" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="addUserDepartment">
+    <soap:operation soapAction="urn:admin#addUserDepartment" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="changePositionStatus">
+    <soap:operation soapAction="urn:admin#changePositionStatus" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="compAtribAssoc">
+    <soap:operation soapAction="urn:admin#compAtribAssoc" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="deleteCompany">
+    <soap:operation soapAction="urn:admin#deleteCompany" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="deleteCompContact">
+    <soap:operation soapAction="urn:admin#deleteCompContact" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="deleteDepartment">
+    <soap:operation soapAction="urn:admin#deleteDepartment" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="deleteMeasUnity">
+    <soap:operation soapAction="urn:admin#deleteMeasUnity" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="deleteUser">
+    <soap:operation soapAction="urn:admin#deleteUser" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="deleteUserDepartment">
+    <soap:operation soapAction="urn:admin#deleteUserDepartment" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="deleteUserAccessGroup">
+    <soap:operation soapAction="urn:admin#deleteUserAccessGroup" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="deleteUserLeader">
+    <soap:operation soapAction="urn:admin#deleteUserLeader" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="editDepartment">
+    <soap:operation soapAction="urn:admin#editDepartment" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="getAttribData">
+    <soap:operation soapAction="urn:admin#getAttribData" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="newDepartment">
+    <soap:operation soapAction="urn:admin#newDepartment" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="importUser">
+    <soap:operation soapAction="urn:admin#importUser" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="synchUser">
+    <soap:operation soapAction="urn:admin#synchUser" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+  <operation name="updateEmployeeProfile">
+    <soap:operation soapAction="urn:admin#updateEmployeeProfile" style="document"/>
+    <input><soap:body use="literal" namespace="urn:admin"/></input>
+    <output><soap:body use="literal" namespace="urn:admin"/></output>
+  </operation>
+</binding>
+<service name="Administration">
+  <port name="AdministrationPort" binding="tns:AdministrationBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/adm_ws.php"/>
+  </port>
+</service>
+</definitions>

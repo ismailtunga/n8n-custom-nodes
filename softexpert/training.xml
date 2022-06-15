@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:training" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:training">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:training"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="importTrainingPresenceListRequestType">
+  <xsd:all>
+   <xsd:element name="IDTRAIN" type="xsd:string"/>
+   <xsd:element name="IDTRAINUSER" type="xsd:string"/>
+   <xsd:element name="IDTRAINCALENDAR" type="xsd:string"/>
+   <xsd:element name="FGPRESENCE" type="xsd:string"/>
+   <xsd:element name="IDSHIFT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importTrainingPresenceListResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="importTrainingPresenceList" type="tns:importTrainingPresenceListRequestType"/>
+ <xsd:element name="importTrainingPresenceListResponse" type="tns:importTrainingPresenceListResponseType"/>
+</xsd:schema>
+</types>
+<message name="importTrainingPresenceListRequest">
+  <part name="parameters" element="tns:importTrainingPresenceList" /></message>
+<message name="importTrainingPresenceListResponse">
+  <part name="parameters" element="tns:importTrainingPresenceListResponse" /></message>
+<portType name="TrainingPortType">
+  <operation name="importTrainingPresenceList">
+    <documentation>Import of training attendance list &lt;br&gt;
+         &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTRAIN -&gt; Eğitim ID # &lt;br&gt;
+         &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTRAINUSER -&gt; Katılımcı Kaydı &lt;br&gt;
+         &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTRAINCALENDAR -&gt; Eğitimin gerçekleştiği tarih &lt;br&gt;
+         &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGPRESENCE -&gt; Katılımcı eğitime katıldı [1 - Evet; 2 - Hayır] &lt;br&gt;
+         &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSHIFT -&gt; Vardiya ID # &lt;br&gt;
+         GERIDONUS: &lt;br&gt;
+         &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı: 1 &lt;br&gt;
+         &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata: ARIZA halinde, arıza ile birlikte bir mesaj geri döner. &lt;br&gt;</documentation>
+    <input message="tns:importTrainingPresenceListRequest"/>
+    <output message="tns:importTrainingPresenceListResponse"/>
+  </operation>
+</portType>
+<binding name="TrainingBinding" type="tns:TrainingPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="importTrainingPresenceList">
+    <soap:operation soapAction="urn:training#importTrainingPresenceList" style="document"/>
+    <input><soap:body use="literal" namespace="urn:training"/></input>
+    <output><soap:body use="literal" namespace="urn:training"/></output>
+  </operation>
+</binding>
+<service name="Training">
+  <port name="TrainingPort" binding="tns:TrainingBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/tr_ws.php"/>
+  </port>
+</service>
+</definitions>

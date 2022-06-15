@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:maintenance" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:maintenance">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:maintenance"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="createCorrectiveMaintenanceRequestType">
+  <xsd:all>
+   <xsd:element name="ActivityID" type="xsd:string"/>
+   <xsd:element name="ModelActivityID" type="xsd:string"/>
+   <xsd:element name="AssetID" type="xsd:string"/>
+   <xsd:element name="StartDate" type="xsd:string"/>
+   <xsd:element name="StartTime" type="xsd:string"/>
+   <xsd:element name="RealPercentage" type="xsd:string"/>
+   <xsd:element name="ServiceCenterID" type="xsd:string"/>
+   <xsd:element name="TechnicianResponsibleID" type="xsd:string"/>
+   <xsd:element name="Attributes" type="xsd:string"/>
+   <xsd:element name="EvalMethodID" type="xsd:string"/>
+   <xsd:element name="EvalCriteria" type="xsd:string"/>
+   <xsd:element name="IdProcessAssoc" type="xsd:string"/>
+   <xsd:element name="FgAutomation" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createCorrectiveMaintenanceResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="insertMeterReadingRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="fgaction" type="xsd:string"/>
+   <xsd:element name="vlreadvalue" type="xsd:string"/>
+   <xsd:element name="dtreaddate" type="xsd:string"/>
+   <xsd:element name="qthrread" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="insertMeterReadingResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="insertVariableReadingRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="idvariable" type="xsd:string"/>
+   <xsd:element name="vlreadvalue" type="xsd:string"/>
+   <xsd:element name="dtreaddate" type="xsd:string"/>
+   <xsd:element name="qthrread" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="insertVariableReadingResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProgrammedMaintenanceRequestType">
+  <xsd:all>
+   <xsd:element name="ActivityID" type="xsd:string"/>
+   <xsd:element name="ModelActivityID" type="xsd:string"/>
+   <xsd:element name="AssetID" type="xsd:string"/>
+   <xsd:element name="ActivityStep" type="xsd:string"/>
+   <xsd:element name="StartPlanDate" type="xsd:string"/>
+   <xsd:element name="StartPlanTime" type="xsd:string"/>
+   <xsd:element name="FinishPlanDate" type="xsd:string"/>
+   <xsd:element name="FinishPlanTime" type="xsd:string"/>
+   <xsd:element name="StartDate" type="xsd:string"/>
+   <xsd:element name="StartTime" type="xsd:string"/>
+   <xsd:element name="RealPercentage" type="xsd:string"/>
+   <xsd:element name="ServiceCenterID" type="xsd:string"/>
+   <xsd:element name="TechnicianResponsibleID" type="xsd:string"/>
+   <xsd:element name="Attributes" type="xsd:string"/>
+   <xsd:element name="EvalMethodID" type="xsd:string"/>
+   <xsd:element name="EvalCriteria" type="xsd:string"/>
+   <xsd:element name="IdProcessAssoc" type="xsd:string"/>
+   <xsd:element name="FgAutomation" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProgrammedMaintenanceResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="createCorrectiveMaintenance" type="tns:createCorrectiveMaintenanceRequestType"/>
+ <xsd:element name="createCorrectiveMaintenanceResponse" type="tns:createCorrectiveMaintenanceResponseType"/>
+ <xsd:element name="insertMeterReading" type="tns:insertMeterReadingRequestType"/>
+ <xsd:element name="insertMeterReadingResponse" type="tns:insertMeterReadingResponseType"/>
+ <xsd:element name="insertVariableReading" type="tns:insertVariableReadingRequestType"/>
+ <xsd:element name="insertVariableReadingResponse" type="tns:insertVariableReadingResponseType"/>
+ <xsd:element name="newProgrammedMaintenance" type="tns:newProgrammedMaintenanceRequestType"/>
+ <xsd:element name="newProgrammedMaintenanceResponse" type="tns:newProgrammedMaintenanceResponseType"/>
+</xsd:schema>
+</types>
+<message name="createCorrectiveMaintenanceRequest">
+  <part name="parameters" element="tns:createCorrectiveMaintenance" /></message>
+<message name="createCorrectiveMaintenanceResponse">
+  <part name="parameters" element="tns:createCorrectiveMaintenanceResponse" /></message>
+<message name="insertMeterReadingRequest">
+  <part name="parameters" element="tns:insertMeterReading" /></message>
+<message name="insertMeterReadingResponse">
+  <part name="parameters" element="tns:insertMeterReadingResponse" /></message>
+<message name="insertVariableReadingRequest">
+  <part name="parameters" element="tns:insertVariableReading" /></message>
+<message name="insertVariableReadingResponse">
+  <part name="parameters" element="tns:insertVariableReadingResponse" /></message>
+<message name="newProgrammedMaintenanceRequest">
+  <part name="parameters" element="tns:newProgrammedMaintenance" /></message>
+<message name="newProgrammedMaintenanceResponse">
+  <part name="parameters" element="tns:newProgrammedMaintenanceResponse" /></message>
+<portType name="MaintenancePortType">
+  <operation name="createCorrectiveMaintenance">
+    <documentation>Düzeltici bakım ekler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMODELACTIVITY -&gt; Standart aktivite ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDASSET -&gt; Varlık ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTSTART -&gt; Yürütme başlangıç tarihi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TMSTART -&gt; Yürütme başlangıç saati &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLPERCENTAGE -&gt; Gerçekleşen yürütme yüzdesi &lt;BR&gt;Standart aktivite içinde belirtilmediyse zorunludur&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSERVICECENTER -&gt; Servis Merkezi&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTECRESP -&gt; Sorumlu Teknisyen&lt;BR&gt;Standart aktivite zorunlu ekalana sahip ise zorunludur&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ATTRIBUTES -&gt; Bakım EkAlanları&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDACTIVITY -&gt; Görev ID No Belirtilmediğinde otomatik olarak oluşturulur&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDEVALMETHOD -&gt; Değerlendirme Metodu&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSEVALCRIT -&gt; Kriter&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPROCESS -&gt; Süreç ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGAUTOMATION -&gt; Process automation type&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:createCorrectiveMaintenanceRequest"/>
+    <output message="tns:createCorrectiveMaintenanceResponse"/>
+  </operation>
+  <operation name="insertMeterReading">
+    <documentation>
+		Sayaç Okuma&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT -&gt; Varlık ID #&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGACTION -&gt; Durum [ 1 - Sayaç Okuma ; 2 - Sayacı Yeniden Başlat ]&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLREADVALUE -&gt; Değer&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTREADDATE -&gt; Tarih&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTHRREAD -&gt; Saat&lt;BR&gt;
+		BAŞARI halinde: 1;&lt;BR&gt;
+		ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;
+		</documentation>
+    <input message="tns:insertMeterReadingRequest"/>
+    <output message="tns:insertMeterReadingResponse"/>
+  </operation>
+  <operation name="insertVariableReading">
+    <documentation>
+		Değişken Okuma&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT -&gt; Varlık ID #&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDVARIABLE -&gt; Değişken ID #&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLREADVALUE -&gt; Değer&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTREADDATE -&gt; Tarih&lt;BR&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTHRREAD -&gt; Saat&lt;BR&gt;
+		BAŞARI halinde: 1;&lt;BR&gt;
+		ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;
+		</documentation>
+    <input message="tns:insertVariableReadingRequest"/>
+    <output message="tns:insertVariableReadingResponse"/>
+  </operation>
+  <operation name="newProgrammedMaintenance">
+    <documentation>Çizelgelenmiş Bakım&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMODELACTIVITY -&gt; Standart aktivite ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDASSET -&gt; Varlık ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTSTARTPLAN -&gt; Planlanan başlangıç tarihi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TMSTARTPLAN -&gt; Başlangıç Zamanı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTFINISHPLAN -&gt; Planlanan bitiş tarihi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TMFINISHPLAN -&gt; Planlanan Son Saat &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTSTART -&gt; Yürütme başlangıç tarihi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TMSTART -&gt; Yürütme başlangıç saati &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLPERCENTAGE -&gt; Gerçekleşen yürütme yüzdesi &lt;BR&gt;Standart aktivite içinde belirtilmediyse zorunludur&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSERVICECENTER -&gt; Servis Merkezi&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTECRESP -&gt; Sorumlu Teknisyen&lt;BR&gt;Standart aktivite zorunlu ekalana sahip ise zorunludur&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ATTRIBUTES -&gt; Bakım EkAlanları&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDACTIVITY -&gt; Görev ID No Belirtilmediğinde otomatik olarak oluşturulur&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ACTIVITYSTEP -&gt; Aktiviteleri burada oluştur 1 - Planlama, 2 - Yürütme&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDEVALMETHOD -&gt; Değerlendirme Metodu&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSEVALCRIT -&gt; Kriter&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPROCESS -&gt; Süreç ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGAUTOMATION -&gt; Process automation type&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:newProgrammedMaintenanceRequest"/>
+    <output message="tns:newProgrammedMaintenanceResponse"/>
+  </operation>
+</portType>
+<binding name="MaintenanceBinding" type="tns:MaintenancePortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="createCorrectiveMaintenance">
+    <soap:operation soapAction="urn:maintenance#createCorrectiveMaintenance" style="document"/>
+    <input><soap:body use="literal" namespace="urn:maintenance"/></input>
+    <output><soap:body use="literal" namespace="urn:maintenance"/></output>
+  </operation>
+  <operation name="insertMeterReading">
+    <soap:operation soapAction="urn:maintenance#insertMeterReading" style="document"/>
+    <input><soap:body use="literal" namespace="urn:maintenance"/></input>
+    <output><soap:body use="literal" namespace="urn:maintenance"/></output>
+  </operation>
+  <operation name="insertVariableReading">
+    <soap:operation soapAction="urn:maintenance#insertVariableReading" style="document"/>
+    <input><soap:body use="literal" namespace="urn:maintenance"/></input>
+    <output><soap:body use="literal" namespace="urn:maintenance"/></output>
+  </operation>
+  <operation name="newProgrammedMaintenance">
+    <soap:operation soapAction="urn:maintenance#newProgrammedMaintenance" style="document"/>
+    <input><soap:body use="literal" namespace="urn:maintenance"/></input>
+    <output><soap:body use="literal" namespace="urn:maintenance"/></output>
+  </operation>
+</binding>
+<service name="Maintenance">
+  <port name="MaintenancePort" binding="tns:MaintenanceBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/mn_ws.php"/>
+  </port>
+</service>
+</definitions>

@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.n11.com/ws/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.n11.com/ws/schemas" targetNamespace="http://www.n11.com/ws/schemas">
+    <wsdl:types>
+        <xs:schema xmlns:n11="http://www.n11.com/ws/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.n11.com/ws/schemas">
+            <xs:element name="GetSettlementListRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="startDate" type="xs:string"/>
+                        <xs:element name="endDate" type="xs:string"/>
+                        <xs:element name="pagingData" type="n11:RequestPagingData"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetSettlementListResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="settlementListData" type="n11:SettlementSummaryDataList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetSettlementDetailRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="date" type="xs:string"/>
+                        <xs:element name="pagingData" type="n11:RequestPagingData"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetSettlementDetailResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="settlementDetail" type="n11:SettlementDetailData"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="BaseResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResultInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseRequest">
+                <xs:sequence>
+                    <xs:element name="authentication" type="n11:Authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Authentication">
+                <xs:sequence>
+                    <xs:element name="appKey" type="xs:string"/>
+                    <xs:element name="appSecret" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemSettlementData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="adFee" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="adFeeVat" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="buyerEmail" type="xs:string"/>
+                    <xs:element minOccurs="0" name="buyerName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="commission" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="completedDate" type="xs:string"/>
+                    <xs:element minOccurs="0" name="deductionAmount" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="orderItemId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="orderNumber" type="xs:string"/>
+                    <xs:element minOccurs="0" name="paymentAmount" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="paymentDate" type="xs:string"/>
+                    <xs:element minOccurs="0" name="productId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="productName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="remittanceDate" type="xs:string"/>
+                    <xs:element minOccurs="0" name="sellerCouponDiscount" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="sellerDiscount" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="settlementAmount" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="settlementDate" type="xs:string"/>
+                    <xs:element minOccurs="0" name="shippingDate" type="xs:string"/>
+                    <xs:element minOccurs="0" name="trackingNumber" type="xs:string"/>
+                    <xs:element minOccurs="0" name="defermentOfPayment" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="cargoPrice" type="xs:decimal"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DefermentSettlementUsageData">
+                <xs:sequence>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="orderDate" type="xs:string"/>
+                    <xs:element name="productId" type="xs:long"/>
+                    <xs:element name="productTitle" type="xs:string"/>
+                    <xs:element name="amount" type="xs:decimal"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DefermentDTO">
+                <xs:sequence>
+                    <xs:element name="deferredDate" type="xs:string"/>
+                    <xs:element name="amount" type="xs:decimal"/>
+                    <xs:element name="defermentReasonDetail" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DefermentSppDTO">
+                <xs:sequence>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="campaignNumber" type="xs:string"/>
+                    <xs:element name="createdDate" type="xs:string"/>
+                    <xs:element name="cargoWeightFromShipmentCompany" type="xs:decimal"/>
+                    <xs:element name="deferredAmount" type="xs:decimal"/>
+                    <xs:element name="shipmentCompanyName" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DefermentSettlementUsageDataList">
+                <xs:sequence>
+                    <xs:element name="financialTotalDeferment" type="xs:decimal"/>
+                    <xs:element name="totalReturnDefermentAmount" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="deferments">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="deferment" type="n11:DefermentDTO"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="defermentSppUsages">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="defermentSppUsage" type="n11:DefermentSppDTO"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="defermentSettlementUsages">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="defermentSettlementUsage" type="n11:DefermentSettlementUsageData"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemSettlementDataList">
+                <xs:sequence>
+                    <xs:element name="metadata" type="n11:PagingData"/>
+                    <xs:element minOccurs="0" name="orderItemSettlements">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItemSettlement" type="n11:OrderItemSettlementData"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemSettlementList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItemSettlement" type="n11:OrderItemSettlementData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SettlementDetailData">
+                <xs:sequence>
+                    <xs:element name="settlement" type="n11:SettlementDetailSummaryData"/>
+                    <xs:element name="orderItemSettlementDataList" type="n11:OrderItemSettlementDataList"/>
+                    <xs:element name="defermentSettlementUsageDataList" type="n11:DefermentSettlementUsageDataList"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SettlementSummaryData">
+                <xs:sequence>
+                    <xs:element name="paymentAmount" type="xs:decimal"/>
+                    <xs:element name="deductionAmount" type="xs:decimal"/>
+                    <xs:element name="settlementAmount" type="xs:decimal"/>
+                    <xs:element name="settlementDate" type="xs:string"/>
+                    <xs:element name="remittanceDate" type="xs:string"/>
+                    <xs:element name="status" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SettlementDetailSummaryData">
+                <xs:sequence>
+                    <xs:element name="salesAmount" type="xs:decimal"/>
+                    <xs:element name="sellerWithdraw" type="xs:decimal"/>
+                    <xs:element name="releaseDeferment" type="xs:decimal"/>
+                    <xs:element name="deductionAmount" type="xs:decimal"/>
+                    <xs:element name="defermentOfPayment" type="xs:decimal"/>
+                    <xs:element name="paymentToECash" type="xs:decimal"/>
+                    <xs:element name="remittance" type="xs:decimal"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SettlementSummaryDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="settlementList" type="n11:SettlementSummaryData"/>
+                    <xs:element name="metadata" type="n11:PagingData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderDetailData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="buyer" type="n11:BuyerWithTaxFields"/>
+                    <xs:element name="citizenshipId" type="xs:string"/>
+                    <xs:element name="invoiceType" type="xs:string"/>
+                    <xs:element name="itemList" type="n11:OrderItemDataList"/>
+                    <xs:element name="serviceItemList" type="n11:ServiceOrderItemDataList"/>
+                    <xs:element name="status" type="xs:integer"/>
+                    <xs:element name="paymentType" type="xs:integer"/>
+                    <xs:element name="billingTemplate" type="n11:BillingTemplate"/>
+                    <xs:element name="shippingAddress" type="n11:AddressModel"/>
+                    <xs:element name="billingAddress" type="n11:AddressModel"/>
+                    <xs:element name="createDate" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ServiceOrderItemDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="serviceItem" type="n11:ServiceOrderItemData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ServiceOrderItemData">
+                <xs:sequence>
+                    <xs:element name="orderItemType" type="xs:int"/>
+                    <xs:element name="installmentChargeWithVAT" type="xs:decimal"/>
+                    <xs:element name="price" type="xs:decimal"/>
+                    <xs:element name="totalDiscountPrice" type="xs:decimal"/>
+                    <xs:element name="quantity" type="xs:integer"/>
+                    <xs:element name="sellerInvoiceAmount" type="xs:decimal"/>
+                    <xs:element name="orderItemList" type="n11:ProductOrderItemList"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ProductOrderItemList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="orderItem" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BillingTemplate">
+                <xs:sequence>
+                    <xs:element name="originalPrice" type="xs:decimal"/>
+                    <xs:element name="totalSellerDiscount" type="xs:decimal"/>
+                    <xs:element name="totalServiceItemOriginalPrice" type="xs:decimal"/>
+                    <xs:element name="installmentChargeWithVat" type="xs:decimal"/>
+                    <xs:element name="sellerInvoiceAmount" type="xs:decimal"/>
+                    <xs:element name="totalMallDiscountPrice" type="xs:decimal"/>
+                    <xs:element name="dueAmount" type="xs:decimal"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="item" type="n11:OrderSearchData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="createDate" type="xs:string"/>
+                    <xs:element name="totalDiscountAmount" type="xs:decimal"/>
+                    <xs:element name="paymentType" nillable="true" type="xs:integer"/>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="totalAmount" type="xs:decimal"/>
+                    <xs:element name="status" nillable="true" type="xs:integer"/>
+                    <xs:element name="citizenshipId" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemDataRequest">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemDataListRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="orderItem" type="n11:OrderItemDataRequest"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderDataRequest">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemDataRequestForRejection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="orderItem" type="n11:OrderItemDataRequest"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="n11:OrderData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderDataListRequest">
+                <xs:sequence>
+                    <xs:element name="productId" nillable="true" type="xs:long"/>
+                    <xs:element name="status" nillable="true" type="xs:string"/>
+                    <xs:element name="buyerName" type="xs:string"/>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="productSellerCode" nillable="true" type="xs:string"/>
+                    <xs:element name="recipient" type="xs:string"/>
+                    <xs:element name="sameDayDelivery" nillable="true" type="xs:boolean"/>
+                    <xs:element name="period" type="n11:OrderSearchPeriod"/>
+                    <xs:element name="sortForUpdateDate" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderSearchPeriod">
+                <xs:sequence>
+                    <xs:element name="startDate" nillable="true" type="xs:string"/>
+                    <xs:element name="endDate" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="productSellerCode" type="xs:string"/>
+                    <xs:element name="price" type="xs:decimal"/>
+                    <xs:element name="sellerDiscount" type="xs:decimal"/>
+                    <xs:element name="mallDiscount" type="xs:decimal"/>
+                    <xs:element name="commission" type="xs:decimal"/>
+                    <xs:element name="status" type="xs:integer"/>
+                    <xs:element name="quantity" type="xs:integer"/>
+                    <xs:element name="productName" type="xs:string"/>
+                    <xs:element name="deliveryFeeType" type="xs:integer"/>
+                    <xs:element name="dueAmount" type="xs:decimal"/>
+                    <xs:element name="shipmentInfo" type="n11:OrderItemShipmentInfo"/>
+                    <xs:element name="attributes" type="n11:SkuAttributeList"/>
+                    <xs:element name="customTextOptionValues" type="n11:CustomTextOptionsDataList"/>
+                    <xs:element name="updatedDate" type="xs:string"/>
+                    <xs:element name="cargoCompanyWarning" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SkuAttributeList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="attribute" type="n11:SkuAttribute"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CustomTextOptionsDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="customTextOptionValue" type="n11:CustomTextOptionsData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SkuAttribute">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="value" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CustomTextOptionsData">
+                <xs:sequence>
+                    <xs:element name="option" type="xs:string"/>
+                    <xs:element name="text" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemListShipmentRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="orderItem" type="n11:OrderItemShipmentRequest"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemShipmentRequest">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="shipmentInfo" type="n11:MakeShipmentInfoRequest"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipmentCompanyRequest">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipmentInfoRequest">
+                <xs:sequence>
+                    <xs:element name="shipmentCompany" type="n11:ShipmentCompanyRequest"/>
+                    <xs:element name="campaignNumber" type="xs:string"/>
+                    <xs:element name="shipmentCode" type="xs:long"/>
+                    <xs:element name="shipmentMethod" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MakeShipmentInfoRequest">
+                <xs:sequence>
+                    <xs:element name="shipmentCompany" type="n11:ShipmentCompanyRequest"/>
+                    <xs:element name="campaignNumber" type="xs:string"/>
+                    <xs:element name="trackingNumber" type="xs:string"/>
+                    <xs:element name="shipmentMethod" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemShipment">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="price" type="xs:decimal"/>
+                    <xs:element name="sellerDiscount" type="xs:decimal"/>
+                    <xs:element name="mallDiscount" type="xs:decimal"/>
+                    <xs:element name="commission" type="xs:decimal"/>
+                    <xs:element name="status" type="xs:integer"/>
+                    <xs:element name="quantity" type="xs:integer"/>
+                    <xs:element name="productName" type="xs:string"/>
+                    <xs:element name="shipmentInfo" type="n11:OrderItemShipmentInfo"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderSearchData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="productId" type="xs:long"/>
+                    <xs:element name="deliveryFeeType" type="xs:integer"/>
+                    <xs:element name="productSellerCode" type="xs:string"/>
+                    <xs:element name="status" type="xs:string"/>
+                    <xs:element name="rejectReason" type="xs:string"/>
+                    <xs:element name="approvedDate" type="xs:string"/>
+                    <xs:element name="dueAmount" type="xs:decimal"/>
+                    <xs:element name="installmentChargeWithVAT" type="xs:decimal"/>
+                    <xs:element name="price" type="xs:decimal"/>
+                    <xs:element name="totalMallDiscountPrice" type="xs:decimal"/>
+                    <xs:element name="quantity" type="xs:integer"/>
+                    <xs:element name="sellerCouponDiscount" type="xs:decimal"/>
+                    <xs:element name="sellerStockCode" type="xs:string"/>
+                    <xs:element name="version" type="xs:long"/>
+                    <xs:element name="attributes" type="n11:SkuAttributeList"/>
+                    <xs:element name="sellerDiscount" type="xs:decimal"/>
+                    <xs:element name="mallDiscount" type="xs:decimal"/>
+                    <xs:element name="commission" type="xs:decimal"/>
+                    <xs:element name="sellerInvoiceAmount" type="xs:decimal"/>
+                    <xs:element name="productName" type="xs:string"/>
+                    <xs:element name="shipmentInfo" type="n11:OrderItemShipmentInfo"/>
+                    <xs:element name="shippingDate" type="xs:string"/>
+                    <xs:element name="customTextOptionValues" type="n11:CustomTextOptionsDataList"/>
+                    <xs:element name="shipmenCompanyCampaignNumber" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DetailedOrderDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="n11:DetailedOrderData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DetailedOrderData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="invoiceType" type="xs:string"/>
+                    <xs:element name="status" type="xs:integer"/>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="totalAmount" type="xs:decimal"/>
+                    <xs:element name="paymentType" type="xs:integer"/>
+                    <xs:element name="citizenshipId" type="xs:string"/>
+                    <xs:element name="orderItemList" type="n11:DetailedOrderItemDataList"/>
+                    <xs:element name="createDate" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DetailedOrderItemDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="orderItem" type="n11:OrderItemData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ItemWithComplementaryList">
+                <xs:sequence>
+                    <xs:element maxOccurs="500" name="itemWithComplementary" type="n11:ItemWithComplementaryData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderItemShipmentInfo">
+                <xs:sequence>
+                    <xs:element name="shipmentCompany" nillable="true" type="n11:ShipmentCompanyData"/>
+                    <xs:element name="trackingNumber" type="xs:string"/>
+                    <xs:element name="trackingNumberStatus" type="xs:string"/>
+                    <xs:element name="shipmentCode" type="xs:integer"/>
+                    <xs:element name="campaignNumber" type="xs:string"/>
+                    <xs:element name="shipmentMethod" type="xs:string"/>
+                    <xs:element name="campaignNumberStatus" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MakeOrderItemShipmentInfo">
+                <xs:sequence>
+                    <xs:element name="shipmentCompany" nillable="true" type="n11:ShipmentCompanyData"/>
+                    <xs:element name="trackingNumber" type="xs:string"/>
+                    <xs:element name="trackingNumberStatus" type="xs:string"/>
+                    <xs:element name="campaignNumber" type="xs:string"/>
+                    <xs:element name="shipmentMethod" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BuyerAddressData">
+                <xs:sequence>
+                    <xs:element name="fullName" type="xs:string"/>
+                    <xs:element name="address" type="xs:string"/>
+                    <xs:element name="phoneNumber" type="xs:integer"/>
+                    <xs:element name="tcNo" type="xs:string"/>
+                    <xs:element name="companyName" type="xs:string"/>
+                    <xs:element name="taxNo" type="xs:string"/>
+                    <xs:element name="taxOffice" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ItemWithComplementaryData">
+                <xs:sequence>
+                    <xs:element name="sellerCode" type="xs:string"/>
+                    <xs:element name="productTitle" type="xs:string"/>
+                    <xs:element name="category" type="xs:string"/>
+                    <xs:element name="price" type="xs:decimal"/>
+                    <xs:element name="paidDate" type="xs:string"/>
+                    <xs:element name="acceptedDate" type="xs:string"/>
+                    <xs:element name="status" type="xs:integer"/>
+                    <xs:element maxOccurs="unbounded" name="certificateNo" type="xs:string"/>
+                    <xs:element name="compItemId" type="xs:long"/>
+                    <xs:element name="compAcceptedDate" type="xs:string"/>
+                    <xs:element name="buyerAddress" type="n11:BuyerAddressData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Buyer">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="fullName" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BuyerWithTaxFields">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="fullName" type="xs:string"/>
+                    <xs:element name="taxId" nillable="true" type="xs:string"/>
+                    <xs:element name="taxOffice" nillable="true" type="xs:string"/>
+                    <xs:element name="email" nillable="true" type="xs:string"/>
+                    <xs:element name="tcId" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AddressModel">
+                <xs:sequence>
+                    <xs:element name="address" type="xs:string"/>
+                    <xs:element name="fullName" type="xs:string"/>
+                    <xs:element name="city" type="xs:string"/>
+                    <xs:element name="district" type="xs:string"/>
+                    <xs:element name="neighborhood" type="xs:string"/>
+                    <xs:element name="postalCode" type="xs:string"/>
+                    <xs:element name="gsm" type="xs:string"/>
+                    <xs:element name="tcId" type="xs:string"/>
+                    <xs:element name="taxId" type="xs:string"/>
+                    <xs:element name="taxHouse" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipmentCompanyData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="shortName" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PagingData">
+                <xs:sequence>
+                    <xs:element name="currentPage" nillable="true" type="xs:int"/>
+                    <xs:element name="pageSize" nillable="true" type="xs:int"/>
+                    <xs:element name="totalCount" nillable="true" type="xs:long"/>
+                    <xs:element name="pageCount" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestPagingData">
+                <xs:sequence>
+                    <xs:element name="currentPage" nillable="true" type="xs:int"/>
+                    <xs:element name="pageSize" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="GetSettlementListRequest">
+        <wsdl:part element="tns:GetSettlementListRequest" name="GetSettlementListRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetSettlementListResponse">
+        <wsdl:part element="tns:GetSettlementListResponse" name="GetSettlementListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetSettlementDetailRequest">
+        <wsdl:part element="tns:GetSettlementDetailRequest" name="GetSettlementDetailRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetSettlementDetailResponse">
+        <wsdl:part element="tns:GetSettlementDetailResponse" name="GetSettlementDetailResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="SettlementServicePort">
+        <wsdl:operation name="GetSettlementList">
+            <wsdl:input message="tns:GetSettlementListRequest" name="GetSettlementListRequest"/>
+            <wsdl:output message="tns:GetSettlementListResponse" name="GetSettlementListResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetSettlementDetail">
+            <wsdl:input message="tns:GetSettlementDetailRequest" name="GetSettlementDetailRequest"/>
+            <wsdl:output message="tns:GetSettlementDetailResponse" name="GetSettlementDetailResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SettlementServicePortSoap11" type="tns:SettlementServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetSettlementList">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetSettlementListRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetSettlementListResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSettlementDetail">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetSettlementDetailRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetSettlementDetailResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SettlementServicePortService">
+        <wsdl:port binding="tns:SettlementServicePortSoap11" name="SettlementServicePortSoap11">
+            <soap:address location="https://api.n11.com/ws/settlementService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

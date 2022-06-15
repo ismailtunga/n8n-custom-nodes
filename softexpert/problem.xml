@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:problem" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:problem">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:problem"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="attributeData">
+  <xsd:all>
+   <xsd:element name="EntityAttributeID" type="xsd:string"/>
+   <xsd:element name="EntityAttributeValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="attributeFileData">
+  <xsd:all>
+   <xsd:element name="EntityAttributeID" type="xsd:string"/>
+   <xsd:element name="FileName" type="xsd:string"/>
+   <xsd:element name="FileContent" type="xsd:base64Binary"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relationshipAttributeData">
+  <xsd:all>
+   <xsd:element name="RelationshipAttributeID" type="xsd:string"/>
+   <xsd:element name="RelationshipAttributeValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relationshipArray">
+  <xsd:sequence>
+   <xsd:element name="RelationshipID" type="xsd:string"/>
+   <xsd:element name="RelationshipAttribute" type="tns:relationshipAttributeData" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="entityAttributeArray">
+  <xsd:sequence>
+   <xsd:element name="EntityAttribute" type="tns:attributeData" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="entityAttributeFileArray">
+  <xsd:sequence>
+   <xsd:element name="EntityAttributeFile" type="tns:attributeFileData" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="relationshipListArray">
+  <xsd:sequence>
+   <xsd:element name="Relationship" type="tns:relationshipArray" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="attributeValueData">
+  <xsd:all>
+   <xsd:element name="AttributeValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="attributeArray">
+  <xsd:sequence>
+   <xsd:element name="AttributeID" type="xsd:string"/>
+   <xsd:element name="AttributeValueList" type="tns:attributeValueData" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="AttributeListArray">
+  <xsd:sequence>
+   <xsd:element name="Attribute" type="tns:attributeArray" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="EntityRecordArray">
+  <xsd:sequence>
+   <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="RelationshipList" type="tns:relationshipListArray" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray" minOccurs="0" maxOccurs="1"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="EntityRecordListArray">
+  <xsd:sequence>
+   <xsd:element name="EntityRecord" type="tns:EntityRecordArray" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="EntityListArray">
+  <xsd:sequence>
+   <xsd:element name="Entity" type="tns:EntityArray" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="EntityArray">
+  <xsd:sequence>
+   <xsd:element name="EntityID" type="xsd:string"/>
+   <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="RelationshipList" type="tns:RelationshipAttributeListArray" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray" minOccurs="0" maxOccurs="1"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RelationshipAttributeListArray">
+  <xsd:sequence>
+   <xsd:element name="Relationship" type="tns:RelationshipArrayList" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RelationshipArrayList">
+  <xsd:sequence>
+   <xsd:element name="RelationshipID" type="xsd:string"/>
+   <xsd:element name="RelationshipAttributeList" type="tns:RelationshipListAttributeData" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RelationshipListAttributeData">
+  <xsd:sequence>
+   <xsd:element name="RelationshipAttribute" type="tns:relationshipAttributeData" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RecordData">
+  <xsd:all>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="RecordListArray">
+  <xsd:sequence>
+   <xsd:element name="Record" type="tns:RecordData" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="ValueItemData">
+  <xsd:all>
+   <xsd:element name="ItemName" type="xsd:string"/>
+   <xsd:element name="ItemValue" type="xsd:float"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ValueItemArray">
+  <xsd:sequence>
+   <xsd:element name="ValueItem" type="tns:ValueItemData" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RequesterAsUser">
+  <xsd:all>
+   <xsd:element name="UserID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="RequesterAsCustomer">
+  <xsd:all>
+   <xsd:element name="CustomerID" type="xsd:string"/>
+   <xsd:element name="Contact" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="Requester">
+  <xsd:sequence>
+   <xsd:element name="User" type="tns:RequesterAsUser"/>
+   <xsd:element name="Customer" type="tns:RequesterAsCustomer"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="accessExceptionData">
+  <xsd:all>
+   <xsd:element name="UserID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="accessExceptionArray">
+  <xsd:sequence>
+   <xsd:element name="AccessException" type="tns:accessExceptionData" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="recordDetailData">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="recordDetailArray">
+  <xsd:sequence>
+   <xsd:element name="RecordDetail" type="tns:recordDetailData" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="newProblemEditDataRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemTypeID" type="xsd:string"/>
+   <xsd:element name="ProblemTitle" type="xsd:string"/>
+   <xsd:element name="UserID" type="xsd:string"/>
+   <xsd:element name="Requester" type="tns:Requester"/>
+   <xsd:element name="EntityList" type="tns:EntityListArray"/>
+   <xsd:element name="AttributeList" type="tns:AttributeListArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProblemEditDataResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProblemRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemTypeID" type="xsd:string"/>
+   <xsd:element name="ProblemTitle" type="xsd:string"/>
+   <xsd:element name="UserID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProblemResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="cancelProblemRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="Explanation" type="xsd:string"/>
+   <xsd:element name="UserID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="cancelProblemResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editEntityRecordRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="EntityID" type="xsd:string"/>
+   <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray"/>
+   <xsd:element name="RelationshipList" type="tns:relationshipListArray"/>
+   <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editEntityRecordResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newChildEntityRecordRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="MainEntityID" type="xsd:string"/>
+   <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+   <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray"/>
+   <xsd:element name="RelationshipList" type="tns:relationshipListArray"/>
+   <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newChildEntityRecordResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newChildEntityRecordListRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="MainEntityID" type="xsd:string"/>
+   <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+   <xsd:element name="EntityRecordList" type="tns:EntityRecordListArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newChildEntityRecordListResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordList" type="tns:RecordListArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editChildEntityRecordRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="MainEntityID" type="xsd:string"/>
+   <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+   <xsd:element name="ChildRecordOID" type="xsd:string"/>
+   <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray"/>
+   <xsd:element name="RelationshipList" type="tns:relationshipListArray"/>
+   <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editChildEntityRecordResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteChildEntityRecordRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="MainEntityID" type="xsd:string"/>
+   <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+   <xsd:element name="ChildRecordOID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteChildEntityRecordResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="clearChildEntityRecordRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="MainEntityID" type="xsd:string"/>
+   <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="clearChildEntityRecordResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editAttributeValueRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="AttributeList" type="tns:AttributeListArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editAttributeValueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAssocDocumentRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="ActivityID" type="xsd:string"/>
+   <xsd:element name="DocumentID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAssocDocumentResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAttachmentRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="ActivityID" type="xsd:string"/>
+   <xsd:element name="FileName" type="xsd:string"/>
+   <xsd:element name="FileContent" type="xsd:base64Binary"/>
+   <xsd:element name="UserID" type="xsd:string"/>
+   <xsd:element name="AttachmentID" type="xsd:string"/>
+   <xsd:element name="AttachmentName" type="xsd:string"/>
+   <xsd:element name="Summary" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAttachmentResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeSystemActivityRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="ActivityID" type="xsd:string"/>
+   <xsd:element name="ActivityOrder" type="xsd:integer"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeSystemActivityResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeActivityRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="ActivityID" type="xsd:string"/>
+   <xsd:element name="ActionSequence" type="xsd:integer"/>
+   <xsd:element name="UserID" type="xsd:string"/>
+   <xsd:element name="ActivityOrder" type="xsd:integer"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeActivityResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editLossEventRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="LossEventType" type="xsd:string"/>
+   <xsd:element name="RootLossProblemID" type="xsd:string"/>
+   <xsd:element name="OccurrenceDate" type="xsd:string"/>
+   <xsd:element name="RecognitionDate" type="xsd:string"/>
+   <xsd:element name="RecordDate" type="xsd:string"/>
+   <xsd:element name="GrossLossValue" type="xsd:string"/>
+   <xsd:element name="ValueItemList" type="tns:ValueItemArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editLossEventResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProblemDataRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="UserID" type="xsd:string"/>
+   <xsd:element name="Requester" type="tns:Requester"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProblemDataResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAccessExceptionRequestType">
+  <xsd:all>
+   <xsd:element name="ProblemID" type="xsd:string"/>
+   <xsd:element name="AccessExceptionList" type="tns:accessExceptionArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAccessExceptionResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordDetailList" type="tns:recordDetailArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="newProblemEditData" type="tns:newProblemEditDataRequestType"/>
+ <xsd:element name="newProblemEditDataResponse" type="tns:newProblemEditDataResponseType"/>
+ <xsd:element name="newProblem" type="tns:newProblemRequestType"/>
+ <xsd:element name="newProblemResponse" type="tns:newProblemResponseType"/>
+ <xsd:element name="cancelProblem" type="tns:cancelProblemRequestType"/>
+ <xsd:element name="cancelProblemResponse" type="tns:cancelProblemResponseType"/>
+ <xsd:element name="editEntityRecord" type="tns:editEntityRecordRequestType"/>
+ <xsd:element name="editEntityRecordResponse" type="tns:editEntityRecordResponseType"/>
+ <xsd:element name="newChildEntityRecord" type="tns:newChildEntityRecordRequestType"/>
+ <xsd:element name="newChildEntityRecordResponse" type="tns:newChildEntityRecordResponseType"/>
+ <xsd:element name="newChildEntityRecordList" type="tns:newChildEntityRecordListRequestType"/>
+ <xsd:element name="newChildEntityRecordListResponse" type="tns:newChildEntityRecordListResponseType"/>
+ <xsd:element name="editChildEntityRecord" type="tns:editChildEntityRecordRequestType"/>
+ <xsd:element name="editChildEntityRecordResponse" type="tns:editChildEntityRecordResponseType"/>
+ <xsd:element name="deleteChildEntityRecord" type="tns:deleteChildEntityRecordRequestType"/>
+ <xsd:element name="deleteChildEntityRecordResponse" type="tns:deleteChildEntityRecordResponseType"/>
+ <xsd:element name="clearChildEntityRecord" type="tns:clearChildEntityRecordRequestType"/>
+ <xsd:element name="clearChildEntityRecordResponse" type="tns:clearChildEntityRecordResponseType"/>
+ <xsd:element name="editAttributeValue" type="tns:editAttributeValueRequestType"/>
+ <xsd:element name="editAttributeValueResponse" type="tns:editAttributeValueResponseType"/>
+ <xsd:element name="newAssocDocument" type="tns:newAssocDocumentRequestType"/>
+ <xsd:element name="newAssocDocumentResponse" type="tns:newAssocDocumentResponseType"/>
+ <xsd:element name="newAttachment" type="tns:newAttachmentRequestType"/>
+ <xsd:element name="newAttachmentResponse" type="tns:newAttachmentResponseType"/>
+ <xsd:element name="executeSystemActivity" type="tns:executeSystemActivityRequestType"/>
+ <xsd:element name="executeSystemActivityResponse" type="tns:executeSystemActivityResponseType"/>
+ <xsd:element name="executeActivity" type="tns:executeActivityRequestType"/>
+ <xsd:element name="executeActivityResponse" type="tns:executeActivityResponseType"/>
+ <xsd:element name="editLossEvent" type="tns:editLossEventRequestType"/>
+ <xsd:element name="editLossEventResponse" type="tns:editLossEventResponseType"/>
+ <xsd:element name="editProblemData" type="tns:editProblemDataRequestType"/>
+ <xsd:element name="editProblemDataResponse" type="tns:editProblemDataResponseType"/>
+ <xsd:element name="newAccessException" type="tns:newAccessExceptionRequestType"/>
+ <xsd:element name="newAccessExceptionResponse" type="tns:newAccessExceptionResponseType"/>
+</xsd:schema>
+</types>
+<message name="newProblemEditDataRequest">
+  <part name="parameters" element="tns:newProblemEditData" /></message>
+<message name="newProblemEditDataResponse">
+  <part name="parameters" element="tns:newProblemEditDataResponse" /></message>
+<message name="newProblemRequest">
+  <part name="parameters" element="tns:newProblem" /></message>
+<message name="newProblemResponse">
+  <part name="parameters" element="tns:newProblemResponse" /></message>
+<message name="cancelProblemRequest">
+  <part name="parameters" element="tns:cancelProblem" /></message>
+<message name="cancelProblemResponse">
+  <part name="parameters" element="tns:cancelProblemResponse" /></message>
+<message name="editEntityRecordRequest">
+  <part name="parameters" element="tns:editEntityRecord" /></message>
+<message name="editEntityRecordResponse">
+  <part name="parameters" element="tns:editEntityRecordResponse" /></message>
+<message name="newChildEntityRecordRequest">
+  <part name="parameters" element="tns:newChildEntityRecord" /></message>
+<message name="newChildEntityRecordResponse">
+  <part name="parameters" element="tns:newChildEntityRecordResponse" /></message>
+<message name="newChildEntityRecordListRequest">
+  <part name="parameters" element="tns:newChildEntityRecordList" /></message>
+<message name="newChildEntityRecordListResponse">
+  <part name="parameters" element="tns:newChildEntityRecordListResponse" /></message>
+<message name="editChildEntityRecordRequest">
+  <part name="parameters" element="tns:editChildEntityRecord" /></message>
+<message name="editChildEntityRecordResponse">
+  <part name="parameters" element="tns:editChildEntityRecordResponse" /></message>
+<message name="deleteChildEntityRecordRequest">
+  <part name="parameters" element="tns:deleteChildEntityRecord" /></message>
+<message name="deleteChildEntityRecordResponse">
+  <part name="parameters" element="tns:deleteChildEntityRecordResponse" /></message>
+<message name="clearChildEntityRecordRequest">
+  <part name="parameters" element="tns:clearChildEntityRecord" /></message>
+<message name="clearChildEntityRecordResponse">
+  <part name="parameters" element="tns:clearChildEntityRecordResponse" /></message>
+<message name="editAttributeValueRequest">
+  <part name="parameters" element="tns:editAttributeValue" /></message>
+<message name="editAttributeValueResponse">
+  <part name="parameters" element="tns:editAttributeValueResponse" /></message>
+<message name="newAssocDocumentRequest">
+  <part name="parameters" element="tns:newAssocDocument" /></message>
+<message name="newAssocDocumentResponse">
+  <part name="parameters" element="tns:newAssocDocumentResponse" /></message>
+<message name="newAttachmentRequest">
+  <part name="parameters" element="tns:newAttachment" /></message>
+<message name="newAttachmentResponse">
+  <part name="parameters" element="tns:newAttachmentResponse" /></message>
+<message name="executeSystemActivityRequest">
+  <part name="parameters" element="tns:executeSystemActivity" /></message>
+<message name="executeSystemActivityResponse">
+  <part name="parameters" element="tns:executeSystemActivityResponse" /></message>
+<message name="executeActivityRequest">
+  <part name="parameters" element="tns:executeActivity" /></message>
+<message name="executeActivityResponse">
+  <part name="parameters" element="tns:executeActivityResponse" /></message>
+<message name="editLossEventRequest">
+  <part name="parameters" element="tns:editLossEvent" /></message>
+<message name="editLossEventResponse">
+  <part name="parameters" element="tns:editLossEventResponse" /></message>
+<message name="editProblemDataRequest">
+  <part name="parameters" element="tns:editProblemData" /></message>
+<message name="editProblemDataResponse">
+  <part name="parameters" element="tns:editProblemDataResponse" /></message>
+<message name="newAccessExceptionRequest">
+  <part name="parameters" element="tns:newAccessException" /></message>
+<message name="newAccessExceptionResponse">
+  <part name="parameters" element="tns:newAccessExceptionResponse" /></message>
+<portType name="ProblemPortType">
+  <operation name="newProblemEditData">
+    <documentation>
+                Bir sorunu bildirin ve verilerini değiştirin;   
+
+                 Parametreler: 
+                     ProblemTypeID*: Problem tipi ID #;   ProblemTitle*: Problem başlığı;   UserID: Kullanıcı Reg. Kod #;   &lt;Requester&gt;  &lt;User&gt;   UserID: Talep eden kullanıcı ID;   &lt;/User&gt;  &lt;Customer&gt;   CustomerID: Müşteri ID #;    Contact: Talep eden kişi;   &lt;/Customer&gt;  &lt;/Requester&gt;  &lt;EntityList&gt;  &lt;Entity&gt;   EntityID: Form tablo ID#;    &lt;EntityAttributeList&gt;   &lt;EntityAttribute&gt;     EntityAttributeID: Form tablo alanı ID#;      EntityAttributeValue: Form tablosu alan değeri**;     &lt;/EntityAttribute&gt;   &lt;/EntityAttributeList&gt;   &lt;RelationshipList&gt;   &lt;Relationship&gt;     RelationshipID: İlişki ID #;      &lt;RelationshipAttributeList&gt;      &lt;RelationshipAttribute&gt;       RelationshipAttributeID: İlgili form tablo alanı ID#;        RelationshipAttributeValue: İlgili form tablosu alan değeri**;       &lt;/RelationshipAttribute&gt;     &lt;/RelationshipAttributeList&gt;    &lt;/Relationship&gt;   &lt;/RelationshipList&gt;   &lt;EntityAttributeFileList&gt;   &lt;EntityAttributeFile&gt;     EntityAttributeID: Form tablo alanı ID#;      FileName: Dosya adı(uzantısı ile birlikte);      FileContent: Dosya ikili içeriği;     &lt;/EntityAttributeFile&gt;   &lt;/EntityAttributeFileList&gt;  &lt;/Entity&gt;  &lt;/EntityList&gt;  &lt;AttributeList&gt;  &lt;Attribute&gt;   AttributeID: EkAlan ID no;    &lt;AttributeValueList&gt;    AttributeValue: EkAlan Değeri*** ;    &lt;/AttributeValueList&gt;  &lt;/Attribute&gt;  &lt;/AttributeList&gt;  
+
+                 * Zorunlu;  
+                 ** Form tablosu alan türüne göre yorumlar:   Numara: Ondalık ve binlik ayracı olmayan sayısal rakamlar;    Ondalık: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HH:MM   Boolean: 0 veya 1;   *** Tipe bağlı notlar:   Sayısal: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Para Birimi: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HHHH:MM 
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;   RecordKey: Kayıt kodu method ile eklendi;   RecordID: Method ile eklenen kaydın ID #;  
+            </documentation>
+    <input message="tns:newProblemEditDataRequest"/>
+    <output message="tns:newProblemEditDataResponse"/>
+  </operation>
+  <operation name="newProblem">
+    <documentation>
+                Problem kaydeder;   
+
+                 Parametreler: 
+                     ProblemTypeID*: Problem tipi ID #;   ProblemTitle*: Problem başlığı;   UserID: Kullanıcı Reg. Kod #;   
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;   RecordKey: Kayıt kodu method ile eklendi;   RecordID: Method ile eklenen kaydın ID #;  
+            </documentation>
+    <input message="tns:newProblemRequest"/>
+    <output message="tns:newProblemResponse"/>
+  </operation>
+  <operation name="cancelProblem">
+    <documentation>
+                Problemi iptal eder;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   Explanation*: Açıklama;   UserID: Kullanıcı Reg. Kod #;   
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:cancelProblemRequest"/>
+    <output message="tns:cancelProblemResponse"/>
+  </operation>
+  <operation name="editEntityRecord">
+    <documentation>
+                Problem form tablosunun kaydını düzenler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   EntityID*: Form tablo ID#;   &lt;EntityAttributeList&gt;  &lt;EntityAttribute&gt;   EntityAttributeID: Form tablo alanı ID#;    EntityAttributeValue: Form tablosu alan değeri**;   &lt;/EntityAttribute&gt;  &lt;/EntityAttributeList&gt;  &lt;RelationshipList&gt;  &lt;Relationship&gt;   RelationshipID: İlişki ID #;    &lt;RelationshipAttribute&gt;    RelationshipAttributeID: İlgili form tablo alanı ID#;     RelationshipAttributeValue: İlgili form tablosu alan değeri**;    &lt;/RelationshipAttribute&gt;  &lt;/Relationship&gt;  &lt;/RelationshipList&gt;  &lt;EntityAttributeFileList&gt;  &lt;EntityAttributeFile&gt;   EntityAttributeID: Form tablo alanı ID#;    FileName: Dosya adı(uzantısı ile birlikte);    FileContent: Dosya ikili içeriği;   &lt;/EntityAttributeFile&gt;  &lt;/EntityAttributeFileList&gt;  
+
+                 * Zorunlu;  
+                 ** Tipe bağlı notlar:   Numara: Ondalık ve binlik ayracı olmayan sayısal rakamlar;    Ondalık: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HH:MM   Boolean: 0 veya 1;  
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:editEntityRecordRequest"/>
+    <output message="tns:editEntityRecordResponse"/>
+  </operation>
+  <operation name="newChildEntityRecord">
+    <documentation>
+                Problem alt düzey form tablosuna bir kayıt ekler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   MainEntityID*: Ana form tablo ID#;   ChildRelationshipID*: Alt düzey form tablo ilişkisi ID #;   &lt;EntityAttributeList&gt;  &lt;EntityAttribute&gt;   EntityAttributeID: Form tablo alanı ID#;    EntityAttributeValue: Form tablosu alan değeri**;   &lt;/EntityAttribute&gt;  &lt;/EntityAttributeList&gt;  &lt;RelationshipList&gt;  &lt;Relationship&gt;   RelationshipID: İlişki ID #;    &lt;RelationshipAttribute&gt;    RelationshipAttributeID: İlgili form tablo alanı ID#;     RelationshipAttributeValue: İlgili form tablosu alan değeri**;    &lt;/RelationshipAttribute&gt;  &lt;/Relationship&gt;  &lt;/RelationshipList&gt;  &lt;EntityAttributeFileList&gt;  &lt;EntityAttributeFile&gt;   EntityAttributeID: Form tablo alanı ID#;    FileName: Dosya adı(uzantısı ile birlikte);    FileContent: Dosya ikili içeriği;   &lt;/EntityAttributeFile&gt;  &lt;/EntityAttributeFileList&gt;  
+
+                 * Zorunlu;  
+                 ** Tipe bağlı notlar:   Numara: Ondalık ve binlik ayracı olmayan sayısal rakamlar;    Ondalık: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HH:MM   Boolean: 0 veya 1;  
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;   RecordKey: Kayıt kodu method ile eklendi;  
+            </documentation>
+    <input message="tns:newChildEntityRecordRequest"/>
+    <output message="tns:newChildEntityRecordResponse"/>
+  </operation>
+  <operation name="newChildEntityRecordList">
+    <documentation>
+                Problem alt düzey form tablosuna bir veya daha fazla kayıt ekler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   MainEntityID*: Ana form tablo ID#;   ChildRelationshipID*: Alt düzey form tablo ilişkisi ID #;   &lt;EntityRecordList&gt;  &lt;EntityRecord&gt;   &lt;EntityAttributeList&gt;   &lt;EntityAttribute&gt;     EntityAttributeID: Form tablo alanı ID#;      EntityAttributeValue: Form tablosu alan değeri**;     &lt;/EntityAttribute&gt;   &lt;/EntityAttributeList&gt;   &lt;RelationshipList&gt;   &lt;Relationship&gt;     RelationshipID: İlişki ID #;      &lt;RelationshipAttribute&gt;      RelationshipAttributeID: İlgili form tablo alanı ID#;       RelationshipAttributeValue: İlgili form tablosu alan değeri**;      &lt;/RelationshipAttribute&gt;    &lt;/Relationship&gt;   &lt;/RelationshipList&gt;   &lt;EntityAttributeFileListList&gt;   &lt;EntityAttributeFile&gt;     EntityAttributeID: Form tablo alanı ID#;      FileName: Dosya adı(uzantısı ile birlikte);      FileContent: Dosya ikili içeriği;     &lt;/EntityAttributeFile&gt;   &lt;/EntityAttributeFileListList&gt;  &lt;/EntityRecord&gt;  &lt;/EntityRecordList&gt;  
+
+                 * Zorunlu;  
+                 ** Tipe bağlı notlar:   Numara: Ondalık ve binlik ayracı olmayan sayısal rakamlar;    Ondalık: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HH:MM   Boolean: 0 veya 1;  
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;   &lt;RecordList&gt;  &lt;Record&gt;   RecordKey: Kayıt kodu method ile eklendi;   &lt;/Record&gt;  &lt;/RecordList&gt; 
+            </documentation>
+    <input message="tns:newChildEntityRecordListRequest"/>
+    <output message="tns:newChildEntityRecordListResponse"/>
+  </operation>
+  <operation name="editChildEntityRecord">
+    <documentation>
+                Problem alt düzey form tablosundan bir kaydı düzenler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   MainEntityID*: Ana form tablo ID#;   ChildRelationshipID*: Alt düzey form tablo ilişkisi ID #;   ChildRecordOID*: Alt düzey form tablosuyla ilgili kaydın kodu;   &lt;EntityAttributeList&gt;  &lt;EntityAttribute&gt;   EntityAttributeID: Form tablo alanı ID#;    EntityAttributeValue: Form tablosu alan değeri**;   &lt;/EntityAttribute&gt;  &lt;/EntityAttributeList&gt;  &lt;RelationshipList&gt;  &lt;Relationship&gt;   RelationshipID: İlişki ID #;    &lt;RelationshipAttribute&gt;    RelationshipAttributeID: İlgili form tablo alanı ID#;     RelationshipAttributeValue: İlgili form tablosu alan değeri**;    &lt;/RelationshipAttribute&gt;  &lt;/Relationship&gt;  &lt;/RelationshipList&gt;  &lt;EntityAttributeFileList&gt;  &lt;EntityAttributeFile&gt;   EntityAttributeID: Form tablo alanı ID#;    FileName: Dosya adı(uzantısı ile birlikte);    FileContent: Dosya ikili içeriği;   &lt;/EntityAttributeFile&gt;  &lt;/EntityAttributeFileList&gt;  
+
+                 * Zorunlu;  
+                 ** Tipe bağlı notlar:   Numara: Ondalık ve binlik ayracı olmayan sayısal rakamlar;    Ondalık: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HH:MM   Boolean: 0 veya 1;  
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:editChildEntityRecordRequest"/>
+    <output message="tns:editChildEntityRecordResponse"/>
+  </operation>
+  <operation name="deleteChildEntityRecord">
+    <documentation>
+                Problem alt düzey form tablosundan bir kaydı siler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   MainEntityID*: Ana form tablo ID#;   ChildRelationshipID*: Alt düzey form tablo ilişkisi ID #;   ChildRecordOID*: Alt düzey form tablosuyla ilgili kaydın kodu;   
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:deleteChildEntityRecordRequest"/>
+    <output message="tns:deleteChildEntityRecordResponse"/>
+  </operation>
+  <operation name="clearChildEntityRecord">
+    <documentation>
+                İlgili tüm kayıtları sorunlu alt düzey form tablosundan siler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   MainEntityID*: Ana form tablo ID#;   ChildRelationshipID*: Alt düzey form tablo ilişkisi ID #;   
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:clearChildEntityRecordRequest"/>
+    <output message="tns:clearChildEntityRecordResponse"/>
+  </operation>
+  <operation name="editAttributeValue">
+    <documentation>
+                Probleme ait ekalanların değerini düzenler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   &lt;AttributeList&gt;  &lt;Attribute&gt;   AttributeID*: EkAlan ID no;    &lt;AttributeValueList&gt;    AttributeValue: EkAlan Değeri ;    &lt;/AttributeValueList&gt;  &lt;/Attribute&gt;  &lt;/AttributeList&gt;  
+
+                 * Zorunlu;  
+                 ** Tipe bağlı notlar:   Sayısal: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Para Birimi: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HHHH:MM 
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:editAttributeValueRequest"/>
+    <output message="tns:editAttributeValueResponse"/>
+  </operation>
+  <operation name="newAssocDocument">
+    <documentation>
+                Problem aktivitesine SE Doküman modülünde bulunan bir dosyayı ilişkilendirir;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   ActivityID*: Aktivite ID #;   DocumentID*: Doküman ID #;   
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:newAssocDocumentRequest"/>
+    <output message="tns:newAssocDocumentResponse"/>
+  </operation>
+  <operation name="newAttachment">
+    <documentation>
+                Problem aktivitesine bir dosya ekler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   ActivityID*: Aktivite ID #;   FileName*: Dosya adı(uzantısı ile birlikte);   FileContent*: Dosya ikili içeriği;   UserID: Kullanıcı Reg. Kod #;   AttachmentID: Since version 2.0.10, this parameter has become obsolete. On import, leave it blank.;   AttachmentName: Eklenti Adı;   Summary: Özet;   
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;   RecordKey: Kayıt kodu method ile eklendi;   RecordID: Method ile eklenen kaydın ID #;  
+            </documentation>
+    <input message="tns:newAttachmentRequest"/>
+    <output message="tns:newAttachmentResponse"/>
+  </operation>
+  <operation name="executeSystemActivity">
+    <documentation>
+                Problem için bir asenkronize sistem aktivite yürütür;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   ActivityID*: Aktivite ID #;   ActivityOrder: Etkinlik sipariş numarası;   
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:executeSystemActivityRequest"/>
+    <output message="tns:executeSystemActivityResponse"/>
+  </operation>
+  <operation name="executeActivity">
+    <documentation>
+                Kullanıcı aktivitesi veya problem kararı yürütür;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   ActivityID*: Aktivite ID #;   ActionSequence*: Aksiyon sıra numarası;   UserID: Kullanıcı Reg. Kod #;   ActivityOrder: Etkinlik sipariş numarası;   
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:executeActivityRequest"/>
+    <output message="tns:executeActivityResponse"/>
+  </operation>
+  <operation name="editLossEvent">
+    <documentation>
+                Bir kayıp olayındaki bilgileri kaydeder;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   LossEventType*: İşletme zararı tipi (1-Kök kaybı; 2-Tekrarlayan kayıp; 3-Kazanç; 4-Ramak kala);   RootLossProblemID: Kök kaybı (Problem ID #);   OccurrenceDate*: Bulgu Tarihi. Tarih Formatı Y-M-D Formatında Olmalı (Yıl-Ay-Gün);   RecognitionDate*: Tanıma tarihi. Tarih Formatı Y-M-D Formatında Olmalı (Yıl-Ay-Gün);   RecordDate*: Kayıt Tarihi. Tarih Formatı Y-M-D Formatında Olmalı (Yıl-Ay-Gün);   GrossLossValue*: Brüt tutar (Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar);   &lt;ValueItemList&gt;  &lt;ValueItem&gt;   ItemName*: Öğe Adı;    ItemValue*: Değer (Kayıp değeri, Kurtarma değeri, Kaçırılan değere yakın);   &lt;/ValueItem&gt;  &lt;/ValueItemList&gt;  
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:editLossEventRequest"/>
+    <output message="tns:editLossEventResponse"/>
+  </operation>
+  <operation name="editProblemData">
+    <documentation>
+                Problem verilerini düzenler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   UserID: Kullanıcı Reg. Kod #;   &lt;Requester&gt;  &lt;User&gt;   UserID: Talep eden kullanıcı ID;   &lt;/User&gt;  &lt;Customer&gt;   CustomerID: Müşteri ID #;    Contact: Talep eden kişi;   &lt;/Customer&gt;  &lt;/Requester&gt;  
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;  
+            </documentation>
+    <input message="tns:editProblemDataRequest"/>
+    <output message="tns:editProblemDataResponse"/>
+  </operation>
+  <operation name="newAccessException">
+    <documentation>
+                Sorunun bir veya daha fazla erişim özel bir durumekler;   
+
+                 Parametreler: 
+                     ProblemID*: Problem ID #;   &lt;AccessExceptionList&gt;  &lt;AccessException&gt;   UserID: Kullanıcı Reg. Kod #;   &lt;/AccessException&gt;  &lt;/AccessExceptionList&gt;  
+
+                 * Zorunlu;  
+                
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;   &lt;RecordDetailList&gt;  &lt;RecordDetail&gt;   Status: Kayıt işleme durumu. Değeri:;     SUCCESS: Başarıyla işlenen kayıt;     FAILURE: Kayıt işleminde bir hata oluştu;    Code: Kayıt işlem kodu;    Detail: Kayıt işlem detayı;    RecordKey: Kayıt kodu eklendi;   &lt;/RecordDetail&gt;  &lt;/RecordDetailList&gt; 
+            </documentation>
+    <input message="tns:newAccessExceptionRequest"/>
+    <output message="tns:newAccessExceptionResponse"/>
+  </operation>
+</portType>
+<binding name="ProblemBinding" type="tns:ProblemPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="newProblemEditData">
+    <soap:operation soapAction="urn:problem#newProblemEditData" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="newProblem">
+    <soap:operation soapAction="urn:problem#newProblem" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="cancelProblem">
+    <soap:operation soapAction="urn:problem#cancelProblem" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="editEntityRecord">
+    <soap:operation soapAction="urn:problem#editEntityRecord" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="newChildEntityRecord">
+    <soap:operation soapAction="urn:problem#newChildEntityRecord" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="newChildEntityRecordList">
+    <soap:operation soapAction="urn:problem#newChildEntityRecordList" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="editChildEntityRecord">
+    <soap:operation soapAction="urn:problem#editChildEntityRecord" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="deleteChildEntityRecord">
+    <soap:operation soapAction="urn:problem#deleteChildEntityRecord" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="clearChildEntityRecord">
+    <soap:operation soapAction="urn:problem#clearChildEntityRecord" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="editAttributeValue">
+    <soap:operation soapAction="urn:problem#editAttributeValue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="newAssocDocument">
+    <soap:operation soapAction="urn:problem#newAssocDocument" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="newAttachment">
+    <soap:operation soapAction="urn:problem#newAttachment" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="executeSystemActivity">
+    <soap:operation soapAction="urn:problem#executeSystemActivity" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="executeActivity">
+    <soap:operation soapAction="urn:problem#executeActivity" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="editLossEvent">
+    <soap:operation soapAction="urn:problem#editLossEvent" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="editProblemData">
+    <soap:operation soapAction="urn:problem#editProblemData" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+  <operation name="newAccessException">
+    <soap:operation soapAction="urn:problem#newAccessException" style="document"/>
+    <input><soap:body use="literal" namespace="urn:problem"/></input>
+    <output><soap:body use="literal" namespace="urn:problem"/></output>
+  </operation>
+</binding>
+<service name="Problem">
+  <port name="ProblemPort" binding="tns:ProblemBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/pb_ws.php"/>
+  </port>
+</service>
+</definitions>

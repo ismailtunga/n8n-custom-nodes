@@ -1,0 +1,2091 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Baglanti_Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="Baglanti_TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Baglanti_TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriSiparisKayit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pChIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrKiymet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChBarkod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIcerik" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlAlSms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlGnSms" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLuOdemeSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlAdresFarkli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIlce" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChAdres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriSiparisKayitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriSiparisKayitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisGirisiDetayli">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pChIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrKiymet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChBarkod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIcerik" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlAlSms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlGnSms" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriMngNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriBayiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLuOdemeSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlAdresFarkli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIlce" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChAdres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSemt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMahalle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMeydanBulvar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChCadde" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSokak" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelIs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiDairesi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiNumarasi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlKapidaOdeme" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisGirisiDetayliResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiparisGirisiDetayliResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisGirisiDetayliV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pChIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrKiymet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChBarkod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIcerik" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlAlSms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlGnSms" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriMngNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriBayiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLuOdemeSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlAdresFarkli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIlce" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChAdres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSemt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMahalle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMeydanBulvar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChCadde" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSokak" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelEv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelCep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelIs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiDairesi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiNumarasi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlKapidaOdeme" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisGirisiDetayliV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiparisGirisiDetayliV2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisGirisiDetayliV3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pChIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrKiymet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChBarkod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIcerik" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pGonderiHizmetSekli" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pTeslimSekli" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlAlSms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlGnSms" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriMngNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriBayiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLuOdemeSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlAdresFarkli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIlce" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChAdres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSemt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMahalle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMeydanBulvar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChCadde" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSokak" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelEv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelCep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelIs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiDairesi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiNumarasi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlKapidaOdeme" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMalBedeliOdemeSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPlatformKisaAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPlatformSatisKodu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisGirisiDetayliV3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiparisGirisiDetayliV3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisGirisiDetayliV4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pChIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrKiymet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChBarkod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIcerik" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pGonderiHizmetSekli" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pTeslimSekli" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlAlSms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlGnSms" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaReferansList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriMngNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriBayiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLuOdemeSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlAdresFarkli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIlce" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChAdres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSemt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMahalle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMeydanBulvar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChCadde" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSokak" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelEv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelCep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelIs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiDairesi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiNumarasi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFlKapidaOdeme" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMalBedeliOdemeSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPlatformKisaAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPlatformSatisKodu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisGirisiDetayliV4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiparisGirisiDetayliV4Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisAliciKayit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriBayiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAliciMusteriAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIlce" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChAdres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelEv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelCep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelIs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiDairesi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiNumarasi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisAliciKayitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiparisAliciKayitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaturaSiparisListesi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaturaSiparisListesiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FaturaSiparisListesiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaturaSiparisListesiByTarih">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisTarih" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaturaSiparisListesiByTarihResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FaturaSiparisListesiByTarihResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriSiparisIptal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisTarihi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriSiparisIptalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriSiparisIptalResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WmsIadeGirisi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNoIade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WmsIadeGirisiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WmsIadeGirisiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisUpdateParcastring">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisUpdateParcastringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiparisUpdateParcastringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisUpdateParcastringV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlKapidaTahsilat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUrunBedeli" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiparisUpdateParcastringV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiparisUpdateParcastringV2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BayiAdresiGecersiz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBayiNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BayiAdresiGecersizResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BayiAdresiGecersizResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BayiIhbarGirisi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChMusteriSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBayiKodu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIcerik" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLuOdemeSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKargoParcaList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BayiIhbarGirisiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BayiIhbarGirisiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriBayiBilgileri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pBayiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFirmaAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTxAdres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIlce" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChIl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChTelIs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiDairesi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChVergiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEmEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriBayiBilgileriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriBayiBilgileriResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriBayiIslem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRequestType" type="tns:RequestType" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriBayiInfo" type="tns:MusteriBayiInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="RequestType">
+        <s:restriction base="s:string">
+          <s:enumeration value="INSERT" />
+          <s:enumeration value="UPDATE" />
+          <s:enumeration value="DELETE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="MusteriBayiInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MngMusteriNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BayiReferansId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BayiType" type="tns:BayiType" />
+          <s:element minOccurs="0" maxOccurs="1" name="BayiFirmaAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Yetkili" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BayiSahisAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BayiSahisSoyadi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefon_Ev" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefon_Is" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefon_Gsm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Il" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ilce" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VergiDairesi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VergiNumarasi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SahisTcKimlikNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="BayiType">
+        <s:restriction base="s:string">
+          <s:enumeration value="SAHIS" />
+          <s:enumeration value="FIRMA" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="MusteriBayiIslemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriBayiIslemResult" type="tns:MusteriBayiIslemResponce" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MusteriBayiIslemResponce">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MngMusteriNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IstekSonuc" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IstekHata" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KargoBilgileriByTarih">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTarih" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRaporType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlAltfirma" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KargoBilgileriByTarihResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KargoBilgileriByTarihResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KargoBilgileriByReferans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pGonderiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEFaturaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRaporType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KargoBilgileriByReferansResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KargoBilgileriByReferansResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MngGonderiKgDesiUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pAdet" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pKg" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDesi" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MngGonderiKgDesiUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MngGonderiKgDesiUpdateResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GonderiTeslimatProblemleri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pYanitlandi" type="tns:YanitlanmaDurumu" />
+            <s:element minOccurs="1" maxOccurs="1" name="pYanitSekli" type="tns:YanitSekli" />
+            <s:element minOccurs="0" maxOccurs="1" name="pYanitlamaTarih1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pYanitlamaTarih2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="YanitlanmaDurumu">
+        <s:restriction base="s:string">
+          <s:enumeration value="EVET" />
+          <s:enumeration value="HAYIR" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="YanitSekli">
+        <s:restriction base="s:string">
+          <s:enumeration value="TUMU" />
+          <s:enumeration value="OLUMLU" />
+          <s:enumeration value="OLUMSUZ" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GonderiTeslimatProblemleriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GonderiTeslimatProblemleriResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GonderiTeslimatProblemiIadeYaniti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pProblemTicketId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pYanit" type="tns:YanitSekli" />
+            <s:element minOccurs="0" maxOccurs="1" name="pYanitAciklama" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pYanitlayanAdiSoyadi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GonderiTeslimatProblemiIadeYanitiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GonderiTeslimatProblemiIadeYanitiResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriOzelRapor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRaporNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBasTarihi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBitTarihi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDiger" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriOzelRaporResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriOzelRaporResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MNGGonderiBarkod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="req" type="tns:GonderiBarkodRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GonderiBarkodRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WsUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WsPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferansNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IrsaliyeNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutBarkodType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FlKapidaTahsilat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UrunBedeli" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChMesaj" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EkString1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EkString2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EkString3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EkString4" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HatadaReferansBarkoduBas" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParcaBilgi" type="tns:ArrayOfGonderiParca" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGonderiParca">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GonderiParca" nillable="true" type="tns:GonderiParca" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GonderiParca">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Kg" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Desi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Adet" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icerik" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParcaBarkod" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MNGGonderiBarkodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MNGGonderiBarkodResult" type="tns:GonderiBarkodResponce" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GonderiBarkodResponce">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReferansNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MngKargoFaturaSeriNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MngKargoGonderiNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GonderiBarkods" type="tns:ArrayOfGonderiBarkodBilgi" />
+          <s:element minOccurs="1" maxOccurs="1" name="IstekBasarili" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IstekHata" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGonderiBarkodBilgi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GonderiBarkodBilgi" nillable="true" type="tns:GonderiBarkodBilgi" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GonderiBarkodBilgi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BarkodParcaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BarkodValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BarkodText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TekBarkodGonderiIptali">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNmGonderiNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TekBarkodGonderiIptaliResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TekBarkodGonderiIptaliResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KargoTakipByReferans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullanici" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pReferansId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KargoTakipByReferansResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KargoTakipByReferansResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriTeslimatIptalIstegi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIslemAciklama" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriTeslimatIptalIstegiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriTeslimatIptalIstegiResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pYapilanIslem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Baglanti_TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Baglanti_Test" />
+  </wsdl:message>
+  <wsdl:message name="Baglanti_TestSoapOut">
+    <wsdl:part name="parameters" element="tns:Baglanti_TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriSiparisKayitSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriSiparisKayit" />
+  </wsdl:message>
+  <wsdl:message name="MusteriSiparisKayitSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriSiparisKayitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliSoapIn">
+    <wsdl:part name="parameters" element="tns:SiparisGirisiDetayli" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliSoapOut">
+    <wsdl:part name="parameters" element="tns:SiparisGirisiDetayliResponse" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV2SoapIn">
+    <wsdl:part name="parameters" element="tns:SiparisGirisiDetayliV2" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV2SoapOut">
+    <wsdl:part name="parameters" element="tns:SiparisGirisiDetayliV2Response" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV3SoapIn">
+    <wsdl:part name="parameters" element="tns:SiparisGirisiDetayliV3" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV3SoapOut">
+    <wsdl:part name="parameters" element="tns:SiparisGirisiDetayliV3Response" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV4SoapIn">
+    <wsdl:part name="parameters" element="tns:SiparisGirisiDetayliV4" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV4SoapOut">
+    <wsdl:part name="parameters" element="tns:SiparisGirisiDetayliV4Response" />
+  </wsdl:message>
+  <wsdl:message name="SiparisAliciKayitSoapIn">
+    <wsdl:part name="parameters" element="tns:SiparisAliciKayit" />
+  </wsdl:message>
+  <wsdl:message name="SiparisAliciKayitSoapOut">
+    <wsdl:part name="parameters" element="tns:SiparisAliciKayitResponse" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisListesiSoapIn">
+    <wsdl:part name="parameters" element="tns:FaturaSiparisListesi" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisListesiSoapOut">
+    <wsdl:part name="parameters" element="tns:FaturaSiparisListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisListesiByTarihSoapIn">
+    <wsdl:part name="parameters" element="tns:FaturaSiparisListesiByTarih" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisListesiByTarihSoapOut">
+    <wsdl:part name="parameters" element="tns:FaturaSiparisListesiByTarihResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriSiparisIptalSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriSiparisIptal" />
+  </wsdl:message>
+  <wsdl:message name="MusteriSiparisIptalSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriSiparisIptalResponse" />
+  </wsdl:message>
+  <wsdl:message name="WmsIadeGirisiSoapIn">
+    <wsdl:part name="parameters" element="tns:WmsIadeGirisi" />
+  </wsdl:message>
+  <wsdl:message name="WmsIadeGirisiSoapOut">
+    <wsdl:part name="parameters" element="tns:WmsIadeGirisiResponse" />
+  </wsdl:message>
+  <wsdl:message name="SiparisUpdateParcastringSoapIn">
+    <wsdl:part name="parameters" element="tns:SiparisUpdateParcastring" />
+  </wsdl:message>
+  <wsdl:message name="SiparisUpdateParcastringSoapOut">
+    <wsdl:part name="parameters" element="tns:SiparisUpdateParcastringResponse" />
+  </wsdl:message>
+  <wsdl:message name="SiparisUpdateParcastringV2SoapIn">
+    <wsdl:part name="parameters" element="tns:SiparisUpdateParcastringV2" />
+  </wsdl:message>
+  <wsdl:message name="SiparisUpdateParcastringV2SoapOut">
+    <wsdl:part name="parameters" element="tns:SiparisUpdateParcastringV2Response" />
+  </wsdl:message>
+  <wsdl:message name="BayiAdresiGecersizSoapIn">
+    <wsdl:part name="parameters" element="tns:BayiAdresiGecersiz" />
+  </wsdl:message>
+  <wsdl:message name="BayiAdresiGecersizSoapOut">
+    <wsdl:part name="parameters" element="tns:BayiAdresiGecersizResponse" />
+  </wsdl:message>
+  <wsdl:message name="BayiIhbarGirisiSoapIn">
+    <wsdl:part name="parameters" element="tns:BayiIhbarGirisi" />
+  </wsdl:message>
+  <wsdl:message name="BayiIhbarGirisiSoapOut">
+    <wsdl:part name="parameters" element="tns:BayiIhbarGirisiResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriBayiBilgileriSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriBayiBilgileri" />
+  </wsdl:message>
+  <wsdl:message name="MusteriBayiBilgileriSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriBayiBilgileriResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriBayiIslemSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriBayiIslem" />
+  </wsdl:message>
+  <wsdl:message name="MusteriBayiIslemSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriBayiIslemResponse" />
+  </wsdl:message>
+  <wsdl:message name="KargoBilgileriByTarihSoapIn">
+    <wsdl:part name="parameters" element="tns:KargoBilgileriByTarih" />
+  </wsdl:message>
+  <wsdl:message name="KargoBilgileriByTarihSoapOut">
+    <wsdl:part name="parameters" element="tns:KargoBilgileriByTarihResponse" />
+  </wsdl:message>
+  <wsdl:message name="KargoBilgileriByReferansSoapIn">
+    <wsdl:part name="parameters" element="tns:KargoBilgileriByReferans" />
+  </wsdl:message>
+  <wsdl:message name="KargoBilgileriByReferansSoapOut">
+    <wsdl:part name="parameters" element="tns:KargoBilgileriByReferansResponse" />
+  </wsdl:message>
+  <wsdl:message name="MngGonderiKgDesiUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MngGonderiKgDesiUpdate" />
+  </wsdl:message>
+  <wsdl:message name="MngGonderiKgDesiUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MngGonderiKgDesiUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GonderiTeslimatProblemleriSoapIn">
+    <wsdl:part name="parameters" element="tns:GonderiTeslimatProblemleri" />
+  </wsdl:message>
+  <wsdl:message name="GonderiTeslimatProblemleriSoapOut">
+    <wsdl:part name="parameters" element="tns:GonderiTeslimatProblemleriResponse" />
+  </wsdl:message>
+  <wsdl:message name="GonderiTeslimatProblemiIadeYanitiSoapIn">
+    <wsdl:part name="parameters" element="tns:GonderiTeslimatProblemiIadeYaniti" />
+  </wsdl:message>
+  <wsdl:message name="GonderiTeslimatProblemiIadeYanitiSoapOut">
+    <wsdl:part name="parameters" element="tns:GonderiTeslimatProblemiIadeYanitiResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriOzelRaporSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriOzelRapor" />
+  </wsdl:message>
+  <wsdl:message name="MusteriOzelRaporSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriOzelRaporResponse" />
+  </wsdl:message>
+  <wsdl:message name="MNGGonderiBarkodSoapIn">
+    <wsdl:part name="parameters" element="tns:MNGGonderiBarkod" />
+  </wsdl:message>
+  <wsdl:message name="MNGGonderiBarkodSoapOut">
+    <wsdl:part name="parameters" element="tns:MNGGonderiBarkodResponse" />
+  </wsdl:message>
+  <wsdl:message name="TekBarkodGonderiIptaliSoapIn">
+    <wsdl:part name="parameters" element="tns:TekBarkodGonderiIptali" />
+  </wsdl:message>
+  <wsdl:message name="TekBarkodGonderiIptaliSoapOut">
+    <wsdl:part name="parameters" element="tns:TekBarkodGonderiIptaliResponse" />
+  </wsdl:message>
+  <wsdl:message name="KargoTakipByReferansSoapIn">
+    <wsdl:part name="parameters" element="tns:KargoTakipByReferans" />
+  </wsdl:message>
+  <wsdl:message name="KargoTakipByReferansSoapOut">
+    <wsdl:part name="parameters" element="tns:KargoTakipByReferansResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriTeslimatIptalIstegiSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriTeslimatIptalIstegi" />
+  </wsdl:message>
+  <wsdl:message name="MusteriTeslimatIptalIstegiSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriTeslimatIptalIstegiResponse" />
+  </wsdl:message>
+  <wsdl:message name="Baglanti_TestHttpPostIn" />
+  <wsdl:message name="Baglanti_TestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriSiparisKayitHttpPostIn">
+    <wsdl:part name="pChIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pPrKiymet" type="s:string" />
+    <wsdl:part name="pChBarkod" type="s:string" />
+    <wsdl:part name="pChIcerik" type="s:string" />
+    <wsdl:part name="pFlAlSms" type="s:string" />
+    <wsdl:part name="pFlGnSms" type="s:string" />
+    <wsdl:part name="pKargoParcaList" type="s:string" />
+    <wsdl:part name="pAliciMusteriNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriAdi" type="s:string" />
+    <wsdl:part name="pChSiparisNo" type="s:string" />
+    <wsdl:part name="pLuOdemeSekli" type="s:string" />
+    <wsdl:part name="pFlAdresFarkli" type="s:string" />
+    <wsdl:part name="pChIl" type="s:string" />
+    <wsdl:part name="pChIlce" type="s:string" />
+    <wsdl:part name="pChAdres" type="s:string" />
+    <wsdl:part name="kullaniciAdi" type="s:string" />
+    <wsdl:part name="Sifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriSiparisKayitHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliHttpPostIn">
+    <wsdl:part name="pChIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pPrKiymet" type="s:string" />
+    <wsdl:part name="pChBarkod" type="s:string" />
+    <wsdl:part name="pChIcerik" type="s:string" />
+    <wsdl:part name="pFlAlSms" type="s:string" />
+    <wsdl:part name="pFlGnSms" type="s:string" />
+    <wsdl:part name="pKargoParcaList" type="s:string" />
+    <wsdl:part name="pAliciMusteriMngNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriBayiNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriAdi" type="s:string" />
+    <wsdl:part name="pChSiparisNo" type="s:string" />
+    <wsdl:part name="pLuOdemeSekli" type="s:string" />
+    <wsdl:part name="pFlAdresFarkli" type="s:string" />
+    <wsdl:part name="pChIl" type="s:string" />
+    <wsdl:part name="pChIlce" type="s:string" />
+    <wsdl:part name="pChAdres" type="s:string" />
+    <wsdl:part name="pChSemt" type="s:string" />
+    <wsdl:part name="pChMahalle" type="s:string" />
+    <wsdl:part name="pChMeydanBulvar" type="s:string" />
+    <wsdl:part name="pChCadde" type="s:string" />
+    <wsdl:part name="pChSokak" type="s:string" />
+    <wsdl:part name="pChTelIs" type="s:string" />
+    <wsdl:part name="pChFax" type="s:string" />
+    <wsdl:part name="pChEmail" type="s:string" />
+    <wsdl:part name="pChVergiDairesi" type="s:string" />
+    <wsdl:part name="pChVergiNumarasi" type="s:string" />
+    <wsdl:part name="pFlKapidaOdeme" type="s:string" />
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV2HttpPostIn">
+    <wsdl:part name="pChIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pPrKiymet" type="s:string" />
+    <wsdl:part name="pChBarkod" type="s:string" />
+    <wsdl:part name="pChIcerik" type="s:string" />
+    <wsdl:part name="pFlAlSms" type="s:string" />
+    <wsdl:part name="pFlGnSms" type="s:string" />
+    <wsdl:part name="pKargoParcaList" type="s:string" />
+    <wsdl:part name="pAliciMusteriMngNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriBayiNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriAdi" type="s:string" />
+    <wsdl:part name="pChSiparisNo" type="s:string" />
+    <wsdl:part name="pLuOdemeSekli" type="s:string" />
+    <wsdl:part name="pFlAdresFarkli" type="s:string" />
+    <wsdl:part name="pChIl" type="s:string" />
+    <wsdl:part name="pChIlce" type="s:string" />
+    <wsdl:part name="pChAdres" type="s:string" />
+    <wsdl:part name="pChSemt" type="s:string" />
+    <wsdl:part name="pChMahalle" type="s:string" />
+    <wsdl:part name="pChMeydanBulvar" type="s:string" />
+    <wsdl:part name="pChCadde" type="s:string" />
+    <wsdl:part name="pChSokak" type="s:string" />
+    <wsdl:part name="pChTelEv" type="s:string" />
+    <wsdl:part name="pChTelCep" type="s:string" />
+    <wsdl:part name="pChTelIs" type="s:string" />
+    <wsdl:part name="pChFax" type="s:string" />
+    <wsdl:part name="pChEmail" type="s:string" />
+    <wsdl:part name="pChVergiDairesi" type="s:string" />
+    <wsdl:part name="pChVergiNumarasi" type="s:string" />
+    <wsdl:part name="pFlKapidaOdeme" type="s:string" />
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV3HttpPostIn">
+    <wsdl:part name="pChIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pPrKiymet" type="s:string" />
+    <wsdl:part name="pChBarkod" type="s:string" />
+    <wsdl:part name="pChIcerik" type="s:string" />
+    <wsdl:part name="pGonderiHizmetSekli" type="s:string" />
+    <wsdl:part name="pTeslimSekli" type="s:string" />
+    <wsdl:part name="pFlAlSms" type="s:string" />
+    <wsdl:part name="pFlGnSms" type="s:string" />
+    <wsdl:part name="pKargoParcaList" type="s:string" />
+    <wsdl:part name="pAliciMusteriMngNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriBayiNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriAdi" type="s:string" />
+    <wsdl:part name="pChSiparisNo" type="s:string" />
+    <wsdl:part name="pLuOdemeSekli" type="s:string" />
+    <wsdl:part name="pFlAdresFarkli" type="s:string" />
+    <wsdl:part name="pChIl" type="s:string" />
+    <wsdl:part name="pChIlce" type="s:string" />
+    <wsdl:part name="pChAdres" type="s:string" />
+    <wsdl:part name="pChSemt" type="s:string" />
+    <wsdl:part name="pChMahalle" type="s:string" />
+    <wsdl:part name="pChMeydanBulvar" type="s:string" />
+    <wsdl:part name="pChCadde" type="s:string" />
+    <wsdl:part name="pChSokak" type="s:string" />
+    <wsdl:part name="pChTelEv" type="s:string" />
+    <wsdl:part name="pChTelCep" type="s:string" />
+    <wsdl:part name="pChTelIs" type="s:string" />
+    <wsdl:part name="pChFax" type="s:string" />
+    <wsdl:part name="pChEmail" type="s:string" />
+    <wsdl:part name="pChVergiDairesi" type="s:string" />
+    <wsdl:part name="pChVergiNumarasi" type="s:string" />
+    <wsdl:part name="pFlKapidaOdeme" type="s:string" />
+    <wsdl:part name="pMalBedeliOdemeSekli" type="s:string" />
+    <wsdl:part name="pPlatformKisaAdi" type="s:string" />
+    <wsdl:part name="pPlatformSatisKodu" type="s:string" />
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV3HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV4HttpPostIn">
+    <wsdl:part name="pChIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pPrKiymet" type="s:string" />
+    <wsdl:part name="pChBarkod" type="s:string" />
+    <wsdl:part name="pChIcerik" type="s:string" />
+    <wsdl:part name="pGonderiHizmetSekli" type="s:string" />
+    <wsdl:part name="pTeslimSekli" type="s:string" />
+    <wsdl:part name="pFlAlSms" type="s:string" />
+    <wsdl:part name="pFlGnSms" type="s:string" />
+    <wsdl:part name="pKargoParcaList" type="s:string" />
+    <wsdl:part name="pKargoParcaReferansList" type="s:string" />
+    <wsdl:part name="pAliciMusteriMngNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriBayiNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriAdi" type="s:string" />
+    <wsdl:part name="pChSiparisNo" type="s:string" />
+    <wsdl:part name="pLuOdemeSekli" type="s:string" />
+    <wsdl:part name="pFlAdresFarkli" type="s:string" />
+    <wsdl:part name="pChIl" type="s:string" />
+    <wsdl:part name="pChIlce" type="s:string" />
+    <wsdl:part name="pChAdres" type="s:string" />
+    <wsdl:part name="pChSemt" type="s:string" />
+    <wsdl:part name="pChMahalle" type="s:string" />
+    <wsdl:part name="pChMeydanBulvar" type="s:string" />
+    <wsdl:part name="pChCadde" type="s:string" />
+    <wsdl:part name="pChSokak" type="s:string" />
+    <wsdl:part name="pChTelEv" type="s:string" />
+    <wsdl:part name="pChTelCep" type="s:string" />
+    <wsdl:part name="pChTelIs" type="s:string" />
+    <wsdl:part name="pChFax" type="s:string" />
+    <wsdl:part name="pChEmail" type="s:string" />
+    <wsdl:part name="pChVergiDairesi" type="s:string" />
+    <wsdl:part name="pChVergiNumarasi" type="s:string" />
+    <wsdl:part name="pFlKapidaOdeme" type="s:string" />
+    <wsdl:part name="pMalBedeliOdemeSekli" type="s:string" />
+    <wsdl:part name="pPlatformKisaAdi" type="s:string" />
+    <wsdl:part name="pPlatformSatisKodu" type="s:string" />
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisGirisiDetayliV4HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisAliciKayitHttpPostIn">
+    <wsdl:part name="pAliciMusteriBayiNo" type="s:string" />
+    <wsdl:part name="pAliciMusteriAdi" type="s:string" />
+    <wsdl:part name="pChIl" type="s:string" />
+    <wsdl:part name="pChIlce" type="s:string" />
+    <wsdl:part name="pChAdres" type="s:string" />
+    <wsdl:part name="pChTelEv" type="s:string" />
+    <wsdl:part name="pChTelCep" type="s:string" />
+    <wsdl:part name="pChTelIs" type="s:string" />
+    <wsdl:part name="pChEmail" type="s:string" />
+    <wsdl:part name="pChVergiDairesi" type="s:string" />
+    <wsdl:part name="pChVergiNumarasi" type="s:string" />
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisAliciKayitHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisListesiHttpPostIn">
+    <wsdl:part name="pSiparisNo" type="s:string" />
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisListesiHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisListesiByTarihHttpPostIn">
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSiparisTarih" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisListesiByTarihHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="WmsIadeGirisiHttpPostIn">
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pSiparisNo" type="s:string" />
+    <wsdl:part name="pSiparisNoIade" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WmsIadeGirisiHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisUpdateParcastringHttpPostIn">
+    <wsdl:part name="pKullaniciAd" type="s:string" />
+    <wsdl:part name="pKullaniciSifre" type="s:string" />
+    <wsdl:part name="pSiparisNo" type="s:string" />
+    <wsdl:part name="pIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pKargoParcaList" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisUpdateParcastringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisUpdateParcastringV2HttpPostIn">
+    <wsdl:part name="pKullaniciAd" type="s:string" />
+    <wsdl:part name="pKullaniciSifre" type="s:string" />
+    <wsdl:part name="pSiparisNo" type="s:string" />
+    <wsdl:part name="pIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pKargoParcaList" type="s:string" />
+    <wsdl:part name="pFlKapidaTahsilat" type="s:string" />
+    <wsdl:part name="pUrunBedeli" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SiparisUpdateParcastringV2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BayiAdresiGecersizHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pBayiNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BayiAdresiGecersizHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BayiIhbarGirisiHttpPostIn">
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pChMusteriSifre" type="s:string" />
+    <wsdl:part name="pBayiKodu" type="s:string" />
+    <wsdl:part name="pChIcerik" type="s:string" />
+    <wsdl:part name="pLuOdemeSekli" type="s:string" />
+    <wsdl:part name="pChSiparisNo" type="s:string" />
+    <wsdl:part name="pChIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pKargoParcaList" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BayiIhbarGirisiHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriBayiBilgileriHttpPostIn">
+    <wsdl:part name="pBayiNo" type="s:string" />
+    <wsdl:part name="pChFirmaAdi" type="s:string" />
+    <wsdl:part name="pTxAdres" type="s:string" />
+    <wsdl:part name="pChIlce" type="s:string" />
+    <wsdl:part name="pChIl" type="s:string" />
+    <wsdl:part name="pChTelIs" type="s:string" />
+    <wsdl:part name="pChFax" type="s:string" />
+    <wsdl:part name="pChVergiDairesi" type="s:string" />
+    <wsdl:part name="pChVergiNo" type="s:string" />
+    <wsdl:part name="pEmEmail" type="s:string" />
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriBayiBilgileriHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="KargoTakipByReferansHttpPostIn">
+    <wsdl:part name="pKullanici" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pReferansId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KargoTakipByReferansHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="MusteriKargoSiparisSoap">
+    <wsdl:operation name="Baglanti_Test">
+      <wsdl:input message="tns:Baglanti_TestSoapIn" />
+      <wsdl:output message="tns:Baglanti_TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriSiparisKayit">
+      <wsdl:input message="tns:MusteriSiparisKayitSoapIn" />
+      <wsdl:output message="tns:MusteriSiparisKayitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayli">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Müşteri Sipariş Kayıt </wsdl:documentation>
+      <wsdl:input message="tns:SiparisGirisiDetayliSoapIn" />
+      <wsdl:output message="tns:SiparisGirisiDetayliSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Müşteri Sipariş Kayıt  (SiparisGirisDetayli ya ek olarak Alıcının Cep ve Ev Telefonu Bilgileri Eklendi)</wsdl:documentation>
+      <wsdl:input message="tns:SiparisGirisiDetayliV2SoapIn" />
+      <wsdl:output message="tns:SiparisGirisiDetayliV2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Müşteri Sipariş Kayıt  (SiparisGirisDetayliV2 ye ek olarak pGonderiHizmetSekli , pTeslimSekli , pPlatformKisaAdi ve pPlatformSatisKodu, Eklendi)</wsdl:documentation>
+      <wsdl:input message="tns:SiparisGirisiDetayliV3SoapIn" />
+      <wsdl:output message="tns:SiparisGirisiDetayliV3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV4">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Müşteri Sipariş Kayıt  (SiparisGirisDetayliV3 metoduna ek olarak  Parça Referans List parameteresi eklendi ! )</wsdl:documentation>
+      <wsdl:input message="tns:SiparisGirisiDetayliV4SoapIn" />
+      <wsdl:output message="tns:SiparisGirisiDetayliV4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisAliciKayit">
+      <wsdl:input message="tns:SiparisAliciKayitSoapIn" />
+      <wsdl:output message="tns:SiparisAliciKayitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesi">
+      <wsdl:input message="tns:FaturaSiparisListesiSoapIn" />
+      <wsdl:output message="tns:FaturaSiparisListesiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesiByTarih">
+      <wsdl:input message="tns:FaturaSiparisListesiByTarihSoapIn" />
+      <wsdl:output message="tns:FaturaSiparisListesiByTarihSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriSiparisIptal">
+      <wsdl:input message="tns:MusteriSiparisIptalSoapIn" />
+      <wsdl:output message="tns:MusteriSiparisIptalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WmsIadeGirisi">
+      <wsdl:input message="tns:WmsIadeGirisiSoapIn" />
+      <wsdl:output message="tns:WmsIadeGirisiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastring">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Daha önce gönderilmiş olan sipariş verisindeki irsaliye_no, adet , desi, kilo ve kilodesi bilgisini günceller </wsdl:documentation>
+      <wsdl:input message="tns:SiparisUpdateParcastringSoapIn" />
+      <wsdl:output message="tns:SiparisUpdateParcastringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastringV2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Daha önce gönderilmiş olan sipariş verisindeki irsaliye_no, adet , desi, kilo , kilodesi ve ürün bedeli  bilgisini günceller </wsdl:documentation>
+      <wsdl:input message="tns:SiparisUpdateParcastringV2SoapIn" />
+      <wsdl:output message="tns:SiparisUpdateParcastringV2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BayiAdresiGecersiz">
+      <wsdl:input message="tns:BayiAdresiGecersizSoapIn" />
+      <wsdl:output message="tns:BayiAdresiGecersizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BayiIhbarGirisi">
+      <wsdl:input message="tns:BayiIhbarGirisiSoapIn" />
+      <wsdl:output message="tns:BayiIhbarGirisiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriBayiBilgileri">
+      <wsdl:input message="tns:MusteriBayiBilgileriSoapIn" />
+      <wsdl:output message="tns:MusteriBayiBilgileriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriBayiIslem">
+      <wsdl:input message="tns:MusteriBayiIslemSoapIn" />
+      <wsdl:output message="tns:MusteriBayiIslemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KargoBilgileriByTarih">
+      <wsdl:input message="tns:KargoBilgileriByTarihSoapIn" />
+      <wsdl:output message="tns:KargoBilgileriByTarihSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KargoBilgileriByReferans">
+      <wsdl:input message="tns:KargoBilgileriByReferansSoapIn" />
+      <wsdl:output message="tns:KargoBilgileriByReferansSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MngGonderiKgDesiUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bir Parçalı Gönderici Ödemeli Gönderiler için Kullanılmaktadır. (Özel Yetki Gerektirmektedir)</wsdl:documentation>
+      <wsdl:input message="tns:MngGonderiKgDesiUpdateSoapIn" />
+      <wsdl:output message="tns:MngGonderiKgDesiUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GonderiTeslimatProblemleri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gönderileriniz İçin İletilen İade istekleri Listesidir !</wsdl:documentation>
+      <wsdl:input message="tns:GonderiTeslimatProblemleriSoapIn" />
+      <wsdl:output message="tns:GonderiTeslimatProblemleriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GonderiTeslimatProblemiIadeYaniti">
+      <wsdl:input message="tns:GonderiTeslimatProblemiIadeYanitiSoapIn" />
+      <wsdl:output message="tns:GonderiTeslimatProblemiIadeYanitiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriOzelRapor">
+      <wsdl:input message="tns:MusteriOzelRaporSoapIn" />
+      <wsdl:output message="tns:MusteriOzelRaporSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MNGGonderiBarkod">
+      <wsdl:input message="tns:MNGGonderiBarkodSoapIn" />
+      <wsdl:output message="tns:MNGGonderiBarkodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TekBarkodGonderiIptali">
+      <wsdl:input message="tns:TekBarkodGonderiIptaliSoapIn" />
+      <wsdl:output message="tns:TekBarkodGonderiIptaliSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KargoTakipByReferans">
+      <wsdl:input message="tns:KargoTakipByReferansSoapIn" />
+      <wsdl:output message="tns:KargoTakipByReferansSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriTeslimatIptalIstegi">
+      <wsdl:input message="tns:MusteriTeslimatIptalIstegiSoapIn" />
+      <wsdl:output message="tns:MusteriTeslimatIptalIstegiSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MusteriKargoSiparisHttpPost">
+    <wsdl:operation name="Baglanti_Test">
+      <wsdl:input message="tns:Baglanti_TestHttpPostIn" />
+      <wsdl:output message="tns:Baglanti_TestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriSiparisKayit">
+      <wsdl:input message="tns:MusteriSiparisKayitHttpPostIn" />
+      <wsdl:output message="tns:MusteriSiparisKayitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayli">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Müşteri Sipariş Kayıt </wsdl:documentation>
+      <wsdl:input message="tns:SiparisGirisiDetayliHttpPostIn" />
+      <wsdl:output message="tns:SiparisGirisiDetayliHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Müşteri Sipariş Kayıt  (SiparisGirisDetayli ya ek olarak Alıcının Cep ve Ev Telefonu Bilgileri Eklendi)</wsdl:documentation>
+      <wsdl:input message="tns:SiparisGirisiDetayliV2HttpPostIn" />
+      <wsdl:output message="tns:SiparisGirisiDetayliV2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Müşteri Sipariş Kayıt  (SiparisGirisDetayliV2 ye ek olarak pGonderiHizmetSekli , pTeslimSekli , pPlatformKisaAdi ve pPlatformSatisKodu, Eklendi)</wsdl:documentation>
+      <wsdl:input message="tns:SiparisGirisiDetayliV3HttpPostIn" />
+      <wsdl:output message="tns:SiparisGirisiDetayliV3HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV4">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Müşteri Sipariş Kayıt  (SiparisGirisDetayliV3 metoduna ek olarak  Parça Referans List parameteresi eklendi ! )</wsdl:documentation>
+      <wsdl:input message="tns:SiparisGirisiDetayliV4HttpPostIn" />
+      <wsdl:output message="tns:SiparisGirisiDetayliV4HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisAliciKayit">
+      <wsdl:input message="tns:SiparisAliciKayitHttpPostIn" />
+      <wsdl:output message="tns:SiparisAliciKayitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesi">
+      <wsdl:input message="tns:FaturaSiparisListesiHttpPostIn" />
+      <wsdl:output message="tns:FaturaSiparisListesiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesiByTarih">
+      <wsdl:input message="tns:FaturaSiparisListesiByTarihHttpPostIn" />
+      <wsdl:output message="tns:FaturaSiparisListesiByTarihHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WmsIadeGirisi">
+      <wsdl:input message="tns:WmsIadeGirisiHttpPostIn" />
+      <wsdl:output message="tns:WmsIadeGirisiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastring">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Daha önce gönderilmiş olan sipariş verisindeki irsaliye_no, adet , desi, kilo ve kilodesi bilgisini günceller </wsdl:documentation>
+      <wsdl:input message="tns:SiparisUpdateParcastringHttpPostIn" />
+      <wsdl:output message="tns:SiparisUpdateParcastringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastringV2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Daha önce gönderilmiş olan sipariş verisindeki irsaliye_no, adet , desi, kilo , kilodesi ve ürün bedeli  bilgisini günceller </wsdl:documentation>
+      <wsdl:input message="tns:SiparisUpdateParcastringV2HttpPostIn" />
+      <wsdl:output message="tns:SiparisUpdateParcastringV2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BayiAdresiGecersiz">
+      <wsdl:input message="tns:BayiAdresiGecersizHttpPostIn" />
+      <wsdl:output message="tns:BayiAdresiGecersizHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BayiIhbarGirisi">
+      <wsdl:input message="tns:BayiIhbarGirisiHttpPostIn" />
+      <wsdl:output message="tns:BayiIhbarGirisiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriBayiBilgileri">
+      <wsdl:input message="tns:MusteriBayiBilgileriHttpPostIn" />
+      <wsdl:output message="tns:MusteriBayiBilgileriHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KargoTakipByReferans">
+      <wsdl:input message="tns:KargoTakipByReferansHttpPostIn" />
+      <wsdl:output message="tns:KargoTakipByReferansHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MusteriKargoSiparisSoap" type="tns:MusteriKargoSiparisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Baglanti_Test">
+      <soap:operation soapAction="http://tempuri.org/Baglanti_Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriSiparisKayit">
+      <soap:operation soapAction="http://tempuri.org/MusteriSiparisKayit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayli">
+      <soap:operation soapAction="http://tempuri.org/SiparisGirisiDetayli" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV2">
+      <soap:operation soapAction="http://tempuri.org/SiparisGirisiDetayliV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV3">
+      <soap:operation soapAction="http://tempuri.org/SiparisGirisiDetayliV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV4">
+      <soap:operation soapAction="http://tempuri.org/SiparisGirisiDetayliV4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisAliciKayit">
+      <soap:operation soapAction="http://tempuri.org/SiparisAliciKayit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesi">
+      <soap:operation soapAction="http://tempuri.org/FaturaSiparisListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesiByTarih">
+      <soap:operation soapAction="http://tempuri.org/FaturaSiparisListesiByTarih" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriSiparisIptal">
+      <soap:operation soapAction="http://tempuri.org/MusteriSiparisIptal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WmsIadeGirisi">
+      <soap:operation soapAction="http://tempuri.org/WmsIadeGirisi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastring">
+      <soap:operation soapAction="http://tempuri.org/SiparisUpdateParcastring" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastringV2">
+      <soap:operation soapAction="http://tempuri.org/SiparisUpdateParcastringV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BayiAdresiGecersiz">
+      <soap:operation soapAction="http://tempuri.org/BayiAdresiGecersiz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BayiIhbarGirisi">
+      <soap:operation soapAction="http://tempuri.org/BayiIhbarGirisi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriBayiBilgileri">
+      <soap:operation soapAction="http://tempuri.org/MusteriBayiBilgileri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriBayiIslem">
+      <soap:operation soapAction="http://tempuri.org/MusteriBayiIslem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoBilgileriByTarih">
+      <soap:operation soapAction="http://tempuri.org/KargoBilgileriByTarih" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoBilgileriByReferans">
+      <soap:operation soapAction="http://tempuri.org/KargoBilgileriByReferans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MngGonderiKgDesiUpdate">
+      <soap:operation soapAction="http://tempuri.org/MngGonderiKgDesiUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GonderiTeslimatProblemleri">
+      <soap:operation soapAction="http://tempuri.org/GonderiTeslimatProblemleri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GonderiTeslimatProblemiIadeYaniti">
+      <soap:operation soapAction="http://tempuri.org/GonderiTeslimatProblemiIadeYaniti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriOzelRapor">
+      <soap:operation soapAction="http://tempuri.org/MusteriOzelRapor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MNGGonderiBarkod">
+      <soap:operation soapAction="http://tempuri.org/MNGGonderiBarkod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TekBarkodGonderiIptali">
+      <soap:operation soapAction="http://tempuri.org/TekBarkodGonderiIptali" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoTakipByReferans">
+      <soap:operation soapAction="http://tempuri.org/KargoTakipByReferans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriTeslimatIptalIstegi">
+      <soap:operation soapAction="http://tempuri.org/MusteriTeslimatIptalIstegi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MusteriKargoSiparisSoap12" type="tns:MusteriKargoSiparisSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Baglanti_Test">
+      <soap12:operation soapAction="http://tempuri.org/Baglanti_Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriSiparisKayit">
+      <soap12:operation soapAction="http://tempuri.org/MusteriSiparisKayit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayli">
+      <soap12:operation soapAction="http://tempuri.org/SiparisGirisiDetayli" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV2">
+      <soap12:operation soapAction="http://tempuri.org/SiparisGirisiDetayliV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV3">
+      <soap12:operation soapAction="http://tempuri.org/SiparisGirisiDetayliV3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV4">
+      <soap12:operation soapAction="http://tempuri.org/SiparisGirisiDetayliV4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisAliciKayit">
+      <soap12:operation soapAction="http://tempuri.org/SiparisAliciKayit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesi">
+      <soap12:operation soapAction="http://tempuri.org/FaturaSiparisListesi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesiByTarih">
+      <soap12:operation soapAction="http://tempuri.org/FaturaSiparisListesiByTarih" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriSiparisIptal">
+      <soap12:operation soapAction="http://tempuri.org/MusteriSiparisIptal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WmsIadeGirisi">
+      <soap12:operation soapAction="http://tempuri.org/WmsIadeGirisi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastring">
+      <soap12:operation soapAction="http://tempuri.org/SiparisUpdateParcastring" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastringV2">
+      <soap12:operation soapAction="http://tempuri.org/SiparisUpdateParcastringV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BayiAdresiGecersiz">
+      <soap12:operation soapAction="http://tempuri.org/BayiAdresiGecersiz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BayiIhbarGirisi">
+      <soap12:operation soapAction="http://tempuri.org/BayiIhbarGirisi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriBayiBilgileri">
+      <soap12:operation soapAction="http://tempuri.org/MusteriBayiBilgileri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriBayiIslem">
+      <soap12:operation soapAction="http://tempuri.org/MusteriBayiIslem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoBilgileriByTarih">
+      <soap12:operation soapAction="http://tempuri.org/KargoBilgileriByTarih" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoBilgileriByReferans">
+      <soap12:operation soapAction="http://tempuri.org/KargoBilgileriByReferans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MngGonderiKgDesiUpdate">
+      <soap12:operation soapAction="http://tempuri.org/MngGonderiKgDesiUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GonderiTeslimatProblemleri">
+      <soap12:operation soapAction="http://tempuri.org/GonderiTeslimatProblemleri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GonderiTeslimatProblemiIadeYaniti">
+      <soap12:operation soapAction="http://tempuri.org/GonderiTeslimatProblemiIadeYaniti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriOzelRapor">
+      <soap12:operation soapAction="http://tempuri.org/MusteriOzelRapor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MNGGonderiBarkod">
+      <soap12:operation soapAction="http://tempuri.org/MNGGonderiBarkod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TekBarkodGonderiIptali">
+      <soap12:operation soapAction="http://tempuri.org/TekBarkodGonderiIptali" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoTakipByReferans">
+      <soap12:operation soapAction="http://tempuri.org/KargoTakipByReferans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriTeslimatIptalIstegi">
+      <soap12:operation soapAction="http://tempuri.org/MusteriTeslimatIptalIstegi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MusteriKargoSiparisHttpPost" type="tns:MusteriKargoSiparisHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Baglanti_Test">
+      <http:operation location="/Baglanti_Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriSiparisKayit">
+      <http:operation location="/MusteriSiparisKayit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayli">
+      <http:operation location="/SiparisGirisiDetayli" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV2">
+      <http:operation location="/SiparisGirisiDetayliV2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV3">
+      <http:operation location="/SiparisGirisiDetayliV3" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisGirisiDetayliV4">
+      <http:operation location="/SiparisGirisiDetayliV4" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisAliciKayit">
+      <http:operation location="/SiparisAliciKayit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesi">
+      <http:operation location="/FaturaSiparisListesi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisListesiByTarih">
+      <http:operation location="/FaturaSiparisListesiByTarih" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WmsIadeGirisi">
+      <http:operation location="/WmsIadeGirisi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastring">
+      <http:operation location="/SiparisUpdateParcastring" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiparisUpdateParcastringV2">
+      <http:operation location="/SiparisUpdateParcastringV2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BayiAdresiGecersiz">
+      <http:operation location="/BayiAdresiGecersiz" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BayiIhbarGirisi">
+      <http:operation location="/BayiIhbarGirisi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriBayiBilgileri">
+      <http:operation location="/MusteriBayiBilgileri" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoTakipByReferans">
+      <http:operation location="/KargoTakipByReferans" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MusteriKargoSiparis">
+    <wsdl:port name="MusteriKargoSiparisSoap" binding="tns:MusteriKargoSiparisSoap">
+      <soap:address location="http://service2.mngkargo.com.tr/musterikargosiparis/musterikargosiparis.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MusteriKargoSiparisSoap12" binding="tns:MusteriKargoSiparisSoap12">
+      <soap12:address location="http://service2.mngkargo.com.tr/musterikargosiparis/musterikargosiparis.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MusteriKargoSiparisHttpPost" binding="tns:MusteriKargoSiparisHttpPost">
+      <http:address location="http://service2.mngkargo.com.tr/musterikargosiparis/musterikargosiparis.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

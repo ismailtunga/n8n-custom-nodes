@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:project" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:project">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:project"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="newAssocDocProjRequestType">
+  <xsd:all>
+   <xsd:element name="idproject" type="xsd:string"/>
+   <xsd:element name="idactivity" type="xsd:string"/>
+   <xsd:element name="iddocument" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAssocDocProjResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeProjectTaskRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="ProjectTaskId" type="xsd:string"/>
+   <xsd:element name="UserId" type="xsd:string"/>
+   <xsd:element name="ActualPercentage" type="xsd:int"/>
+   <xsd:element name="StartDate" type="xsd:string"/>
+   <xsd:element name="EndDate" type="xsd:string"/>
+   <xsd:element name="UsePlannedOrRescheduledDates" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeProjectTaskResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProjectCostRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProjectCostResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProjectCostRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProjectCostResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProjectRevenueRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProjectRevenueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProjectRevenueRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProjectRevenueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProjectTaskCostRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="ProjectTaskId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProjectTaskCostResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProjectTaskCostRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="ProjectTaskId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProjectTaskCostResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProjectTaskRevenueRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="ProjectTaskId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProjectTaskRevenueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProjectTaskRevenueRequestType">
+  <xsd:all>
+   <xsd:element name="ProjectId" type="xsd:string"/>
+   <xsd:element name="ProjectTaskId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProjectTaskRevenueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProgramCostRequestType">
+  <xsd:all>
+   <xsd:element name="ProgramId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProgramCostResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProgramCostRequestType">
+  <xsd:all>
+   <xsd:element name="ProgramId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProgramCostResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProgramRevenueRequestType">
+  <xsd:all>
+   <xsd:element name="ProgramId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newProgramRevenueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProgramRevenueRequestType">
+  <xsd:all>
+   <xsd:element name="ProgramId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editProgramRevenueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="newAssocDocProj" type="tns:newAssocDocProjRequestType"/>
+ <xsd:element name="newAssocDocProjResponse" type="tns:newAssocDocProjResponseType"/>
+ <xsd:element name="executeProjectTask" type="tns:executeProjectTaskRequestType"/>
+ <xsd:element name="executeProjectTaskResponse" type="tns:executeProjectTaskResponseType"/>
+ <xsd:element name="newProjectCost" type="tns:newProjectCostRequestType"/>
+ <xsd:element name="newProjectCostResponse" type="tns:newProjectCostResponseType"/>
+ <xsd:element name="editProjectCost" type="tns:editProjectCostRequestType"/>
+ <xsd:element name="editProjectCostResponse" type="tns:editProjectCostResponseType"/>
+ <xsd:element name="newProjectRevenue" type="tns:newProjectRevenueRequestType"/>
+ <xsd:element name="newProjectRevenueResponse" type="tns:newProjectRevenueResponseType"/>
+ <xsd:element name="editProjectRevenue" type="tns:editProjectRevenueRequestType"/>
+ <xsd:element name="editProjectRevenueResponse" type="tns:editProjectRevenueResponseType"/>
+ <xsd:element name="newProjectTaskCost" type="tns:newProjectTaskCostRequestType"/>
+ <xsd:element name="newProjectTaskCostResponse" type="tns:newProjectTaskCostResponseType"/>
+ <xsd:element name="editProjectTaskCost" type="tns:editProjectTaskCostRequestType"/>
+ <xsd:element name="editProjectTaskCostResponse" type="tns:editProjectTaskCostResponseType"/>
+ <xsd:element name="newProjectTaskRevenue" type="tns:newProjectTaskRevenueRequestType"/>
+ <xsd:element name="newProjectTaskRevenueResponse" type="tns:newProjectTaskRevenueResponseType"/>
+ <xsd:element name="editProjectTaskRevenue" type="tns:editProjectTaskRevenueRequestType"/>
+ <xsd:element name="editProjectTaskRevenueResponse" type="tns:editProjectTaskRevenueResponseType"/>
+ <xsd:element name="newProgramCost" type="tns:newProgramCostRequestType"/>
+ <xsd:element name="newProgramCostResponse" type="tns:newProgramCostResponseType"/>
+ <xsd:element name="editProgramCost" type="tns:editProgramCostRequestType"/>
+ <xsd:element name="editProgramCostResponse" type="tns:editProgramCostResponseType"/>
+ <xsd:element name="newProgramRevenue" type="tns:newProgramRevenueRequestType"/>
+ <xsd:element name="newProgramRevenueResponse" type="tns:newProgramRevenueResponseType"/>
+ <xsd:element name="editProgramRevenue" type="tns:editProgramRevenueRequestType"/>
+ <xsd:element name="editProgramRevenueResponse" type="tns:editProgramRevenueResponseType"/>
+</xsd:schema>
+</types>
+<message name="newAssocDocProjRequest">
+  <part name="parameters" element="tns:newAssocDocProj" /></message>
+<message name="newAssocDocProjResponse">
+  <part name="parameters" element="tns:newAssocDocProjResponse" /></message>
+<message name="executeProjectTaskRequest">
+  <part name="parameters" element="tns:executeProjectTask" /></message>
+<message name="executeProjectTaskResponse">
+  <part name="parameters" element="tns:executeProjectTaskResponse" /></message>
+<message name="newProjectCostRequest">
+  <part name="parameters" element="tns:newProjectCost" /></message>
+<message name="newProjectCostResponse">
+  <part name="parameters" element="tns:newProjectCostResponse" /></message>
+<message name="editProjectCostRequest">
+  <part name="parameters" element="tns:editProjectCost" /></message>
+<message name="editProjectCostResponse">
+  <part name="parameters" element="tns:editProjectCostResponse" /></message>
+<message name="newProjectRevenueRequest">
+  <part name="parameters" element="tns:newProjectRevenue" /></message>
+<message name="newProjectRevenueResponse">
+  <part name="parameters" element="tns:newProjectRevenueResponse" /></message>
+<message name="editProjectRevenueRequest">
+  <part name="parameters" element="tns:editProjectRevenue" /></message>
+<message name="editProjectRevenueResponse">
+  <part name="parameters" element="tns:editProjectRevenueResponse" /></message>
+<message name="newProjectTaskCostRequest">
+  <part name="parameters" element="tns:newProjectTaskCost" /></message>
+<message name="newProjectTaskCostResponse">
+  <part name="parameters" element="tns:newProjectTaskCostResponse" /></message>
+<message name="editProjectTaskCostRequest">
+  <part name="parameters" element="tns:editProjectTaskCost" /></message>
+<message name="editProjectTaskCostResponse">
+  <part name="parameters" element="tns:editProjectTaskCostResponse" /></message>
+<message name="newProjectTaskRevenueRequest">
+  <part name="parameters" element="tns:newProjectTaskRevenue" /></message>
+<message name="newProjectTaskRevenueResponse">
+  <part name="parameters" element="tns:newProjectTaskRevenueResponse" /></message>
+<message name="editProjectTaskRevenueRequest">
+  <part name="parameters" element="tns:editProjectTaskRevenue" /></message>
+<message name="editProjectTaskRevenueResponse">
+  <part name="parameters" element="tns:editProjectTaskRevenueResponse" /></message>
+<message name="newProgramCostRequest">
+  <part name="parameters" element="tns:newProgramCost" /></message>
+<message name="newProgramCostResponse">
+  <part name="parameters" element="tns:newProgramCostResponse" /></message>
+<message name="editProgramCostRequest">
+  <part name="parameters" element="tns:editProgramCost" /></message>
+<message name="editProgramCostResponse">
+  <part name="parameters" element="tns:editProgramCostResponse" /></message>
+<message name="newProgramRevenueRequest">
+  <part name="parameters" element="tns:newProgramRevenue" /></message>
+<message name="newProgramRevenueResponse">
+  <part name="parameters" element="tns:newProgramRevenueResponse" /></message>
+<message name="editProgramRevenueRequest">
+  <part name="parameters" element="tns:editProgramRevenue" /></message>
+<message name="editProgramRevenueResponse">
+  <part name="parameters" element="tns:editProgramRevenueResponse" /></message>
+<portType name="ProjectPortType">
+  <operation name="newAssocDocProj">
+    <documentation>Proje ile Dokümanların İlişkilendirilmesiGerekli Parametreler :PROJEID=&gt; Proje ID #DOKUMANID =&gt; Doküman ID #Gereksiz ParametrelerGOREVID=&gt; Görev ID #</documentation>
+    <input message="tns:newAssocDocProjRequest"/>
+    <output message="tns:newAssocDocProjResponse"/>
+  </operation>
+  <operation name="executeProjectTask">
+    <documentation>&lt;b&gt;&lt;u&gt;Proje aktivitesinin yürütülmesi&lt;/u&gt;&lt;br&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;ProjectTaskId =&gt; Proje aktivite ID #&lt;br&gt;Projectid =&gt; Proje ID #&lt;br&gt;UserId =&gt; Kullanıcı ID #&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;StartDate =&gt; Gerçekleşen başlangıç tarihi (format: GG/AA/YYYY veya YYYY-AA-GG)&lt;br&gt;EndDate =&gt; Gerçekleşen bitiş tarihi (format: GG/AA/YYYY veya YYYY-AA-GG)&lt;br&gt;ActualPercentage =&gt; Görevin gerçekleştirilme yüzdesi&lt;br&gt;UsePlannedOrRescheduledDates =&gt; Doldurma seçenekleri: 1 - Planlanan tarihleri kullan, 2 - Yeniden planlamış olan tarihleri kullan</documentation>
+    <input message="tns:executeProjectTaskRequest"/>
+    <output message="tns:executeProjectTaskResponse"/>
+  </operation>
+  <operation name="newProjectCost">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Proje maliyetinin eklenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Projectid =&gt; Proje ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:newProjectCostRequest"/>
+    <output message="tns:newProjectCostResponse"/>
+  </operation>
+  <operation name="editProjectCost">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Proje maliyetinin düzenlenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Projectid =&gt; Proje ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:editProjectCostRequest"/>
+    <output message="tns:editProjectCostResponse"/>
+  </operation>
+  <operation name="newProjectRevenue">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Proje getirisinin eklenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Projectid =&gt; Proje ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:newProjectRevenueRequest"/>
+    <output message="tns:newProjectRevenueResponse"/>
+  </operation>
+  <operation name="editProjectRevenue">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Proje getirisinin düzenlenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Projectid =&gt; Proje ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:editProjectRevenueRequest"/>
+    <output message="tns:editProjectRevenueResponse"/>
+  </operation>
+  <operation name="newProjectTaskCost">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Proje aktivite maliyetinin eklenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Projectid =&gt; Proje ID #&lt;br&gt;&amp;nbsp;ProjectTaskId =&gt; Proje aktivite ID #&lt;br&gt;&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:newProjectTaskCostRequest"/>
+    <output message="tns:newProjectTaskCostResponse"/>
+  </operation>
+  <operation name="editProjectTaskCost">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Proje aktivite maliyetinin düzenlenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Projectid =&gt; Proje ID #&lt;br&gt;&amp;nbsp;ProjectTaskId =&gt; Proje aktivite ID #&lt;br&gt;&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:editProjectTaskCostRequest"/>
+    <output message="tns:editProjectTaskCostResponse"/>
+  </operation>
+  <operation name="newProjectTaskRevenue">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Proje aktivite getirisinin eklenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Projectid =&gt; Proje ID #&lt;br&gt;&amp;nbsp;ProjectTaskId =&gt; Proje aktivite ID #&lt;br&gt;&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:newProjectTaskRevenueRequest"/>
+    <output message="tns:newProjectTaskRevenueResponse"/>
+  </operation>
+  <operation name="editProjectTaskRevenue">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Proje aktivite getirisinin düzenlenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Projectid =&gt; Proje ID #&lt;br&gt;&amp;nbsp;ProjectTaskId =&gt; Proje aktivite ID #&lt;br&gt;&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:editProjectTaskRevenueRequest"/>
+    <output message="tns:editProjectTaskRevenueResponse"/>
+  </operation>
+  <operation name="newProgramCost">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Program maliyetinin eklenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Programid =&gt; Program ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:newProgramCostRequest"/>
+    <output message="tns:newProgramCostResponse"/>
+  </operation>
+  <operation name="editProgramCost">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Program maliyetinin düzenlenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Programid =&gt; Program ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:editProgramCostRequest"/>
+    <output message="tns:editProgramCostResponse"/>
+  </operation>
+  <operation name="newProgramRevenue">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Program getirisinin eklenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Programid =&gt; Program ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:newProgramRevenueRequest"/>
+    <output message="tns:newProgramRevenueResponse"/>
+  </operation>
+  <operation name="editProgramRevenue">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Program getirisinin düzenlenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;Programid =&gt; Program ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:editProgramRevenueRequest"/>
+    <output message="tns:editProgramRevenueResponse"/>
+  </operation>
+</portType>
+<binding name="ProjectBinding" type="tns:ProjectPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="newAssocDocProj">
+    <soap:operation soapAction="urn:project#newAssocDocProj" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="executeProjectTask">
+    <soap:operation soapAction="urn:project#executeProjectTask" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="newProjectCost">
+    <soap:operation soapAction="urn:project#newProjectCost" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="editProjectCost">
+    <soap:operation soapAction="urn:project#editProjectCost" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="newProjectRevenue">
+    <soap:operation soapAction="urn:project#newProjectRevenue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="editProjectRevenue">
+    <soap:operation soapAction="urn:project#editProjectRevenue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="newProjectTaskCost">
+    <soap:operation soapAction="urn:project#newProjectTaskCost" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="editProjectTaskCost">
+    <soap:operation soapAction="urn:project#editProjectTaskCost" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="newProjectTaskRevenue">
+    <soap:operation soapAction="urn:project#newProjectTaskRevenue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="editProjectTaskRevenue">
+    <soap:operation soapAction="urn:project#editProjectTaskRevenue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="newProgramCost">
+    <soap:operation soapAction="urn:project#newProgramCost" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="editProgramCost">
+    <soap:operation soapAction="urn:project#editProgramCost" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="newProgramRevenue">
+    <soap:operation soapAction="urn:project#newProgramRevenue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+  <operation name="editProgramRevenue">
+    <soap:operation soapAction="urn:project#editProgramRevenue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:project"/></input>
+    <output><soap:body use="literal" namespace="urn:project"/></output>
+  </operation>
+</binding>
+<service name="Project">
+  <port name="ProjectPort" binding="tns:ProjectBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/pr_ws.php"/>
+  </port>
+</service>
+</definitions>

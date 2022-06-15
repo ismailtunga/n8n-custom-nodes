@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:storeroom" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:storeroom">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:storeroom"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="inputEventInterfaceRequestType">
+  <xsd:all>
+   <xsd:element name="Identifier" type="xsd:string"/>
+   <xsd:element name="RequesterType" type="xsd:string"/>
+   <xsd:element name="RequestId" type="xsd:string"/>
+   <xsd:element name="ActivityId" type="xsd:string"/>
+   <xsd:element name="IdResponsibleFrom" type="xsd:string"/>
+   <xsd:element name="DateFom" type="xsd:string"/>
+   <xsd:element name="StoreroomId" type="xsd:string"/>
+   <xsd:element name="IdResponsibleTo" type="xsd:string"/>
+   <xsd:element name="DateTo" type="xsd:string"/>
+   <xsd:element name="IdentifierRouteApprov" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="inputEventInterfaceResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="outputEventInterfaceRequestType">
+  <xsd:all>
+   <xsd:element name="Identifier" type="xsd:string"/>
+   <xsd:element name="StoreroomId" type="xsd:string"/>
+   <xsd:element name="IdResponsibleFrom" type="xsd:string"/>
+   <xsd:element name="DateFom" type="xsd:string"/>
+   <xsd:element name="DestinationType" type="xsd:string"/>
+   <xsd:element name="DestinationId" type="xsd:string"/>
+   <xsd:element name="IdResponsibleTo" type="xsd:string"/>
+   <xsd:element name="DateTo" type="xsd:string"/>
+   <xsd:element name="IdentifierRouteApprov" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="outputEventInterfaceResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="inputObjectInterfaceRequestType">
+  <xsd:all>
+   <xsd:element name="InputEventId" type="xsd:string"/>
+   <xsd:element name="ObjectId" type="xsd:string"/>
+   <xsd:element name="StoragePlaceId" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="LotNumber" type="xsd:string"/>
+   <xsd:element name="SerialNumber" type="xsd:string"/>
+   <xsd:element name="UnitCost" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="inputObjectInterfaceResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="outputObjectInterfaceRequestType">
+  <xsd:all>
+   <xsd:element name="OutputEventId" type="xsd:string"/>
+   <xsd:element name="ObjectId" type="xsd:string"/>
+   <xsd:element name="StoragePlaceId" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="LotNumber" type="xsd:string"/>
+   <xsd:element name="SerialNumber" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="outputObjectInterfaceResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importAttributeEventRequestType">
+  <xsd:all>
+   <xsd:element name="EventId" type="xsd:string"/>
+   <xsd:element name="AttributeId" type="xsd:string"/>
+   <xsd:element name="AttributeValue" type="xsd:string"/>
+   <xsd:element name="RevisionId" type="xsd:string"/>
+   <xsd:element name="MemoValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importAttributeEventResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="inputEventInterface" type="tns:inputEventInterfaceRequestType"/>
+ <xsd:element name="inputEventInterfaceResponse" type="tns:inputEventInterfaceResponseType"/>
+ <xsd:element name="outputEventInterface" type="tns:outputEventInterfaceRequestType"/>
+ <xsd:element name="outputEventInterfaceResponse" type="tns:outputEventInterfaceResponseType"/>
+ <xsd:element name="inputObjectInterface" type="tns:inputObjectInterfaceRequestType"/>
+ <xsd:element name="inputObjectInterfaceResponse" type="tns:inputObjectInterfaceResponseType"/>
+ <xsd:element name="outputObjectInterface" type="tns:outputObjectInterfaceRequestType"/>
+ <xsd:element name="outputObjectInterfaceResponse" type="tns:outputObjectInterfaceResponseType"/>
+ <xsd:element name="importAttributeEvent" type="tns:importAttributeEventRequestType"/>
+ <xsd:element name="importAttributeEventResponse" type="tns:importAttributeEventResponseType"/>
+</xsd:schema>
+</types>
+<message name="inputEventInterfaceRequest">
+  <part name="parameters" element="tns:inputEventInterface" /></message>
+<message name="inputEventInterfaceResponse">
+  <part name="parameters" element="tns:inputEventInterfaceResponse" /></message>
+<message name="outputEventInterfaceRequest">
+  <part name="parameters" element="tns:outputEventInterface" /></message>
+<message name="outputEventInterfaceResponse">
+  <part name="parameters" element="tns:outputEventInterfaceResponse" /></message>
+<message name="inputObjectInterfaceRequest">
+  <part name="parameters" element="tns:inputObjectInterface" /></message>
+<message name="inputObjectInterfaceResponse">
+  <part name="parameters" element="tns:inputObjectInterfaceResponse" /></message>
+<message name="outputObjectInterfaceRequest">
+  <part name="parameters" element="tns:outputObjectInterface" /></message>
+<message name="outputObjectInterfaceResponse">
+  <part name="parameters" element="tns:outputObjectInterfaceResponse" /></message>
+<message name="importAttributeEventRequest">
+  <part name="parameters" element="tns:importAttributeEvent" /></message>
+<message name="importAttributeEventResponse">
+  <part name="parameters" element="tns:importAttributeEventResponse" /></message>
+<portType name="StoreroomPortType">
+  <operation name="inputEventInterface">
+    <documentation>Girdi Olayı &lt;BR&gt;IDENTIFIER -&gt; ID # &lt;BR&gt;REQUESTERTYPE -&gt; Yayınlayan tipi &lt;BR&gt;REQUESTID -&gt; Yayınlayan ID# &lt;BR&gt;ACTIVITYID -&gt; Görev ID No &lt;BR&gt;IDRESPONSIBLEFROM -&gt; Kaynaktan sorumlu kişinin adı &lt;BR&gt;DATEFOM -&gt; Kaynak tarihi &lt;BR&gt;STOREROOMID -&gt; Depo ID# &lt;BR&gt;IDRESPONSIBLETO -&gt; Hedef sorumlu kişi &lt;BR&gt;DATETO -&gt; Hedef tarih &lt;BR&gt;IDENTIFIERROUTEAPPROV -&gt; Onay rotası ID # &lt;BR&gt;DESCRIPTION -&gt; Açıklama &lt;BR&gt;BAŞARI halinde: İşlem başarıyla gerçekleştirildi &lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;Zorunlu*&lt;BR&gt;</documentation>
+    <input message="tns:inputEventInterfaceRequest"/>
+    <output message="tns:inputEventInterfaceResponse"/>
+  </operation>
+  <operation name="outputEventInterface">
+    <documentation>Girdi Olayı &lt;BR&gt;IDENTIFIER -&gt; ID # &lt;BR&gt;STOREROOMID -&gt; Depo ID# &lt;BR&gt;IDRESPONSIBLEFROM -&gt; Kaynaktan sorumlu kişinin adı &lt;BR&gt;DATEFOM -&gt; Kaynak tarihi &lt;BR&gt;DESTINATIONTYPE -&gt; Adres türü &lt;BR&gt;DESTINATIONID -&gt; Adres ID # &lt;BR&gt;IDRESPONSIBLETO -&gt; Hedef sorumlu kişi &lt;BR&gt;DATETO -&gt; Hedef tarih &lt;BR&gt;IDENTIFIERROUTEAPPROV -&gt; Onay rotası ID # &lt;BR&gt;DESCRIPTION -&gt; Açıklama &lt;BR&gt;BAŞARI halinde: İşlem başarıyla gerçekleştirildi &lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;Zorunlu*&lt;BR&gt;</documentation>
+    <input message="tns:outputEventInterfaceRequest"/>
+    <output message="tns:outputEventInterfaceResponse"/>
+  </operation>
+  <operation name="inputObjectInterface">
+    <documentation>Girdi Olayı &lt;BR&gt;InputEventId -&gt; Vaka ID # &lt;BR&gt;ObjectId -&gt; Nesne Tanımlayıcı &lt;BR&gt;StoragePlaceId -&gt; Depolama yeri ID # &lt;BR&gt;Amount -&gt; Miktar &lt;BR&gt;LotNumber -&gt; Lot Numarası &lt;BR&gt;SerialNumber -&gt; Seri Numarası &lt;BR&gt;UnitCost -&gt; Birim Maliyet &lt;BR&gt;BAŞARI halinde: İşlem başarıyla gerçekleştirildi &lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;Zorunlu*&lt;BR&gt;</documentation>
+    <input message="tns:inputObjectInterfaceRequest"/>
+    <output message="tns:inputObjectInterfaceResponse"/>
+  </operation>
+  <operation name="outputObjectInterface">
+    <documentation>Girdi Olayı &lt;BR&gt;OutputEventId -&gt; Vaka ID # &lt;BR&gt;ObjectId -&gt; Nesne Tanımlayıcı &lt;BR&gt;StoragePlaceId -&gt; Depolama yeri ID # &lt;BR&gt;Amount -&gt; Miktar &lt;BR&gt;LotNumber -&gt; Lot Numarası &lt;BR&gt;SerialNumber -&gt; Seri Numarası &lt;BR&gt;BAŞARI halinde: İşlem başarıyla gerçekleştirildi &lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;Zorunlu*&lt;BR&gt;</documentation>
+    <input message="tns:outputObjectInterfaceRequest"/>
+    <output message="tns:outputObjectInterfaceResponse"/>
+  </operation>
+  <operation name="importAttributeEvent">
+    <documentation>Olay Ek Alanları &lt;BR&gt;EventId -&gt; Vaka ID # &lt;BR&gt;AttributeId -&gt; EkAlan ID no &lt;BR&gt;AttributeValue -&gt; DEGER -&gt;Ek Alan etiketi, FGVERITIPI´in ilgili Ek Alanı ise 1 - EKALANADI, 2 - EKALANDEGERI, 3 - DTEKALAN; &lt;BR&gt;RevisionId -&gt; Revizyon ID # &lt;BR&gt;MemoValue -&gt; Miktar &lt;BR&gt;BAŞARI halinde: İşlem başarıyla gerçekleştirildi &lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;Zorunlu*&lt;BR&gt;</documentation>
+    <input message="tns:importAttributeEventRequest"/>
+    <output message="tns:importAttributeEventResponse"/>
+  </operation>
+</portType>
+<binding name="StoreroomBinding" type="tns:StoreroomPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="inputEventInterface">
+    <soap:operation soapAction="urn:storeroom#inputEventInterface" style="document"/>
+    <input><soap:body use="literal" namespace="urn:storeroom"/></input>
+    <output><soap:body use="literal" namespace="urn:storeroom"/></output>
+  </operation>
+  <operation name="outputEventInterface">
+    <soap:operation soapAction="urn:storeroom#outputEventInterface" style="document"/>
+    <input><soap:body use="literal" namespace="urn:storeroom"/></input>
+    <output><soap:body use="literal" namespace="urn:storeroom"/></output>
+  </operation>
+  <operation name="inputObjectInterface">
+    <soap:operation soapAction="urn:storeroom#inputObjectInterface" style="document"/>
+    <input><soap:body use="literal" namespace="urn:storeroom"/></input>
+    <output><soap:body use="literal" namespace="urn:storeroom"/></output>
+  </operation>
+  <operation name="outputObjectInterface">
+    <soap:operation soapAction="urn:storeroom#outputObjectInterface" style="document"/>
+    <input><soap:body use="literal" namespace="urn:storeroom"/></input>
+    <output><soap:body use="literal" namespace="urn:storeroom"/></output>
+  </operation>
+  <operation name="importAttributeEvent">
+    <soap:operation soapAction="urn:storeroom#importAttributeEvent" style="document"/>
+    <input><soap:body use="literal" namespace="urn:storeroom"/></input>
+    <output><soap:body use="literal" namespace="urn:storeroom"/></output>
+  </operation>
+</binding>
+<service name="Storeroom">
+  <port name="StoreroomPort" binding="tns:StoreroomBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/stm_ws.php"/>
+  </port>
+</service>
+</definitions>

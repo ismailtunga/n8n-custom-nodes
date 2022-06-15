@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:timecontrol" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:timecontrol">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:timecontrol"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="newActionRequestType">
+  <xsd:all>
+   <xsd:element name="ActionplanID" type="xsd:string"/>
+   <xsd:element name="ActionID" type="xsd:string"/>
+   <xsd:element name="ActionTitle" type="xsd:string"/>
+   <xsd:element name="CatID" type="xsd:string"/>
+   <xsd:element name="FgTypeAction" type="xsd:string"/>
+   <xsd:element name="TeamID" type="xsd:string"/>
+   <xsd:element name="RespID" type="xsd:string"/>
+   <xsd:element name="DtPlanStart" type="xsd:string"/>
+   <xsd:element name="TmPlanStart" type="xsd:string"/>
+   <xsd:element name="DtPlanEnd" type="xsd:string"/>
+   <xsd:element name="TmPlanEnd" type="xsd:string"/>
+   <xsd:element name="VlPlanCost" type="xsd:string"/>
+   <xsd:element name="DsWhy" type="xsd:string"/>
+   <xsd:element name="DsWhere" type="xsd:string"/>
+   <xsd:element name="DsHow" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newActionResponseType">
+  <xsd:all>
+   <xsd:element name="RecordID" type="xsd:string"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getActionAPReturn">
+  <xsd:all>
+   <xsd:element name="ActionplanID" type="xsd:string"/>
+   <xsd:element name="ActionID" type="xsd:string"/>
+   <xsd:element name="ActionTitle" type="xsd:string"/>
+   <xsd:element name="CatID" type="xsd:string"/>
+   <xsd:element name="FgStatus" type="xsd:string"/>
+   <xsd:element name="FgTypeAction" type="xsd:string"/>
+   <xsd:element name="TeamID" type="xsd:string"/>
+   <xsd:element name="RespID" type="xsd:string"/>
+   <xsd:element name="DtPlanStart" type="xsd:string"/>
+   <xsd:element name="TmPlanStart" type="xsd:string"/>
+   <xsd:element name="DtPlanEnd" type="xsd:string"/>
+   <xsd:element name="TmPlanEnd" type="xsd:string"/>
+   <xsd:element name="VlPlanCost" type="xsd:string"/>
+   <xsd:element name="DtExecStart" type="xsd:string"/>
+   <xsd:element name="TmExecStart" type="xsd:string"/>
+   <xsd:element name="DtExecEnd" type="xsd:string"/>
+   <xsd:element name="TmExecEnd" type="xsd:string"/>
+   <xsd:element name="VlPercent" type="xsd:string"/>
+   <xsd:element name="VlExecCost" type="xsd:string"/>
+   <xsd:element name="DsResult" type="xsd:string"/>
+   <xsd:element name="DsWhy" type="xsd:string"/>
+   <xsd:element name="DsWhere" type="xsd:string"/>
+   <xsd:element name="DsHow" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getActionRequestType">
+  <xsd:all>
+   <xsd:element name="ActionplanID" type="xsd:string"/>
+   <xsd:element name="ActionID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getActionResponseType">
+  <xsd:all>
+   <xsd:element name="Return" type="tns:getActionAPReturn"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editActionRequestType">
+  <xsd:all>
+   <xsd:element name="ActionPlanID" type="xsd:string"/>
+   <xsd:element name="ActionID" type="xsd:string"/>
+   <xsd:element name="ActionIdNew" type="xsd:string"/>
+   <xsd:element name="ActionTitle" type="xsd:string"/>
+   <xsd:element name="CatID" type="xsd:string"/>
+   <xsd:element name="TeamID" type="xsd:string"/>
+   <xsd:element name="RespID" type="xsd:string"/>
+   <xsd:element name="DtPlanStart" type="xsd:string"/>
+   <xsd:element name="TmPlanStart" type="xsd:string"/>
+   <xsd:element name="DtPlanEnd" type="xsd:string"/>
+   <xsd:element name="TmPlanEnd" type="xsd:string"/>
+   <xsd:element name="VlPlanCost" type="xsd:string"/>
+   <xsd:element name="DsWhy" type="xsd:string"/>
+   <xsd:element name="DsWhere" type="xsd:string"/>
+   <xsd:element name="DsHow" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editActionResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editActionStatusRequestType">
+  <xsd:all>
+   <xsd:element name="ActionPlanID" type="xsd:string"/>
+   <xsd:element name="ActionID" type="xsd:string"/>
+   <xsd:element name="ActionFg" type="xsd:string"/>
+   <xsd:element name="JustifyDs" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editActionStatusResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeActionRequestType">
+  <xsd:all>
+   <xsd:element name="ActionPlanID" type="xsd:string"/>
+   <xsd:element name="ActionID" type="xsd:string"/>
+   <xsd:element name="UserID" type="xsd:string"/>
+   <xsd:element name="ExecStartDt" type="xsd:string"/>
+   <xsd:element name="ExecStartTm" type="xsd:string"/>
+   <xsd:element name="ExecEndDt" type="xsd:string"/>
+   <xsd:element name="ExecEndTm" type="xsd:string"/>
+   <xsd:element name="ExecCostVl" type="xsd:string"/>
+   <xsd:element name="ResultDs" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeActionResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAttachmentActionRequestType">
+  <xsd:all>
+   <xsd:element name="ActionPlanID" type="xsd:string"/>
+   <xsd:element name="ActionID" type="xsd:string"/>
+   <xsd:element name="FileName" type="xsd:string"/>
+   <xsd:element name="FileContent" type="xsd:base64Binary"/>
+   <xsd:element name="AttachmentName" type="xsd:string"/>
+   <xsd:element name="Summary" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newAttachmentActionResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="attachmentListType">
+  <xsd:all>
+   <xsd:element name="AttachmentList" type="tns:itemAttachmentType"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="itemAttachmentType">
+  <xsd:sequence>
+   <xsd:element name="Attachment" type="tns:listAttachmentReturn" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="listAttachmentReturn">
+  <xsd:all>
+   <xsd:element name="FileName" type="xsd:string"/>
+   <xsd:element name="FileContent" type="xsd:base64Binary"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getAttachmentActionRequestType">
+  <xsd:all>
+   <xsd:element name="ActionPlanID" type="xsd:string"/>
+   <xsd:element name="ActionID" type="xsd:string"/>
+   <xsd:element name="FileName" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getAttachmentActionResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Return" type="tns:attachmentListType"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="newAction" type="tns:newActionRequestType"/>
+ <xsd:element name="newActionResponse" type="tns:newActionResponseType"/>
+ <xsd:element name="getAction" type="tns:getActionRequestType"/>
+ <xsd:element name="getActionResponse" type="tns:getActionResponseType"/>
+ <xsd:element name="editAction" type="tns:editActionRequestType"/>
+ <xsd:element name="editActionResponse" type="tns:editActionResponseType"/>
+ <xsd:element name="editActionStatus" type="tns:editActionStatusRequestType"/>
+ <xsd:element name="editActionStatusResponse" type="tns:editActionStatusResponseType"/>
+ <xsd:element name="executeAction" type="tns:executeActionRequestType"/>
+ <xsd:element name="executeActionResponse" type="tns:executeActionResponseType"/>
+ <xsd:element name="newAttachmentAction" type="tns:newAttachmentActionRequestType"/>
+ <xsd:element name="newAttachmentActionResponse" type="tns:newAttachmentActionResponseType"/>
+ <xsd:element name="getAttachmentAction" type="tns:getAttachmentActionRequestType"/>
+ <xsd:element name="getAttachmentActionResponse" type="tns:getAttachmentActionResponseType"/>
+</xsd:schema>
+</types>
+<message name="newActionRequest">
+  <part name="parameters" element="tns:newAction" /></message>
+<message name="newActionResponse">
+  <part name="parameters" element="tns:newActionResponse" /></message>
+<message name="getActionRequest">
+  <part name="parameters" element="tns:getAction" /></message>
+<message name="getActionResponse">
+  <part name="parameters" element="tns:getActionResponse" /></message>
+<message name="editActionRequest">
+  <part name="parameters" element="tns:editAction" /></message>
+<message name="editActionResponse">
+  <part name="parameters" element="tns:editActionResponse" /></message>
+<message name="editActionStatusRequest">
+  <part name="parameters" element="tns:editActionStatus" /></message>
+<message name="editActionStatusResponse">
+  <part name="parameters" element="tns:editActionStatusResponse" /></message>
+<message name="executeActionRequest">
+  <part name="parameters" element="tns:executeAction" /></message>
+<message name="executeActionResponse">
+  <part name="parameters" element="tns:executeActionResponse" /></message>
+<message name="newAttachmentActionRequest">
+  <part name="parameters" element="tns:newAttachmentAction" /></message>
+<message name="newAttachmentActionResponse">
+  <part name="parameters" element="tns:newAttachmentActionResponse" /></message>
+<message name="getAttachmentActionRequest">
+  <part name="parameters" element="tns:getAttachmentAction" /></message>
+<message name="getAttachmentActionResponse">
+  <part name="parameters" element="tns:getAttachmentActionResponse" /></message>
+<portType name="TimecontrolPortType">
+  <operation name="newAction">
+    <documentation>Yeni Aksiyon Ekle
+                &lt;br&gt;ActionplanID* -&gt; Aksiyon Plan ID #
+                &lt;br&gt;ActionID -&gt; Aksiyon ID #
+                &lt;br&gt;ActionTitle* -&gt; Başlık (Ne?)
+                &lt;br&gt;CatID -&gt; Kategori ID #
+                &lt;br&gt;FgTypeAction* -&gt; Yürütme tipi
+                &lt;br&gt;TeamID -&gt; Sorumlu takım kimliği #
+                &lt;br&gt;RespID* -&gt; Yürütmeden sorumlu ( Kim? )
+                &lt;br&gt;DtPlanStart* -&gt; Planlanan Başlangıç Tarihi - Ne Zaman?
+                &lt;br&gt;TmPlanStart* -&gt; Başlama Zamanı - Ne Zaman?
+                &lt;br&gt;DtPlanEnd* -&gt; Planlanan Bitiş Tarihi - Ne Zaman?
+                &lt;br&gt;TmPlanEnd* -&gt; As-ta-la-vista - Ne Zaman?
+                &lt;br&gt;VlPlanCost -&gt; Tahmin Edilen Maliyet - Ne kadar?
+                &lt;br&gt;DsWhy -&gt; Neden?
+                &lt;br&gt;DsWhere -&gt; Nerede?
+                &lt;br&gt;DsHow -&gt; Nasıl?
+                &lt;br&gt;
+                &lt;br&gt; * Zorunlu
+                &lt;br&gt;
+                &lt;br&gt;Dönüş:
+                &lt;br&gt;Status -&gt; Yöntem yürütme durumu. Değer bu olabilir:
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SUCCESS: Method başarıyla yürütüldü
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FAILURE: Metot yürütülürken bir hata oluştu
+                &lt;br&gt;Code -&gt; Method dönüş kodu
+                &lt;br&gt;Detail -&gt; Method dönüş detayı
+                &lt;br&gt;RecordKey -&gt; Kayıt kodu method ile eklendi</documentation>
+    <input message="tns:newActionRequest"/>
+    <output message="tns:newActionResponse"/>
+  </operation>
+  <operation name="getAction">
+    <documentation>Akiyonu Görüntüle - Aksiyon Planı
+                &lt;br&gt;ActionplanID* -&gt; Aksiyon Plan ID #
+                &lt;br&gt;ActionID* -&gt; Aksiyon ID #
+                &lt;br&gt;
+                &lt;br&gt; * Zorunlu
+                &lt;br&gt;
+                &lt;br&gt;Dönüş:
+                &lt;br&gt;Status -&gt; Yöntem yürütme durumu. Değer bu olabilir:
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SUCCESS: Method başarıyla yürütüldü
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FAILURE: Metot yürütülürken bir hata oluştu
+                &lt;br&gt;Code -&gt; Method dönüş kodu
+                &lt;br&gt;Detail -&gt; Method dönüş detayı
+                &lt;br&gt;RecordKey -&gt; Kayıt kodu method ile eklendi</documentation>
+    <input message="tns:getActionRequest"/>
+    <output message="tns:getActionResponse"/>
+  </operation>
+  <operation name="editAction">
+    <documentation>Düzenle Aksiyon
+                &lt;br&gt;
+                &lt;br&gt;ActionPlanID* -&gt; Aksiyon Plan ID #
+                &lt;br&gt;ActionID* -&gt; Aksiyon ID #
+                &lt;br&gt;ActionIdNew -&gt; Yeni Aksiyon ID #
+                &lt;br&gt;ActionTitle* -&gt; Başlık (Ne?)
+                &lt;br&gt;CatID -&gt; Kategori ID #
+                &lt;br&gt;TeamID -&gt; Sorumlu takım kimliği #
+                &lt;br&gt;RespID* -&gt; Yürütmeden sorumlu ( Kim? )
+                &lt;br&gt;DtPlanStart -&gt; Planlanan Başlangıç Tarihi - Ne Zaman?
+                &lt;br&gt;TmPlanStart -&gt; Başlama Zamanı - Ne Zaman?
+                &lt;br&gt;DtPlanEnd -&gt; Planlanan Bitiş Tarihi - Ne Zaman?
+                &lt;br&gt;TmPlanEnd -&gt; As-ta-la-vista - Ne Zaman?
+                &lt;br&gt;VlPlanCost -&gt; Tahmin Edilen Maliyet - Ne kadar?
+                &lt;br&gt;DsWhy -&gt; Neden?
+                &lt;br&gt;DsWhere -&gt; Nerede?
+                &lt;br&gt;DsHow -&gt; Nasıl?
+                &lt;br&gt;
+                &lt;br&gt; * Zorunlu
+                &lt;br&gt;
+                &lt;br&gt;Dönüş:
+                &lt;br&gt;Status -&gt; Yöntem yürütme durumu. Değer bu olabilir:
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SUCCESS: Method başarıyla yürütüldü
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FAILURE: Metot yürütülürken bir hata oluştu
+                &lt;br&gt;Code -&gt; Method dönüş kodu
+                &lt;br&gt;Detail -&gt; Method dönüş detayı
+                &lt;br&gt;RecordKey -&gt; Kayıt kodu method ile eklendi</documentation>
+    <input message="tns:editActionRequest"/>
+    <output message="tns:editActionResponse"/>
+  </operation>
+  <operation name="editActionStatus">
+    <documentation>&lt;br&gt; editActionStatus()
+                &lt;br&gt;ActionPlanID* -&gt; Aksiyon Plan ID #
+                &lt;br&gt;ActionID* -&gt; Aksiyon ID #
+                &lt;br&gt;ActionFg* - Operasyon Tipi
+                &lt;br&gt;JustifyDs* - Neden
+                &lt;br&gt;
+                &lt;br&gt; * Zorunlu
+                &lt;br&gt;
+                &lt;br&gt;Dönüş:
+                &lt;br&gt;Status: Yöntem yürütme durumu. Değer bu olabilir:
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SUCCESS-&gt; Method başarıyla yürütüldü
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FAILURE-&gt; Metot yürütülürken bir hata oluştu
+                &lt;br&gt;Code -&gt; Hata Kodu :
+                &lt;br&gt;Detail -&gt; ARIZA halinde, arıza ile birlikte bir mesaj geri döner.</documentation>
+    <input message="tns:editActionStatusRequest"/>
+    <output message="tns:editActionStatusResponse"/>
+  </operation>
+  <operation name="executeAction">
+    <documentation> executeAction()
+                &lt;br&gt;ActionPlanID* -&gt; Aksiyon Plan ID #
+                &lt;br&gt;ActionID* -&gt; Aksiyon ID #
+                &lt;br&gt;UserID* -&gt; Kullanıcı ID #
+                &lt;br&gt;ExecStartDt -&gt; Yürütme başlangıç tarihi - Ne Zaman?
+                &lt;br&gt;ExecStartTm -&gt; Yürütme başlangıç saati - Ne Zaman?
+                &lt;br&gt;ExecEndDt -&gt; End date of execution - Ne Zaman?
+                &lt;br&gt;ExecEndTm -&gt; End time of execution - Ne Zaman?
+                &lt;br&gt;ExecCostVl -&gt; Gerçekleşen Maliyet
+                &lt;br&gt;ResultDs -&gt; Sonuç
+                &lt;br&gt;
+                &lt;br&gt; * Zorunlu
+                &lt;br&gt;
+                &lt;br&gt;Dönüş:
+                &lt;br&gt;Status: Yöntem yürütme durumu. Değer bu olabilir:
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SUCCESS-&gt; Method başarıyla yürütüldü
+                &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FAILURE-&gt; Metot yürütülürken bir hata oluştu
+                &lt;br&gt;Code -&gt; Hata Kodu :
+                &lt;br&gt;Detail -&gt; ARIZA halinde, arıza ile birlikte bir mesaj geri döner.</documentation>
+    <input message="tns:executeActionRequest"/>
+    <output message="tns:executeActionResponse"/>
+  </operation>
+  <operation name="newAttachmentAction">
+    <documentation>Eklenti yüklendi
+                    &lt;br&gt;
+                    &lt;br&gt; Parametreler:
+                    &lt;br&gt;ActionPlanID* -&gt; Aksiyon Plan ID #
+                    &lt;br&gt;ActionID* -&gt; Aksiyon ID #
+                    &lt;br&gt;FileName* -&gt; Dosya adı(uzantısı ile birlikte)
+                    &lt;br&gt;FileContent* -&gt; Dosya ikili içeriği
+                    &lt;br&gt;AttachmentName -&gt; Eklenti Adı
+                    &lt;br&gt;Summary -&gt; Özet
+                    &lt;br&gt;
+                    &lt;br&gt; * Zorunlu
+                    &lt;br&gt;
+                    &lt;br&gt;Dönüş:
+                    &lt;br&gt;Status -&gt; Yöntem yürütme durumu. Değer bu olabilir:
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SUCCESS -&gt; Method başarıyla yürütüldü
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FAILURE -&gt; Metot yürütülürken bir hata oluştu
+                    &lt;br&gt;Code -&gt; Method dönüş kodu
+                    &lt;br&gt;Detail -&gt; Method dönüş detayı
+                    &lt;br&gt;RecordKey -&gt; Kayıt kodu method ile eklendi</documentation>
+    <input message="tns:newAttachmentActionRequest"/>
+    <output message="tns:newAttachmentActionResponse"/>
+  </operation>
+  <operation name="getAttachmentAction">
+    <documentation>Dosya indir
+                    &lt;br&gt;
+                    &lt;br&gt; Parametreler:
+                    &lt;br&gt;ActionPlanID* -&gt; Aksiyon Plan ID #
+                    &lt;br&gt;ActionID* -&gt; Aksiyon ID #
+                    &lt;br&gt;FileName -&gt; Dosya adı(uzantısı ile birlikte)
+                    &lt;br&gt;
+                    &lt;br&gt; * Zorunlu
+                    &lt;br&gt;
+                    &lt;br&gt;Dönüş:
+                    &lt;br&gt;Status -&gt; Yöntem yürütme durumu. Değer bu olabilir:
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SUCCESS -&gt; Method başarıyla yürütüldü
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FAILURE -&gt; Metot yürütülürken bir hata oluştu
+                    &lt;br&gt;Code -&gt; Method dönüş kodu
+                    &lt;br&gt;Detail -&gt; Method dönüş detayı
+                    &lt;br&gt;Return
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AttachmentList
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Attachment
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FileName -&gt; Dosya adı(uzantısı ile birlikte)
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FileContent -&gt; Dosya ikili içeriği
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Attachment
+                    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AttachmentList
+                    </documentation>
+    <input message="tns:getAttachmentActionRequest"/>
+    <output message="tns:getAttachmentActionResponse"/>
+  </operation>
+</portType>
+<binding name="TimecontrolBinding" type="tns:TimecontrolPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="newAction">
+    <soap:operation soapAction="urn:timecontrol#newAction" style="document"/>
+    <input><soap:body use="literal" namespace="urn:timecontrol"/></input>
+    <output><soap:body use="literal" namespace="urn:timecontrol"/></output>
+  </operation>
+  <operation name="getAction">
+    <soap:operation soapAction="urn:timecontrol#getAction" style="document"/>
+    <input><soap:body use="literal" namespace="urn:timecontrol"/></input>
+    <output><soap:body use="literal" namespace="urn:timecontrol"/></output>
+  </operation>
+  <operation name="editAction">
+    <soap:operation soapAction="urn:timecontrol#editAction" style="document"/>
+    <input><soap:body use="literal" namespace="urn:timecontrol"/></input>
+    <output><soap:body use="literal" namespace="urn:timecontrol"/></output>
+  </operation>
+  <operation name="editActionStatus">
+    <soap:operation soapAction="urn:timecontrol#editActionStatus" style="document"/>
+    <input><soap:body use="literal" namespace="urn:timecontrol"/></input>
+    <output><soap:body use="literal" namespace="urn:timecontrol"/></output>
+  </operation>
+  <operation name="executeAction">
+    <soap:operation soapAction="urn:timecontrol#executeAction" style="document"/>
+    <input><soap:body use="literal" namespace="urn:timecontrol"/></input>
+    <output><soap:body use="literal" namespace="urn:timecontrol"/></output>
+  </operation>
+  <operation name="newAttachmentAction">
+    <soap:operation soapAction="urn:timecontrol#newAttachmentAction" style="document"/>
+    <input><soap:body use="literal" namespace="urn:timecontrol"/></input>
+    <output><soap:body use="literal" namespace="urn:timecontrol"/></output>
+  </operation>
+  <operation name="getAttachmentAction">
+    <soap:operation soapAction="urn:timecontrol#getAttachmentAction" style="document"/>
+    <input><soap:body use="literal" namespace="urn:timecontrol"/></input>
+    <output><soap:body use="literal" namespace="urn:timecontrol"/></output>
+  </operation>
+</binding>
+<service name="Timecontrol">
+  <port name="TimecontrolPort" binding="tns:TimecontrolBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/tmc_ws.php"/>
+  </port>
+</service>
+</definitions>

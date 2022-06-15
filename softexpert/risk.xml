@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:ri" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:ri">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:ri"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="createRiskFileRequestType">
+  <xsd:all>
+   <xsd:element name="IDRISK" type="xsd:string"/>
+   <xsd:element name="NMRISK" type="xsd:string"/>
+   <xsd:element name="IDTYPE" type="xsd:string"/>
+   <xsd:element name="IDRESP" type="xsd:string"/>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="FGCLASS" type="xsd:string"/>
+   <xsd:element name="IDINCIDENTTYPE" type="xsd:string"/>
+   <xsd:element name="IDPROBLEMTYPE" type="xsd:string"/>
+   <xsd:element name="FGSYMBOL" type="xsd:string"/>
+   <xsd:element name="DSRISK" type="xsd:string"/>
+   <xsd:element name="ACTION" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createRiskFileResponseType">
+  <xsd:all>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createControlFileRequestType">
+  <xsd:all>
+   <xsd:element name="IDCONTROL" type="xsd:string"/>
+   <xsd:element name="NMCONTROL" type="xsd:string"/>
+   <xsd:element name="IDTYPE" type="xsd:string"/>
+   <xsd:element name="IDRESP" type="xsd:string"/>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="FGIMPLEMENT" type="xsd:string"/>
+   <xsd:element name="DTIMPLEMENT" type="xsd:string"/>
+   <xsd:element name="FGRELEVANT" type="xsd:string"/>
+   <xsd:element name="FGCTRLCHARACT" type="xsd:string"/>
+   <xsd:element name="FGFREQUENCY" type="xsd:string"/>
+   <xsd:element name="FGSYMBOL" type="xsd:string"/>
+   <xsd:element name="DSCONTROL" type="xsd:string"/>
+   <xsd:element name="ACTION" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createControlFileResponseType">
+  <xsd:all>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createRiskAnalysisRequestType">
+  <xsd:all>
+   <xsd:element name="IDRISK" type="xsd:string"/>
+   <xsd:element name="IDPLAN" type="xsd:string"/>
+   <xsd:element name="IDRESP" type="xsd:string"/>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="IDRISKANALYSIS" type="xsd:string"/>
+   <xsd:element name="GNARA_CDASSOC" type="xsd:string"/>
+   <xsd:element name="DTNEXTEVAL" type="xsd:string"/>
+   <xsd:element name="QTPENDECY" type="xsd:string"/>
+   <xsd:element name="IDTREATMENT" type="xsd:string"/>
+   <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+   <xsd:element name="VLTOTAL" type="xsd:string"/>
+   <xsd:element name="VLAPETITE" type="xsd:string"/>
+   <xsd:element name="VLTOLERANCE" type="xsd:string"/>
+   <xsd:element name="DSRISKANALYSIS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createRiskAnalysisResponseType">
+  <xsd:all>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createControlAnalysisRequestType">
+  <xsd:all>
+   <xsd:element name="IDCONTROL" type="xsd:string"/>
+   <xsd:element name="IDPLAN" type="xsd:string"/>
+   <xsd:element name="IDRESP" type="xsd:string"/>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="IDCONTROLANALYSIS" type="xsd:string"/>
+   <xsd:element name="GNACA_CDASSOC" type="xsd:string"/>
+   <xsd:element name="FGAUTOMATIONTYPE" type="xsd:string"/>
+   <xsd:element name="FGCONTROLCHARACT" type="xsd:string"/>
+   <xsd:element name="FGCONTROLFREQ" type="xsd:string"/>
+   <xsd:element name="FGIMPLEMENT" type="xsd:string"/>
+   <xsd:element name="DTIMPLEMENT" type="xsd:string"/>
+   <xsd:element name="DTNEXTEVAL" type="xsd:string"/>
+   <xsd:element name="QTEVALPENDENCY" type="xsd:string"/>
+   <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+   <xsd:element name="VLCOST" type="xsd:string"/>
+   <xsd:element name="DSCONTROLANALYSIS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createControlAnalysisResponseType">
+  <xsd:all>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="createRiskFile" type="tns:createRiskFileRequestType"/>
+ <xsd:element name="createRiskFileResponse" type="tns:createRiskFileResponseType"/>
+ <xsd:element name="createControlFile" type="tns:createControlFileRequestType"/>
+ <xsd:element name="createControlFileResponse" type="tns:createControlFileResponseType"/>
+ <xsd:element name="createRiskAnalysis" type="tns:createRiskAnalysisRequestType"/>
+ <xsd:element name="createRiskAnalysisResponse" type="tns:createRiskAnalysisResponseType"/>
+ <xsd:element name="createControlAnalysis" type="tns:createControlAnalysisRequestType"/>
+ <xsd:element name="createControlAnalysisResponse" type="tns:createControlAnalysisResponseType"/>
+</xsd:schema>
+</types>
+<message name="createRiskFileRequest">
+  <part name="parameters" element="tns:createRiskFile" /></message>
+<message name="createRiskFileResponse">
+  <part name="parameters" element="tns:createRiskFileResponse" /></message>
+<message name="createControlFileRequest">
+  <part name="parameters" element="tns:createControlFile" /></message>
+<message name="createControlFileResponse">
+  <part name="parameters" element="tns:createControlFileResponse" /></message>
+<message name="createRiskAnalysisRequest">
+  <part name="parameters" element="tns:createRiskAnalysis" /></message>
+<message name="createRiskAnalysisResponse">
+  <part name="parameters" element="tns:createRiskAnalysisResponse" /></message>
+<message name="createControlAnalysisRequest">
+  <part name="parameters" element="tns:createControlAnalysis" /></message>
+<message name="createControlAnalysisResponse">
+  <part name="parameters" element="tns:createControlAnalysisResponse" /></message>
+<portType name="RiskPortType">
+  <operation name="createRiskFile">
+    <documentation>Riskler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;IDRISK: Risk kimliği&lt;BR&gt;NMRISK: Risk adı&lt;BR&gt;IDTYPE: Kontrol Tipi&lt;BR&gt;&lt;BR&gt;ACTION: Aksiyon Tipi: 1 -&gt; Ekle  2 -&gt; Düzenle&lt;BR&gt;Giriş Kaydı:&lt;BR&gt;Statü:Yöntem yürütme durumu. Değer bu olabilir:&lt;BR&gt;SUCCESS: Method başarıyla yürütüldü&lt;BR&gt;FAILURE: Metot yürütülürken bir hata oluştuCODE: Method dönüş kodu&lt;BR&gt;DETAIL: Method dönüş detayı&lt;BR&gt;</documentation>
+    <input message="tns:createRiskFileRequest"/>
+    <output message="tns:createRiskFileResponse"/>
+  </operation>
+  <operation name="createControlFile">
+    <documentation>Kontrol Kaydı&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;IDCONTROL: Denetim Kimliği&lt;BR&gt;NMCONTROL: Kontrol adı&lt;BR&gt;IDTYPE: Kontrol Tipi&lt;BR&gt;&lt;BR&gt;ACTION: Aksiyon Tipi: 1 -&gt; Ekle  2 -&gt; Düzenle&lt;BR&gt;Giriş Kaydı:&lt;BR&gt;Statü:Yöntem yürütme durumu. Değer bu olabilir:&lt;BR&gt;SUCCESS: Method başarıyla yürütüldü&lt;BR&gt;FAILURE: Metot yürütülürken bir hata oluştuCode: Method dönüş kodu&lt;BR&gt;Detail: Method dönüş detayı&lt;BR&gt;</documentation>
+    <input message="tns:createControlFileRequest"/>
+    <output message="tns:createControlFileResponse"/>
+  </operation>
+  <operation name="createRiskAnalysis">
+    <documentation>Risk analizi&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;IDRISK: Risk kimliği&lt;BR&gt;IDPLAN: Risk planı kimliği #&lt;BR&gt;IDRESP: Sorumlu kimlik no&lt;BR&gt;&lt;BR&gt;ACTION: Aksiyon Tipi: 1 -&gt; Ekle  2 -&gt; Düzenle&lt;BR&gt;Giriş Kaydı:&lt;BR&gt;Statü:Yöntem yürütme durumu. Değer bu olabilir:&lt;BR&gt;SUCCESS: Method başarıyla yürütüldü&lt;BR&gt;FAILURE: Metot yürütülürken bir hata oluştuCode: Method dönüş kodu&lt;BR&gt;Detail: Method dönüş detayı&lt;BR&gt;</documentation>
+    <input message="tns:createRiskAnalysisRequest"/>
+    <output message="tns:createRiskAnalysisResponse"/>
+  </operation>
+  <operation name="createControlAnalysis">
+    <documentation>Risk analizi&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;IDCONTROL: Denetim Kimliği&lt;BR&gt;IDPLAN: Risk planı kimliği #&lt;BR&gt;IDRESP: Sorumlu kimlik no&lt;BR&gt;&lt;BR&gt;ACTION: Aksiyon Tipi: 1 -&gt; Ekle  2 -&gt; Düzenle&lt;BR&gt;Giriş Kaydı:&lt;BR&gt;Statü:Yöntem yürütme durumu. Değer bu olabilir:&lt;BR&gt;SUCCESS: Method başarıyla yürütüldü&lt;BR&gt;FAILURE: Metot yürütülürken bir hata oluştuCode: Method dönüş kodu&lt;BR&gt;Detail: Method dönüş detayı&lt;BR&gt;</documentation>
+    <input message="tns:createControlAnalysisRequest"/>
+    <output message="tns:createControlAnalysisResponse"/>
+  </operation>
+</portType>
+<binding name="RiskBinding" type="tns:RiskPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="createRiskFile">
+    <soap:operation soapAction="urn:ri#createRiskFile" style="document"/>
+    <input><soap:body use="literal" namespace="urn:ri"/></input>
+    <output><soap:body use="literal" namespace="urn:ri"/></output>
+  </operation>
+  <operation name="createControlFile">
+    <soap:operation soapAction="urn:ri#createControlFile" style="document"/>
+    <input><soap:body use="literal" namespace="urn:ri"/></input>
+    <output><soap:body use="literal" namespace="urn:ri"/></output>
+  </operation>
+  <operation name="createRiskAnalysis">
+    <soap:operation soapAction="urn:ri#createRiskAnalysis" style="document"/>
+    <input><soap:body use="literal" namespace="urn:ri"/></input>
+    <output><soap:body use="literal" namespace="urn:ri"/></output>
+  </operation>
+  <operation name="createControlAnalysis">
+    <soap:operation soapAction="urn:ri#createControlAnalysis" style="document"/>
+    <input><soap:body use="literal" namespace="urn:ri"/></input>
+    <output><soap:body use="literal" namespace="urn:ri"/></output>
+  </operation>
+</binding>
+<service name="Risk">
+  <port name="RiskPort" binding="tns:RiskBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/ri_ws.php"/>
+  </port>
+</service>
+</definitions>

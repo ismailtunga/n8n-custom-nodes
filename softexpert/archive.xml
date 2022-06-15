@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:archival" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:archival">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:archival"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="newPhysicalFileLoanRequestType">
+  <xsd:all>
+   <xsd:element name="UserID" type="xsd:string"/>
+   <xsd:element name="LoanDate" type="xsd:string"/>
+   <xsd:element name="DocumentID" type="xsd:string"/>
+   <xsd:element name="CategoryID" type="xsd:string"/>
+   <xsd:element name="DevolutionDate" type="xsd:string"/>
+   <xsd:element name="ReasonID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newPhysicalFileLoanResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="newPhysicalFileLoan" type="tns:newPhysicalFileLoanRequestType"/>
+ <xsd:element name="newPhysicalFileLoanResponse" type="tns:newPhysicalFileLoanResponseType"/>
+</xsd:schema>
+</types>
+<message name="newPhysicalFileLoanRequest">
+  <part name="parameters" element="tns:newPhysicalFileLoan" /></message>
+<message name="newPhysicalFileLoanResponse">
+  <part name="parameters" element="tns:newPhysicalFileLoanResponse" /></message>
+<portType name="ArchivalPortType">
+  <operation name="newPhysicalFileLoan">
+    <documentation>Kayıtları Ödünç Al. &lt;BR&gt;
+         UserID         -&gt; Kullanıcı Reg. Kod #*;&lt;BR&gt;
+         LoanDate       -&gt; Ödünç Tarihi*;&lt;BR&gt;
+         DocumentID     -&gt; Doküman ID #*;&lt;BR&gt;
+         CategoryID     -&gt; Kategori ID #*;&lt;BR&gt;
+         DevolutionDate -&gt; Tarihe Dön;&lt;BR&gt;
+         ReasonID       -&gt; Neden;&lt;BR&gt;
+         *Zorunlu.</documentation>
+    <input message="tns:newPhysicalFileLoanRequest"/>
+    <output message="tns:newPhysicalFileLoanResponse"/>
+  </operation>
+</portType>
+<binding name="ArchivalBinding" type="tns:ArchivalPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="newPhysicalFileLoan">
+    <soap:operation soapAction="urn:archival#newPhysicalFileLoan" style="document"/>
+    <input><soap:body use="literal" namespace="urn:archival"/></input>
+    <output><soap:body use="literal" namespace="urn:archival"/></output>
+  </operation>
+</binding>
+<service name="Archival">
+  <port name="ArchivalPort" binding="tns:ArchivalBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/arch_ws.php"/>
+  </port>
+</service>
+</definitions>

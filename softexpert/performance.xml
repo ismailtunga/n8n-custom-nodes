@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:performance" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:performance">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:performance"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="addMeasuresInAdinterfaceRequestType">
+  <xsd:all>
+   <xsd:element name="idscmetric" type="xsd:string"/>
+   <xsd:element name="iduser" type="xsd:string"/>
+   <xsd:element name="nrsubperiod" type="xsd:string"/>
+   <xsd:element name="nrperiod" type="xsd:string"/>
+   <xsd:element name="nryear" type="xsd:string"/>
+   <xsd:element name="vlweight" type="xsd:string"/>
+   <xsd:element name="fgnotapply" type="xsd:string"/>
+   <xsd:element name="vltarget" type="xsd:string"/>
+   <xsd:element name="vlactual" type="xsd:string"/>
+   <xsd:element name="vltargetaccum" type="xsd:string"/>
+   <xsd:element name="vlactualaccum" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addMeasuresInAdinterfaceResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="viewMetricValuesRequestType">
+  <xsd:all>
+   <xsd:element name="idscmetric" type="xsd:string"/>
+   <xsd:element name="nryear" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="viewMetricValuesResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="tns:scmetricDataReturn"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="scmetricDataReturn">
+  <xsd:all>
+   <xsd:element name="IDSCORECARD" type="xsd:string"/>
+   <xsd:element name="IDSCMETRIC" type="xsd:string"/>
+   <xsd:element name="NMCONFIGVIEW" type="xsd:string"/>
+   <xsd:element name="NMSCOREITEMOWNER" type="xsd:string"/>
+   <xsd:element name="FGFREQUENCY" type="xsd:string"/>
+   <xsd:element name="FGRANGECONFIG" type="xsd:string"/>
+   <xsd:element name="NMMETRICTYPE" type="xsd:int"/>
+   <xsd:element name="NMOWNER" type="xsd:string"/>
+   <xsd:element name="FGDUEMEASURE" type="xsd:string"/>
+   <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+   <xsd:element name="PERIODS" type="tns:periodsArray"/>
+   <xsd:element name="ERROR" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="periodsArray">
+  <xsd:sequence>
+   <xsd:element name="PERIOD" type="tns:periodData" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="periodData">
+  <xsd:all>
+   <xsd:element name="NMPERIOD" type="xsd:string"/>
+   <xsd:element name="VLACTUAL" type="xsd:string"/>
+   <xsd:element name="VLTARGET" type="xsd:string"/>
+   <xsd:element name="VLPERCENT" type="xsd:string"/>
+   <xsd:element name="NMRANGEPERIOD" type="xsd:string"/>
+   <xsd:element name="VLPOINTS" type="xsd:string"/>
+   <xsd:element name="VLVARIATION" type="xsd:string"/>
+   <xsd:element name="VLPERDIFFERENCE" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE1" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE2" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE3" type="xsd:string"/>
+   <xsd:element name="VLWEIGHT" type="xsd:string"/>
+   <xsd:element name="FGTREND" type="xsd:string"/>
+   <xsd:element name="VLTREND" type="xsd:string"/>
+   <xsd:element name="VLAVERAGE" type="xsd:string"/>
+   <xsd:element name="VLAMPLITUDE" type="xsd:string"/>
+   <xsd:element name="VLVARIANCE" type="xsd:string"/>
+   <xsd:element name="VLSTANDARDDEV" type="xsd:string"/>
+   <xsd:element name="VLCOEFVARIATION" type="xsd:string"/>
+   <xsd:element name="VLGROWTHLASTPERIOD" type="xsd:string"/>
+   <xsd:element name="VLGROWTHLASTYEAR" type="xsd:string"/>
+   <xsd:element name="VLACTUALACCUM" type="xsd:string"/>
+   <xsd:element name="VLTARGETACCUM" type="xsd:string"/>
+   <xsd:element name="VLPERCENTACCUM" type="xsd:string"/>
+   <xsd:element name="NMRANGEACCUMPERIOD" type="xsd:string"/>
+   <xsd:element name="VLPOINTSACCUM" type="xsd:string"/>
+   <xsd:element name="VLVARIATIONACCUM" type="xsd:string"/>
+   <xsd:element name="VLPERDIFFACCUM" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE1ACCUM" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE2ACCUM" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE3ACCUM" type="xsd:string"/>
+   <xsd:element name="VLRHYTHMIC" type="xsd:string"/>
+   <xsd:element name="VLRHYTHMICNECESSAR" type="xsd:string"/>
+   <xsd:element name="FGTRENDACCUM" type="xsd:string"/>
+   <xsd:element name="VLTRENDACCUM" type="xsd:string"/>
+   <xsd:element name="VLPERCENTACCUMACHIVE" type="xsd:string"/>
+   <xsd:element name="VLGROWTHLASTYEARTODATE" type="xsd:string"/>
+   <xsd:element name="VLACTUALACCUM2" type="xsd:string"/>
+   <xsd:element name="VLTARGETACCUM2" type="xsd:string"/>
+   <xsd:element name="VLPERCENTACCUM2" type="xsd:string"/>
+   <xsd:element name="NMRANGEACCUM2PERIOD" type="xsd:string"/>
+   <xsd:element name="VLPOINTSACCUM2" type="xsd:string"/>
+   <xsd:element name="VLVARIATIONACCUM2" type="xsd:string"/>
+   <xsd:element name="VLPERDIFFACCUM2" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE1ACCUM2" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE2ACCUM2" type="xsd:string"/>
+   <xsd:element name="VLTARGETTYPE3ACCUM2" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="viewScMetricDataRequestType">
+  <xsd:all>
+   <xsd:element name="idscmetric" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="viewScMetricDataResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="tns:scmetricDataInfo"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="scmetricDataInfo">
+  <xsd:all>
+   <xsd:element name="IDSCORECARD" type="xsd:string"/>
+   <xsd:element name="IDSCMETRIC" type="xsd:string"/>
+   <xsd:element name="NMCONFIGVIEW" type="xsd:string"/>
+   <xsd:element name="NMSCOREITEMOWNER" type="xsd:string"/>
+   <xsd:element name="FGFREQUENCY" type="xsd:string"/>
+   <xsd:element name="FGRANGECONFIG" type="xsd:string"/>
+   <xsd:element name="NMMETRICTYPE" type="xsd:int"/>
+   <xsd:element name="NMOWNER" type="xsd:string"/>
+   <xsd:element name="FGDUEMEASURE" type="xsd:string"/>
+   <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+   <xsd:element name="SUBMETRICS" type="tns:submetricsArray"/>
+   <xsd:element name="ERROR" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="submetricsArray">
+  <xsd:sequence>
+   <xsd:element name="SUBMETRIC" type="tns:submetricData" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="submetricData">
+  <xsd:all>
+   <xsd:element name="IDSCORECARD" type="xsd:string"/>
+   <xsd:element name="IDSCMETRIC" type="xsd:string"/>
+   <xsd:element name="FGFREQUENCY" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="addMeasuresInAdinterface" type="tns:addMeasuresInAdinterfaceRequestType"/>
+ <xsd:element name="addMeasuresInAdinterfaceResponse" type="tns:addMeasuresInAdinterfaceResponseType"/>
+ <xsd:element name="viewMetricValues" type="tns:viewMetricValuesRequestType"/>
+ <xsd:element name="viewMetricValuesResponse" type="tns:viewMetricValuesResponseType"/>
+ <xsd:element name="viewScMetricData" type="tns:viewScMetricDataRequestType"/>
+ <xsd:element name="viewScMetricDataResponse" type="tns:viewScMetricDataResponseType"/>
+</xsd:schema>
+</types>
+<message name="addMeasuresInAdinterfaceRequest">
+  <part name="parameters" element="tns:addMeasuresInAdinterface" /></message>
+<message name="addMeasuresInAdinterfaceResponse">
+  <part name="parameters" element="tns:addMeasuresInAdinterfaceResponse" /></message>
+<message name="viewMetricValuesRequest">
+  <part name="parameters" element="tns:viewMetricValues" /></message>
+<message name="viewMetricValuesResponse">
+  <part name="parameters" element="tns:viewMetricValuesResponse" /></message>
+<message name="viewScMetricDataRequest">
+  <part name="parameters" element="tns:viewScMetricData" /></message>
+<message name="viewScMetricDataResponse">
+  <part name="parameters" element="tns:viewScMetricDataResponse" /></message>
+<portType name="PerformancePortType">
+  <operation name="addMeasuresInAdinterface">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Gösterge için hedef ve gerçekleşen değer aktarımı.&lt;/u&gt;&lt;/b&gt;&lt;br&gt;
+         &lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;
+            idscmetric =&gt;&amp;nbsp;Karne gösterge ID #&lt;br&gt;
+            iduser =&gt;&amp;nbsp;Göstergelere değer aktarmak için yetkisi olan kullanıcı ID #&lt;br&gt;
+            nrperiod =&gt;&amp;nbsp;Değerlerin geçerli periyot tanımı&lt;br&gt;
+            nryear =&gt;&amp;nbsp;Değerlerin geçerli yıl tanımı.&lt;br&gt;
+        &lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;
+            vltarget =&gt;&amp;nbsp;Hedef Değer&lt;br&gt;
+            vlactual =&gt;&amp;nbsp;Ölçüm değeri&lt;br&gt;
+            vltargetaccum =&gt;&amp;nbsp;Kümülatif hedef değeri&lt;br&gt;
+            vlactualaccum =&gt;&amp;nbsp;Kümülatif ölçüm değeri&lt;br&gt;
+            fgnotapply =&gt;&amp;nbsp;Uygulanmış değeri olmayan periyot için tanımlayıcı, uygulanmayan değerler için 1 girin.&lt;br&gt;
+            vlweight =&gt;&amp;nbsp;Periyot ağırlığı. Varsayılan değer 1.&lt;br&gt;
+            nrsubperiod =&gt;&amp;nbsp;Sıklığı günlük, haftalık ve haftada iki olan göstergelerin periyot tanımı.&lt;br&gt;</documentation>
+    <input message="tns:addMeasuresInAdinterfaceRequest"/>
+    <output message="tns:addMeasuresInAdinterfaceResponse"/>
+  </operation>
+  <operation name="viewMetricValues">
+    <documentation>Gösterge verisi. &lt;br&gt;
+         IDSCMETRIC     -&gt; Karne gösterge ID #*;&lt;br&gt;
+         NRYEAR         -&gt; Yıl*;&lt;br&gt;
+         &lt;br&gt;BAŞARI halinde: Meta veriye geri döner.&lt;br&gt;
+            &amp;emsp;IDSCORECARD: String; Puan kartı kimliği #;&lt;br&gt;
+            &amp;emsp;IDSCMETRIC: String; Karne gösterge ID #;&lt;br&gt;
+            &amp;emsp;NMCONFIGVIEW: String; Indicator range configuration;&lt;br&gt;
+            &amp;emsp;NMSCOREITEMOWNER: String; Upper level indicator element;&lt;br&gt;
+            &amp;emsp;FGFREQUENCY: String; Indicator frequency (1 - Annual; 2 - Biannual; 3 - Four-month-period; 4 - Quarterly; 5 - Bimonthly; 6 - Monthly; 7 - Biweekly; 8 - Weekly; 9 - Daily; 10 - Based on event).;&lt;br&gt;
+            &amp;emsp;FGRANGECONFIG: String; Indicator range configuration;&lt;br&gt;
+            &amp;emsp;NMMETRICTYPE: String; Indicator type name;&lt;br&gt;
+            &amp;emsp;NMOWNER: String; Users responsible for the indicator;&lt;br&gt;
+            &amp;emsp;FGDUEMEASURE: String; Indicator due date status (1 - On time; 2 - Past due).;&lt;br&gt;
+            &amp;emsp;IDMEASUNITY: String; Indicator measurement unit;&lt;br&gt;
+            &amp;emsp;PERIODS: Matriz; Indicator periods;&lt;br&gt;
+            &amp;emsp;&amp;emsp;PERIOD: Indicator period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;NMPERIOD: String; Period name;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLACTUAL: String; Period measurement;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGET: String; Period target;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPERCENT: String; Period percentage;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;NMRANGEPERIOD: String; Period range status;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPOINTS: String; Period score;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLVARIATION: String; Period variation value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPERDIFFERENCE: String; Period percentage difference value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE1: String; Value of Additional field 1 of the period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE2: String; Value of Additional field 2 of the period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE3: String; Value of Additional field 3 of the period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLWEIGHT: String; Period weight;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;FGTREND: String; Period trend (1 - Upward trend; 2 - Constant trend; 3 - Downward trend).;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTREND: String; Period trend value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLAVERAGE: String; Period average value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLAMPLITUDE: String; Period range value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLVARIANCE: String; Period variance value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLSTANDARDDEV: String; Period standard deviation value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLCOEFVARIATION: String; Period coefficient of variation value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLGROWTHLASTPERIOD: String; Growth percentage regarding the previous period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLGROWTHLASTYEAR: String; Growth percentage regarding the same period in the previous year;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLACTUALACCUM: String; Period accumulated measurement;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETACCUM: String; Period accumulated target;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPERCENTACCUM: String; Period percentage accumulated;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;NMRANGEACCUMPERIOD: String; Period accumulated range status;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPOINTSACCUM: String; Period cumulative rate;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLVARIATIONACCUM: String; Period cumulative variation value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPERDIFFACCUM: String; Period percentage accumulated deviation value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE1ACCUM: String; Value of the accumulated additional field 1 of the period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE2ACCUM: String; Value of the accumulated additional field 2 of the period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE3ACCUM: String; Value of the accumulated additional field 3 of the period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLRHYTHMIC: String; Period rhythm value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLRHYTHMICNECESSAR: String; Period necessary rhythm value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;FGTRENDACCUM: String; Period accumulated trend (1 - Upward trend; 2 - Constant trend; 3 - Downward trend).;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTRENDACCUM: String; Period accumulated trend value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPERCENTACCUMACHIVE: String; Period cumulative achievement percentage;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLGROWTHLASTYEARTODATE: String; Growth percentage regarding the same accumulated period in the previous year;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLACTUALACCUM2: String; Period accumulated measurement 2;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETACCUM2: String; Period accumulated target 2;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPERCENTACCUM2: String; Period percentage accumulated 2;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;NMRANGEACCUM2PERIOD: String; Period accumulated range 2 status;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPOINTSACCUM2: String; Period cumulative rate 2;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLVARIATIONACCUM2: String; Period cumulative variation 2 value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLPERDIFFACCUM2: String; Period percentage accumulated 2 deviation value;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE1ACCUM2: String; Value of the additional field 1 accumulated 2 of the period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE2ACCUM2: String; Value of the additional field 2 accumulated 2 of the period;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;VLTARGETTYPE3ACCUM2: String; Value of the additional field 3 accumulated 2 of the period;&lt;br&gt;        
+                
+            ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;
+            *Zorunlu&lt;BR&gt;</documentation>
+    <input message="tns:viewMetricValuesRequest"/>
+    <output message="tns:viewMetricValuesResponse"/>
+  </operation>
+  <operation name="viewScMetricData">
+    <documentation>Gösterge verisi. &lt;br&gt;
+         IDSCMETRIC     -&gt; Karne gösterge ID #*;&lt;br&gt;
+         &lt;br&gt;BAŞARI halinde: Meta veriye geri döner.&lt;br&gt;
+            &amp;emsp;IDSCORECARD: String; Puan kartı kimliği #;&lt;br&gt;
+            &amp;emsp;IDSCMETRIC: String; Karne gösterge ID #;&lt;br&gt;
+            &amp;emsp;NMCONFIGVIEW: String; Indicator range configuration;&lt;br&gt;
+            &amp;emsp;NMSCOREITEMOWNER: String; Upper level indicator element;&lt;br&gt;
+            &amp;emsp;FGFREQUENCY: String; Indicator frequency (1 - Annual; 2 - Biannual; 3 - Four-month-period; 4 - Quarterly; 5 - Bimonthly; 6 - Monthly; 7 - Biweekly; 8 - Weekly; 9 - Daily; 10 - Based on event).;&lt;br&gt;
+            &amp;emsp;FGRANGECONFIG: String; Indicator range configuration;&lt;br&gt;
+            &amp;emsp;NMMETRICTYPE: String; Indicator type name;&lt;br&gt;
+            &amp;emsp;NMOWNER: String; Users responsible for the indicator;&lt;br&gt;
+            &amp;emsp;FGDUEMEASURE: String; Indicator due date status (1 - On time; 2 - Past due).;&lt;br&gt;
+            &amp;emsp;IDMEASUNITY: String; Indicator measurement unit;&lt;br&gt;
+            &amp;emsp;SUBMETRICS: Matriz; Scorecard indicator sub-indicators;&lt;br&gt;
+            &amp;emsp;&amp;emsp;SUBMETRIC: Scorecard sub-indicator;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;IDSCORECARD: String; Puan kartı kimliği #;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;IDSCMETRIC: String; Karne gösterge ID #;&lt;br&gt;
+                &amp;emsp;&amp;emsp;&amp;emsp;FGFREQUENCY: String; Indicator frequency (1 - Annual; 2 - Biannual; 3 - Four-month-period; 4 - Quarterly; 5 - Bimonthly; 6 - Monthly; 7 - Biweekly; 8 - Weekly; 9 - Daily; 10 - Based on event).;&lt;br&gt;
+                
+            ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;
+            *Zorunlu&lt;BR&gt;</documentation>
+    <input message="tns:viewScMetricDataRequest"/>
+    <output message="tns:viewScMetricDataResponse"/>
+  </operation>
+</portType>
+<binding name="PerformanceBinding" type="tns:PerformancePortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="addMeasuresInAdinterface">
+    <soap:operation soapAction="urn:performance#addMeasuresInAdinterface" style="document"/>
+    <input><soap:body use="literal" namespace="urn:performance"/></input>
+    <output><soap:body use="literal" namespace="urn:performance"/></output>
+  </operation>
+  <operation name="viewMetricValues">
+    <soap:operation soapAction="urn:performance#viewMetricValues" style="document"/>
+    <input><soap:body use="literal" namespace="urn:performance"/></input>
+    <output><soap:body use="literal" namespace="urn:performance"/></output>
+  </operation>
+  <operation name="viewScMetricData">
+    <soap:operation soapAction="urn:performance#viewScMetricData" style="document"/>
+    <input><soap:body use="literal" namespace="urn:performance"/></input>
+    <output><soap:body use="literal" namespace="urn:performance"/></output>
+  </operation>
+</binding>
+<service name="Performance">
+  <port name="PerformancePort" binding="tns:PerformanceBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/st_ws.php"/>
+  </port>
+</service>
+</definitions>

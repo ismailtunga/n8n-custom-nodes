@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.n11.com/ws/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.n11.com/ws/schemas" targetNamespace="http://www.n11.com/ws/schemas">
+    <wsdl:types>
+        <xs:schema xmlns:n11="http://www.n11.com/ws/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.n11.com/ws/schemas">
+            <xs:element name="ClaimReturnPendingRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimReturnId" type="xs:long"/>
+                        <xs:element name="pendingReasonId" type="xs:long"/>
+                        <xs:element name="pendingDayCount" type="xs:integer"/>
+                        <xs:element name="pendingReasonNote" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnPendingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnDenyReasonTypesRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnDenyReasonTypesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="denyReasonTypeDataList" type="n11:DenyReasonTypeDataList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnPendingReasonTypesRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnPendingReasonTypesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="pendingReasonTypeDataList" type="n11:PendingReasonTypeDataList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnApproveRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimReturnId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnApproveResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnDenyRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimReturnId" type="xs:long"/>
+                        <xs:element name="denyReasonId" type="xs:long"/>
+                        <xs:element name="denyReasonNote" type="xs:string"/>
+                        <xs:element name="returnShipmentType" type="xs:string"/>
+                        <xs:element name="shipmentCompanyId" type="xs:long"/>
+                        <xs:element name="trackingNumber" type="xs:string"/>
+                        <xs:element name="deliveryReceiptNumber" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnDenyResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnListRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="searchData" type="n11:ClaimReturnSearch"/>
+                        <xs:element name="pagingData" type="n11:ReturnRequestPagingData"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimReturnListResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="pagingData" type="n11:PagingData"/>
+                        <xs:element minOccurs="0" name="claimReturnList" type="n11:ReturnDataList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="DenyReasonTypeData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="value" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DenyReasonTypeDataList">
+                <xs:sequence>
+                    <xs:element name="denyReasonTypeData" type="n11:DenyReasonTypeData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PendingReasonTypeData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="value" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PendingReasonTypeDataList">
+                <xs:sequence>
+                    <xs:element name="pendingReasonTypeData" type="n11:PendingReasonTypeData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ReturnRequestPagingData">
+                <xs:sequence>
+                    <xs:element name="currentPage" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimReturnSearch">
+                <xs:sequence>
+                    <xs:element name="status" type="xs:string"/>
+                    <xs:element name="executer" type="xs:string"/>
+                    <xs:element name="searchInfoType" type="xs:string"/>
+                    <xs:element name="searchQuery" type="xs:string"/>
+                    <xs:element name="period" type="n11:DateRangeApiModel"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DateRangeApiModel">
+                <xs:sequence>
+                    <xs:element name="startDate" nillable="true" type="xs:string"/>
+                    <xs:element name="endDate" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ReturnDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="n11:ReturnData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ReturnData">
+                <xs:sequence>
+                    <xs:element name="claimReturnId" type="xs:long"/>
+                    <xs:element name="status" type="n11:ClaimReturnStatus"/>
+                    <xs:element name="executer" type="n11:ClaimExecuterType"/>
+                    <xs:element name="returnReasonType" type="xs:string"/>
+                    <xs:element name="returnReasonDescription" type="xs:string"/>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="shipmentMethod" type="xs:string"/>
+                    <xs:element name="bundleName" type="xs:string"/>
+                    <xs:element name="sellerCampaignNumber" type="xs:string"/>
+                    <xs:element name="requestDate" type="xs:date"/>
+                    <xs:element name="pendingRequestDate" type="xs:date"/>
+                    <xs:element name="pendedDate" type="xs:date"/>
+                    <xs:element name="cancelledDate" type="xs:date"/>
+                    <xs:element name="deniedDate" type="xs:date"/>
+                    <xs:element name="approvedDate" type="xs:date"/>
+                    <xs:element name="sellerShipmentCompany" type="xs:string"/>
+                    <xs:element name="sellerTrackingNumber" type="xs:string"/>
+                    <xs:element name="productId" type="xs:string"/>
+                    <xs:element name="productName" type="xs:string"/>
+                    <xs:element name="attributesNames" type="xs:string"/>
+                    <xs:element name="quantity" type="xs:string"/>
+                    <xs:element name="unitPrice" type="xs:decimal"/>
+                    <xs:element name="finalPrice" type="xs:decimal"/>
+                    <xs:element name="shipmentCompany" type="xs:string"/>
+                    <xs:element name="trackingNumber" type="xs:string"/>
+                    <xs:element name="deliveryFeeType" type="xs:string"/>
+                    <xs:element name="campaignNumber" type="xs:string"/>
+                    <xs:element name="buyerPhone" type="xs:string"/>
+                    <xs:element name="buyerEmail" type="xs:string"/>
+                    <xs:element name="buyerName" type="xs:string"/>
+                    <xs:element name="paymentDate" type="xs:date"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimReturnStatus">
+                <xs:sequence>
+                    <xs:element name="REQUESTED" type="xs:string"/>
+                    <xs:element name="CANCELLED" type="xs:string"/>
+                    <xs:element name="DENIED" type="xs:string"/>
+                    <xs:element name="PENDING" type="xs:string"/>
+                    <xs:element name="PENDED" type="xs:string"/>
+                    <xs:element name="APPROVED" type="xs:string"/>
+                    <xs:element name="MANUAL_REFUND" type="xs:string"/>
+                    <xs:element name="ALL" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimExecuterType">
+                <xs:sequence>
+                    <xs:element name="BUYER" type="xs:string"/>
+                    <xs:element name="SELLER" type="xs:string"/>
+                    <xs:element name="OPERATOR" type="xs:string"/>
+                    <xs:element name="SYSTEM" type="xs:string"/>
+                    <xs:element name="SHIPMENT" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimSearchType">
+                <xs:sequence>
+                    <xs:element name="BUYEREMAIL" type="xs:string"/>
+                    <xs:element name="RECIPIENTS" type="xs:string"/>
+                    <xs:element name="BUYERNAME" type="xs:string"/>
+                    <xs:element name="ORDERID" type="xs:string"/>
+                    <xs:element name="PRODUCTID" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseRequest">
+                <xs:sequence>
+                    <xs:element name="authentication" type="n11:Authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Authentication">
+                <xs:sequence>
+                    <xs:element name="appKey" type="xs:string"/>
+                    <xs:element name="appSecret" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResultInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PagingData">
+                <xs:sequence>
+                    <xs:element name="currentPage" nillable="true" type="xs:int"/>
+                    <xs:element name="pageSize" nillable="true" type="xs:int"/>
+                    <xs:element name="totalCount" nillable="true" type="xs:long"/>
+                    <xs:element name="pageCount" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestPagingData">
+                <xs:sequence>
+                    <xs:element name="currentPage" nillable="true" type="xs:int"/>
+                    <xs:element name="pageSize" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="ClaimReturnPendingRequest">
+        <wsdl:part element="tns:ClaimReturnPendingRequest" name="ClaimReturnPendingRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnPendingResponse">
+        <wsdl:part element="tns:ClaimReturnPendingResponse" name="ClaimReturnPendingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnDenyReasonTypesRequest">
+        <wsdl:part element="tns:ClaimReturnDenyReasonTypesRequest" name="ClaimReturnDenyReasonTypesRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnDenyReasonTypesResponse">
+        <wsdl:part element="tns:ClaimReturnDenyReasonTypesResponse" name="ClaimReturnDenyReasonTypesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnPendingReasonTypesRequest">
+        <wsdl:part element="tns:ClaimReturnPendingReasonTypesRequest" name="ClaimReturnPendingReasonTypesRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnPendingReasonTypesResponse">
+        <wsdl:part element="tns:ClaimReturnPendingReasonTypesResponse" name="ClaimReturnPendingReasonTypesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnApproveRequest">
+        <wsdl:part element="tns:ClaimReturnApproveRequest" name="ClaimReturnApproveRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnApproveResponse">
+        <wsdl:part element="tns:ClaimReturnApproveResponse" name="ClaimReturnApproveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnDenyRequest">
+        <wsdl:part element="tns:ClaimReturnDenyRequest" name="ClaimReturnDenyRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnDenyResponse">
+        <wsdl:part element="tns:ClaimReturnDenyResponse" name="ClaimReturnDenyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnListRequest">
+        <wsdl:part element="tns:ClaimReturnListRequest" name="ClaimReturnListRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimReturnListResponse">
+        <wsdl:part element="tns:ClaimReturnListResponse" name="ClaimReturnListResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ReturnServicePort">
+        <wsdl:operation name="ClaimReturnPending">
+            <wsdl:input message="tns:ClaimReturnPendingRequest" name="ClaimReturnPendingRequest"/>
+            <wsdl:output message="tns:ClaimReturnPendingResponse" name="ClaimReturnPendingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnDenyReasonTypes">
+            <wsdl:input message="tns:ClaimReturnDenyReasonTypesRequest" name="ClaimReturnDenyReasonTypesRequest"/>
+            <wsdl:output message="tns:ClaimReturnDenyReasonTypesResponse" name="ClaimReturnDenyReasonTypesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnPendingReasonTypes">
+            <wsdl:input message="tns:ClaimReturnPendingReasonTypesRequest" name="ClaimReturnPendingReasonTypesRequest"/>
+            <wsdl:output message="tns:ClaimReturnPendingReasonTypesResponse" name="ClaimReturnPendingReasonTypesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnApprove">
+            <wsdl:input message="tns:ClaimReturnApproveRequest" name="ClaimReturnApproveRequest"/>
+            <wsdl:output message="tns:ClaimReturnApproveResponse" name="ClaimReturnApproveResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnDeny">
+            <wsdl:input message="tns:ClaimReturnDenyRequest" name="ClaimReturnDenyRequest"/>
+            <wsdl:output message="tns:ClaimReturnDenyResponse" name="ClaimReturnDenyResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnList">
+            <wsdl:input message="tns:ClaimReturnListRequest" name="ClaimReturnListRequest"/>
+            <wsdl:output message="tns:ClaimReturnListResponse" name="ClaimReturnListResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ReturnServicePortSoap11" type="tns:ReturnServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ClaimReturnPending">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimReturnPendingRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimReturnPendingResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnDenyReasonTypes">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimReturnDenyReasonTypesRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimReturnDenyReasonTypesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnPendingReasonTypes">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimReturnPendingReasonTypesRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimReturnPendingReasonTypesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnApprove">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimReturnApproveRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimReturnApproveResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnDeny">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimReturnDenyRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimReturnDenyResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimReturnList">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimReturnListRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimReturnListResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ReturnServicePortService">
+        <wsdl:port binding="tns:ReturnServicePortSoap11" name="ReturnServicePortSoap11">
+            <soap:address location="https://api.n11.com/ws/returnService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

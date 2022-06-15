@@ -1,0 +1,1987 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://musterikargotakip.mngkargo.com.tr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://musterikargotakip.mngkargo.com.tr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://musterikargotakip.mngkargo.com.tr/">
+      <s:element name="MusteriKargoTakipByFatura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaTip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKriter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByFaturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipByFaturaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipBySiparis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKriter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipBySiparisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipBySiparisResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByTopluFatura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTopluFaturaSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTopluFaturaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKriter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByTopluFaturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipByTopluFaturaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgiByTopluFatura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTopluFaturaSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTopluFaturaNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgiByTopluFaturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoBilgiByTopluFaturaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByIrsaliyeNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIrsaliyeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKriter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByIrsaliyeNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipByIrsaliyeNoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByTarih">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBasTar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBitTar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKriter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByTarihResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipByTarihResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByBarkod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBarkod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByBarkodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipByBarkodResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgileriByBarkod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBarkod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgileriByBarkodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoBilgileriByBarkodResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgileri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFatSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFatNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgileriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoBilgileriResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriAtfBilgileri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtfSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtfNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTopluFatSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTopluFatNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriAtfBilgileriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriAtfBilgileriResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByBayino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pBayiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBasTarih" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBitTarih" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByBayinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipByBayinoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriIadeKargoTakip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIrsaliyeNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriIadeKargoTakipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriIadeKargoTakipResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgiFace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaTip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgiFaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoBilgiFaceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipFace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturaTip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipFaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipFaceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllIl">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllIlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllIlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIlceByIlId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pIlKod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIlceByIlIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIlceByIlIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KargoUcretHesaplaFace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pRfGnIlKod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRfAlIlKod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlUcak" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLuAlimSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLuTeslimSekli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pVipHizmet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlMobil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlAlSms" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlGnSms" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlSigorta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBoy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pYukseklik" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KargoUcretHesaplaFaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KargoUcretHesaplaFaceResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrTasimaUcreti" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrAaUcreti" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrAtUcreti" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrTelefonUcreti" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrSigortaPirimi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrAraToplam" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrIndirim" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrToplam" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrKdv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrGenelToplam" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPrSmsUcreti" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCtSure" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KuryeCagirFace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAdSoyad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAdres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIlce" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTelefon" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pGonderiTuru" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPaketTipi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAlimTarih" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KuryeCagirFaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KuryeCagirFaceResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pError" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSonuc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSubeByIlIlce">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pRfIlKod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRfIlceKod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSubeByIlIlceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSubeByIlIlceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriHizmetleriFace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAdSoyad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTelefon" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCepTelefon" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKonu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMesaj" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriHizmetleriFaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MusteriHizmetleriFaceResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pError" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSonuc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriIadeKargoTakipByTarih">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBasTar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBitTar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriIadeKargoTakipByTarihResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriIadeKargoTakipByTarihResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByParcaIcerikTakipNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTakipNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBasTar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBitTar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoTakipByParcaIcerikTakipNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoTakipByParcaIcerikTakipNoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgileriBySiparisNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriKargoBilgileriBySiparisNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriKargoBilgileriBySiparisNoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeslimEdilenKargolar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBaslangicTarihi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBitisTarihi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAltFirmalarDahil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSadeceMalBedelli" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TeslimEdilenKargolarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TeslimEdilenKargolarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MalBedelliGonderiKomisyonFaturaListesi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFlAltfirmaDahil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBasTarih" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pBitTarih" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTarihType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFaturaSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFaturaNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MalBedelliGonderiKomisyonFaturaListesiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MalBedelliGonderiKomisyonFaturaListesiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MalBedelliGonderiKomisyonFaturaDetay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFaturaSeri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChFaturaNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MalBedelliGonderiKomisyonFaturaDetayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MalBedelliGonderiKomisyonFaturaDetayResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GonderiSonDurumlari">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pKullaniciNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTarih" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pHareketKod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMinHareketID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GonderiSonDurumlariResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GonderiSonDurumlariResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pWsError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaturaSiparisBilgiTz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMusteriNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSiparisNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaturaSiparisBilgiTzResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FaturaSiparisBilgiTzResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MusteriKargoTakipByFaturaSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByFatura" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByFaturaSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByFaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipBySiparisSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipBySiparis" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipBySiparisSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipBySiparisResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByTopluFaturaSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByTopluFatura" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByTopluFaturaSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByTopluFaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgiByTopluFaturaSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgiByTopluFatura" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgiByTopluFaturaSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgiByTopluFaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByIrsaliyeNoSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByIrsaliyeNo" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByIrsaliyeNoSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByIrsaliyeNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByTarihSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByTarih" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByTarihSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByTarihResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByBarkodSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByBarkod" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByBarkodSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByBarkodResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriByBarkodSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgileriByBarkod" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriByBarkodSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgileriByBarkodResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgileri" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgileriResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriAtfBilgileriSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriAtfBilgileri" />
+  </wsdl:message>
+  <wsdl:message name="MusteriAtfBilgileriSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriAtfBilgileriResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByBayinoSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByBayino" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByBayinoSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByBayinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIadeKargoTakipSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriIadeKargoTakip" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIadeKargoTakipSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriIadeKargoTakipResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgiFaceSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgiFace" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgiFaceSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgiFaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipFaceSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipFace" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipFaceSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipFaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllIlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllIl" />
+  </wsdl:message>
+  <wsdl:message name="GetAllIlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllIlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIlceByIlIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIlceByIlId" />
+  </wsdl:message>
+  <wsdl:message name="GetIlceByIlIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIlceByIlIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="KargoUcretHesaplaFaceSoapIn">
+    <wsdl:part name="parameters" element="tns:KargoUcretHesaplaFace" />
+  </wsdl:message>
+  <wsdl:message name="KargoUcretHesaplaFaceSoapOut">
+    <wsdl:part name="parameters" element="tns:KargoUcretHesaplaFaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="KuryeCagirFaceSoapIn">
+    <wsdl:part name="parameters" element="tns:KuryeCagirFace" />
+  </wsdl:message>
+  <wsdl:message name="KuryeCagirFaceSoapOut">
+    <wsdl:part name="parameters" element="tns:KuryeCagirFaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSubeByIlIlceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSubeByIlIlce" />
+  </wsdl:message>
+  <wsdl:message name="GetSubeByIlIlceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSubeByIlIlceResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriHizmetleriFaceSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriHizmetleriFace" />
+  </wsdl:message>
+  <wsdl:message name="MusteriHizmetleriFaceSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriHizmetleriFaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIadeKargoTakipByTarihSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriIadeKargoTakipByTarih" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIadeKargoTakipByTarihSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriIadeKargoTakipByTarihResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByParcaIcerikTakipNoSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByParcaIcerikTakipNo" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByParcaIcerikTakipNoSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoTakipByParcaIcerikTakipNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriBySiparisNoSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgileriBySiparisNo" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriBySiparisNoSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriKargoBilgileriBySiparisNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TeslimEdilenKargolarSoapIn">
+    <wsdl:part name="parameters" element="tns:TeslimEdilenKargolar" />
+  </wsdl:message>
+  <wsdl:message name="TeslimEdilenKargolarSoapOut">
+    <wsdl:part name="parameters" element="tns:TeslimEdilenKargolarResponse" />
+  </wsdl:message>
+  <wsdl:message name="MalBedelliGonderiKomisyonFaturaListesiSoapIn">
+    <wsdl:part name="parameters" element="tns:MalBedelliGonderiKomisyonFaturaListesi" />
+  </wsdl:message>
+  <wsdl:message name="MalBedelliGonderiKomisyonFaturaListesiSoapOut">
+    <wsdl:part name="parameters" element="tns:MalBedelliGonderiKomisyonFaturaListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="MalBedelliGonderiKomisyonFaturaDetaySoapIn">
+    <wsdl:part name="parameters" element="tns:MalBedelliGonderiKomisyonFaturaDetay" />
+  </wsdl:message>
+  <wsdl:message name="MalBedelliGonderiKomisyonFaturaDetaySoapOut">
+    <wsdl:part name="parameters" element="tns:MalBedelliGonderiKomisyonFaturaDetayResponse" />
+  </wsdl:message>
+  <wsdl:message name="GonderiSonDurumlariSoapIn">
+    <wsdl:part name="parameters" element="tns:GonderiSonDurumlari" />
+  </wsdl:message>
+  <wsdl:message name="GonderiSonDurumlariSoapOut">
+    <wsdl:part name="parameters" element="tns:GonderiSonDurumlariResponse" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisBilgiTzSoapIn">
+    <wsdl:part name="parameters" element="tns:FaturaSiparisBilgiTz" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisBilgiTzSoapOut">
+    <wsdl:part name="parameters" element="tns:FaturaSiparisBilgiTzResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByFaturaHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pFaturaSeri" type="s:string" />
+    <wsdl:part name="pFaturaNo" type="s:string" />
+    <wsdl:part name="pFaturaTip" type="s:string" />
+    <wsdl:part name="pKriter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByFaturaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipBySiparisHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pSiparisNo" type="s:string" />
+    <wsdl:part name="pKriter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipBySiparisHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByTopluFaturaHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pTopluFaturaSeri" type="s:string" />
+    <wsdl:part name="pTopluFaturaNo" type="s:string" />
+    <wsdl:part name="pKriter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByTopluFaturaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgiByTopluFaturaHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pTopluFaturaSeri" type="s:string" />
+    <wsdl:part name="pTopluFaturaNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgiByTopluFaturaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByIrsaliyeNoHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pIrsaliyeNo" type="s:string" />
+    <wsdl:part name="pSiparisNo" type="s:string" />
+    <wsdl:part name="pKriter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByIrsaliyeNoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByTarihHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pBasTar" type="s:string" />
+    <wsdl:part name="pBitTar" type="s:string" />
+    <wsdl:part name="pKriter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByTarihHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByBarkodHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pBarkod" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByBarkodHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriByBarkodHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pBarkod" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriByBarkodHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pFatSeri" type="s:string" />
+    <wsdl:part name="pFatNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriAtfBilgileriHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pAtfSeri" type="s:string" />
+    <wsdl:part name="pAtfNo" type="s:string" />
+    <wsdl:part name="pTopluFatSeri" type="s:string" />
+    <wsdl:part name="pTopluFatNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriAtfBilgileriHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByBayinoHttpPostIn">
+    <wsdl:part name="pBayiNo" type="s:string" />
+    <wsdl:part name="pBasTarih" type="s:string" />
+    <wsdl:part name="pBitTarih" type="s:string" />
+    <wsdl:part name="pKullaniciNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoTakipByBayinoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIadeKargoTakipHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pSiparisNo" type="s:string" />
+    <wsdl:part name="pIrsaliyeNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIadeKargoTakipHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetAllIlHttpPostIn" />
+  <wsdl:message name="GetAllIlHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetIlceByIlIdHttpPostIn">
+    <wsdl:part name="pIlKod" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIlceByIlIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetSubeByIlIlceHttpPostIn">
+    <wsdl:part name="pRfIlKod" type="s:string" />
+    <wsdl:part name="pRfIlceKod" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSubeByIlIlceHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIadeKargoTakipByTarihHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pBasTar" type="s:string" />
+    <wsdl:part name="pBitTar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIadeKargoTakipByTarihHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriBySiparisNoHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pSiparisNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MusteriKargoBilgileriBySiparisNoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TeslimEdilenKargolarHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pBaslangicTarihi" type="s:string" />
+    <wsdl:part name="pBitisTarihi" type="s:string" />
+    <wsdl:part name="pAltFirmalarDahil" type="s:string" />
+    <wsdl:part name="pSadeceMalBedelli" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TeslimEdilenKargolarHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MalBedelliGonderiKomisyonFaturaListesiHttpPostIn">
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pKullaniciSifre" type="s:string" />
+    <wsdl:part name="pFlAltfirmaDahil" type="s:string" />
+    <wsdl:part name="pBasTarih" type="s:string" />
+    <wsdl:part name="pBitTarih" type="s:string" />
+    <wsdl:part name="pTarihType" type="s:string" />
+    <wsdl:part name="pChFaturaSeri" type="s:string" />
+    <wsdl:part name="pChFaturaNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MalBedelliGonderiKomisyonFaturaListesiHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MalBedelliGonderiKomisyonFaturaDetayHttpPostIn">
+    <wsdl:part name="pKullaniciAdi" type="s:string" />
+    <wsdl:part name="pKullaniciSifre" type="s:string" />
+    <wsdl:part name="pChFaturaSeri" type="s:string" />
+    <wsdl:part name="pChFaturaNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MalBedelliGonderiKomisyonFaturaDetayHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisBilgiTzHttpPostIn">
+    <wsdl:part name="pMusteriNo" type="s:string" />
+    <wsdl:part name="pSifre" type="s:string" />
+    <wsdl:part name="pSiparisNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSiparisBilgiTzHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceMusKarTakipSoap">
+    <wsdl:operation name="MusteriKargoTakipByFatura">
+      <wsdl:input message="tns:MusteriKargoTakipByFaturaSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByFaturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipBySiparis">
+      <wsdl:input message="tns:MusteriKargoTakipBySiparisSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipBySiparisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTopluFatura">
+      <wsdl:input message="tns:MusteriKargoTakipByTopluFaturaSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByTopluFaturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgiByTopluFatura">
+      <wsdl:input message="tns:MusteriKargoBilgiByTopluFaturaSoapIn" />
+      <wsdl:output message="tns:MusteriKargoBilgiByTopluFaturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByIrsaliyeNo">
+      <wsdl:input message="tns:MusteriKargoTakipByIrsaliyeNoSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByIrsaliyeNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTarih">
+      <wsdl:input message="tns:MusteriKargoTakipByTarihSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByTarihSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBarkod">
+      <wsdl:input message="tns:MusteriKargoTakipByBarkodSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByBarkodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriByBarkod">
+      <wsdl:input message="tns:MusteriKargoBilgileriByBarkodSoapIn" />
+      <wsdl:output message="tns:MusteriKargoBilgileriByBarkodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileri">
+      <wsdl:input message="tns:MusteriKargoBilgileriSoapIn" />
+      <wsdl:output message="tns:MusteriKargoBilgileriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriAtfBilgileri">
+      <wsdl:input message="tns:MusteriAtfBilgileriSoapIn" />
+      <wsdl:output message="tns:MusteriAtfBilgileriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBayino">
+      <wsdl:input message="tns:MusteriKargoTakipByBayinoSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByBayinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakip">
+      <wsdl:input message="tns:MusteriIadeKargoTakipSoapIn" />
+      <wsdl:output message="tns:MusteriIadeKargoTakipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgiFace">
+      <wsdl:input message="tns:MusteriKargoBilgiFaceSoapIn" />
+      <wsdl:output message="tns:MusteriKargoBilgiFaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipFace">
+      <wsdl:input message="tns:MusteriKargoTakipFaceSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipFaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllIl">
+      <wsdl:input message="tns:GetAllIlSoapIn" />
+      <wsdl:output message="tns:GetAllIlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIlceByIlId">
+      <wsdl:input message="tns:GetIlceByIlIdSoapIn" />
+      <wsdl:output message="tns:GetIlceByIlIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KargoUcretHesaplaFace">
+      <wsdl:input message="tns:KargoUcretHesaplaFaceSoapIn" />
+      <wsdl:output message="tns:KargoUcretHesaplaFaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KuryeCagirFace">
+      <wsdl:input message="tns:KuryeCagirFaceSoapIn" />
+      <wsdl:output message="tns:KuryeCagirFaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubeByIlIlce">
+      <wsdl:input message="tns:GetSubeByIlIlceSoapIn" />
+      <wsdl:output message="tns:GetSubeByIlIlceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriHizmetleriFace">
+      <wsdl:input message="tns:MusteriHizmetleriFaceSoapIn" />
+      <wsdl:output message="tns:MusteriHizmetleriFaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakipByTarih">
+      <wsdl:input message="tns:MusteriIadeKargoTakipByTarihSoapIn" />
+      <wsdl:output message="tns:MusteriIadeKargoTakipByTarihSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByParcaIcerikTakipNo">
+      <wsdl:input message="tns:MusteriKargoTakipByParcaIcerikTakipNoSoapIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByParcaIcerikTakipNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriBySiparisNo">
+      <wsdl:input message="tns:MusteriKargoBilgileriBySiparisNoSoapIn" />
+      <wsdl:output message="tns:MusteriKargoBilgileriBySiparisNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TeslimEdilenGonderiListesi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">İki tarih arasında teslim edilen kargolarınızı listeler.Son 90 gün için geçerlidir. </wsdl:documentation>
+      <wsdl:input name="TeslimEdilenKargolar" message="tns:TeslimEdilenKargolarSoapIn" />
+      <wsdl:output name="TeslimEdilenKargolar" message="tns:TeslimEdilenKargolarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaListesi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">İki Tarih Arası Kesilen yada Ödemesi yapılan komisyon faturalarını listeler. pTarihType değeri FATURA_TARIHI veya ODEME_TARIHI olmalıdır.)</wsdl:documentation>
+      <wsdl:input message="tns:MalBedelliGonderiKomisyonFaturaListesiSoapIn" />
+      <wsdl:output message="tns:MalBedelliGonderiKomisyonFaturaListesiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaDetay">
+      <wsdl:input message="tns:MalBedelliGonderiKomisyonFaturaDetaySoapIn" />
+      <wsdl:output message="tns:MalBedelliGonderiKomisyonFaturaDetaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GonderiSonDurumlari">
+      <wsdl:input message="tns:GonderiSonDurumlariSoapIn" />
+      <wsdl:output message="tns:GonderiSonDurumlariSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisBilgiTz">
+      <wsdl:input message="tns:FaturaSiparisBilgiTzSoapIn" />
+      <wsdl:output message="tns:FaturaSiparisBilgiTzSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceMusKarTakipHttpPost">
+    <wsdl:operation name="MusteriKargoTakipByFatura">
+      <wsdl:input message="tns:MusteriKargoTakipByFaturaHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByFaturaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipBySiparis">
+      <wsdl:input message="tns:MusteriKargoTakipBySiparisHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoTakipBySiparisHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTopluFatura">
+      <wsdl:input message="tns:MusteriKargoTakipByTopluFaturaHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByTopluFaturaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgiByTopluFatura">
+      <wsdl:input message="tns:MusteriKargoBilgiByTopluFaturaHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoBilgiByTopluFaturaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByIrsaliyeNo">
+      <wsdl:input message="tns:MusteriKargoTakipByIrsaliyeNoHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByIrsaliyeNoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTarih">
+      <wsdl:input message="tns:MusteriKargoTakipByTarihHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByTarihHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBarkod">
+      <wsdl:input message="tns:MusteriKargoTakipByBarkodHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByBarkodHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriByBarkod">
+      <wsdl:input message="tns:MusteriKargoBilgileriByBarkodHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoBilgileriByBarkodHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileri">
+      <wsdl:input message="tns:MusteriKargoBilgileriHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoBilgileriHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriAtfBilgileri">
+      <wsdl:input message="tns:MusteriAtfBilgileriHttpPostIn" />
+      <wsdl:output message="tns:MusteriAtfBilgileriHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBayino">
+      <wsdl:input message="tns:MusteriKargoTakipByBayinoHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoTakipByBayinoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakip">
+      <wsdl:input message="tns:MusteriIadeKargoTakipHttpPostIn" />
+      <wsdl:output message="tns:MusteriIadeKargoTakipHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllIl">
+      <wsdl:input message="tns:GetAllIlHttpPostIn" />
+      <wsdl:output message="tns:GetAllIlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIlceByIlId">
+      <wsdl:input message="tns:GetIlceByIlIdHttpPostIn" />
+      <wsdl:output message="tns:GetIlceByIlIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubeByIlIlce">
+      <wsdl:input message="tns:GetSubeByIlIlceHttpPostIn" />
+      <wsdl:output message="tns:GetSubeByIlIlceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakipByTarih">
+      <wsdl:input message="tns:MusteriIadeKargoTakipByTarihHttpPostIn" />
+      <wsdl:output message="tns:MusteriIadeKargoTakipByTarihHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriBySiparisNo">
+      <wsdl:input message="tns:MusteriKargoBilgileriBySiparisNoHttpPostIn" />
+      <wsdl:output message="tns:MusteriKargoBilgileriBySiparisNoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TeslimEdilenGonderiListesi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">İki tarih arasında teslim edilen kargolarınızı listeler.Son 90 gün için geçerlidir. </wsdl:documentation>
+      <wsdl:input name="TeslimEdilenKargolar" message="tns:TeslimEdilenKargolarHttpPostIn" />
+      <wsdl:output name="TeslimEdilenKargolar" message="tns:TeslimEdilenKargolarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaListesi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">İki Tarih Arası Kesilen yada Ödemesi yapılan komisyon faturalarını listeler. pTarihType değeri FATURA_TARIHI veya ODEME_TARIHI olmalıdır.)</wsdl:documentation>
+      <wsdl:input message="tns:MalBedelliGonderiKomisyonFaturaListesiHttpPostIn" />
+      <wsdl:output message="tns:MalBedelliGonderiKomisyonFaturaListesiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaDetay">
+      <wsdl:input message="tns:MalBedelliGonderiKomisyonFaturaDetayHttpPostIn" />
+      <wsdl:output message="tns:MalBedelliGonderiKomisyonFaturaDetayHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisBilgiTz">
+      <wsdl:input message="tns:FaturaSiparisBilgiTzHttpPostIn" />
+      <wsdl:output message="tns:FaturaSiparisBilgiTzHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceMusKarTakipSoap" type="tns:ServiceMusKarTakipSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MusteriKargoTakipByFatura">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByFatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipBySiparis">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipBySiparis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTopluFatura">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByTopluFatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgiByTopluFatura">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgiByTopluFatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByIrsaliyeNo">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByIrsaliyeNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTarih">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByTarih" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBarkod">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByBarkod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriByBarkod">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgileriByBarkod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileri">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgileri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriAtfBilgileri">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriAtfBilgileri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBayino">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByBayino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakip">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriIadeKargoTakip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgiFace">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgiFace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipFace">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipFace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllIl">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/GetAllIl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIlceByIlId">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/GetIlceByIlId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoUcretHesaplaFace">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/KargoUcretHesaplaFace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KuryeCagirFace">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/KuryeCagirFace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubeByIlIlce">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/GetSubeByIlIlce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriHizmetleriFace">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriHizmetleriFace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakipByTarih">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriIadeKargoTakipByTarih" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByParcaIcerikTakipNo">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByParcaIcerikTakipNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriBySiparisNo">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgileriBySiparisNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeslimEdilenGonderiListesi">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/TeslimEdilenKargolar" style="document" />
+      <wsdl:input name="TeslimEdilenKargolar">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TeslimEdilenKargolar">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaListesi">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MalBedelliGonderiKomisyonFaturaListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaDetay">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MalBedelliGonderiKomisyonFaturaDetay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GonderiSonDurumlari">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/GonderiSonDurumlari" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisBilgiTz">
+      <soap:operation soapAction="http://musterikargotakip.mngkargo.com.tr/FaturaSiparisBilgiTz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceMusKarTakipSoap12" type="tns:ServiceMusKarTakipSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MusteriKargoTakipByFatura">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByFatura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipBySiparis">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipBySiparis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTopluFatura">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByTopluFatura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgiByTopluFatura">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgiByTopluFatura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByIrsaliyeNo">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByIrsaliyeNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTarih">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByTarih" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBarkod">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByBarkod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriByBarkod">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgileriByBarkod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileri">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgileri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriAtfBilgileri">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriAtfBilgileri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBayino">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByBayino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakip">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriIadeKargoTakip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgiFace">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgiFace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipFace">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipFace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllIl">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/GetAllIl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIlceByIlId">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/GetIlceByIlId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KargoUcretHesaplaFace">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/KargoUcretHesaplaFace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KuryeCagirFace">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/KuryeCagirFace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubeByIlIlce">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/GetSubeByIlIlce" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriHizmetleriFace">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriHizmetleriFace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakipByTarih">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriIadeKargoTakipByTarih" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByParcaIcerikTakipNo">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoTakipByParcaIcerikTakipNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriBySiparisNo">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MusteriKargoBilgileriBySiparisNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeslimEdilenGonderiListesi">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/TeslimEdilenKargolar" style="document" />
+      <wsdl:input name="TeslimEdilenKargolar">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TeslimEdilenKargolar">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaListesi">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MalBedelliGonderiKomisyonFaturaListesi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaDetay">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/MalBedelliGonderiKomisyonFaturaDetay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GonderiSonDurumlari">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/GonderiSonDurumlari" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisBilgiTz">
+      <soap12:operation soapAction="http://musterikargotakip.mngkargo.com.tr/FaturaSiparisBilgiTz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceMusKarTakipHttpPost" type="tns:ServiceMusKarTakipHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="MusteriKargoTakipByFatura">
+      <http:operation location="/MusteriKargoTakipByFatura" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipBySiparis">
+      <http:operation location="/MusteriKargoTakipBySiparis" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTopluFatura">
+      <http:operation location="/MusteriKargoTakipByTopluFatura" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgiByTopluFatura">
+      <http:operation location="/MusteriKargoBilgiByTopluFatura" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByIrsaliyeNo">
+      <http:operation location="/MusteriKargoTakipByIrsaliyeNo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByTarih">
+      <http:operation location="/MusteriKargoTakipByTarih" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBarkod">
+      <http:operation location="/MusteriKargoTakipByBarkod" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriByBarkod">
+      <http:operation location="/MusteriKargoBilgileriByBarkod" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileri">
+      <http:operation location="/MusteriKargoBilgileri" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriAtfBilgileri">
+      <http:operation location="/MusteriAtfBilgileri" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoTakipByBayino">
+      <http:operation location="/MusteriKargoTakipByBayino" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakip">
+      <http:operation location="/MusteriIadeKargoTakip" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllIl">
+      <http:operation location="/GetAllIl" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIlceByIlId">
+      <http:operation location="/GetIlceByIlId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubeByIlIlce">
+      <http:operation location="/GetSubeByIlIlce" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIadeKargoTakipByTarih">
+      <http:operation location="/MusteriIadeKargoTakipByTarih" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKargoBilgileriBySiparisNo">
+      <http:operation location="/MusteriKargoBilgileriBySiparisNo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TeslimEdilenGonderiListesi">
+      <http:operation location="/TeslimEdilenKargolar" />
+      <wsdl:input name="TeslimEdilenKargolar">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="TeslimEdilenKargolar">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaListesi">
+      <http:operation location="/MalBedelliGonderiKomisyonFaturaListesi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MalBedelliGonderiKomisyonFaturaDetay">
+      <http:operation location="/MalBedelliGonderiKomisyonFaturaDetay" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FaturaSiparisBilgiTz">
+      <http:operation location="/FaturaSiparisBilgiTz" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceMusKarTakip">
+    <wsdl:port name="ServiceMusKarTakipSoap" binding="tns:ServiceMusKarTakipSoap">
+      <soap:address location="http://service.mngkargo.com.tr/musterikargodurumu.service/musterikargodurumu.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceMusKarTakipSoap12" binding="tns:ServiceMusKarTakipSoap12">
+      <soap12:address location="http://service.mngkargo.com.tr/musterikargodurumu.service/musterikargodurumu.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceMusKarTakipHttpPost" binding="tns:ServiceMusKarTakipHttpPost">
+      <http:address location="http://service.mngkargo.com.tr/musterikargodurumu.service/musterikargodurumu.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

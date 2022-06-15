@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:capture" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:capture">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:capture"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="newBatchRequestType">
+  <xsd:all>
+   <xsd:element name="CaptureSettingID" type="xsd:string"/>
+   <xsd:element name="BatchID" type="xsd:string"/>
+   <xsd:element name="BatchName" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newBatchResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newBatchFileRequestType">
+  <xsd:all>
+   <xsd:element name="BatchID" type="xsd:string"/>
+   <xsd:element name="FileName" type="xsd:string"/>
+   <xsd:element name="FileContent" type="xsd:base64Binary"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newBatchFileResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="tns:filesCodeArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="filesCode">
+  <xsd:all>
+   <xsd:element name="cdbatchfile" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="filesCodeArray">
+  <xsd:sequence>
+   <xsd:element name="item" type="tns:filesCode" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="getBatchesRequestType">
+  <xsd:all>
+   <xsd:element name="CaptureSettingID" type="xsd:string"/>
+   <xsd:element name="BatchID" type="xsd:string"/>
+   <xsd:element name="BatchName" type="xsd:string"/>
+   <xsd:element name="BatchStep" type="xsd:string"/>
+   <xsd:element name="BeginInsertDate" type="xsd:string"/>
+   <xsd:element name="EndInsertDate" type="xsd:string"/>
+   <xsd:element name="CreatorUserID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getBatchesResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="tns:searchBatchesReturn"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="batchesReturn">
+  <xsd:all>
+   <xsd:element name="CaptureSettingID" type="xsd:string"/>
+   <xsd:element name="BatchID" type="xsd:string"/>
+   <xsd:element name="BatchName" type="xsd:string"/>
+   <xsd:element name="BeginInsertDate" type="xsd:string"/>
+   <xsd:element name="EndInsertDate" type="xsd:string"/>
+   <xsd:element name="FileCount" type="xsd:string"/>
+   <xsd:element name="BatchStep" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="searchBatchesReturn">
+  <xsd:sequence>
+   <xsd:element name="item" type="tns:batchesReturn" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="getBatchDataRequestType">
+  <xsd:all>
+   <xsd:element name="BatchID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getBatchDataResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="tns:BatchDataResultsArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="batchDataReturn">
+  <xsd:all>
+   <xsd:element name="CaptureSettingID" type="xsd:string"/>
+   <xsd:element name="BatchID" type="xsd:string"/>
+   <xsd:element name="BatchName" type="xsd:string"/>
+   <xsd:element name="BeginInsertDate" type="xsd:string"/>
+   <xsd:element name="EndInsertDate" type="xsd:string"/>
+   <xsd:element name="FileCount" type="xsd:string"/>
+   <xsd:element name="BatchStep" type="xsd:string"/>
+   <xsd:element name="BatchDocuments" type="tns:docsDataArray"/>
+   <xsd:element name="BatchFiles" type="tns:BatchFilesDataArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="BatchDataResultsArray">
+  <xsd:sequence>
+   <xsd:element name="item" type="tns:batchDataReturn" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="documents">
+  <xsd:all>
+   <xsd:element name="DocumentCode" type="xsd:string"/>
+   <xsd:element name="CategoryID" type="xsd:string"/>
+   <xsd:element name="DocumentID" type="xsd:string"/>
+   <xsd:element name="DocumentTitle" type="xsd:string"/>
+   <xsd:element name="FileCount" type="xsd:string"/>
+   <xsd:element name="DocumentIndexes" type="tns:indexDataArray"/>
+   <xsd:element name="DocumentFiles" type="tns:filesDocsDataArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="docsDataArray">
+  <xsd:sequence>
+   <xsd:element name="item" type="tns:documents" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="BFiles">
+  <xsd:all>
+   <xsd:element name="FileCode" type="xsd:string"/>
+   <xsd:element name="FileName" type="xsd:string"/>
+   <xsd:element name="FileSize" type="xsd:string"/>
+   <xsd:element name="FileURL" type="xsd:string"/>
+   <xsd:element name="FileIsBlank" type="xsd:string"/>
+   <xsd:element name="FileIsInvalid" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="BatchFilesDataArray">
+  <xsd:sequence>
+   <xsd:element name="item" type="tns:BFiles" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="indexResults">
+  <xsd:all>
+   <xsd:element name="IndexName" type="xsd:string"/>
+   <xsd:element name="IndexValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="indexDataArray">
+  <xsd:sequence>
+   <xsd:element name="item" type="tns:indexResults" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="filesDocsResults">
+  <xsd:all>
+   <xsd:element name="FileCode" type="xsd:string"/>
+   <xsd:element name="FileName" type="xsd:string"/>
+   <xsd:element name="FileSize" type="xsd:string"/>
+   <xsd:element name="FileURL" type="xsd:string"/>
+   <xsd:element name="FileIsBlank" type="xsd:string"/>
+   <xsd:element name="FileIsInvalid" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="filesDocsDataArray">
+  <xsd:sequence>
+   <xsd:element name="item" type="tns:filesDocsResults" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="executeBatchRequestType">
+  <xsd:all>
+   <xsd:element name="BatchID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeBatchResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="setIndexValueRequestType">
+  <xsd:all>
+   <xsd:element name="BatchID" type="xsd:string"/>
+   <xsd:element name="DocumentCode" type="xsd:string"/>
+   <xsd:element name="IndexName" type="xsd:string"/>
+   <xsd:element name="IndexValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="setIndexValueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteBatchRequestType">
+  <xsd:all>
+   <xsd:element name="BatchID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteBatchResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="newBatch" type="tns:newBatchRequestType"/>
+ <xsd:element name="newBatchResponse" type="tns:newBatchResponseType"/>
+ <xsd:element name="newBatchFile" type="tns:newBatchFileRequestType"/>
+ <xsd:element name="newBatchFileResponse" type="tns:newBatchFileResponseType"/>
+ <xsd:element name="getBatches" type="tns:getBatchesRequestType"/>
+ <xsd:element name="getBatchesResponse" type="tns:getBatchesResponseType"/>
+ <xsd:element name="getBatchData" type="tns:getBatchDataRequestType"/>
+ <xsd:element name="getBatchDataResponse" type="tns:getBatchDataResponseType"/>
+ <xsd:element name="executeBatch" type="tns:executeBatchRequestType"/>
+ <xsd:element name="executeBatchResponse" type="tns:executeBatchResponseType"/>
+ <xsd:element name="setIndexValue" type="tns:setIndexValueRequestType"/>
+ <xsd:element name="setIndexValueResponse" type="tns:setIndexValueResponseType"/>
+ <xsd:element name="deleteBatch" type="tns:deleteBatchRequestType"/>
+ <xsd:element name="deleteBatchResponse" type="tns:deleteBatchResponseType"/>
+</xsd:schema>
+</types>
+<message name="newBatchRequest">
+  <part name="parameters" element="tns:newBatch" /></message>
+<message name="newBatchResponse">
+  <part name="parameters" element="tns:newBatchResponse" /></message>
+<message name="newBatchFileRequest">
+  <part name="parameters" element="tns:newBatchFile" /></message>
+<message name="newBatchFileResponse">
+  <part name="parameters" element="tns:newBatchFileResponse" /></message>
+<message name="getBatchesRequest">
+  <part name="parameters" element="tns:getBatches" /></message>
+<message name="getBatchesResponse">
+  <part name="parameters" element="tns:getBatchesResponse" /></message>
+<message name="getBatchDataRequest">
+  <part name="parameters" element="tns:getBatchData" /></message>
+<message name="getBatchDataResponse">
+  <part name="parameters" element="tns:getBatchDataResponse" /></message>
+<message name="executeBatchRequest">
+  <part name="parameters" element="tns:executeBatch" /></message>
+<message name="executeBatchResponse">
+  <part name="parameters" element="tns:executeBatchResponse" /></message>
+<message name="setIndexValueRequest">
+  <part name="parameters" element="tns:setIndexValue" /></message>
+<message name="setIndexValueResponse">
+  <part name="parameters" element="tns:setIndexValueResponse" /></message>
+<message name="deleteBatchRequest">
+  <part name="parameters" element="tns:deleteBatch" /></message>
+<message name="deleteBatchResponse">
+  <part name="parameters" element="tns:deleteBatchResponse" /></message>
+<portType name="CapturePortType">
+  <operation name="newBatch">
+    <documentation>Yeni yakalama partisi oluştur. &lt;BR&gt;
+        CaptureSettingID          =&gt; Yakalama yapılandırması kimliği #*;&lt;BR&gt;
+        BatchID                   =&gt; Toplu kimlik no. Bilgilendirilmezse, sistem sıralı bir kimlik numarası # üretecektir.;&lt;BR&gt;
+        BatchName                 =&gt; Toplu başlık. Bilgi verilmezse, sistem partinin oluşturulma tarihine / süresine göre bir başlık üretecektir.;&lt;BR&gt;
+        *Zorunlu.</documentation>
+    <input message="tns:newBatchRequest"/>
+    <output message="tns:newBatchResponse"/>
+  </operation>
+  <operation name="newBatchFile">
+    <documentation>Yeni bir toplu iş dosyası ekle. &lt;BR&gt;
+        BatchID               =&gt; Toplu kimlik numarası yakala*;&lt;BR&gt;
+        FileName              =&gt; Dosya Adı*;&lt;BR&gt;
+        FileContent           =&gt; Dosya ikili içeriği*;&lt;BR&gt;
+        *Zorunlu.</documentation>
+    <input message="tns:newBatchFileRequest"/>
+    <output message="tns:newBatchFileResponse"/>
+  </operation>
+  <operation name="getBatches">
+    <documentation>Sistemde önceden oluşturulmuş partilerin görünümünü gerçekleştirir..  &lt;BR&gt;
+        CaptureSettingID    =&gt; Yakalama yapılandırması kimliği #;&lt;BR&gt;
+        BatchID             =&gt; Toplu kimlik numarası yakala;&lt;BR&gt;
+        BatchName           =&gt; Toplu başlık;&lt;BR&gt;
+        BatchStep           =&gt; Toplu adım;&lt;BR&gt;
+                1: Tarama;&lt;BR&gt;
+                2: Kalite Kontrol;&lt;BR&gt;
+                3: Ayrılık;&lt;BR&gt;
+                4: Bilgilendirme;&lt;BR&gt;
+                5: Geçerleme;&lt;BR&gt;
+                6: Yazıyor;&lt;BR&gt;
+                7: İlişki;&lt;BR&gt;
+                8: Doğrulama;&lt;BR&gt;
+                9: Endeksleme;&lt;BR&gt;
+                10: Kapalı;&lt;BR&gt;
+                11: İptal Edilen;&lt;BR&gt;
+        BeginInsertDate      =&gt; Kayıt tarihinin başlangıcı (format: yyyy-aa-gg);&lt;BR&gt;
+        EndInsertDate        =&gt; Kayıt tarihinin sonu (format: yyyy-aa-gg);&lt;BR&gt;
+        CreatorUserID        =&gt; Kullanıcı kimliğini kaydet;&lt;BR&gt;</documentation>
+    <input message="tns:getBatchesRequest"/>
+    <output message="tns:getBatchesResponse"/>
+  </operation>
+  <operation name="getBatchData">
+    <documentation>Zaten kayıtlı bir toplu işten veri döndürür &lt;BR&gt;
+        BatchID  -&gt; Toplu kimlik numarası yakala*;&lt;BR&gt;
+        *Zorunlu.</documentation>
+    <input message="tns:getBatchDataRequest"/>
+    <output message="tns:getBatchDataResponse"/>
+  </operation>
+  <operation name="executeBatch">
+    <documentation>Bir sonraki adımda bir partinin gönderilmesini gerçekleştirir. &lt;BR&gt;
+        BatchID  -&gt; Toplu kimlik numarası yakala*;&lt;BR&gt;
+        *Zorunlu.</documentation>
+    <input message="tns:executeBatchRequest"/>
+    <output message="tns:executeBatchResponse"/>
+  </operation>
+  <operation name="setIndexValue">
+    <documentation>Yakalama partisinde bir belgeyle ilişkili bir dizinin değerini doldurur. &lt;BR&gt;
+        BatchID             =&gt; Toplu kimlik numarası yakala*;&lt;BR&gt;
+        DocumentCode        =&gt; Toplu belge kodu*;&lt;BR&gt;
+        IndexName           =&gt; Endeks Adı*;&lt;BR&gt;
+        IndexValue          =&gt; Endeks değeri;&lt;BR&gt;
+        *Zorunlu.</documentation>
+    <input message="tns:setIndexValueRequest"/>
+    <output message="tns:setIndexValueResponse"/>
+  </operation>
+  <operation name="deleteBatch">
+    <documentation>Yakalama grubunu sil &lt;BR&gt;
+        BatchID  =&gt; Toplu kimlik numarası yakala*;&lt;BR&gt;
+        *Zorunlu.</documentation>
+    <input message="tns:deleteBatchRequest"/>
+    <output message="tns:deleteBatchResponse"/>
+  </operation>
+</portType>
+<binding name="CaptureBinding" type="tns:CapturePortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="newBatch">
+    <soap:operation soapAction="urn:capture#newBatch" style="document"/>
+    <input><soap:body use="literal" namespace="urn:capture"/></input>
+    <output><soap:body use="literal" namespace="urn:capture"/></output>
+  </operation>
+  <operation name="newBatchFile">
+    <soap:operation soapAction="urn:capture#newBatchFile" style="document"/>
+    <input><soap:body use="literal" namespace="urn:capture"/></input>
+    <output><soap:body use="literal" namespace="urn:capture"/></output>
+  </operation>
+  <operation name="getBatches">
+    <soap:operation soapAction="urn:capture#getBatches" style="document"/>
+    <input><soap:body use="literal" namespace="urn:capture"/></input>
+    <output><soap:body use="literal" namespace="urn:capture"/></output>
+  </operation>
+  <operation name="getBatchData">
+    <soap:operation soapAction="urn:capture#getBatchData" style="document"/>
+    <input><soap:body use="literal" namespace="urn:capture"/></input>
+    <output><soap:body use="literal" namespace="urn:capture"/></output>
+  </operation>
+  <operation name="executeBatch">
+    <soap:operation soapAction="urn:capture#executeBatch" style="document"/>
+    <input><soap:body use="literal" namespace="urn:capture"/></input>
+    <output><soap:body use="literal" namespace="urn:capture"/></output>
+  </operation>
+  <operation name="setIndexValue">
+    <soap:operation soapAction="urn:capture#setIndexValue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:capture"/></input>
+    <output><soap:body use="literal" namespace="urn:capture"/></output>
+  </operation>
+  <operation name="deleteBatch">
+    <soap:operation soapAction="urn:capture#deleteBatch" style="document"/>
+    <input><soap:body use="literal" namespace="urn:capture"/></input>
+    <output><soap:body use="literal" namespace="urn:capture"/></output>
+  </operation>
+</binding>
+<service name="Capture">
+  <port name="CapturePort" binding="tns:CaptureBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/capt_ws.php"/>
+  </port>
+</service>
+</definitions>

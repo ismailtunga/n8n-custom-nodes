@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:inspection" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:inspection">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:inspection"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="editQualificationIndexValueRequestType">
+  <xsd:all>
+   <xsd:element name="IDRECEIVING" type="xsd:string"/>
+   <xsd:element name="NMDLVQUALINDEX" type="xsd:string"/>
+   <xsd:element name="NMDLVQUALOPTION" type="xsd:string"/>
+   <xsd:element name="FGEXECUTE" type="xsd:string"/>
+   <xsd:element name="DSDLVQUALINDEX" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editQualificationIndexValueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createUpdateDeleteQualityIndexRequestType">
+  <xsd:all>
+   <xsd:element name="FGOPTION" type="xsd:string"/>
+   <xsd:element name="IDINDEX" type="xsd:string"/>
+   <xsd:element name="DTINDEXEVALVALID" type="xsd:string"/>
+   <xsd:element name="VLINDEXEVAL" type="xsd:string"/>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="DSINDEXEVAL" type="xsd:string"/>
+   <xsd:element name="IDPROCESS" type="xsd:string"/>
+   <xsd:element name="IDACTIVITY" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createUpdateDeleteQualityIndexResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createUpdateDeleteReceivingRequestType">
+  <xsd:all>
+   <xsd:element name="FGOPTION" type="xsd:string"/>
+   <xsd:element name="IDCONFIGURATION" type="xsd:string"/>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="IDLOT" type="xsd:string"/>
+   <xsd:element name="IDINVOICE" type="xsd:string"/>
+   <xsd:element name="DTINVOICE" type="xsd:string"/>
+   <xsd:element name="IDORDER" type="xsd:string"/>
+   <xsd:element name="DTORDER" type="xsd:string"/>
+   <xsd:element name="IDSO" type="xsd:string"/>
+   <xsd:element name="DTSO" type="xsd:string"/>
+   <xsd:element name="IDPO" type="xsd:string"/>
+   <xsd:element name="DTPO" type="xsd:string"/>
+   <xsd:element name="DTRECVEST" type="xsd:string"/>
+   <xsd:element name="QTRECVTIMEEST" type="xsd:string"/>
+   <xsd:element name="DTRECVACT" type="xsd:string"/>
+   <xsd:element name="QTRECVTIMEACT" type="xsd:string"/>
+   <xsd:element name="VLQTYEST" type="xsd:string"/>
+   <xsd:element name="VLQTYACT" type="xsd:string"/>
+   <xsd:element name="VLCOSTEST" type="xsd:string"/>
+   <xsd:element name="VLCOSTACT" type="xsd:string"/>
+   <xsd:element name="IDWORKFLOW" type="xsd:string"/>
+   <xsd:element name="FGEXECUTE" type="xsd:string"/>
+   <xsd:element name="IDWFPROCESS" type="xsd:string"/>
+   <xsd:element name="IDRECEIVING" type="xsd:string"/>
+   <xsd:element name="DSRECEIVING" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createUpdateDeleteReceivingResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createUpdateConfigurationRequestType">
+  <xsd:all>
+   <xsd:element name="FGOPTION" type="xsd:string"/>
+   <xsd:element name="IDGENTYPE" type="xsd:string"/>
+   <xsd:element name="IDCONFIGURATION" type="xsd:string"/>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="IDPROCESS" type="xsd:string"/>
+   <xsd:element name="IDPROCREVISION" type="xsd:string"/>
+   <xsd:element name="IDACTIVITY" type="xsd:string"/>
+   <xsd:element name="NMEVALCONFGRUP" type="xsd:string"/>
+   <xsd:element name="IDQUALITYINDEX" type="xsd:string"/>
+   <xsd:element name="FGALLOWEDITWF" type="xsd:string"/>
+   <xsd:element name="IDWORKFLOW" type="xsd:string"/>
+   <xsd:element name="FGBLOCK" type="xsd:string"/>
+   <xsd:element name="FGTYPEFREQUENCE" type="xsd:string"/>
+   <xsd:element name="QTFREQUENCE" type="xsd:string"/>
+   <xsd:element name="FGFREQUENCE" type="xsd:string"/>
+   <xsd:element name="DTNEXTEXECUTION" type="xsd:string"/>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="FGINSPFREQ" type="xsd:string"/>
+   <xsd:element name="NMSKIPTYPE" type="xsd:string"/>
+   <xsd:element name="NRSEQ" type="xsd:string"/>
+   <xsd:element name="FGINITIALSMP" type="xsd:string"/>
+   <xsd:element name="FGSTATUSINITIALSMP" type="xsd:string"/>
+   <xsd:element name="DTDUEDATE" type="xsd:string"/>
+   <xsd:element name="FGVALIDITYRIA" type="xsd:string"/>
+   <xsd:element name="QTVALIDITYRIA" type="xsd:string"/>
+   <xsd:element name="FGFREQVALIDITYRIA" type="xsd:string"/>
+   <xsd:element name="DSINITIALSMP" type="xsd:string"/>
+   <xsd:element name="FGAVGREADING" type="xsd:string"/>
+   <xsd:element name="FGSAMPLEPLAN" type="xsd:string"/>
+   <xsd:element name="FGDEFAULSAMPLEPLAN" type="xsd:string"/>
+   <xsd:element name="IDLEVEL" type="xsd:string"/>
+   <xsd:element name="FGSWITCHRULE" type="xsd:string"/>
+   <xsd:element name="VLAQL" type="xsd:string"/>
+   <xsd:element name="IDTABLE" type="xsd:string"/>
+   <xsd:element name="VLSAMPLESIZE" type="xsd:string"/>
+   <xsd:element name="VLACCEPTABLE" type="xsd:string"/>
+   <xsd:element name="VLPERCENTAGE" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createUpdateConfigurationResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relateCharacteristicToInspConfigurationRequestType">
+  <xsd:all>
+   <xsd:element name="FGOPTION" type="xsd:string"/>
+   <xsd:element name="IDCONFIGURATION" type="xsd:string"/>
+   <xsd:element name="IDCHARACTERISTIC" type="xsd:string"/>
+   <xsd:element name="FGREQUIRED" type="xsd:string"/>
+   <xsd:element name="NRVALIDITY" type="xsd:string"/>
+   <xsd:element name="FGVALIDITY" type="xsd:string"/>
+   <xsd:element name="FGENABLEDPRINT" type="xsd:string"/>
+   <xsd:element name="FGAVGREADING" type="xsd:string"/>
+   <xsd:element name="FGTYPESAMPLEPLAN" type="xsd:string"/>
+   <xsd:element name="FGSAMPLEPLAN" type="xsd:string"/>
+   <xsd:element name="IDLEVEL" type="xsd:string"/>
+   <xsd:element name="FGSWITCHRULE" type="xsd:string"/>
+   <xsd:element name="VLAQL" type="xsd:string"/>
+   <xsd:element name="IDTABLE" type="xsd:string"/>
+   <xsd:element name="VLSAMPLESIZE" type="xsd:string"/>
+   <xsd:element name="VLACCEPTABLE" type="xsd:string"/>
+   <xsd:element name="VLPERCENTAGE" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relateCharacteristicToInspConfigurationResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relateChecklistToInspConfigurationRequestType">
+  <xsd:all>
+   <xsd:element name="FGOPTION" type="xsd:string"/>
+   <xsd:element name="IDCONFIGURATION" type="xsd:string"/>
+   <xsd:element name="IDCHECKLIST" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relateChecklistToInspConfigurationResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="editQualificationIndexValue" type="tns:editQualificationIndexValueRequestType"/>
+ <xsd:element name="editQualificationIndexValueResponse" type="tns:editQualificationIndexValueResponseType"/>
+ <xsd:element name="createUpdateDeleteQualityIndex" type="tns:createUpdateDeleteQualityIndexRequestType"/>
+ <xsd:element name="createUpdateDeleteQualityIndexResponse" type="tns:createUpdateDeleteQualityIndexResponseType"/>
+ <xsd:element name="createUpdateDeleteReceiving" type="tns:createUpdateDeleteReceivingRequestType"/>
+ <xsd:element name="createUpdateDeleteReceivingResponse" type="tns:createUpdateDeleteReceivingResponseType"/>
+ <xsd:element name="createUpdateConfiguration" type="tns:createUpdateConfigurationRequestType"/>
+ <xsd:element name="createUpdateConfigurationResponse" type="tns:createUpdateConfigurationResponseType"/>
+ <xsd:element name="relateCharacteristicToInspConfiguration" type="tns:relateCharacteristicToInspConfigurationRequestType"/>
+ <xsd:element name="relateCharacteristicToInspConfigurationResponse" type="tns:relateCharacteristicToInspConfigurationResponseType"/>
+ <xsd:element name="relateChecklistToInspConfiguration" type="tns:relateChecklistToInspConfigurationRequestType"/>
+ <xsd:element name="relateChecklistToInspConfigurationResponse" type="tns:relateChecklistToInspConfigurationResponseType"/>
+</xsd:schema>
+</types>
+<message name="editQualificationIndexValueRequest">
+  <part name="parameters" element="tns:editQualificationIndexValue" /></message>
+<message name="editQualificationIndexValueResponse">
+  <part name="parameters" element="tns:editQualificationIndexValueResponse" /></message>
+<message name="createUpdateDeleteQualityIndexRequest">
+  <part name="parameters" element="tns:createUpdateDeleteQualityIndex" /></message>
+<message name="createUpdateDeleteQualityIndexResponse">
+  <part name="parameters" element="tns:createUpdateDeleteQualityIndexResponse" /></message>
+<message name="createUpdateDeleteReceivingRequest">
+  <part name="parameters" element="tns:createUpdateDeleteReceiving" /></message>
+<message name="createUpdateDeleteReceivingResponse">
+  <part name="parameters" element="tns:createUpdateDeleteReceivingResponse" /></message>
+<message name="createUpdateConfigurationRequest">
+  <part name="parameters" element="tns:createUpdateConfiguration" /></message>
+<message name="createUpdateConfigurationResponse">
+  <part name="parameters" element="tns:createUpdateConfigurationResponse" /></message>
+<message name="relateCharacteristicToInspConfigurationRequest">
+  <part name="parameters" element="tns:relateCharacteristicToInspConfiguration" /></message>
+<message name="relateCharacteristicToInspConfigurationResponse">
+  <part name="parameters" element="tns:relateCharacteristicToInspConfigurationResponse" /></message>
+<message name="relateChecklistToInspConfigurationRequest">
+  <part name="parameters" element="tns:relateChecklistToInspConfiguration" /></message>
+<message name="relateChecklistToInspConfigurationResponse">
+  <part name="parameters" element="tns:relateChecklistToInspConfigurationResponse" /></message>
+<portType name="InspectionPortType">
+  <operation name="editQualificationIndexValue">
+    <documentation>Bir alımın kalite endeksini değiştirir ve diğer adıma gönderir&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDRECEIVING -&gt;Alım Numarası&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMDLVQUALINDEX -&gt; Endeks Adı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMDLVQUALOPTION -&gt; Nitelik&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGEXECUTE -&gt; Yürütülen Adım [1 - Evet ; 2 - Hayır] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSDLVQUALINDEX -&gt; Yorumlar&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:editQualificationIndexValueRequest"/>
+    <output message="tns:editQualificationIndexValueResponse"/>
+  </operation>
+  <operation name="createUpdateDeleteQualityIndex">
+    <documentation>Bir içerik değerlendirmesi ekler/düzenler/siler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGOPTION -&gt; Seçenekler: 11 - Ekle, 12 - Düzenle, 13 - Sil&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDINDEX -&gt; Kalite Endeks ID #&lt;BR&gt;Ekleme ve düzenleme adımında zorunludur, silme adımında göz ardı edilmiştir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTINDEXEVALVALID -&gt; Son Tarih&lt;BR&gt;Nesne, Süreç, Proje aktivitesi veya tedarikçi değerllendirmenin bir parçası olduğunda inceleme  için gereklidir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT -&gt; Nesne ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Tedarikçi (Sirket ID)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLINDEXEVAL -&gt; Skor Değeri&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPROCESS -&gt; Süreç ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDACTIVITY -&gt; Görev ID No &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSINDEXEVAL -&gt; Descrição da avaliação &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:createUpdateDeleteQualityIndexRequest"/>
+    <output message="tns:createUpdateDeleteQualityIndexResponse"/>
+  </operation>
+  <operation name="createUpdateDeleteReceiving">
+    <documentation>Oluşturur, düzenler veya bir alıcı siler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGOPTION -&gt; Seçenekler: 3 - Ekle, 4 - Düzenle, 5 - Sil&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGEXECUTE -&gt; Yürütülen Adım [1 - Evet ; 2 - Hayır] &lt;BR&gt;Ekleme adımında zorunludur, diğer aksiyonlarda göz ardı edilir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCONFIGURATION -&gt; İnceleme form ID # &lt;BR&gt;Çıktıların, servislerin ve tamamlanmış dış kaynaklı ürünlerin incelenmesi için gereklidir, diğer nesne tipleri için göz ardı edilebilir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Tedarikçi (Sirket ID)&lt;BR&gt;Tanımlı inceleme form tipinin konfigürasyonun bağlı olarak gerekli, gereki değil ve göz ardı edilebilir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDLOT -&gt; Lot Numarası&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FATURAID -&gt; Fatura Numarası &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FATURAYAYINTAR-&gt; Fatura Yayın Tarihi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SIPARISNUM -&gt; Sipariş Numarası &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTORDER -&gt; Sipariş Tarihi&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDSO -&gt; Sipariş Numarası Al&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTSO -&gt; Sipariş Tarihi Al&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPO -&gt; Üretim Sipariş Numarası&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTPO -&gt; Üretim Sipariş Tarihi&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTRECVEST -&gt; Beklenen Tarih&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTRECVTIMEEST -&gt; Tahmini Zaman&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTRECVACT -&gt; Gerçekleşen Tarih&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTRECVTIMEACT -&gt; Gerçek Zaman&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLQTYEST -&gt; Tahmini Miktar&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLQTYACT -&gt; Gerçekleşen Miktar&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLCOSTEST -&gt; Tahmin Edilen Maliyet&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLCOSTACT -&gt; Gerçekleşen Maliyet&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSRECEIVING -&gt; Yorumlar&lt;BR&gt;İnceleme formunda &quot;Alım sırasında akışı düzenle seçeneği seçili &quot; ise zorunludur, yoksa göz ardı edilebilir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDWORKFLOW -&gt; Akış ID #&lt;BR&gt;İnceleme nesnesi bir iş akışı süreç kaydı olduğunda zorunludur, yoksa göz ardı edilebilir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDWFPROCESS -&gt; İş akışı kayıt ID #&lt;BR&gt;Düzenleme ve silme için zorunludur&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDRECEIVING -&gt; Alım Numarası&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:createUpdateDeleteReceivingRequest"/>
+    <output message="tns:createUpdateDeleteReceivingResponse"/>
+  </operation>
+  <operation name="createUpdateConfiguration">
+    <documentation>
+			Bir inceleme formu ekler, düzenler ya da siler&lt;br&gt;
+			Gerekli Parametreler :&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGOPTION -&gt; [14 - Ekle, 15 - Düzenle, 16 - Ekle/Düzenle]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCONFIGURATION -&gt; ID #&lt;br&gt;
+			Ekleme adımında zorunludur, diğer aksiyonlarda göz ardı edilir&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDGENTYPE -&gt; İnceleme Formu Tipi&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT -&gt; Tedarik/Ürün - ID #&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVISION -&gt; Revizyon Tedarik/Ürün - ID #&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPROCESS -&gt; Süreç - ID #&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPROCREVISION -&gt; Revizyon Süreç - ID #&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDACTIVITY -&gt; Aktivite - ID #&lt;br&gt;
+			Ekleme adımında zorunludur, düzenleme ve silme adımlarında opsiyoneldir&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMEVALCONFGRUP -&gt; Değerlendirme Grubu - ID #&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDQUALITYINDEX -&gt; Kalite İndeksi - ID #&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGAVGREADING -&gt; Tutanak [1 - Ortalamaları Kaydet, 2 - Okumaları Kaydet]&lt;br&gt;
+			İnceleme akışının düzenlenmesine izin verilmediğinde zorunludur&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDWORKFLOW -&gt; Alım Akışı - ID #&lt;br&gt;
+			Form nesne tipi frekansın kontrolüne izin verdiğinde, ekleme adımında zorunludur&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGTYPEFREQUENCE -&gt; Frekans Tipi [1 - Kontrolsüz, 2 - Yürütme Tarihi, 3 - Herbir Çalıştırılabilirliği İncele]&lt;br&gt;
+			Sıklık kontrol ediliyorsa ekleme adımında zorunludur&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTFREQUENCE -&gt; Frekans&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGFREQUENCE -&gt; Tip [1 - Gün, 2 - Hafta(lar), 3 - Ay, 4 - Yıl]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTNEXTEXECUTION -&gt; Bir Sonraki Yürütme&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTEAM -&gt; Sorumlu Ekip - ID #&lt;br&gt;
+			Eğer form nesne tipi, inceleme sıklığını gerektiriyorsa, ekleme adımında zorunludur&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGINSPFREQ -&gt; İnceleme Frekansı [1 =&gt; Uygulanabilir Skip-lot, 2 =&gt; Toplam İnceleme, 3 =&gt; İnceleme yok]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMSKIPTYPE -&gt; Skip-lot tip adı&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NRSEQ -&gt; Skip - lot sıklığı&lt;br&gt;
+			Eğer form nesne tipi, inceleme sıklığını gerektiriyorsa ve &quot;Başlangıç kaydını kontrol et&quot; seçeneği işaretliyse, ekleme adımında zorunludur&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGSTATUSINITIALSMP -&gt; Durumlar [1 =&gt; Bloke Edilen, 2 =&gt; İlk Örnek, 3 =&gt; Yayınlanan]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTDUEDATE -&gt; Termin Tarihi &lt;br&gt;
+			Eğer form nesne tipi, inceleme sıklığını gerektiriyorsa ve &quot;Başlangıç kaydının geçerliliğini kontorl et&quot; seçeneği işaretliyse, ekleme adımında zorunludur&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTVALIDITYRIA -&gt; Frekans&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGFREQVALIDITYRIA -&gt; Tip [1 - Gün, 2 - Hafta(lar), 3 - Ay, 4 - Yıl]&lt;br&gt;
+			Eğer form nesne tipi, örnekleme planının doldurulmasını gerektirior ve örnekleme kuralı opsiyonunu doldurmak zorunluysa, ekleme adımında zorunludur&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGSAMPLEPLAN -&gt; Kural [1 =&gt; Örnekleme Planı, 2 =&gt; Örnekleme Tablosu, 3 =&gt; Tanımlanan Boyut, 4 =&gt; Yüzde]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDEFAULSAMPLEPLAN -&gt; Örnekleme Planı [1 =&gt; Basit, 2 =&gt; Çift, 3 =&gt; Çarp]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDLEVEL -&gt; İnceleme Seviyesi [01, 02, 03, S1, S2, S3, S4]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGSWITCHRULE -&gt; İnceleme Tipi [1 - Azaltılan, 2 - Standart Ücret, 3 - Sıkılaştırıldı]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLAQL -&gt; AQL [0.010, 0.015, 0.025, 0.04, 0.65, 0.1, 0.15, 0.25, 0.4, 0.65, 1, 1.5, 2.5, 4, 6.5, 10, 15, 25, 40, 65, 100, 150, 250, 400, 650, 1000]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTABLE -&gt; Örnekleme Tablosu - ID #&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLSAMPLESIZE -&gt; Örneklem Büyüklüğü&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLACCEPTABLE -&gt; Maks. reddedilen miktar&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLPERCENTAGE -&gt; Yüzde&lt;br&gt;
+			Gereksiz Parametreler&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGALLOWEDITWF -&gt; Alım Aşamasında Akışın Düzenlenmesine İzin Ver [1 - Evet, 2* - Hayır]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGBLOCK -&gt; Bu İnceleme Formu İçin Alımları Bloke Et [1 - Evet, 2* - Hayır]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGINITIALSMP -&gt; İlk Numuneyi Kontrol Et&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGVALIDITYRIA -&gt; İlk örnekleme geçerliliğini kontrol et [1 - Evet, 2* - Hayır]&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSINITIALSMP -&gt; Açıklama&lt;br&gt;
+			BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;
+			*Varsayılan Seçenek</documentation>
+    <input message="tns:createUpdateConfigurationRequest"/>
+    <output message="tns:createUpdateConfigurationResponse"/>
+  </operation>
+  <operation name="relateCharacteristicToInspConfiguration">
+    <documentation>
+		İnceleme formunun bir özelliğini, ilişkilendirir, düzenler ve ilişkisini ortadan kaldırır&lt;br&gt;
+		Gerekli Parametreler :&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGOPTION -&gt; [20 - Ekle, 21 - Düzenle, 22 - Sil]&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCONFIGURATION -&gt; İnceleme Formu - ID #&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik - ID #&lt;br&gt;
+		Eğer ´Gerekli´ seçeneği aktif değilse, ekleme adımında zorunludur&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NRVALIDITY -&gt; Geçerlilik&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGVALIDITY -&gt; Katılım&lt;br&gt;
+		Ekleme adımında zorunludur, düzenleme ve silme adımlarında opsiyoneldir&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGAVGREADING -&gt; Tutanak [1 - Ortalamaları Kaydet, 2 - Okumaları Kaydet]&lt;br&gt;
+		Eğer örnekleme kuralı opsiyonunu doldurulması zorunlu ise  bu alan gereklidir&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGTYPESAMPLEPLAN -&gt; Kural [1 =&gt; Örnekleme Planı, 2 =&gt; Örnekleme Tablosu, 3 =&gt; Tanımlanan Boyut, 4 =&gt; Yüzde]&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGSAMPLEPLAN -&gt; Örnekleme Planı [1 =&gt; Basit, 2 =&gt; Çift, 3 =&gt; Çarp]&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDLEVEL -&gt; İnceleme Seviyesi [01, 02, 03, S1, S2, S3, S4]&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGSWITCHRULE -&gt; İnceleme Tipi [1 - Azaltılan, 2 - Standart Ücret, 3 - Sıkılaştırıldı]&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLAQL -&gt; AQL [0.010, 0.015, 0.025, 0.04, 0.65, 0.1, 0.15, 0.25, 0.4, 0.65, 1, 1.5, 2.5, 4, 6.5, 10, 15, 25, 40, 65, 100, 150, 250, 400, 650, 1000]&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTABLE -&gt; Örnekleme Tablosu - ID #&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLSAMPLESIZE -&gt; Örneklem Büyüklüğü&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLACCEPTABLE -&gt; Maks. reddedilen miktar&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLPERCENTAGE -&gt; Yüzde&lt;br&gt;
+		Gereksiz Parametreler&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREQUIRED -&gt; Zorunlu [1* - Evet, 2 - Hayır]&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGENABLEDPRINT -&gt; İnceleme raporundaki ürünün karakteristiği dahil edilsin mi? [1 - Evet, 2*- Hayır]&lt;br&gt;
+		BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;
+		*Varsayılan Seçenek</documentation>
+    <input message="tns:relateCharacteristicToInspConfigurationRequest"/>
+    <output message="tns:relateCharacteristicToInspConfigurationResponse"/>
+  </operation>
+  <operation name="relateChecklistToInspConfiguration">
+    <documentation>
+		İnceleme konfigürasyonuna bir kontrol listesi ilişkilendirir&lt;br&gt;
+		Gerekli Parametreler :&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGOPTION -&gt; 25 - Ekle, 26 - Sil&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCONFIGURATION -&gt; İnceleme Formu - ID #&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHECKLIST -&gt; Kontrol Listesi - ID #&lt;br&gt;
+		BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:relateChecklistToInspConfigurationRequest"/>
+    <output message="tns:relateChecklistToInspConfigurationResponse"/>
+  </operation>
+</portType>
+<binding name="InspectionBinding" type="tns:InspectionPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="editQualificationIndexValue">
+    <soap:operation soapAction="urn:inspection#editQualificationIndexValue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:inspection"/></input>
+    <output><soap:body use="literal" namespace="urn:inspection"/></output>
+  </operation>
+  <operation name="createUpdateDeleteQualityIndex">
+    <soap:operation soapAction="urn:inspection#createUpdateDeleteQualityIndex" style="document"/>
+    <input><soap:body use="literal" namespace="urn:inspection"/></input>
+    <output><soap:body use="literal" namespace="urn:inspection"/></output>
+  </operation>
+  <operation name="createUpdateDeleteReceiving">
+    <soap:operation soapAction="urn:inspection#createUpdateDeleteReceiving" style="document"/>
+    <input><soap:body use="literal" namespace="urn:inspection"/></input>
+    <output><soap:body use="literal" namespace="urn:inspection"/></output>
+  </operation>
+  <operation name="createUpdateConfiguration">
+    <soap:operation soapAction="urn:inspection#createUpdateConfiguration" style="document"/>
+    <input><soap:body use="literal" namespace="urn:inspection"/></input>
+    <output><soap:body use="literal" namespace="urn:inspection"/></output>
+  </operation>
+  <operation name="relateCharacteristicToInspConfiguration">
+    <soap:operation soapAction="urn:inspection#relateCharacteristicToInspConfiguration" style="document"/>
+    <input><soap:body use="literal" namespace="urn:inspection"/></input>
+    <output><soap:body use="literal" namespace="urn:inspection"/></output>
+  </operation>
+  <operation name="relateChecklistToInspConfiguration">
+    <soap:operation soapAction="urn:inspection#relateChecklistToInspConfiguration" style="document"/>
+    <input><soap:body use="literal" namespace="urn:inspection"/></input>
+    <output><soap:body use="literal" namespace="urn:inspection"/></output>
+  </operation>
+</binding>
+<service name="Inspection">
+  <port name="InspectionPort" binding="tns:InspectionBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/ip_ws.php"/>
+  </port>
+</service>
+</definitions>

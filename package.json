@@ -1,0 +1,21 @@
+{
+  "name": "n8nio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "iyzipay": "git://github.com/AhmetHuseyinDOK/iyzipay-node.git",
+    "node-html-to-image": "^3.0.1",
+    "soap": "^0.31.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-AhmetHuseyinDOK:AhmetHuseyinDOK/n8n-custom-nodes.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

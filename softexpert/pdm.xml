@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:sp" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:sp">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:sp"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="addBomRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECTOWNER" type="xsd:string"/>
+   <xsd:element name="IDREVISIONOWNER" type="xsd:string"/>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="VLQUANTITY" type="xsd:string"/>
+   <xsd:element name="FGAPPLICATION" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addBomResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCharacteristicAttribRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="IDCHARACTERISTIC" type="xsd:string"/>
+   <xsd:element name="NMCHARACTERISTIC" type="xsd:string"/>
+   <xsd:element name="IDINPUTCHARACTYPE" type="xsd:string"/>
+   <xsd:element name="DSCHARACSPECIAL" type="xsd:string"/>
+   <xsd:element name="NMCLIENTSYMBOL" type="xsd:string"/>
+   <xsd:element name="NMSUPPLIERSYMBOL" type="xsd:string"/>
+   <xsd:element name="QTSAMPLESIZE" type="xsd:string"/>
+   <xsd:element name="DSOBSERVATION" type="xsd:string"/>
+   <xsd:element name="DSSPECIFICATION" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCharacteristicAttribResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCharacteristicVarRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="IDCHARACTERISTIC" type="xsd:string"/>
+   <xsd:element name="NMCHARACTERISTIC" type="xsd:string"/>
+   <xsd:element name="IDINPUTCHARACTYPE" type="xsd:string"/>
+   <xsd:element name="DSCHARACSPECIAL" type="xsd:string"/>
+   <xsd:element name="NMCLIENTSYMBOL" type="xsd:string"/>
+   <xsd:element name="NMSUPPLIERSYMBOL" type="xsd:string"/>
+   <xsd:element name="QTDECIMAL" type="xsd:string"/>
+   <xsd:element name="FGLIMIT" type="xsd:string"/>
+   <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+   <xsd:element name="VLNOMINAL" type="xsd:string"/>
+   <xsd:element name="VLUPPER" type="xsd:string"/>
+   <xsd:element name="VLLOWER" type="xsd:string"/>
+   <xsd:element name="QTSAMPLESIZE" type="xsd:string"/>
+   <xsd:element name="DSOBSERVATION" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCharacteristicVarResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCustomerRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDITEMNUMBCUST" type="xsd:string"/>
+   <xsd:element name="IDREVCUSTOMER" type="xsd:string"/>
+   <xsd:element name="IDDRAWCUSTOMER" type="xsd:string"/>
+   <xsd:element name="DTDRAWENGCHANGES" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCustomerResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addManufacturerRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDREFERENCE" type="xsd:string"/>
+   <xsd:element name="NMMODEL" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addManufacturerResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addSupplierRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDINPUTSUPP" type="xsd:string"/>
+   <xsd:element name="DSINPUTSUPP" type="xsd:string"/>
+   <xsd:element name="VLQTMINREPLAC" type="xsd:string"/>
+   <xsd:element name="QTEXPECTARRIVED" type="xsd:string"/>
+   <xsd:element name="FGEXPECTARRIVED" type="xsd:string"/>
+   <xsd:element name="VLCOST" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addSupplierResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteBomRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECTOWNER" type="xsd:string"/>
+   <xsd:element name="IDREVISIONOWNER" type="xsd:string"/>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="FGAPPLICATION" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteBomResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteCustomerRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteCustomerResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteItemRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteItemResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteManufacturerRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteManufacturerResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteSupplierRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+   <xsd:element name="NMCOMPANY" type="xsd:string"/>
+   <xsd:element name="IDCOMPANY" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteSupplierResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_attrib_assocRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="nmlabel" type="xsd:string"/>
+   <xsd:element name="value" type="xsd:string"/>
+   <xsd:element name="idrevision" type="xsd:string"/>
+   <xsd:element name="nmattribute" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_attrib_assocResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newItemRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="NMOBJECT" type="xsd:string"/>
+   <xsd:element name="IDOBJECTTYPE" type="xsd:string"/>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+   <xsd:element name="FGPHYSICALSTATE" type="xsd:string"/>
+   <xsd:element name="IDODOR" type="xsd:string"/>
+   <xsd:element name="NMCOLOR" type="xsd:string"/>
+   <xsd:element name="IDONUCODE" type="xsd:string"/>
+   <xsd:element name="IDDANGEROUSNESS" type="xsd:string"/>
+   <xsd:element name="IDCLASSIFICATION" type="xsd:string"/>
+   <xsd:element name="IDABNTCODE" type="xsd:string"/>
+   <xsd:element name="DSCONSTITUENTS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newItemResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newItemtypeRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECTTYPE" type="xsd:string"/>
+   <xsd:element name="NMOBJECTTYPE" type="xsd:string"/>
+   <xsd:element name="IDOBJECTTYPEOWNER" type="xsd:string"/>
+   <xsd:element name="FGUSEMASK" type="xsd:string"/>
+   <xsd:element name="IDMASK" type="xsd:string"/>
+   <xsd:element name="FGEDITID" type="xsd:string"/>
+   <xsd:element name="FGUSEREVISION" type="xsd:string"/>
+   <xsd:element name="FGREVID" type="xsd:string"/>
+   <xsd:element name="FGREVAPPROVALMODE" type="xsd:string"/>
+   <xsd:element name="FGREVRELEASEMODE" type="xsd:string"/>
+   <xsd:element name="QTREVRETENTION" type="xsd:string"/>
+   <xsd:element name="FGREVRETENTIONMODE" type="xsd:string"/>
+   <xsd:element name="FGREVROUTETYPE" type="xsd:string"/>
+   <xsd:element name="FGREVELABCLAUSE" type="xsd:string"/>
+   <xsd:element name="FGREVCONSCLAUSE" type="xsd:string"/>
+   <xsd:element name="FGREVAPROVCLAUSE" type="xsd:string"/>
+   <xsd:element name="FGREVHOMOLOGCLAUSE" type="xsd:string"/>
+   <xsd:element name="FGDOCVIEWWATERMARK" type="xsd:string"/>
+   <xsd:element name="FGCONVERTTOPDF" type="xsd:string"/>
+   <xsd:element name="FGFILETYPE" type="xsd:string"/>
+   <xsd:element name="IDCOMPLEXFILECONT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newItemtypeResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relateAssetTypeToCharacteristicRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="IDCHARACTERISTIC" type="xsd:string"/>
+   <xsd:element name="IDASSETTYPE" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relateAssetTypeToCharacteristicResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="addBom" type="tns:addBomRequestType"/>
+ <xsd:element name="addBomResponse" type="tns:addBomResponseType"/>
+ <xsd:element name="addCharacteristicAttrib" type="tns:addCharacteristicAttribRequestType"/>
+ <xsd:element name="addCharacteristicAttribResponse" type="tns:addCharacteristicAttribResponseType"/>
+ <xsd:element name="addCharacteristicVar" type="tns:addCharacteristicVarRequestType"/>
+ <xsd:element name="addCharacteristicVarResponse" type="tns:addCharacteristicVarResponseType"/>
+ <xsd:element name="addCustomer" type="tns:addCustomerRequestType"/>
+ <xsd:element name="addCustomerResponse" type="tns:addCustomerResponseType"/>
+ <xsd:element name="addManufacturer" type="tns:addManufacturerRequestType"/>
+ <xsd:element name="addManufacturerResponse" type="tns:addManufacturerResponseType"/>
+ <xsd:element name="addSupplier" type="tns:addSupplierRequestType"/>
+ <xsd:element name="addSupplierResponse" type="tns:addSupplierResponseType"/>
+ <xsd:element name="deleteBom" type="tns:deleteBomRequestType"/>
+ <xsd:element name="deleteBomResponse" type="tns:deleteBomResponseType"/>
+ <xsd:element name="deleteCustomer" type="tns:deleteCustomerRequestType"/>
+ <xsd:element name="deleteCustomerResponse" type="tns:deleteCustomerResponseType"/>
+ <xsd:element name="deleteItem" type="tns:deleteItemRequestType"/>
+ <xsd:element name="deleteItemResponse" type="tns:deleteItemResponseType"/>
+ <xsd:element name="deleteManufacturer" type="tns:deleteManufacturerRequestType"/>
+ <xsd:element name="deleteManufacturerResponse" type="tns:deleteManufacturerResponseType"/>
+ <xsd:element name="deleteSupplier" type="tns:deleteSupplierRequestType"/>
+ <xsd:element name="deleteSupplierResponse" type="tns:deleteSupplierResponseType"/>
+ <xsd:element name="import_attrib_assoc" type="tns:import_attrib_assocRequestType"/>
+ <xsd:element name="import_attrib_assocResponse" type="tns:import_attrib_assocResponseType"/>
+ <xsd:element name="newItem" type="tns:newItemRequestType"/>
+ <xsd:element name="newItemResponse" type="tns:newItemResponseType"/>
+ <xsd:element name="newItemtype" type="tns:newItemtypeRequestType"/>
+ <xsd:element name="newItemtypeResponse" type="tns:newItemtypeResponseType"/>
+ <xsd:element name="relateAssetTypeToCharacteristic" type="tns:relateAssetTypeToCharacteristicRequestType"/>
+ <xsd:element name="relateAssetTypeToCharacteristicResponse" type="tns:relateAssetTypeToCharacteristicResponseType"/>
+</xsd:schema>
+</types>
+<message name="addBomRequest">
+  <part name="parameters" element="tns:addBom" /></message>
+<message name="addBomResponse">
+  <part name="parameters" element="tns:addBomResponse" /></message>
+<message name="addCharacteristicAttribRequest">
+  <part name="parameters" element="tns:addCharacteristicAttrib" /></message>
+<message name="addCharacteristicAttribResponse">
+  <part name="parameters" element="tns:addCharacteristicAttribResponse" /></message>
+<message name="addCharacteristicVarRequest">
+  <part name="parameters" element="tns:addCharacteristicVar" /></message>
+<message name="addCharacteristicVarResponse">
+  <part name="parameters" element="tns:addCharacteristicVarResponse" /></message>
+<message name="addCustomerRequest">
+  <part name="parameters" element="tns:addCustomer" /></message>
+<message name="addCustomerResponse">
+  <part name="parameters" element="tns:addCustomerResponse" /></message>
+<message name="addManufacturerRequest">
+  <part name="parameters" element="tns:addManufacturer" /></message>
+<message name="addManufacturerResponse">
+  <part name="parameters" element="tns:addManufacturerResponse" /></message>
+<message name="addSupplierRequest">
+  <part name="parameters" element="tns:addSupplier" /></message>
+<message name="addSupplierResponse">
+  <part name="parameters" element="tns:addSupplierResponse" /></message>
+<message name="deleteBomRequest">
+  <part name="parameters" element="tns:deleteBom" /></message>
+<message name="deleteBomResponse">
+  <part name="parameters" element="tns:deleteBomResponse" /></message>
+<message name="deleteCustomerRequest">
+  <part name="parameters" element="tns:deleteCustomer" /></message>
+<message name="deleteCustomerResponse">
+  <part name="parameters" element="tns:deleteCustomerResponse" /></message>
+<message name="deleteItemRequest">
+  <part name="parameters" element="tns:deleteItem" /></message>
+<message name="deleteItemResponse">
+  <part name="parameters" element="tns:deleteItemResponse" /></message>
+<message name="deleteManufacturerRequest">
+  <part name="parameters" element="tns:deleteManufacturer" /></message>
+<message name="deleteManufacturerResponse">
+  <part name="parameters" element="tns:deleteManufacturerResponse" /></message>
+<message name="deleteSupplierRequest">
+  <part name="parameters" element="tns:deleteSupplier" /></message>
+<message name="deleteSupplierResponse">
+  <part name="parameters" element="tns:deleteSupplierResponse" /></message>
+<message name="import_attrib_assocRequest">
+  <part name="parameters" element="tns:import_attrib_assoc" /></message>
+<message name="import_attrib_assocResponse">
+  <part name="parameters" element="tns:import_attrib_assocResponse" /></message>
+<message name="newItemRequest">
+  <part name="parameters" element="tns:newItem" /></message>
+<message name="newItemResponse">
+  <part name="parameters" element="tns:newItemResponse" /></message>
+<message name="newItemtypeRequest">
+  <part name="parameters" element="tns:newItemtype" /></message>
+<message name="newItemtypeResponse">
+  <part name="parameters" element="tns:newItemtypeResponse" /></message>
+<message name="relateAssetTypeToCharacteristicRequest">
+  <part name="parameters" element="tns:relateAssetTypeToCharacteristic" /></message>
+<message name="relateAssetTypeToCharacteristicResponse">
+  <part name="parameters" element="tns:relateAssetTypeToCharacteristicResponse" /></message>
+<portType name="ItemPortType">
+  <operation name="addBom">
+    <documentation>Bir Yapı Öğesi Oluşturur ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECTOWNER   -&gt; ID # (Üst Seviye Nesne) &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVISIONOWNER -&gt; Revizyon (Üst Seviye Nesne) &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT        -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVISION      -&gt; Nesne Revizyonu &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLQUANTITY      -&gt; Miktar &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGUYGULAMA -&gt; Nesne Özellikleri;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:addBomRequest"/>
+    <output message="tns:addBomResponse"/>
+  </operation>
+  <operation name="addCharacteristicAttrib">
+    <documentation>Nitelik tipi karakteristiğini ekler veya düzenler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT         -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVISION       -&gt; Nesne Revizyonu &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCHARACTERISTIC -&gt; Karakteristik Adı &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDINPUTCHARACTYPE -&gt; Karakteristik tipi ID #, &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSCHARACSPECIAL   -&gt; Özel Karakteristik [1 - Evet; 2 - Hayır]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCLIENTSYMBOL    -&gt; Müşteri Sembolü (DSCHARACSPECIAL alanı şuna eşit ise gerekli 1)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMSUPPLIERSYMBOL  -&gt; Tedarikçi Sembolü (DSCHARACSPECIAL alanı şuna eşit ise gerekli 1)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTSAMPLESIZE      -&gt; öğeler #örnek başına &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSOBSERVATION     -&gt; Yorumlar &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSSPECIFICATION   -&gt; Spesifikasyonlar &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:addCharacteristicAttribRequest"/>
+    <output message="tns:addCharacteristicAttribResponse"/>
+  </operation>
+  <operation name="addCharacteristicVar">
+    <documentation>Değişken tipi karakteristiğini ekler veya düzenler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT         -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVISION       -&gt; Revizyon ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCHARACTERISTIC -&gt; Karakteristik Adı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTDECIMAL        -&gt; Ondalık Sayısı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGLIMIT          -&gt; Limitler [ 0 - Çift Yönlü, 1 - Yukarı Tek Taraflı, 2 - Aşağı Tek Taraflı ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMEASUNITY      -&gt; Ölçüm Birimi &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLNOMINAL        -&gt; Nominal Değer &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDINPUTCHARACTYPE -&gt; Karakteristik tipi ID #, &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSCHARACSPECIAL   -&gt; Özel Karakteristik [1 - Evet; 2 - Hayır]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCLIENTSYMBOL    -&gt; Müşteri Sembolü (DSCHARACSPECIAL alanı şuna eşit ise gerekli 1)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMSUPPLIERSYMBOL  -&gt; Tedarikçi Sembolü (DSCHARACSPECIAL alanı şuna eşit ise gerekli 1)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLUPPER           -&gt; Üst tolerans (Sadece sınır tek taraflı,çift taraflı veya daha yüksek olduğunda gereklidir) &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLLOWER           -&gt; Düşük tolerans (Sadece sınır tek taraflı,çift taraflı veya daha düşük olduğunda gereklidir) &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTSAMPLESIZE      -&gt; Okuma Sayısı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSOBSERVATION     -&gt; Yorumlar &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:addCharacteristicVarRequest"/>
+    <output message="tns:addCharacteristicVarResponse"/>
+  </operation>
+  <operation name="addCustomer">
+    <documentation>Öğe ile İlişkilendirilmiş Müşteri veya Değişiklikleri Ekler :&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT     -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Şirket ID (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOMPANY    -&gt; Şirket İsmi (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY    -&gt; Şirket kodu (IDCOMMERCIAL,NMCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDITEMNUMBCUST   -&gt; Müsteri Öğe # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVCUSTOMER    -&gt; Müsteri Revizyon # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDRAWCUSTOMER   -&gt; Müsteri Çizim # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTDRAWENGCHANGES -&gt; Müşteri Çizim Tarihi &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:addCustomerRequest"/>
+    <output message="tns:addCustomerResponse"/>
+  </operation>
+  <operation name="addManufacturer">
+    <documentation>Öğe veya varolan bir değişiklik ile ilişkilendirilmiş bir üretici ekler ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT     -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Şirket ID (IDCOMPANY alanları doldurulmadığında zorunludur) &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOMPANY    -&gt; Şirket İsmi (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY    -&gt; Şirket kodu (IDCOMMERCIAL,NMCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREFERENCE  -&gt; Referans &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMMODEL      -&gt; Model &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:addManufacturerRequest"/>
+    <output message="tns:addManufacturerResponse"/>
+  </operation>
+  <operation name="addSupplier">
+    <documentation>Bir öğe ile ilişkilendirilmiş bir tedarikçi yaratır veya düzenler ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT        -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL    -&gt; Şirket ID (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOMPANY       -&gt; Şirket İsmi (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY       -&gt; Şirket kodu (IDCOMMERCIAL,NMCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDINPUTSUPP     -&gt; Referans &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSINPUTSUPP     -&gt; Açıklama &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLQTMINREPLAC   -&gt; Minimum Kayıt &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTEXPECTARRIVED -&gt; Beklenen Teslimat &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGEXPECTARRIVED -&gt; Varış zaman ölçümü [ 1 - Gün; 2 - Hafta; 3 - Ay; 4 - Yıl ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLCOST          -&gt; Maliyet &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:addSupplierRequest"/>
+    <output message="tns:addSupplierResponse"/>
+  </operation>
+  <operation name="deleteBom">
+    <documentation>Öğe Yapısını Siler ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECTOWNER   -&gt; ID # (Üst Seviye Nesne) &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVISIONOWNER -&gt; Revizyon (Üst Seviye Nesne) &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT        -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVISION      -&gt; Nesne Revizyonu &lt;BR&gt;FGUYGULAMA -&gt; Nesne Özellikleri;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:deleteBomRequest"/>
+    <output message="tns:deleteBomResponse"/>
+  </operation>
+  <operation name="deleteCustomer">
+    <documentation>Öğe ile İlişkilendirilmiş Müşteriyi Siler ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT     -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Şirket ID (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOMPANY    -&gt; Şirket İsmi (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY    -&gt; Şirket kodu (IDCOMMERCIAL,NMCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:deleteCustomerRequest"/>
+    <output message="tns:deleteCustomerResponse"/>
+  </operation>
+  <operation name="deleteItem">
+    <documentation>Bir Öğeyi Siler ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT -&gt; Nesne ID # &lt;BR&gt;</documentation>
+    <input message="tns:deleteItemRequest"/>
+    <output message="tns:deleteItemResponse"/>
+  </operation>
+  <operation name="deleteManufacturer">
+    <documentation>Bir öğe ile ilişkilendirilmiş bir üreticiyi çıkarır ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT     -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Şirket ID (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOMPANY    -&gt; Şirket İsmi (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY    -&gt; Şirket kodu (IDCOMMERCIAL,NMCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:deleteManufacturerRequest"/>
+    <output message="tns:deleteManufacturerResponse"/>
+  </operation>
+  <operation name="deleteSupplier">
+    <documentation>Bir öğe ile ilişkilendirilmiş bir tedarikçiyi çıkarır ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT     -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMMERCIAL -&gt; Şirket ID (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOMPANY    -&gt; Şirket İsmi (IDCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPANY    -&gt; Şirket kodu (IDCOMMERCIAL,NMCOMPANY alanları doldurulmadığında zorunludur)&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:deleteSupplierRequest"/>
+    <output message="tns:deleteSupplierResponse"/>
+  </operation>
+  <operation name="import_attrib_assoc">
+    <documentation>Ek Alanı bir varlıkla İlişkilendir&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;OBJEID -&gt;Nesne ID # ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ETIKETADI -&gt;Ek Alan Etiketi ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DEGER -&gt;Ek Alan etiketi, FGVERITIPI´in ilgili Ek Alanı ise 1 - EKALANADI, 2 - EKALANDEGERI, 3 - DTEKALAN;&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;REVIZYONID -&gt; Revizyon ID # ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EKALANADI-&gt; Ek Alan Adı ;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:import_attrib_assocRequest"/>
+    <output message="tns:import_attrib_assocResponse"/>
+  </operation>
+  <operation name="newItem">
+    <documentation>Bir Öğeyi Oluşturur ;&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT         -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMOBJECT         -&gt; Nesne Adı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECTTYPE     -&gt; Nesne tipi ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Sorumlu Ekip ID # ; &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMEASUNITY      -&gt; Ölçüm Birimi &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGPHYSICALSTATE  -&gt; Atığın fiziksel durumu [ 1 - Katı; 2 - Sıvı; 3 - Gaz; 4 - Çamur ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDODOR           -&gt; Koku ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMCOLOR          -&gt; Renk &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDONUCODE        -&gt; UN Kodu &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDANGEROUSNESS  -&gt; Tehlike ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCLASSIFICATION -&gt; Sınıflandırma ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDABNTCODE       -&gt; ABNT Kodu &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSCONSTITUENTS   -&gt; Genel Kompozisyon Tanımı &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:newItemRequest"/>
+    <output message="tns:newItemResponse"/>
+  </operation>
+  <operation name="newItemtype">
+    <documentation>Bir Öğe Tipi Oluşturur ;   &lt;BR&gt;Gerekli Parametreler :   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECTTYPE       -&gt; Nesne tipi ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMOBJECTTYPE       -&gt; Nesne tipi adı &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGUSEMASK          -&gt; Kimlik maskeleme kullan [1 - Evet; 2 - Hayır]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGUSEREVISION      -&gt; Düzeltme kontrolü: 1 - Evet; 2 - Hayır&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDOCVIEWWATERMARK -&gt; Filigran [1 - Evet; 2 - Hayır]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGCONVERTTOPDF     -&gt; Dosyaları PDF ´e Dönüştür [1 - Evet; 2 - Hayır]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGFILETYPE         -&gt; Dosya Tipi [ 1 - Basit; 2 - Çoklu; 3 - Karmaşık ] &lt;BR&gt;Gereksiz Parametreler   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECTTYPEOWNER  -&gt; Üst Seviye Öğe Tipi &lt;BR&gt;FGUSEMASK alanı şuna eşit ise gerekli 1:    &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;                            MASKEID - &gt; Maskeleme ID # ; &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGEDITID           -&gt; Olusşturulumuş ID # değiştirmeyi etkinleştir [1 - Evet ; 2 - Hayır] &lt;BR&gt;FGUSEREVISION alanı şuna eşit ise gerekli 1:&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVID            -&gt; Revizyon ID # [ 1 - Metin; 2 - Sayısal; 3 - Uyarlanmış ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVAPPROVALMODE  -&gt; Onay Tipi [1 - Sıralı onay; 2 -Çevrimsel] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVRELEASEMODE   -&gt; Kapatma [ 1 - Otomatik; 2 - Manuel ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTREVRETENTION     -&gt; Eski Revizyonları Buna Kadar Saklayın &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVRETENTIONMODE -&gt; Saklanan Revizyonlar [ 1 - Revizyonlar; 2 - Aylar; 3 - Yıllar ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVROUTETYPE     -&gt; Revizyon Rotası [ 1 - Sabit; 2 - Değişken ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVELABCLAUSE    -&gt; Revizyon Taslağı [1 - VE; 2 - VEYA] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVCONSCLAUSE    -&gt; Revizyon gözden geçirme [ 1 - VE; 2 - VEYA ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVAPROVCLAUSE   -&gt; Revizyon Onayı [ 1 - VE; 2 - VEYA ] &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGREVHOMOLOGCLAUSE -&gt; Revizyon Yayınlaması [ 1 - VE; 2 - VEYA ] &lt;BR&gt;FGFILETYPE alanı şuna eşit ise gerekli 3:   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCOMPLEXFILECONT  -&gt; Karmaşık dosya konteynırı ID # &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:newItemtypeRequest"/>
+    <output message="tns:newItemtypeResponse"/>
+  </operation>
+  <operation name="relateAssetTypeToCharacteristic">
+    <documentation>Varlık tipi ile bir karakteristiği ilişkilendirir&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDOBJECT         -&gt; Nesne ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDREVISION       -&gt; Revizyon ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCHARACTERISTIC -&gt; Karakteristik ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDASSETTYPE      -&gt; Varlık tipi ID # &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:relateAssetTypeToCharacteristicRequest"/>
+    <output message="tns:relateAssetTypeToCharacteristicResponse"/>
+  </operation>
+</portType>
+<binding name="ItemBinding" type="tns:ItemPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="addBom">
+    <soap:operation soapAction="urn:sp#addBom" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="addCharacteristicAttrib">
+    <soap:operation soapAction="urn:sp#addCharacteristicAttrib" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="addCharacteristicVar">
+    <soap:operation soapAction="urn:sp#addCharacteristicVar" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="addCustomer">
+    <soap:operation soapAction="urn:sp#addCustomer" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="addManufacturer">
+    <soap:operation soapAction="urn:sp#addManufacturer" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="addSupplier">
+    <soap:operation soapAction="urn:sp#addSupplier" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="deleteBom">
+    <soap:operation soapAction="urn:sp#deleteBom" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="deleteCustomer">
+    <soap:operation soapAction="urn:sp#deleteCustomer" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="deleteItem">
+    <soap:operation soapAction="urn:sp#deleteItem" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="deleteManufacturer">
+    <soap:operation soapAction="urn:sp#deleteManufacturer" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="deleteSupplier">
+    <soap:operation soapAction="urn:sp#deleteSupplier" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="import_attrib_assoc">
+    <soap:operation soapAction="urn:sp#import_attrib_assoc" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="newItem">
+    <soap:operation soapAction="urn:sp#newItem" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="newItemtype">
+    <soap:operation soapAction="urn:sp#newItemtype" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="relateAssetTypeToCharacteristic">
+    <soap:operation soapAction="urn:sp#relateAssetTypeToCharacteristic" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+</binding>
+<service name="Item">
+  <port name="ItemPort" binding="tns:ItemBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/it_ws.php"/>
+  </port>
+</service>
+</definitions>

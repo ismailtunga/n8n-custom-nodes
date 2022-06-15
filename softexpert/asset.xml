@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:asset" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:asset">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:asset"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="del_objectTypeRequestType">
+  <xsd:all>
+   <xsd:element name="idobjecttype" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="del_objectTypeResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="delete_assetConfSiteRequestType">
+  <xsd:all>
+   <xsd:element name="idsite" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="delete_assetConfSiteResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_assetRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="nmobject" type="xsd:string"/>
+   <xsd:element name="idobjecttype" type="xsd:string"/>
+   <xsd:element name="idteam" type="xsd:string"/>
+   <xsd:element name="fgapplication" type="xsd:string"/>
+   <xsd:element name="dtstartoper" type="xsd:string"/>
+   <xsd:element name="quantity" type="xsd:string"/>
+   <xsd:element name="cavity" type="xsd:string"/>
+   <xsd:element name="manufacturer" type="xsd:string"/>
+   <xsd:element name="idserialnumber" type="xsd:string"/>
+   <xsd:element name="idmodel" type="xsd:string"/>
+   <xsd:element name="idcalendar" type="xsd:string"/>
+   <xsd:element name="supplier" type="xsd:string"/>
+   <xsd:element name="vlequipmentcost" type="xsd:string"/>
+   <xsd:element name="vlcost" type="xsd:string"/>
+   <xsd:element name="dtrevision" type="xsd:string"/>
+   <xsd:element name="attributes" type="xsd:string"/>
+   <xsd:element name="dsdescription" type="xsd:string"/>
+   <xsd:element name="characteristics" type="xsd:string"/>
+   <xsd:element name="dsobservation" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_assetResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_oeeRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="dtstart" type="xsd:string"/>
+   <xsd:element name="dtend" type="xsd:string"/>
+   <xsd:element name="qtquality" type="xsd:string"/>
+   <xsd:element name="qttotal" type="xsd:string"/>
+   <xsd:element name="qtproduced" type="xsd:string"/>
+   <xsd:element name="qtplanned" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_oeeResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_siteRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="date" type="xsd:string"/>
+   <xsd:element name="hour" type="xsd:string"/>
+   <xsd:element name="type" type="xsd:string"/>
+   <xsd:element name="location" type="xsd:string"/>
+   <xsd:element name="user" type="xsd:string"/>
+   <xsd:element name="comments" type="xsd:string"/>
+   <xsd:element name="fgupdatechildrensite" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_siteResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_stateRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="dtstate" type="xsd:string"/>
+   <xsd:element name="tmstate" type="xsd:string"/>
+   <xsd:element name="idstate" type="xsd:string"/>
+   <xsd:element name="dsobservation" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_stateResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_statusRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="fgasstatus" type="xsd:string"/>
+   <xsd:element name="reserve" type="xsd:string"/>
+   <xsd:element name="dsjustify" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_statusResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_structure_insert_updateRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="idrevision" type="xsd:string"/>
+   <xsd:element name="idobjectchild" type="xsd:string"/>
+   <xsd:element name="idrevisionchild" type="xsd:string"/>
+   <xsd:element name="vlquantity" type="xsd:string"/>
+   <xsd:element name="fgapplication" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_asset_structure_insert_updateResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_assetConfSiteRequestType">
+  <xsd:all>
+   <xsd:element name="idsite" type="xsd:string"/>
+   <xsd:element name="nmsite" type="xsd:string"/>
+   <xsd:element name="fgenabled" type="xsd:string"/>
+   <xsd:element name="idsiteowner" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_assetConfSiteResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_attrib_assocRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="idattribute" type="xsd:string"/>
+   <xsd:element name="value" type="xsd:string"/>
+   <xsd:element name="idrevision" type="xsd:string"/>
+   <xsd:element name="fginsertlistvalue" type="xsd:string"/>
+   <xsd:element name="dsvalue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_attrib_assocResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_assetRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_assetResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_asset_siteRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_asset_siteResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_asset_stateRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_asset_stateResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_asset_structureRequestType">
+  <xsd:all>
+   <xsd:element name="idobject" type="xsd:string"/>
+   <xsd:element name="idrevision" type="xsd:string"/>
+   <xsd:element name="idobjectchild" type="xsd:string"/>
+   <xsd:element name="idrevisionchild" type="xsd:string"/>
+   <xsd:element name="fgapplication" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_asset_structureResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_objectSecurityRequestType">
+  <xsd:all>
+   <xsd:element name="idobjecttype" type="xsd:string"/>
+   <xsd:element name="accesstype" type="xsd:string"/>
+   <xsd:element name="permission" type="xsd:string"/>
+   <xsd:element name="idaccesstype" type="xsd:string"/>
+   <xsd:element name="idfunction" type="xsd:string"/>
+   <xsd:element name="insert" type="xsd:string"/>
+   <xsd:element name="edit" type="xsd:string"/>
+   <xsd:element name="delete" type="xsd:string"/>
+   <xsd:element name="security" type="xsd:string"/>
+   <xsd:element name="list" type="xsd:string"/>
+   <xsd:element name="view" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_objectSecurityResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_objectTypeRequestType">
+  <xsd:all>
+   <xsd:element name="idobjecttype" type="xsd:string"/>
+   <xsd:element name="nmobjecttype" type="xsd:string"/>
+   <xsd:element name="idobjecttypeowner" type="xsd:string"/>
+   <xsd:element name="fgusemask" type="xsd:string"/>
+   <xsd:element name="idmask" type="xsd:string"/>
+   <xsd:element name="fgeditid" type="xsd:string"/>
+   <xsd:element name="fguserevisionobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevidobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevapprovalmodeobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevreleasemodeobjtype" type="xsd:string"/>
+   <xsd:element name="qtrevretentionobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevretentionmodeobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevroutetypeobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevelabclauseobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevconsclauseobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevaprovclauseobjtype" type="xsd:string"/>
+   <xsd:element name="fgrevhomologclauseobjtype" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_objectTypeResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importPlanActivityRequestType">
+  <xsd:all>
+   <xsd:element name="fgoption" type="xsd:string"/>
+   <xsd:element name="fgplantype" type="xsd:string"/>
+   <xsd:element name="idplanactivity" type="xsd:string"/>
+   <xsd:element name="nmplanactivity" type="xsd:string"/>
+   <xsd:element name="idmodelactivity" type="xsd:string"/>
+   <xsd:element name="fgplanconf" type="xsd:string"/>
+   <xsd:element name="idasset" type="xsd:string"/>
+   <xsd:element name="idteam" type="xsd:string"/>
+   <xsd:element name="idteamprog" type="xsd:string"/>
+   <xsd:element name="idteamexec" type="xsd:string"/>
+   <xsd:element name="fgdatefrequency" type="xsd:string"/>
+   <xsd:element name="fgfreqtype" type="xsd:string"/>
+   <xsd:element name="qtfrequence" type="xsd:string"/>
+   <xsd:element name="fgfrequnit" type="xsd:string"/>
+   <xsd:element name="fgdateview" type="xsd:string"/>
+   <xsd:element name="dtnextexecution" type="xsd:string"/>
+   <xsd:element name="idcalendar" type="xsd:string"/>
+   <xsd:element name="fgmeterfrequency" type="xsd:string"/>
+   <xsd:element name="vlmeterfrequency" type="xsd:string"/>
+   <xsd:element name="vlantecipation" type="xsd:string"/>
+   <xsd:element name="vlnextexecution" type="xsd:string"/>
+   <xsd:element name="fgautocreate" type="xsd:string"/>
+   <xsd:element name="fgautostatus" type="xsd:string"/>
+   <xsd:element name="qtdaybefore" type="xsd:string"/>
+   <xsd:element name="fgkeepcreating" type="xsd:string"/>
+   <xsd:element name="idevalmethod" type="xsd:string"/>
+   <xsd:element name="dsevalcrit" type="xsd:string"/>
+   <xsd:element name="qtnotifyb4day" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importPlanActivityResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importAssetDowntimeRequestType">
+  <xsd:all>
+   <xsd:element name="FgOption" type="xsd:string"/>
+   <xsd:element name="IdAsset" type="xsd:string"/>
+   <xsd:element name="IdDowntimeReason" type="xsd:string"/>
+   <xsd:element name="DtStart" type="xsd:string"/>
+   <xsd:element name="QtStart" type="xsd:string"/>
+   <xsd:element name="DtEnd" type="xsd:string"/>
+   <xsd:element name="QtEnd" type="xsd:string"/>
+   <xsd:element name="DsComments" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importAssetDowntimeResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importCMDBRelationshipRequestType">
+  <xsd:all>
+   <xsd:element name="TypeFrom" type="xsd:string"/>
+   <xsd:element name="IdentifierFrom" type="xsd:string"/>
+   <xsd:element name="TypeTo" type="xsd:string"/>
+   <xsd:element name="IdentifierTo" type="xsd:string"/>
+   <xsd:element name="RelationshipName" type="xsd:string"/>
+   <xsd:element name="ReverseRelationship" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="importCMDBRelationshipResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteCMDBRelationshipRequestType">
+  <xsd:all>
+   <xsd:element name="TypeFrom" type="xsd:string"/>
+   <xsd:element name="IdentifierFrom" type="xsd:string"/>
+   <xsd:element name="TypeTo" type="xsd:string"/>
+   <xsd:element name="IdentifierTo" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteCMDBRelationshipResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="del_objectType" type="tns:del_objectTypeRequestType"/>
+ <xsd:element name="del_objectTypeResponse" type="tns:del_objectTypeResponseType"/>
+ <xsd:element name="delete_assetConfSite" type="tns:delete_assetConfSiteRequestType"/>
+ <xsd:element name="delete_assetConfSiteResponse" type="tns:delete_assetConfSiteResponseType"/>
+ <xsd:element name="import_asset" type="tns:import_assetRequestType"/>
+ <xsd:element name="import_assetResponse" type="tns:import_assetResponseType"/>
+ <xsd:element name="import_asset_oee" type="tns:import_asset_oeeRequestType"/>
+ <xsd:element name="import_asset_oeeResponse" type="tns:import_asset_oeeResponseType"/>
+ <xsd:element name="import_asset_site" type="tns:import_asset_siteRequestType"/>
+ <xsd:element name="import_asset_siteResponse" type="tns:import_asset_siteResponseType"/>
+ <xsd:element name="import_asset_state" type="tns:import_asset_stateRequestType"/>
+ <xsd:element name="import_asset_stateResponse" type="tns:import_asset_stateResponseType"/>
+ <xsd:element name="import_asset_status" type="tns:import_asset_statusRequestType"/>
+ <xsd:element name="import_asset_statusResponse" type="tns:import_asset_statusResponseType"/>
+ <xsd:element name="import_asset_structure_insert_update" type="tns:import_asset_structure_insert_updateRequestType"/>
+ <xsd:element name="import_asset_structure_insert_updateResponse" type="tns:import_asset_structure_insert_updateResponseType"/>
+ <xsd:element name="import_assetConfSite" type="tns:import_assetConfSiteRequestType"/>
+ <xsd:element name="import_assetConfSiteResponse" type="tns:import_assetConfSiteResponseType"/>
+ <xsd:element name="import_attrib_assoc" type="tns:import_attrib_assocRequestType"/>
+ <xsd:element name="import_attrib_assocResponse" type="tns:import_attrib_assocResponseType"/>
+ <xsd:element name="import_del_asset" type="tns:import_del_assetRequestType"/>
+ <xsd:element name="import_del_assetResponse" type="tns:import_del_assetResponseType"/>
+ <xsd:element name="import_del_asset_site" type="tns:import_del_asset_siteRequestType"/>
+ <xsd:element name="import_del_asset_siteResponse" type="tns:import_del_asset_siteResponseType"/>
+ <xsd:element name="import_del_asset_state" type="tns:import_del_asset_stateRequestType"/>
+ <xsd:element name="import_del_asset_stateResponse" type="tns:import_del_asset_stateResponseType"/>
+ <xsd:element name="import_del_asset_structure" type="tns:import_del_asset_structureRequestType"/>
+ <xsd:element name="import_del_asset_structureResponse" type="tns:import_del_asset_structureResponseType"/>
+ <xsd:element name="import_objectSecurity" type="tns:import_objectSecurityRequestType"/>
+ <xsd:element name="import_objectSecurityResponse" type="tns:import_objectSecurityResponseType"/>
+ <xsd:element name="import_objectType" type="tns:import_objectTypeRequestType"/>
+ <xsd:element name="import_objectTypeResponse" type="tns:import_objectTypeResponseType"/>
+ <xsd:element name="importPlanActivity" type="tns:importPlanActivityRequestType"/>
+ <xsd:element name="importPlanActivityResponse" type="tns:importPlanActivityResponseType"/>
+ <xsd:element name="importAssetDowntime" type="tns:importAssetDowntimeRequestType"/>
+ <xsd:element name="importAssetDowntimeResponse" type="tns:importAssetDowntimeResponseType"/>
+ <xsd:element name="importCMDBRelationship" type="tns:importCMDBRelationshipRequestType"/>
+ <xsd:element name="importCMDBRelationshipResponse" type="tns:importCMDBRelationshipResponseType"/>
+ <xsd:element name="deleteCMDBRelationship" type="tns:deleteCMDBRelationshipRequestType"/>
+ <xsd:element name="deleteCMDBRelationshipResponse" type="tns:deleteCMDBRelationshipResponseType"/>
+</xsd:schema>
+</types>
+<message name="del_objectTypeRequest">
+  <part name="parameters" element="tns:del_objectType" /></message>
+<message name="del_objectTypeResponse">
+  <part name="parameters" element="tns:del_objectTypeResponse" /></message>
+<message name="delete_assetConfSiteRequest">
+  <part name="parameters" element="tns:delete_assetConfSite" /></message>
+<message name="delete_assetConfSiteResponse">
+  <part name="parameters" element="tns:delete_assetConfSiteResponse" /></message>
+<message name="import_assetRequest">
+  <part name="parameters" element="tns:import_asset" /></message>
+<message name="import_assetResponse">
+  <part name="parameters" element="tns:import_assetResponse" /></message>
+<message name="import_asset_oeeRequest">
+  <part name="parameters" element="tns:import_asset_oee" /></message>
+<message name="import_asset_oeeResponse">
+  <part name="parameters" element="tns:import_asset_oeeResponse" /></message>
+<message name="import_asset_siteRequest">
+  <part name="parameters" element="tns:import_asset_site" /></message>
+<message name="import_asset_siteResponse">
+  <part name="parameters" element="tns:import_asset_siteResponse" /></message>
+<message name="import_asset_stateRequest">
+  <part name="parameters" element="tns:import_asset_state" /></message>
+<message name="import_asset_stateResponse">
+  <part name="parameters" element="tns:import_asset_stateResponse" /></message>
+<message name="import_asset_statusRequest">
+  <part name="parameters" element="tns:import_asset_status" /></message>
+<message name="import_asset_statusResponse">
+  <part name="parameters" element="tns:import_asset_statusResponse" /></message>
+<message name="import_asset_structure_insert_updateRequest">
+  <part name="parameters" element="tns:import_asset_structure_insert_update" /></message>
+<message name="import_asset_structure_insert_updateResponse">
+  <part name="parameters" element="tns:import_asset_structure_insert_updateResponse" /></message>
+<message name="import_assetConfSiteRequest">
+  <part name="parameters" element="tns:import_assetConfSite" /></message>
+<message name="import_assetConfSiteResponse">
+  <part name="parameters" element="tns:import_assetConfSiteResponse" /></message>
+<message name="import_attrib_assocRequest">
+  <part name="parameters" element="tns:import_attrib_assoc" /></message>
+<message name="import_attrib_assocResponse">
+  <part name="parameters" element="tns:import_attrib_assocResponse" /></message>
+<message name="import_del_assetRequest">
+  <part name="parameters" element="tns:import_del_asset" /></message>
+<message name="import_del_assetResponse">
+  <part name="parameters" element="tns:import_del_assetResponse" /></message>
+<message name="import_del_asset_siteRequest">
+  <part name="parameters" element="tns:import_del_asset_site" /></message>
+<message name="import_del_asset_siteResponse">
+  <part name="parameters" element="tns:import_del_asset_siteResponse" /></message>
+<message name="import_del_asset_stateRequest">
+  <part name="parameters" element="tns:import_del_asset_state" /></message>
+<message name="import_del_asset_stateResponse">
+  <part name="parameters" element="tns:import_del_asset_stateResponse" /></message>
+<message name="import_del_asset_structureRequest">
+  <part name="parameters" element="tns:import_del_asset_structure" /></message>
+<message name="import_del_asset_structureResponse">
+  <part name="parameters" element="tns:import_del_asset_structureResponse" /></message>
+<message name="import_objectSecurityRequest">
+  <part name="parameters" element="tns:import_objectSecurity" /></message>
+<message name="import_objectSecurityResponse">
+  <part name="parameters" element="tns:import_objectSecurityResponse" /></message>
+<message name="import_objectTypeRequest">
+  <part name="parameters" element="tns:import_objectType" /></message>
+<message name="import_objectTypeResponse">
+  <part name="parameters" element="tns:import_objectTypeResponse" /></message>
+<message name="importPlanActivityRequest">
+  <part name="parameters" element="tns:importPlanActivity" /></message>
+<message name="importPlanActivityResponse">
+  <part name="parameters" element="tns:importPlanActivityResponse" /></message>
+<message name="importAssetDowntimeRequest">
+  <part name="parameters" element="tns:importAssetDowntime" /></message>
+<message name="importAssetDowntimeResponse">
+  <part name="parameters" element="tns:importAssetDowntimeResponse" /></message>
+<message name="importCMDBRelationshipRequest">
+  <part name="parameters" element="tns:importCMDBRelationship" /></message>
+<message name="importCMDBRelationshipResponse">
+  <part name="parameters" element="tns:importCMDBRelationshipResponse" /></message>
+<message name="deleteCMDBRelationshipRequest">
+  <part name="parameters" element="tns:deleteCMDBRelationship" /></message>
+<message name="deleteCMDBRelationshipResponse">
+  <part name="parameters" element="tns:deleteCMDBRelationshipResponse" /></message>
+<portType name="AssetPortType">
+  <operation name="del_objectType">
+    <documentation>Varlık Tipini Siler&lt;BR&gt;Parametreler:&lt;BR&gt;OBJETIPIID -&gt; Nesne Tipi ID # ; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:del_objectTypeRequest"/>
+    <output message="tns:del_objectTypeResponse"/>
+  </operation>
+  <operation name="delete_assetConfSite">
+    <documentation>Fiziksel Konumu Sil&lt;BR&gt;Parametreler:&lt;BR&gt;FIZKONUMID - #&gt; Fiziksel Konum ID # ; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:delete_assetConfSiteRequest"/>
+    <output message="tns:delete_assetConfSiteResponse"/>
+  </operation>
+  <operation name="import_asset">
+    <documentation>Yeni bir varlık oluşturabilir veya mevcut olan birini düzenleyebilir .&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;OBJEADI -&gt; Nesne Adı ; *&lt;BR&gt;OBJETIPIID -&gt; Nesne Tipi ID # ; *&lt;BR&gt;TAKIMID -&gt; Sorumlu Ekip ID # ; *&lt;BR&gt;FGUYGULAMA -&gt; Nesne Özellikleri; *&lt;BR&gt;DTOPERASYONUBASLAT -&gt; Operasyon Tarihini Başlat; *&lt;BR&gt;MIKTAR -&gt; Adet ; *&lt;BR&gt;CAVITY -&gt; Kavite &lt;BR&gt;IDMANUFACTURER -&gt; Üretici &lt;BR&gt;IDSERIALNUMBER -&gt; Seri numara;&lt;BR&gt;MODELID -&gt; Model ID # ;&lt;BR&gt;IDCALENDAR -&gt; takvim ID #; *&lt;BR&gt;IDSUPPLIER -&gt; Tedarikçi &lt;BR&gt;VLEQUIPMENTCOST -&gt; Ekipman Maliyeti &lt;BR&gt;VLCOST -&gt; Saatlik Maliyet &lt;BR&gt;DTREVISION = Revision date &lt;BR&gt;OZNITELIKLER - &gt; Taleplerin EkAlanlari . Örnek : OZNITELIK1_ID# =OZNITELIK1_DEGER; OZNITELIK2_ID#=OZNITELIK2_DEGER; OZNITELIK3_ID#=OZNITELIK3_DEGER.&lt;BR&gt;DSTANIM -&gt; Açıklama;&lt;BR&gt;CHARACTERISTICS -&gt; Özellikler &lt;BR&gt;DSOBSERVATION -&gt; Yorumlar &lt;BR&gt;Birden fazla değerli EkAlan (Ayırıcı kullanıcı birden fazla değerli EkAlan değerleri için kullanılan ´,´ ) : OZNITELIK1_ID# =OZNITELIK1_VALUE1,OZNITELIK1_VALUE2, OZNITELIK1_VALUE3.&lt;BR&gt;Not: Sayısal değeri olan EkAlanlar için ´.´ ondalık noktası olarak kullan. Tarih alanları için değer &quot;Y - M - D&quot; ( Yıl - Ay - Gün ) formatı izlenmeli&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_assetRequest"/>
+    <output message="tns:import_assetResponse"/>
+  </operation>
+  <operation name="import_asset_oee">
+    <documentation>OEE hesaplamak için parametreli ekler&lt;BR&gt;Parametreler:&lt;BR&gt;IDOBJECT -&gt;  Varlık ID #; *&lt;BR&gt;DTSTART -&gt;   Başlangıç Tarihi; *&lt;BR&gt;DTEND -&gt;     Bitiş Tarihi; *&lt;BR&gt;QTQUALITY -&gt; Kalite Parçaları; *&lt;BR&gt;QTTOTAL -&gt;   Toplam Parçalar; *&lt;BR&gt;QTPRODUCED -&gt;Üretilen miktar; *&lt;BR&gt;QTPLANNED -&gt; Planlanan Miktar; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_asset_oeeRequest"/>
+    <output message="tns:import_asset_oeeResponse"/>
+  </operation>
+  <operation name="import_asset_site">
+    <documentation>Konum varlığa eklenecektir.&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;TARIH -&gt; Varlık Konum Tarihi. Not: Geçerli tarihi aşamaz. *&lt;BR&gt;SAAT -&gt; Varlık Konum Zamanı. *&lt;BR&gt;TIP -&gt; Konum Tipi: 1 - Konum, 2 - Kullanıcı, 3 - Konum / Kullanıcı *&lt;BR&gt;KONUM -&gt; Konum ID #. *&lt;BR&gt;KULLANICI -&gt; Kullanıcı ID # . *&lt;BR&gt;YORUMLAR - Varlık Konumundaki Yorumlar.&lt;BR&gt;Alt düzey varlık konumunu güncelleyin. [1 - Güncelleme; 2 veya boş - Güncelleme (varsayılan değer)]&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_asset_siteRequest"/>
+    <output message="tns:import_asset_siteResponse"/>
+  </operation>
+  <operation name="import_asset_state">
+    <documentation>Bir varlık tipi oluşturur.&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;DTDURUM -&gt; Varlık Durum Tarihi *&lt;BR&gt;TMDURUM -&gt;Varlık Durumunun Saati *&lt;BR&gt;IDDURUM - &gt; Varlık Durumu ID # ; *&lt;BR&gt;DSGOZLEM -&gt; Yorumlar &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_asset_stateRequest"/>
+    <output message="tns:import_asset_stateResponse"/>
+  </operation>
+  <operation name="import_asset_status">
+    <documentation>Varlığı Etkin Kıl veya Devre Dışı Bırak.&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;FGASDURUMLAR -&gt; Varlık Durumu : 1 - Etkin , 2 - Devre Dışı ; *&lt;BR&gt;RESERVE -&gt; Varlık reservasyonları iptal edilsin mi?: 1- Evet, 2- Hayır; *&lt;BR&gt;DSDOGRULA -&gt;Aktivasyon / Deaktivasyon Kaydını Açıklamak için Alan ; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_asset_statusRequest"/>
+    <output message="tns:import_asset_statusResponse"/>
+  </operation>
+  <operation name="import_asset_structure_insert_update">
+    <documentation>Varlık Yapısı Tanımla.&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;REVIZYONID -&gt; Revizyon ID # ;*&lt;BR&gt;IDOBJECTCHILD -&gt; Varlık ID # (Alt); *&lt;BR&gt;IDREVISIONCHILD -&gt; Revizyon ID # (Alt); *&lt;BR&gt;VLQUANTITY -&gt; Miktar; *&lt;BR&gt;FGUYGULAMA -&gt; Nesne Özellikleri;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_asset_structure_insert_updateRequest"/>
+    <output message="tns:import_asset_structure_insert_updateResponse"/>
+  </operation>
+  <operation name="import_assetConfSite">
+    <documentation>Fiziksel Konumu Kaydet&lt;BR&gt;Parametreler:&lt;BR&gt;FIZKONUMID - #&gt; Fiziksel Konum ID # ; *&lt;BR&gt;FIZKONUMADI -&gt; Fiziksel Konum Adı; *&lt;BR&gt;FGETKINLESTIRME -&gt; Etkin Kıl veya Devre Dışı Bırak : 1 - Etkin, 2 - Devre Dışı; *&lt;BR&gt;FIZKONUMSAHIPID -&gt;Üst Düzey Fiziksel Konum ;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_assetConfSiteRequest"/>
+    <output message="tns:import_assetConfSiteResponse"/>
+  </operation>
+  <operation name="import_attrib_assoc">
+    <documentation>Ek Alanı bir varlıkla İlişkilendir&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;IDATTRIBUTE -&gt; EkAlan ID no *&lt;BR&gt;VALUE -&gt; EkAlan Değeri *&lt;BR&gt;REVIZYONID -&gt; Revizyon ID # ; *&lt;BR&gt;FGINSERTLISTVALUE -&gt; Ekle Seçim Kutusu Tipi EkAlan Öğesi *&lt;BR&gt;DSATTRIBUTE -&gt; EkAlan Değeri (Metin) *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_attrib_assocRequest"/>
+    <output message="tns:import_attrib_assocResponse"/>
+  </operation>
+  <operation name="import_del_asset">
+    <documentation>Mevcut bir varlık silinir&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_del_assetRequest"/>
+    <output message="tns:import_del_assetResponse"/>
+  </operation>
+  <operation name="import_del_asset_site">
+    <documentation>Son varlık konumunu siler.&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_del_asset_siteRequest"/>
+    <output message="tns:import_del_asset_siteResponse"/>
+  </operation>
+  <operation name="import_del_asset_state">
+    <documentation>Varlık Durumunu Silebilir&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_del_asset_stateRequest"/>
+    <output message="tns:import_del_asset_stateResponse"/>
+  </operation>
+  <operation name="import_del_asset_structure">
+    <documentation>Varlık Yapısını Sil&lt;BR&gt;Parametreler:&lt;BR&gt;OBJEID -&gt;Nesne ID # ; *&lt;BR&gt;REVIZYONID -&gt; Revizyon ID # ;*&lt;BR&gt;IDOBJECTCHILD -&gt; Varlık ID # (Alt); *&lt;BR&gt;IDREVISIONCHILD -&gt; Revizyon ID # (Alt); *&lt;BR&gt;FGUYGULAMA -&gt; Nesne Özellikleri;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_del_asset_structureRequest"/>
+    <output message="tns:import_del_asset_structureResponse"/>
+  </operation>
+  <operation name="import_objectSecurity">
+    <documentation>Güvenlik tipleri, varlık tipine eklenecektir.&lt;BR&gt;Parametreler:&lt;BR&gt;OBJETIPIID -&gt; Nesne Tipi ID # ; *&lt;BR&gt;BAGLANTITIPI -&gt; Erişim Kontrol Tipi: 1 - Kullanıcılar Grubu, 2 - Bölüm 3 - Bölüm / Pozisyon, 4 - Pozisyon, 5 - Kullanıcı, 6 - Tüm *&lt;BR&gt;IZIN -&gt; İzin Tipi: 1 - İzin ver, 2 - Reddet *&lt;BR&gt;BAGLANTITIPIID -&gt;Erişim Grup Tipi ID #&gt; ID: 1 - Ekip ID # 2 - Departman ID # 3 - Departman ve Pozisyon ID # 4 - Pozisyon ID # 5 - Kullanıcı ID #, 6 - Gerekli değil *&lt;BR&gt;IDFUNCTION -&gt; Pozisyon ID # *&amp;sup2;&lt;BR&gt;EKLE - Eklemek için kontrol et: 1 - Evet, 2 - Hayır *&amp;sup1;&lt;BR&gt;DUZENLE -&gt; Düzenlemek için kontrol et : 1 - Evet, 2 - Hayır *&amp;sup1;&lt;BR&gt;SIL-&gt;Silmek için kontrol et : 1 - Evet, 2 - Hayır *&amp;sup1;&lt;BR&gt;GUVENLIK-&gt; Güvenlik Kontrolü : 1 - Evet, 2 - Hayır *&amp;sup1;&lt;BR&gt;LISTE -&gt; Listeleme Kontrolü: 1 - Evet, 2 - Hayır *&amp;sup1;&lt;BR&gt;GORUNTULE - &gt;Görüntülemek için kontrol et:1 - Evet, 2 - Hayır *&amp;sup1;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;*&amp;sup1; En az bir kontrol alanını gereklidir&lt;BR&gt;</documentation>
+    <input message="tns:import_objectSecurityRequest"/>
+    <output message="tns:import_objectSecurityResponse"/>
+  </operation>
+  <operation name="import_objectType">
+    <documentation>Bir varlık tipi oluşturur.&lt;BR&gt;Parametreler:&lt;BR&gt;OBJETIPIID -&gt; Nesne Tipi ID # ; *&lt;BR&gt;NMNESNETIPI -&gt; Nesne Tipi Adı ; *&lt;BR&gt;FGKULLANICIREVIZYONOBJTIPI -&gt; İşaretleme, sınıfın revizyona sahip olup olmadığını tanımlamak için kullanılır : 1 - Revizyon Var 2 - Revizyon Yok ; *&lt;BR&gt;FGUSEMASK -Maskeleme numaralandırma için kullanıldığında, işaretleme tanımlamak için kullanılır: 1 - Evet, 2 - Hayır ; *&lt;BR&gt;MASKEID - &gt; Maskeleme ID # ;&lt;BR&gt;FGDUZENLEMEID -&gt; Revizyon ID # : 1 - Metin, 2 - Sayısal, 3 - Uyarlanmış, FGUSEREVIZYONNESTIPI 1 ise gerekli olacaktır ;&lt;BR&gt;FGREVIDOBJTYP &gt;FGUSEREVIZYONNESTIPIE 1 ise, revizyonID sayısı gerekli olacaktır ;&lt;BR&gt;FGREVKABULMODNESTIPI - FGUSEREVIZYONNESTIPI 1 ise, revizyon onay modu gerekli olacaktır ;&lt;BR&gt;FGREVRELEASEMODEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, revizyon sonuç modu gerekli olacaktır ;&lt;BR&gt;QTREVRETENTIONOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, eski revizyonların saklama sayısı gerekli olacaktır ;&lt;BR&gt;FGREVRETENTIONMODEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, eski revizyonların saklama frekansı gerekli olacaktır ;&lt;BR&gt;FGREVROUTETYPEOBJTYPE -&gt;FGUSEREVIZYONNESTIPI 1 ise rota tipi gerekli olacaktır ;&lt;BR&gt;FGREVELABCLAUSEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, taslak adımında revizyon kabulü gerekli olacaktır ;&lt;BR&gt;FGREVCONSCLAUSEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, revizyon onayı incelemede gerekli olacaktır ;&lt;BR&gt;FGREVAPROVCLAUSEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, revizyon kabulü onay adımında gerekli olacaktır ;&lt;BR&gt;FGREVHOMOLOGCLAUSEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, revizyon kabulü bırakma adımında gerekli olacaktır ;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_objectTypeRequest"/>
+    <output message="tns:import_objectTypeResponse"/>
+  </operation>
+  <operation name="importPlanActivity">
+    <documentation>Bir etkinlik planı ekler / düzenler&lt;BR&gt;Parametreler:&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGOPTION -&gt; Seçenek: 21- Ekle, 22- Düzenle *&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGPLANTYPE -&gt; Plan Tipi: 1- Doğrulama, 2- Önleyici Bakım, 3- Kalibrasyon *&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPLANACTIVITY -&gt; Plan ID # *&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NMPLANACTIVITY -&gt; Plan Adı *&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDMODELACTIVITY -&gt; Standart aktivite ID # *&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGPLANCONF -&gt; Plan Konfigürasyonu: 1- Faaliyet Verisini Devral, 2- Aktiviteden verileri kopyala *&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDASSET -&gt; Varlık ID # *&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTEAM -&gt; Plandan sorumlu takım *&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTEAMPROG -&gt; Planlamadan sorumlu takım *&amp;sup1;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDTEAMEXEC -&gt; Yürütme işleminden sorumlu takım *&amp;sup1;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDATEFREQUENCY -&gt; Gün bazlı frekans: 1- Etkinleştir, 2- Pasif&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGFREQTYPE -&gt; Frekans Tipi: 1- Yürütme Tarihi, 2- İlk Kullanım, 3- Kullanım Süresi *&amp;sup2;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTFREQUENCE -&gt; Katılım *&amp;sup2;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGFREQUNIT -&gt; Sıklık birimi: 1- Gün, 2- Hafta, 3- Ay, 4- Yıl, 5- İş Günleri *&amp;sup2;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGDATEVIEW -&gt; Tarih Görselleştirme: 1- Gün / Ay / Yıl, 2- Ay / Yıl *&amp;sup2;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DTNEXTEXECUTION -&gt; Sonraki Yürütme Tarihi *&amp;sup2;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDCALENDAR -&gt; takvim ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGMETERFREQUENCY -&gt; Varlk metriğine göre frekans: 1- Etkinleştir, 2- Pasif&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLMETERFREQUENCY -&gt; Frekans Değeri *&amp;sup3&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLANTECIPATION -&gt; Önceden *&amp;sup3&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;VLNEXTEXECUTION -&gt; Bir Sonraki Yürütme *&amp;sup3&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGAUTOCREATE -&gt; Aktiviteyi otomatik olarak oluştur: 1- Etkinleştir, 2- Pasif *&amp;#x2074;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGAUTOSTATUS -&gt; Aktivite statüleri: 1- Planlama, 2- Başlatılacak *&amp;#x2074;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTDAYBEFORE -&gt; Gün önce oluştur&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGKEEPCREATING -&gt; Beklemedeki aktiviteler olsa bile otomatik olarak aktivite oluşturmaya devam et [ 1 = Evet; 2 = Hayır ]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDEVALMETHOD -&gt; Değerlendirme Metodu&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSEVALCRIT -&gt; Kriter&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;QTNOTIFYB4DAY -&gt; Önce bildir&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;*&amp;sup1; FGPLANCONF alanı şuna eşit ise gerekli 2 &lt;BR&gt;*&amp;sup2; FGDATEFREQUENCY alanı şuna eşit ise gerekli 1 &lt;BR&gt;*&amp;sup3; FGMETERFREQUENCY alanı şuna eşit ise gerekli 1 &lt;BR&gt;*&amp;#x2074; FGAUTOCREATE alanı şuna eşit ise gerekli 1 &lt;BR&gt;</documentation>
+    <input message="tns:importPlanActivityRequest"/>
+    <output message="tns:importPlanActivityResponse"/>
+  </operation>
+  <operation name="importAssetDowntime">
+    <documentation>Duruş Süresi Kaydı&lt;BR&gt;Parametreler: &lt;BR&gt;FGOPTION -&gt; Seçenek: 23 - Ekle, 24 - Bitir&lt;BR&gt;IDASSET -&gt; Varlık ID # &lt;BR&gt;IDDOWNTIMEREASON -&gt; Kesinti Nedeni &lt;BR&gt;DTSTART -&gt; Başlangıç Tarihi &lt;BR&gt;QTSTART -&gt; Başlangıç Zamanı &lt;BR&gt;DTEND -&gt; Bitiş Tarihi &lt;BR&gt;QTEND -&gt; Bitiş Zamanı &lt;BR&gt;DSCOMMENTS -&gt; Yorumlar &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:importAssetDowntimeRequest"/>
+    <output message="tns:importAssetDowntimeResponse"/>
+  </operation>
+  <operation name="importCMDBRelationship">
+    <documentation>CMDB&lt;BR&gt;Parametreler: &lt;BR&gt;TYPEFROM -&gt; Seçenek: 1 - Varlık,2 - Süreç,3 - Aktivite&lt;BR&gt;IDENTIFIERFROM -&gt; Kaynak nesne ID # &lt;BR&gt;TYPETO -&gt; Seçenek: 1 - Varlık,2 - Süreç,3 - Aktivite &lt;BR&gt;IDENTIFIERTO -&gt; Hedef nesne ID # &lt;BR&gt;RELATIONSHIPNAME -&gt; İlişki adı &lt;BR&gt;REVERSERELATIONSHIP -&gt; Ters ilişki: 1 - Evet,2 - Hayır &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:importCMDBRelationshipRequest"/>
+    <output message="tns:importCMDBRelationshipResponse"/>
+  </operation>
+  <operation name="deleteCMDBRelationship">
+    <documentation>CMDB&lt;BR&gt;Parametreler: &lt;BR&gt;TYPEFROM -&gt; Seçenek: 1 - Varlık,2 - Süreç,3 - Aktivite&lt;BR&gt;IDENTIFIERFROM -&gt; Kaynak nesne ID # &lt;BR&gt;TYPETO -&gt; Seçenek: 1 - Varlık,2 - Süreç,3 - Aktivite &lt;BR&gt;IDENTIFIERTO -&gt; Hedef nesne ID # &lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:deleteCMDBRelationshipRequest"/>
+    <output message="tns:deleteCMDBRelationshipResponse"/>
+  </operation>
+</portType>
+<binding name="AssetBinding" type="tns:AssetPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="del_objectType">
+    <soap:operation soapAction="urn:asset#del_objectType" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="delete_assetConfSite">
+    <soap:operation soapAction="urn:asset#delete_assetConfSite" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_asset">
+    <soap:operation soapAction="urn:asset#import_asset" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_asset_oee">
+    <soap:operation soapAction="urn:asset#import_asset_oee" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_asset_site">
+    <soap:operation soapAction="urn:asset#import_asset_site" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_asset_state">
+    <soap:operation soapAction="urn:asset#import_asset_state" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_asset_status">
+    <soap:operation soapAction="urn:asset#import_asset_status" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_asset_structure_insert_update">
+    <soap:operation soapAction="urn:asset#import_asset_structure_insert_update" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_assetConfSite">
+    <soap:operation soapAction="urn:asset#import_assetConfSite" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_attrib_assoc">
+    <soap:operation soapAction="urn:asset#import_attrib_assoc" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_del_asset">
+    <soap:operation soapAction="urn:asset#import_del_asset" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_del_asset_site">
+    <soap:operation soapAction="urn:asset#import_del_asset_site" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_del_asset_state">
+    <soap:operation soapAction="urn:asset#import_del_asset_state" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_del_asset_structure">
+    <soap:operation soapAction="urn:asset#import_del_asset_structure" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_objectSecurity">
+    <soap:operation soapAction="urn:asset#import_objectSecurity" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="import_objectType">
+    <soap:operation soapAction="urn:asset#import_objectType" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="importPlanActivity">
+    <soap:operation soapAction="urn:asset#importPlanActivity" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="importAssetDowntime">
+    <soap:operation soapAction="urn:asset#importAssetDowntime" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="importCMDBRelationship">
+    <soap:operation soapAction="urn:asset#importCMDBRelationship" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+  <operation name="deleteCMDBRelationship">
+    <soap:operation soapAction="urn:asset#deleteCMDBRelationship" style="document"/>
+    <input><soap:body use="literal" namespace="urn:asset"/></input>
+    <output><soap:body use="literal" namespace="urn:asset"/></output>
+  </operation>
+</binding>
+<service name="Asset">
+  <port name="AssetPort" binding="tns:AssetBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/ast_ws.php"/>
+  </port>
+</service>
+</definitions>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:workforce" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:workforce">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:workforce"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="returnRatApprovalRequestType"/>
+ <xsd:complexType name="returnRatApprovalResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnRatApprovalOneRequestType"/>
+ <xsd:complexType name="returnRatApprovalOneResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ratSentRequestType">
+  <xsd:all>
+   <xsd:element name="idrat" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ratSentResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="setRatAttributeValueRequestType">
+  <xsd:all>
+   <xsd:element name="idrat" type="xsd:string"/>
+   <xsd:element name="idattribute" type="xsd:string"/>
+   <xsd:element name="vlattribute" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="setRatAttributeValueResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="cancelRatRequestType">
+  <xsd:all>
+   <xsd:element name="idrat" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="cancelRatResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newNonProjectTaskCostRequestType">
+  <xsd:all>
+   <xsd:element name="NonProjectTaskId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newNonProjectTaskCostResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editNonProjectTaskCostRequestType">
+  <xsd:all>
+   <xsd:element name="NonProjectTaskId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editNonProjectTaskCostResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newNonProjectTaskRevenueRequestType">
+  <xsd:all>
+   <xsd:element name="NonProjectTaskId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newNonProjectTaskRevenueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editNonProjectTaskRevenueRequestType">
+  <xsd:all>
+   <xsd:element name="NonProjectTaskId" type="xsd:string"/>
+   <xsd:element name="Name" type="xsd:string"/>
+   <xsd:element name="TypeId" type="xsd:string"/>
+   <xsd:element name="Phase" type="xsd:string"/>
+   <xsd:element name="Date" type="xsd:string"/>
+   <xsd:element name="Amount" type="xsd:string"/>
+   <xsd:element name="UnitValue" type="xsd:string"/>
+   <xsd:element name="DocumentNumber" type="xsd:string"/>
+   <xsd:element name="Description" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editNonProjectTaskRevenueResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeNonProjectTaskRequestType">
+  <xsd:all>
+   <xsd:element name="NonProjectTaskId" type="xsd:string"/>
+   <xsd:element name="UserId" type="xsd:string"/>
+   <xsd:element name="ActualPercentage" type="xsd:int"/>
+   <xsd:element name="StartDate" type="xsd:string"/>
+   <xsd:element name="EndDate" type="xsd:string"/>
+   <xsd:element name="UsePlannedOrRescheduledDates" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="executeNonProjectTaskResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="returnRatApproval" type="tns:returnRatApprovalRequestType"/>
+ <xsd:element name="returnRatApprovalResponse" type="tns:returnRatApprovalResponseType"/>
+ <xsd:element name="returnRatApprovalOne" type="tns:returnRatApprovalOneRequestType"/>
+ <xsd:element name="returnRatApprovalOneResponse" type="tns:returnRatApprovalOneResponseType"/>
+ <xsd:element name="ratSent" type="tns:ratSentRequestType"/>
+ <xsd:element name="ratSentResponse" type="tns:ratSentResponseType"/>
+ <xsd:element name="setRatAttributeValue" type="tns:setRatAttributeValueRequestType"/>
+ <xsd:element name="setRatAttributeValueResponse" type="tns:setRatAttributeValueResponseType"/>
+ <xsd:element name="cancelRat" type="tns:cancelRatRequestType"/>
+ <xsd:element name="cancelRatResponse" type="tns:cancelRatResponseType"/>
+ <xsd:element name="newNonProjectTaskCost" type="tns:newNonProjectTaskCostRequestType"/>
+ <xsd:element name="newNonProjectTaskCostResponse" type="tns:newNonProjectTaskCostResponseType"/>
+ <xsd:element name="editNonProjectTaskCost" type="tns:editNonProjectTaskCostRequestType"/>
+ <xsd:element name="editNonProjectTaskCostResponse" type="tns:editNonProjectTaskCostResponseType"/>
+ <xsd:element name="newNonProjectTaskRevenue" type="tns:newNonProjectTaskRevenueRequestType"/>
+ <xsd:element name="newNonProjectTaskRevenueResponse" type="tns:newNonProjectTaskRevenueResponseType"/>
+ <xsd:element name="editNonProjectTaskRevenue" type="tns:editNonProjectTaskRevenueRequestType"/>
+ <xsd:element name="editNonProjectTaskRevenueResponse" type="tns:editNonProjectTaskRevenueResponseType"/>
+ <xsd:element name="executeNonProjectTask" type="tns:executeNonProjectTaskRequestType"/>
+ <xsd:element name="executeNonProjectTaskResponse" type="tns:executeNonProjectTaskResponseType"/>
+</xsd:schema>
+</types>
+<message name="returnRatApprovalRequest">
+  <part name="parameters" element="tns:returnRatApproval" /></message>
+<message name="returnRatApprovalResponse">
+  <part name="parameters" element="tns:returnRatApprovalResponse" /></message>
+<message name="returnRatApprovalOneRequest">
+  <part name="parameters" element="tns:returnRatApprovalOne" /></message>
+<message name="returnRatApprovalOneResponse">
+  <part name="parameters" element="tns:returnRatApprovalOneResponse" /></message>
+<message name="ratSentRequest">
+  <part name="parameters" element="tns:ratSent" /></message>
+<message name="ratSentResponse">
+  <part name="parameters" element="tns:ratSentResponse" /></message>
+<message name="setRatAttributeValueRequest">
+  <part name="parameters" element="tns:setRatAttributeValue" /></message>
+<message name="setRatAttributeValueResponse">
+  <part name="parameters" element="tns:setRatAttributeValueResponse" /></message>
+<message name="cancelRatRequest">
+  <part name="parameters" element="tns:cancelRat" /></message>
+<message name="cancelRatResponse">
+  <part name="parameters" element="tns:cancelRatResponse" /></message>
+<message name="newNonProjectTaskCostRequest">
+  <part name="parameters" element="tns:newNonProjectTaskCost" /></message>
+<message name="newNonProjectTaskCostResponse">
+  <part name="parameters" element="tns:newNonProjectTaskCostResponse" /></message>
+<message name="editNonProjectTaskCostRequest">
+  <part name="parameters" element="tns:editNonProjectTaskCost" /></message>
+<message name="editNonProjectTaskCostResponse">
+  <part name="parameters" element="tns:editNonProjectTaskCostResponse" /></message>
+<message name="newNonProjectTaskRevenueRequest">
+  <part name="parameters" element="tns:newNonProjectTaskRevenue" /></message>
+<message name="newNonProjectTaskRevenueResponse">
+  <part name="parameters" element="tns:newNonProjectTaskRevenueResponse" /></message>
+<message name="editNonProjectTaskRevenueRequest">
+  <part name="parameters" element="tns:editNonProjectTaskRevenue" /></message>
+<message name="editNonProjectTaskRevenueResponse">
+  <part name="parameters" element="tns:editNonProjectTaskRevenueResponse" /></message>
+<message name="executeNonProjectTaskRequest">
+  <part name="parameters" element="tns:executeNonProjectTask" /></message>
+<message name="executeNonProjectTaskResponse">
+  <part name="parameters" element="tns:executeNonProjectTaskResponse" /></message>
+<portType name="WorkforcePortType">
+  <operation name="returnRatApproval">
+    <documentation>Onaydaki henüz gönderilmemiş olan servis raporlarının XML´ine döner</documentation>
+    <input message="tns:returnRatApprovalRequest"/>
+    <output message="tns:returnRatApprovalResponse"/>
+  </operation>
+  <operation name="returnRatApprovalOne">
+    <documentation>Onaydaki henüz gönderilmemiş olan servis raporlarının XML´ine döner</documentation>
+    <input message="tns:returnRatApprovalOneRequest"/>
+    <output message="tns:returnRatApprovalOneResponse"/>
+  </operation>
+  <operation name="ratSent">
+    <documentation>Sonraki dışa aktarıma uygun olmaması için servis raporlarını güncelleyin. Parametre : IDRAT -&gt; Servis Raporu ID #. Başarı durumunda 1´e döner, eğer ID # yoksa, 2´ye döner.</documentation>
+    <input message="tns:ratSentRequest"/>
+    <output message="tns:ratSentResponse"/>
+  </operation>
+  <operation name="setRatAttributeValue">
+    <documentation>Her Ek Alan için bir değer ilişkilendirir. EkAlan henüz bir servis raporu ile ilişkilendirilmemişse, bu yaklaşımla gerçeklesştirilebilir. Parametre: IDRAT-&gt;Servis Raporu Tanimlayıcı*;IDOZNITELIK-&gt;EkAlan tanımlayıcısı*;DEGEROZNITELIK-&gt;Ek Alan değeri*;BASARI halinde, bir ´ 1´ mesajı Ek Alan başarıyla değiştirildi anlamına gelir. BASARISIZLIK durumunda, oluşan hata mesajı ile birlikte bir sıra döner. * Parametre gereklidir.</documentation>
+    <input message="tns:setRatAttributeValueRequest"/>
+    <output message="tns:setRatAttributeValueResponse"/>
+  </operation>
+  <operation name="cancelRat">
+    <documentation>Bir servis raporu iptal et. Parametre: IDRAT-&gt; Servis Raporu Tanımlayıcı * .BASARI halinde,´1´ değeri iade edilir.BASARISIZLIK halinde, ´ 2 ´değeri iade edilir. * Parametre gereklidir.</documentation>
+    <input message="tns:cancelRatRequest"/>
+    <output message="tns:cancelRatResponse"/>
+  </operation>
+  <operation name="newNonProjectTaskCost">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Ayrılmış aktivite maliyetinin eklenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;NonProjectTaskId =&gt; Proje dışı görev ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:newNonProjectTaskCostRequest"/>
+    <output message="tns:newNonProjectTaskCostResponse"/>
+  </operation>
+  <operation name="editNonProjectTaskCost">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Ayrılmış aktivite maliyetinin düzenlenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;NonProjectTaskId =&gt; Proje dışı görev ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:editNonProjectTaskCostRequest"/>
+    <output message="tns:editNonProjectTaskCostResponse"/>
+  </operation>
+  <operation name="newNonProjectTaskRevenue">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Ayrılmış aktivite getirisinin eklenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;NonProjectTaskId =&gt; Proje dışı görev ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:newNonProjectTaskRevenueRequest"/>
+    <output message="tns:newNonProjectTaskRevenueResponse"/>
+  </operation>
+  <operation name="editNonProjectTaskRevenue">
+    <documentation>&lt;br&gt;&lt;b&gt;&lt;u&gt;Ayrılmış aktivite getirisinin düzenlenmesi&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;&amp;nbsp;NonProjectTaskId =&gt; Proje dışı görev ID #&lt;br&gt;&amp;nbsp;Name =&gt; Maliyet/getiri adı&lt;br&gt;&amp;nbsp;TypeId =&gt; Maliyet/getiri tip ID #&lt;br&gt;&amp;nbsp;Phase =&gt; Ekleme adımları [1 - Planlanan; 2 - Yeniden planlanan; 3 - Gerçekleşen]&lt;br&gt;&amp;nbsp;Date =&gt; Maliyet/getiri tarihi&lt;br&gt;&amp;nbsp;Amount =&gt; Maliyet/getiri miktarı&lt;br&gt;&amp;nbsp;UnitValue =&gt; Maliyet/getiri birim değeri&lt;br&gt;&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;&amp;nbsp;DocumentNumber =&gt; Doküman numarası&lt;br&gt;&amp;nbsp;Description =&gt; Tanım&lt;br&gt;</documentation>
+    <input message="tns:editNonProjectTaskRevenueRequest"/>
+    <output message="tns:editNonProjectTaskRevenueResponse"/>
+  </operation>
+  <operation name="executeNonProjectTask">
+    <documentation>&lt;b&gt;&lt;u&gt;Ayrılmış aktivitenin yürütülmesi&lt;/u&gt;&lt;br&gt;Gerekli Parametreler :&lt;/b&gt;&lt;br&gt;NonProjectTaskId =&gt; Proje dışı görev ID #&lt;br&gt;UserId =&gt; Kullanıcı ID #&lt;br&gt;&lt;b&gt;Gereksiz Parametreler&lt;/b&gt;&lt;br&gt;StartDate =&gt; Gerçekleşen başlangıç tarihi (format: GG/AA/YYYY veya YYYY-AA-GG)&lt;br&gt;EndDate =&gt; Gerçekleşen bitiş tarihi (format: GG/AA/YYYY veya YYYY-AA-GG)&lt;br&gt;ActualPercentage =&gt; Görevin gerçekleştirilme yüzdesi&lt;br&gt;UsePlannedOrRescheduledDates =&gt; Doldurma seçenekleri: 1 - Planlanan tarihleri kullan, 2 - Yeniden planlamış olan tarihleri kullan</documentation>
+    <input message="tns:executeNonProjectTaskRequest"/>
+    <output message="tns:executeNonProjectTaskResponse"/>
+  </operation>
+</portType>
+<binding name="WorkforceBinding" type="tns:WorkforcePortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="returnRatApproval">
+    <soap:operation soapAction="urn:workforce#returnRatApproval" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="returnRatApprovalOne">
+    <soap:operation soapAction="urn:workforce#returnRatApprovalOne" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="ratSent">
+    <soap:operation soapAction="urn:workforce#ratSent" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="setRatAttributeValue">
+    <soap:operation soapAction="urn:workforce#setRatAttributeValue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="cancelRat">
+    <soap:operation soapAction="urn:workforce#cancelRat" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="newNonProjectTaskCost">
+    <soap:operation soapAction="urn:workforce#newNonProjectTaskCost" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="editNonProjectTaskCost">
+    <soap:operation soapAction="urn:workforce#editNonProjectTaskCost" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="newNonProjectTaskRevenue">
+    <soap:operation soapAction="urn:workforce#newNonProjectTaskRevenue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="editNonProjectTaskRevenue">
+    <soap:operation soapAction="urn:workforce#editNonProjectTaskRevenue" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+  <operation name="executeNonProjectTask">
+    <soap:operation soapAction="urn:workforce#executeNonProjectTask" style="document"/>
+    <input><soap:body use="literal" namespace="urn:workforce"/></input>
+    <output><soap:body use="literal" namespace="urn:workforce"/></output>
+  </operation>
+</binding>
+<service name="Workforce">
+  <port name="WorkforcePort" binding="tns:WorkforceBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/wr_ws.php"/>
+  </port>
+</service>
+</definitions>

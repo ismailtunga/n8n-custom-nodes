@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:form" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:form">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:form"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="fieldData">
+  <xsd:all>
+   <xsd:element name="TableFieldID" type="xsd:string"/>
+   <xsd:element name="TableFieldValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="fieldFileData">
+  <xsd:all>
+   <xsd:element name="TableFieldID" type="xsd:string"/>
+   <xsd:element name="FileName" type="xsd:string"/>
+   <xsd:element name="FileContent" type="xsd:base64Binary"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relationshipFieldData">
+  <xsd:all>
+   <xsd:element name="RelationshipFieldID" type="xsd:string"/>
+   <xsd:element name="RelationshipFieldValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="relationshipArray">
+  <xsd:sequence>
+   <xsd:element name="RelationshipID" type="xsd:string"/>
+   <xsd:element name="RelationshipField" type="tns:relationshipFieldData" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="tableFieldArray">
+  <xsd:sequence>
+   <xsd:element name="TableField" type="tns:fieldData" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RelatedToData">
+  <xsd:all>
+   <xsd:element name="RelatedRelationshipID" type="xsd:string"/>
+   <xsd:element name="RelatedRelationshipValue" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="tableFieldFileArray">
+  <xsd:sequence>
+   <xsd:element name="TableFieldFile" type="tns:fieldFileData" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="relationshipListArray">
+  <xsd:sequence>
+   <xsd:element name="Relationship" type="tns:relationshipArray" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="TableRecordArray">
+  <xsd:sequence>
+   <xsd:element name="TableFieldList" type="tns:tableFieldArray" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="RelationshipList" type="tns:relationshipListArray" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="TableFieldFileList" type="tns:tableFieldFileArray" minOccurs="0" maxOccurs="1"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="TableRecordListArray">
+  <xsd:sequence>
+   <xsd:element name="TableRecord" type="tns:TableRecordArray" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RelationshipFieldListArray">
+  <xsd:sequence>
+   <xsd:element name="Relationship" type="tns:RelationshipArrayList" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RelationshipArrayList">
+  <xsd:sequence>
+   <xsd:element name="RelationshipID" type="xsd:string"/>
+   <xsd:element name="RelationshipFieldList" type="tns:RelationshipListFieldData" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RelationshipListFieldData">
+  <xsd:sequence>
+   <xsd:element name="RelationshipField" type="tns:relationshipFieldData" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RecordRelationshipData">
+  <xsd:sequence>
+   <xsd:element name="RelationshipID" type="xsd:string"/>
+   <xsd:element name="RelationshipFieldID" type="xsd:string"/>
+   <xsd:element name="RelationshipFieldValue" type="xsd:string"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RecordRelationship">
+  <xsd:sequence>
+   <xsd:element name="Relationship" type="tns:RecordRelationshipData" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="Record">
+  <xsd:sequence>
+   <xsd:element name="FieldList" type="tns:tableFieldArray" minOccurs="0" maxOccurs="unbounded"/>
+   <xsd:element name="RelationshipList" type="tns:RecordRelationship" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="RecordListArray">
+  <xsd:sequence>
+   <xsd:element name="Record" type="tns:Record" minOccurs="0" maxOccurs="1000"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="newTableRecordRequestType">
+  <xsd:all>
+   <xsd:element name="UserID" type="xsd:string"/>
+   <xsd:element name="TableID" type="xsd:string"/>
+   <xsd:element name="TableFieldList" type="tns:tableFieldArray"/>
+   <xsd:element name="RelationshipList" type="tns:relationshipListArray"/>
+   <xsd:element name="TableFieldFileList" type="tns:tableFieldFileArray"/>
+   <xsd:element name="RelatedTo" type="tns:RelatedToData"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newTableRecordResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getTableRecordRequestType">
+  <xsd:all>
+   <xsd:element name="TableID" type="xsd:string"/>
+   <xsd:element name="Pagination" type="xsd:integer"/>
+   <xsd:element name="TableFieldList" type="tns:tableFieldArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getTableRecordResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:integer"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="TotalPagination" type="xsd:string"/>
+   <xsd:element name="RecordList" type="tns:RecordListArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="newTableRecord" type="tns:newTableRecordRequestType"/>
+ <xsd:element name="newTableRecordResponse" type="tns:newTableRecordResponseType"/>
+ <xsd:element name="getTableRecord" type="tns:getTableRecordRequestType"/>
+ <xsd:element name="getTableRecordResponse" type="tns:getTableRecordResponseType"/>
+</xsd:schema>
+</types>
+<message name="newTableRecordRequest">
+  <part name="parameters" element="tns:newTableRecord" /></message>
+<message name="newTableRecordResponse">
+  <part name="parameters" element="tns:newTableRecordResponse" /></message>
+<message name="getTableRecordRequest">
+  <part name="parameters" element="tns:getTableRecord" /></message>
+<message name="getTableRecordResponse">
+  <part name="parameters" element="tns:getTableRecordResponse" /></message>
+<portType name="FormPortType">
+  <operation name="newTableRecord">
+    <documentation>
+                Adds a record to the form table;   
+
+                 Parametreler: 
+                     UserID*: Kullanıcı Reg. Kod #;   TableID*: Form tablo ID#;   &lt;TableFieldList&gt;  &lt;TableField&gt;   TableFieldID: Form tablo alanı ID#;    TableFieldValue: Form tablosu alan değeri**;   &lt;/TableField&gt;  &lt;/TableFieldList&gt;  &lt;RelationshipList&gt;  &lt;Relationship&gt;   RelationshipID: İlişki ID #;    &lt;RelationshipField&gt;    RelationshipFieldID: İlgili form tablo alanı ID#;     RelationshipFieldValue: İlgili form tablosu alan değeri**;    &lt;/RelationshipField&gt;  &lt;/Relationship&gt;  &lt;/RelationshipList&gt;  &lt;TableFieldFileList&gt;  &lt;TableFieldFile&gt;   TableFieldID: Form tablo alanı ID#;    FileName: Dosya adı(uzantısı ile birlikte);    FileContent: Dosya ikili içeriği;   &lt;/TableFieldFile&gt;  &lt;/TableFieldFileList&gt;  &lt;RelatedTo&gt;   RelatedRelationshipID: İlişki ID #;    RelatedRelationshipValue: İlgili form tablosu alan değeri;   &lt;/RelatedTo&gt;  
+
+                 * Zorunlu;  
+                 ** Tipe bağlı notlar:   Numara: Ondalık ve binlik ayracı olmayan sayısal rakamlar;    Ondalık: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HH:MM   Boolean: 0 veya 1;  
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;   RecordKey: Kayıt kodu method ile eklendi;  
+            </documentation>
+    <input message="tns:newTableRecordRequest"/>
+    <output message="tns:newTableRecordResponse"/>
+  </operation>
+  <operation name="getTableRecord">
+    <documentation>
+                Lists the records of a form table;   
+
+                 Parametreler: 
+                     TableID*: Form tablo ID#;   Pagination*: Page of records that will be searched. Each page returns up to 1000 records.;   &lt;TableFieldList&gt;  &lt;TableField&gt;   TableFieldID: Form tablo alanı ID#;    TableFieldValue: Form tablosu alan değeri**;   &lt;/TableField&gt;  &lt;/TableFieldList&gt;  
+
+                 * Zorunlu;  
+                 ** Tipe bağlı notlar:   Numara: Ondalık ve binlik ayracı olmayan sayısal rakamlar;    Ondalık: Bin ayıracı içermeyen ve ondalık ayracı olarak periyotlarda (.) kullanılan sayısal rakamlar;    Tarih: YYYY-MM-DD   Saat: HH:MM   Boolean: 0 veya 1;  
+
+                  Geridön: 
+                     Status: Yöntem yürütme durumu. Değer bu olabilir:   SUCCESS: Method başarıyla yürütüldü;    FAILURE: Metot yürütülürken bir hata oluştu;   Code: Method dönüş kodu;   Detail: Method dönüş detayı;   TotalPagination: Toplam Sayfa Sayısı;   &lt;RecordList&gt;  &lt;Record&gt;   &lt;FieldList&gt;   &lt;TableField&gt;     TableFieldID: Form tablo alanı ID#;      TableFieldValue: Form tablosu alan değeri;     &lt;/TableField&gt;   &lt;/FieldList&gt;   &lt;RelationshipList&gt;   &lt;Relationship&gt;     RelationshipID: İlişki ID #;      RelationshipFieldID: İlgili form tablo alanı ID#;      RelationshipFieldValue: İlgili form tablosu alan değeri;     &lt;/Relationship&gt;   &lt;/RelationshipList&gt;  &lt;/Record&gt;  &lt;/RecordList&gt; 
+            </documentation>
+    <input message="tns:getTableRecordRequest"/>
+    <output message="tns:getTableRecordResponse"/>
+  </operation>
+</portType>
+<binding name="FormBinding" type="tns:FormPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="newTableRecord">
+    <soap:operation soapAction="urn:form#newTableRecord" style="document"/>
+    <input><soap:body use="literal" namespace="urn:form"/></input>
+    <output><soap:body use="literal" namespace="urn:form"/></output>
+  </operation>
+  <operation name="getTableRecord">
+    <soap:operation soapAction="urn:form#getTableRecord" style="document"/>
+    <input><soap:body use="literal" namespace="urn:form"/></input>
+    <output><soap:body use="literal" namespace="urn:form"/></output>
+  </operation>
+</binding>
+<service name="Form">
+  <port name="FormPort" binding="tns:FormBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/fm_ws.php"/>
+  </port>
+</service>
+</definitions>

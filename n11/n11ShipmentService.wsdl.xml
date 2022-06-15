@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.n11.com/ws/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.n11.com/ws/schemas" targetNamespace="http://www.n11.com/ws/schemas">
+    <wsdl:types>
+        <xs:schema xmlns:n11="http://www.n11.com/ws/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.n11.com/ws/schemas">
+            <xs:complexType name="ShipmentApiModel">
+                <xs:sequence>
+                    <xs:element name="templateName" type="xs:string"/>
+                    <xs:element name="installmentInfo" type="xs:string"/>
+                    <xs:element name="exchangeInfo" type="xs:string"/>
+                    <xs:element name="shippingInfo" type="xs:string"/>
+                    <xs:element name="specialDelivery" type="xs:boolean"/>
+                    <xs:element name="deliveryFeeType" type="xs:string"/>
+                    <xs:element name="combinedShipmentAllowed" type="xs:boolean"/>
+                    <xs:element name="shipmentMethod" type="xs:string"/>
+                    <xs:element name="warehouseAddress" type="n11:ShipmentSaveAddress"/>
+                    <xs:element name="exchangeAddress" type="n11:ShipmentSaveAddress"/>
+                    <xs:element name="shipmentCompanies" type="n11:ShipmentCompanyApiModelList"/>
+                    <xs:element name="deliverableCities" nillable="true" type="n11:CityApiModelList"/>
+                    <xs:element name="claimShipmentCompany" type="n11:ShipmentCompanyApiModel"/>
+                    <xs:element name="cargoAccountNo" nillable="true" type="xs:string"/>
+                    <xs:element name="useDmallCargo" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Address">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="address" type="xs:string"/>
+                    <xs:element name="district" type="n11:DistrictApiModel"/>
+                    <xs:element name="city" type="n11:CityApiModel"/>
+                    <xs:element name="postalCode" type="xs:string"/>
+                    <xs:element name="feeCondition" type="xs:string"/>
+                    <xs:element name="feeConditionUnit" type="xs:integer"/>
+                    <xs:element name="feeConditionPrice" type="xs:decimal"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipmentSaveAddress">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="address" type="xs:string"/>
+                    <xs:element name="district" type="n11:DistrictApiModel"/>
+                    <xs:element name="city" type="n11:CityApiModel"/>
+                    <xs:element name="postalCode" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DistrictApiModel">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="id" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CityApiModel">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="code" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipmentCompanyApiModel">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="shortName" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipmentCompanyApiModelList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="shipmentCompany" type="n11:ShipmentCompanyApiModel"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CityApiModelList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="city" type="n11:CityApiModel"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CreateOrUpdateShipmentTemplateRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="shipment" type="n11:ShipmentApiModel"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CreateOrUpdateShipmentTemplateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="shipmentTemplate" type="n11:ShipmentApiModel"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetShipmentTemplateRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="name" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetShipmentTemplateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="shipmentTemplate" type="n11:ShipmentApiModel"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetShipmentTemplateListRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetShipmentTemplateListResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="shipmentTemplates" type="n11:ShipmentTemplateList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="ShipmentTemplateList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="shipmentTemplate" type="n11:ShipmentApiModel"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseRequest">
+                <xs:sequence>
+                    <xs:element name="authentication" type="n11:Authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Authentication">
+                <xs:sequence>
+                    <xs:element name="appKey" type="xs:string"/>
+                    <xs:element name="appSecret" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResultInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="CreateOrUpdateShipmentTemplateRequest">
+        <wsdl:part element="tns:CreateOrUpdateShipmentTemplateRequest" name="CreateOrUpdateShipmentTemplateRequest"/>
+    </wsdl:message>
+    <wsdl:message name="CreateOrUpdateShipmentTemplateResponse">
+        <wsdl:part element="tns:CreateOrUpdateShipmentTemplateResponse" name="CreateOrUpdateShipmentTemplateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetShipmentTemplateRequest">
+        <wsdl:part element="tns:GetShipmentTemplateRequest" name="GetShipmentTemplateRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetShipmentTemplateResponse">
+        <wsdl:part element="tns:GetShipmentTemplateResponse" name="GetShipmentTemplateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetShipmentTemplateListRequest">
+        <wsdl:part element="tns:GetShipmentTemplateListRequest" name="GetShipmentTemplateListRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetShipmentTemplateListResponse">
+        <wsdl:part element="tns:GetShipmentTemplateListResponse" name="GetShipmentTemplateListResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ShipmentServicePort">
+        <wsdl:operation name="CreateOrUpdateShipmentTemplate">
+            <wsdl:input message="tns:CreateOrUpdateShipmentTemplateRequest" name="CreateOrUpdateShipmentTemplateRequest"/>
+            <wsdl:output message="tns:CreateOrUpdateShipmentTemplateResponse" name="CreateOrUpdateShipmentTemplateResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetShipmentTemplate">
+            <wsdl:input message="tns:GetShipmentTemplateRequest" name="GetShipmentTemplateRequest"/>
+            <wsdl:output message="tns:GetShipmentTemplateResponse" name="GetShipmentTemplateResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetShipmentTemplateList">
+            <wsdl:input message="tns:GetShipmentTemplateListRequest" name="GetShipmentTemplateListRequest"/>
+            <wsdl:output message="tns:GetShipmentTemplateListResponse" name="GetShipmentTemplateListResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ShipmentServicePortSoap11" type="tns:ShipmentServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CreateOrUpdateShipmentTemplate">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="CreateOrUpdateShipmentTemplateRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CreateOrUpdateShipmentTemplateResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetShipmentTemplate">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetShipmentTemplateRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetShipmentTemplateResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetShipmentTemplateList">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetShipmentTemplateListRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetShipmentTemplateListResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ShipmentServicePortService">
+        <wsdl:port binding="tns:ShipmentServicePortSoap11" name="ShipmentServicePortSoap11">
+            <soap:address location="https://api.n11.com/ws/shipmentService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

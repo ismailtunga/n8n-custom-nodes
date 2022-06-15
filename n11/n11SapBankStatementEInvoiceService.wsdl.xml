@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.n11.com/ws/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.n11.com/ws/schemas" targetNamespace="http://www.n11.com/ws/schemas">
+    <wsdl:types>
+        <xs:schema xmlns:n11="http://www.n11.com/ws/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.n11.com/ws/schemas">
+            <xs:element name="GetSapBankStatementEInvoiceRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="startDate" type="xs:string"/>
+                        <xs:element name="endDate" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetSapBankStatementEInvoiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="bankStatementInvoiceDataList" type="n11:BankStatementInvoiceDataList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="BaseRequest">
+                <xs:sequence>
+                    <xs:element name="authentication" type="n11:Authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Authentication">
+                <xs:sequence>
+                    <xs:element name="appKey" type="xs:string"/>
+                    <xs:element name="appSecret" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResultInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BankStatementInvoiceItemData">
+                <xs:sequence>
+                    <xs:element name="KONTO" type="xs:string"/>
+                    <xs:element name="BUDAT" type="xs:string"/>
+                    <xs:element name="BELNR" type="xs:string"/>
+                    <xs:element name="BLART" type="xs:string"/>
+                    <xs:element name="BLART_LTEXT" type="xs:string"/>
+                    <xs:element name="ZUONR" type="xs:string"/>
+                    <xs:element name="SGTXT" type="xs:string"/>
+                    <xs:element name="WAERS" type="xs:string"/>
+                    <xs:element name="BORC" type="xs:string"/>
+                    <xs:element name="ALACAK" type="xs:string"/>
+                    <xs:element name="NBAKIYE" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BankStatementInvoiceDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="bankStatementInvoiceDataList" type="n11:BankStatementInvoiceItemData"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="GetSapBankStatementEInvoiceRequest">
+        <wsdl:part element="tns:GetSapBankStatementEInvoiceRequest" name="GetSapBankStatementEInvoiceRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetSapBankStatementEInvoiceResponse">
+        <wsdl:part element="tns:GetSapBankStatementEInvoiceResponse" name="GetSapBankStatementEInvoiceResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="SapBankStatementEInvoiceServicePort">
+        <wsdl:operation name="GetSapBankStatementEInvoice">
+            <wsdl:input message="tns:GetSapBankStatementEInvoiceRequest" name="GetSapBankStatementEInvoiceRequest"/>
+            <wsdl:output message="tns:GetSapBankStatementEInvoiceResponse" name="GetSapBankStatementEInvoiceResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SapBankStatementEInvoiceServicePortSoap11" type="tns:SapBankStatementEInvoiceServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetSapBankStatementEInvoice">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetSapBankStatementEInvoiceRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetSapBankStatementEInvoiceResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SapBankStatementEInvoiceServicePortService">
+        <wsdl:port binding="tns:SapBankStatementEInvoiceServicePortSoap11" name="SapBankStatementEInvoiceServicePortSoap11">
+            <soap:address location="https://api.n11.com/ws/sapBankStatementEInvoiceService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

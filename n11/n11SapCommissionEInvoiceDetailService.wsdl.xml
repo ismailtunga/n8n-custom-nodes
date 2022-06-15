@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.n11.com/ws/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.n11.com/ws/schemas" targetNamespace="http://www.n11.com/ws/schemas">
+    <wsdl:types>
+        <xs:schema xmlns:n11="http://www.n11.com/ws/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.n11.com/ws/schemas">
+            <xs:element name="GetSapCommissionEInvoiceDetailRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="date" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetSapCommissionEInvoiceDetailResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="commissionInvoiceDetail" type="n11:CommissionInvoiceDetailData"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="BaseRequest">
+                <xs:sequence>
+                    <xs:element name="authentication" type="n11:Authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Authentication">
+                <xs:sequence>
+                    <xs:element name="appKey" type="xs:string"/>
+                    <xs:element name="appSecret" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResultInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CommissionInvoiceItemDetailData">
+                <xs:sequence>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="belnr" type="xs:string"/>
+                    <xs:element name="orderItemId" type="xs:string"/>
+                    <xs:element name="transactionDDText" type="xs:string"/>
+                    <xs:element name="transactionType" type="xs:string"/>
+                    <xs:element name="tamamlanmaTarihi" type="xs:string"/>
+                    <xs:element name="saticiId" type="xs:string"/>
+                    <xs:element name="tutar" type="xs:string"/>
+                    <xs:element name="pazarlamaGeliri" type="xs:string"/>
+                    <xs:element name="vadeFarki" type="xs:string"/>
+                    <xs:element name="addOrder" type="xs:string"/>
+                    <xs:element name="malzemeKodu" type="xs:string"/>
+                    <xs:element name="miktar" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CommissionInvoiceDetailDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="commissionInvoiceDetailList" type="n11:CommissionInvoiceItemDetailData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CommissionInvoiceDetailList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="commissionInvoiceItemDetailData" type="n11:CommissionInvoiceItemDetailData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CommissionInvoiceDetailData">
+                <xs:sequence>
+                    <xs:element name="commissionInvoiceDetailDataList" type="n11:CommissionInvoiceDetailDataList"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="GetSapCommissionEInvoiceDetailRequest">
+        <wsdl:part element="tns:GetSapCommissionEInvoiceDetailRequest" name="GetSapCommissionEInvoiceDetailRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetSapCommissionEInvoiceDetailResponse">
+        <wsdl:part element="tns:GetSapCommissionEInvoiceDetailResponse" name="GetSapCommissionEInvoiceDetailResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="SapCommissionEInvoiceDetailServicePort">
+        <wsdl:operation name="GetSapCommissionEInvoiceDetail">
+            <wsdl:input message="tns:GetSapCommissionEInvoiceDetailRequest" name="GetSapCommissionEInvoiceDetailRequest"/>
+            <wsdl:output message="tns:GetSapCommissionEInvoiceDetailResponse" name="GetSapCommissionEInvoiceDetailResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SapCommissionEInvoiceDetailServicePortSoap11" type="tns:SapCommissionEInvoiceDetailServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetSapCommissionEInvoiceDetail">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetSapCommissionEInvoiceDetailRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetSapCommissionEInvoiceDetailResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SapCommissionEInvoiceDetailServicePortService">
+        <wsdl:port binding="tns:SapCommissionEInvoiceDetailServicePortSoap11" name="SapCommissionEInvoiceDetailServicePortSoap11">
+            <soap:address location="https://api.n11.com/ws/sapCommissionEInvoiceDetailService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

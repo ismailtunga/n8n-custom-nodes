@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.n11.com/ws/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.n11.com/ws/schemas" targetNamespace="http://www.n11.com/ws/schemas">
+    <wsdl:types>
+        <xs:schema xmlns:n11="http://www.n11.com/ws/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.n11.com/ws/schemas">
+            <xs:element name="ClaimExchangeDenyWithConfirmRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimExchangeId" type="xs:long"/>
+                        <xs:element name="denyReasonId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimExchangeDenyWithConfirmResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimExchangeListRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="searchData" type="n11:ClaimExchangeSearch"/>
+                        <xs:element name="pagingData" type="n11:ExchangeRequestPagingData"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimExchangeListResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="pagingData" type="n11:PagingData"/>
+                        <xs:element minOccurs="0" name="claimExchangeList" type="n11:ClaimExchangeDataList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimExchangeDenyRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimExchangeId" type="xs:long"/>
+                        <xs:element name="denyReasonId" type="xs:long"/>
+                        <xs:element name="exchangeShipmentType" type="xs:string"/>
+                        <xs:element name="shipmentCompanyId" type="xs:long"/>
+                        <xs:element name="trackingNumber" type="xs:string"/>
+                        <xs:element name="deliveryReceiptNumber" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimExchangeDenyResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimExchangePendingRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimExchangeId" type="xs:long"/>
+                        <xs:element name="pendingReasonId" type="xs:long"/>
+                        <xs:element name="pendingDayCount" type="xs:integer"/>
+                        <xs:element name="pendingReasonNote" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClaimExchangePendingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="ClaimExchangeSearch">
+                <xs:sequence>
+                    <xs:element name="status" type="xs:string"/>
+                    <xs:element name="executer" type="xs:string"/>
+                    <xs:element name="searchInfoType" type="xs:string"/>
+                    <xs:element name="searchQuery" type="xs:string"/>
+                    <xs:element name="period" type="n11:DateRangeApiModel"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DateRangeApiModel">
+                <xs:sequence>
+                    <xs:element name="startDate" nillable="true" type="xs:string"/>
+                    <xs:element name="endDate" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimExchangeDataList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="exchange" type="n11:ClaimExchangeData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimExchangeData">
+                <xs:sequence>
+                    <xs:element name="claimExchangeId" type="xs:long"/>
+                    <xs:element name="status" type="n11:ClaimExchangeStatus"/>
+                    <xs:element name="executer" type="n11:ClaimExecuterType"/>
+                    <xs:element name="exchangeReasonType" type="xs:string"/>
+                    <xs:element name="exchangeReasonDescription" type="xs:string"/>
+                    <xs:element name="orderNumber" type="xs:string"/>
+                    <xs:element name="shipmentMethod" type="xs:string"/>
+                    <xs:element name="preRequestDate" type="xs:date"/>
+                    <xs:element name="requestDate" type="xs:date"/>
+                    <xs:element name="sellerCampaignNumber" type="xs:string"/>
+                    <xs:element name="cancelledDate" type="xs:date"/>
+                    <xs:element name="pendingRequestDate" type="xs:date"/>
+                    <xs:element name="pendedDate" type="xs:date"/>
+                    <xs:element name="completedDate" type="xs:date"/>
+                    <xs:element name="convertedToReturnDate" type="xs:date"/>
+                    <xs:element name="sellerShipmentCompany" type="xs:string"/>
+                    <xs:element name="sellerTrackingNumber" type="xs:string"/>
+                    <xs:element name="recipient" type="xs:string"/>
+                    <xs:element name="phone" type="xs:string"/>
+                    <xs:element name="address" type="xs:string"/>
+                    <xs:element name="productId" type="xs:string"/>
+                    <xs:element name="productName" type="xs:string"/>
+                    <xs:element name="quantity" type="xs:string"/>
+                    <xs:element name="unitPrice" type="xs:decimal"/>
+                    <xs:element name="finalPrice" type="xs:decimal"/>
+                    <xs:element name="shipmentCompany" type="xs:string"/>
+                    <xs:element name="trackingNumber" type="xs:string"/>
+                    <xs:element name="campaignNumber" type="xs:string"/>
+                    <xs:element name="deliveryFeeType" type="xs:string"/>
+                    <xs:element name="buyerPhone" type="xs:string"/>
+                    <xs:element name="buyerEmail" type="xs:string"/>
+                    <xs:element name="buyerName" type="xs:string"/>
+                    <xs:element name="paymentDate" type="xs:date"/>
+                    <xs:element name="attributesNames" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ExchangeRequestPagingData">
+                <xs:sequence>
+                    <xs:element name="currentPage" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimExchangeStatus">
+                <xs:sequence>
+                    <xs:element name="REQUESTED" type="xs:string"/>
+                    <xs:element name="CANCELLED" type="xs:string"/>
+                    <xs:element name="COMPLETED" type="xs:string"/>
+                    <xs:element name="RETURN" type="xs:string"/>
+                    <xs:element name="PENDING" type="xs:string"/>
+                    <xs:element name="PENDED" type="xs:string"/>
+                    <xs:element name="DENIED" type="xs:string"/>
+                    <xs:element name="REFUND" type="xs:string"/>
+                    <xs:element name="SEND_BACK" type="xs:string"/>
+                    <xs:element name="ALL" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ClaimExecuterType">
+                <xs:sequence>
+                    <xs:element name="BUYER" type="xs:string"/>
+                    <xs:element name="SELLER" type="xs:string"/>
+                    <xs:element name="OPERATOR" type="xs:string"/>
+                    <xs:element name="SYSTEM" type="xs:string"/>
+                    <xs:element name="SHIPMENT" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ExchangeReasonTypeData">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="value" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ExchangeReasonTypeDataList">
+                <xs:sequence>
+                    <xs:element name="exchangeReasonTypeData" type="n11:ExchangeReasonTypeData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ExchangeDenyReasonTypesRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangeDenyReasonTypesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="exchangeReasonTypeDataList" type="n11:ExchangeReasonTypeDataList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangePendingReasonTypesRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangePendingReasonTypesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                        <xs:element name="exchangeReasonTypeDataList" type="n11:ExchangeReasonTypeDataList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangeApproveByCargoCampaignRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimExchangeId" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangeApproveByCargoCampaignResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangeApproveByReceiptNumberRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimExchangeId" type="xs:long"/>
+                        <xs:element name="deliveryReceiptNumber" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangeApproveByReceiptNumberResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangeApproveByTrackingNumberRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="auth" type="n11:Authentication"/>
+                        <xs:element name="claimExchangeId" type="xs:long"/>
+                        <xs:element name="shipmentCompanyId" type="xs:long"/>
+                        <xs:element name="trackingNumber" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ExchangeApproveByTrackingNumberResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="result" type="n11:ResultInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="BaseRequest">
+                <xs:sequence>
+                    <xs:element name="authentication" type="n11:Authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Authentication">
+                <xs:sequence>
+                    <xs:element name="appKey" type="xs:string"/>
+                    <xs:element name="appSecret" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BaseResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResultInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCategory" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PagingData">
+                <xs:sequence>
+                    <xs:element name="currentPage" nillable="true" type="xs:int"/>
+                    <xs:element name="pageSize" nillable="true" type="xs:int"/>
+                    <xs:element name="totalCount" nillable="true" type="xs:long"/>
+                    <xs:element name="pageCount" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestPagingData">
+                <xs:sequence>
+                    <xs:element name="currentPage" nillable="true" type="xs:int"/>
+                    <xs:element name="pageSize" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="ClaimExchangeDenyWithConfirmRequest">
+        <wsdl:part element="tns:ClaimExchangeDenyWithConfirmRequest" name="ClaimExchangeDenyWithConfirmRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimExchangeDenyWithConfirmResponse">
+        <wsdl:part element="tns:ClaimExchangeDenyWithConfirmResponse" name="ClaimExchangeDenyWithConfirmResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimExchangeListRequest">
+        <wsdl:part element="tns:ClaimExchangeListRequest" name="ClaimExchangeListRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimExchangeListResponse">
+        <wsdl:part element="tns:ClaimExchangeListResponse" name="ClaimExchangeListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimExchangeDenyRequest">
+        <wsdl:part element="tns:ClaimExchangeDenyRequest" name="ClaimExchangeDenyRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimExchangeDenyResponse">
+        <wsdl:part element="tns:ClaimExchangeDenyResponse" name="ClaimExchangeDenyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimExchangePendingRequest">
+        <wsdl:part element="tns:ClaimExchangePendingRequest" name="ClaimExchangePendingRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ClaimExchangePendingResponse">
+        <wsdl:part element="tns:ClaimExchangePendingResponse" name="ClaimExchangePendingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangeDenyReasonTypesRequest">
+        <wsdl:part element="tns:ExchangeDenyReasonTypesRequest" name="ExchangeDenyReasonTypesRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangeDenyReasonTypesResponse">
+        <wsdl:part element="tns:ExchangeDenyReasonTypesResponse" name="ExchangeDenyReasonTypesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangePendingReasonTypesRequest">
+        <wsdl:part element="tns:ExchangePendingReasonTypesRequest" name="ExchangePendingReasonTypesRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangePendingReasonTypesResponse">
+        <wsdl:part element="tns:ExchangePendingReasonTypesResponse" name="ExchangePendingReasonTypesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangeApproveByCargoCampaignRequest">
+        <wsdl:part element="tns:ExchangeApproveByCargoCampaignRequest" name="ExchangeApproveByCargoCampaignRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangeApproveByCargoCampaignResponse">
+        <wsdl:part element="tns:ExchangeApproveByCargoCampaignResponse" name="ExchangeApproveByCargoCampaignResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangeApproveByReceiptNumberRequest">
+        <wsdl:part element="tns:ExchangeApproveByReceiptNumberRequest" name="ExchangeApproveByReceiptNumberRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangeApproveByReceiptNumberResponse">
+        <wsdl:part element="tns:ExchangeApproveByReceiptNumberResponse" name="ExchangeApproveByReceiptNumberResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangeApproveByTrackingNumberRequest">
+        <wsdl:part element="tns:ExchangeApproveByTrackingNumberRequest" name="ExchangeApproveByTrackingNumberRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ExchangeApproveByTrackingNumberResponse">
+        <wsdl:part element="tns:ExchangeApproveByTrackingNumberResponse" name="ExchangeApproveByTrackingNumberResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ClaimExchangeServicePort">
+        <wsdl:operation name="ClaimExchangeDenyWithConfirm">
+            <wsdl:input message="tns:ClaimExchangeDenyWithConfirmRequest" name="ClaimExchangeDenyWithConfirmRequest"/>
+            <wsdl:output message="tns:ClaimExchangeDenyWithConfirmResponse" name="ClaimExchangeDenyWithConfirmResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimExchangeList">
+            <wsdl:input message="tns:ClaimExchangeListRequest" name="ClaimExchangeListRequest"/>
+            <wsdl:output message="tns:ClaimExchangeListResponse" name="ClaimExchangeListResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimExchangeDeny">
+            <wsdl:input message="tns:ClaimExchangeDenyRequest" name="ClaimExchangeDenyRequest"/>
+            <wsdl:output message="tns:ClaimExchangeDenyResponse" name="ClaimExchangeDenyResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimExchangePending">
+            <wsdl:input message="tns:ClaimExchangePendingRequest" name="ClaimExchangePendingRequest"/>
+            <wsdl:output message="tns:ClaimExchangePendingResponse" name="ClaimExchangePendingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangeDenyReasonTypes">
+            <wsdl:input message="tns:ExchangeDenyReasonTypesRequest" name="ExchangeDenyReasonTypesRequest"/>
+            <wsdl:output message="tns:ExchangeDenyReasonTypesResponse" name="ExchangeDenyReasonTypesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangePendingReasonTypes">
+            <wsdl:input message="tns:ExchangePendingReasonTypesRequest" name="ExchangePendingReasonTypesRequest"/>
+            <wsdl:output message="tns:ExchangePendingReasonTypesResponse" name="ExchangePendingReasonTypesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangeApproveByCargoCampaign">
+            <wsdl:input message="tns:ExchangeApproveByCargoCampaignRequest" name="ExchangeApproveByCargoCampaignRequest"/>
+            <wsdl:output message="tns:ExchangeApproveByCargoCampaignResponse" name="ExchangeApproveByCargoCampaignResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangeApproveByReceiptNumber">
+            <wsdl:input message="tns:ExchangeApproveByReceiptNumberRequest" name="ExchangeApproveByReceiptNumberRequest"/>
+            <wsdl:output message="tns:ExchangeApproveByReceiptNumberResponse" name="ExchangeApproveByReceiptNumberResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangeApproveByTrackingNumber">
+            <wsdl:input message="tns:ExchangeApproveByTrackingNumberRequest" name="ExchangeApproveByTrackingNumberRequest"/>
+            <wsdl:output message="tns:ExchangeApproveByTrackingNumberResponse" name="ExchangeApproveByTrackingNumberResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ClaimExchangeServicePortSoap11" type="tns:ClaimExchangeServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ClaimExchangeDenyWithConfirm">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimExchangeDenyWithConfirmRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimExchangeDenyWithConfirmResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimExchangeList">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimExchangeListRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimExchangeListResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimExchangeDeny">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimExchangeDenyRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimExchangeDenyResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ClaimExchangePending">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ClaimExchangePendingRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ClaimExchangePendingResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangeDenyReasonTypes">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ExchangeDenyReasonTypesRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ExchangeDenyReasonTypesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangePendingReasonTypes">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ExchangePendingReasonTypesRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ExchangePendingReasonTypesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangeApproveByCargoCampaign">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ExchangeApproveByCargoCampaignRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ExchangeApproveByCargoCampaignResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangeApproveByReceiptNumber">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ExchangeApproveByReceiptNumberRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ExchangeApproveByReceiptNumberResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExchangeApproveByTrackingNumber">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ExchangeApproveByTrackingNumberRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ExchangeApproveByTrackingNumberResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ClaimExchangeServicePortService">
+        <wsdl:port binding="tns:ClaimExchangeServicePortSoap11" name="ClaimExchangeServicePortSoap11">
+            <soap:address location="https://api.n11.com/ws/claimExchangeService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

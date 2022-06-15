@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:generic" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:generic">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:generic"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="createTeamByUserRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="NMTEAM" type="xsd:string"/>
+   <xsd:element name="USERS" type="xsd:string"/>
+   <xsd:element name="COMPONENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createTeamByUserResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createTeamByPositionRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="NMTEAM" type="xsd:string"/>
+   <xsd:element name="POSITIONS" type="xsd:string"/>
+   <xsd:element name="COMPONENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createTeamByPositionResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createTeamByAreaRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="NMTEAM" type="xsd:string"/>
+   <xsd:element name="AREAS" type="xsd:string"/>
+   <xsd:element name="COMPONENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createTeamByAreaResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newRoleRequestType">
+  <xsd:all>
+   <xsd:element name="IdRole" type="xsd:string"/>
+   <xsd:element name="NmRole" type="xsd:string"/>
+   <xsd:element name="IdRoleOwner" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="Components" type="tns:componentsArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newRoleResponseType">
+  <xsd:all>
+   <xsd:element name="RecordKey" type="xsd:int"/>
+   <xsd:element name="RecordId" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="componentsArray">
+  <xsd:sequence>
+   <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="100"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="removeTeamRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removeTeamResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removeUserFromTeamRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="USERS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removeUserFromTeamResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+   <xsd:element name="RecordKey" type="xsd:string"/>
+   <xsd:element name="RecordId" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removeUserFromRoleRequestType">
+  <xsd:all>
+   <xsd:element name="IdRole" type="xsd:string"/>
+   <xsd:element name="IdUser" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removeUserFromRoleResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="return" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserToRoleRequestType">
+  <xsd:all>
+   <xsd:element name="IdRole" type="xsd:string"/>
+   <xsd:element name="IdUser" type="xsd:string"/>
+   <xsd:element name="IsDefault" type="xsd:string" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserToRoleResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addAreaToTeamRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="AREAS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addAreaToTeamResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addPositionToTeamRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="POSITIONS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addPositionToTeamResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserToTeamRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="USERS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addUserToTeamResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editTeamByAreaRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM_OLD" type="xsd:string"/>
+   <xsd:element name="IDTEAM_NEW" type="xsd:string"/>
+   <xsd:element name="NMTEAM" type="xsd:string"/>
+   <xsd:element name="AREAS" type="xsd:string"/>
+   <xsd:element name="COMPONENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editTeamByAreaResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editTeamByPositionRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM_OLD" type="xsd:string"/>
+   <xsd:element name="IDTEAM_NEW" type="xsd:string"/>
+   <xsd:element name="NMTEAM" type="xsd:string"/>
+   <xsd:element name="POSITIONS" type="xsd:string"/>
+   <xsd:element name="COMPONENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editTeamByPositionResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editTeamByUserRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM_OLD" type="xsd:string"/>
+   <xsd:element name="IDTEAM_NEW" type="xsd:string"/>
+   <xsd:element name="NMTEAM" type="xsd:string"/>
+   <xsd:element name="USERS" type="xsd:string"/>
+   <xsd:element name="COMPONENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="editTeamByUserResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removeAreaFromTeamRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="AREAS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removeAreaFromTeamResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removePositionFromTeamRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="POSITIONS" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="removePositionFromTeamResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:int"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newTeamRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="NMTEAM" type="xsd:string"/>
+   <xsd:element name="COMPONENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newTeamResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newTeamMemberRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="FGTYPE" type="xsd:string"/>
+   <xsd:element name="IDDEPARTMENT" type="xsd:string"/>
+   <xsd:element name="SUBLEVELS" type="xsd:string"/>
+   <xsd:element name="IDPOSITION" type="xsd:string"/>
+   <xsd:element name="IDUSER" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newTeamMemberResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteTeamMemberRequestType">
+  <xsd:all>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="FGTYPE" type="xsd:string"/>
+   <xsd:element name="IDDEPARTMENT" type="xsd:string"/>
+   <xsd:element name="IDPOSITION" type="xsd:string"/>
+   <xsd:element name="IDUSER" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteTeamMemberResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Code" type="xsd:long"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="createTeamByUser" type="tns:createTeamByUserRequestType"/>
+ <xsd:element name="createTeamByUserResponse" type="tns:createTeamByUserResponseType"/>
+ <xsd:element name="createTeamByPosition" type="tns:createTeamByPositionRequestType"/>
+ <xsd:element name="createTeamByPositionResponse" type="tns:createTeamByPositionResponseType"/>
+ <xsd:element name="createTeamByArea" type="tns:createTeamByAreaRequestType"/>
+ <xsd:element name="createTeamByAreaResponse" type="tns:createTeamByAreaResponseType"/>
+ <xsd:element name="newRole" type="tns:newRoleRequestType"/>
+ <xsd:element name="newRoleResponse" type="tns:newRoleResponseType"/>
+ <xsd:element name="removeTeam" type="tns:removeTeamRequestType"/>
+ <xsd:element name="removeTeamResponse" type="tns:removeTeamResponseType"/>
+ <xsd:element name="removeUserFromTeam" type="tns:removeUserFromTeamRequestType"/>
+ <xsd:element name="removeUserFromTeamResponse" type="tns:removeUserFromTeamResponseType"/>
+ <xsd:element name="removeUserFromRole" type="tns:removeUserFromRoleRequestType"/>
+ <xsd:element name="removeUserFromRoleResponse" type="tns:removeUserFromRoleResponseType"/>
+ <xsd:element name="addUserToRole" type="tns:addUserToRoleRequestType"/>
+ <xsd:element name="addUserToRoleResponse" type="tns:addUserToRoleResponseType"/>
+ <xsd:element name="addAreaToTeam" type="tns:addAreaToTeamRequestType"/>
+ <xsd:element name="addAreaToTeamResponse" type="tns:addAreaToTeamResponseType"/>
+ <xsd:element name="addPositionToTeam" type="tns:addPositionToTeamRequestType"/>
+ <xsd:element name="addPositionToTeamResponse" type="tns:addPositionToTeamResponseType"/>
+ <xsd:element name="addUserToTeam" type="tns:addUserToTeamRequestType"/>
+ <xsd:element name="addUserToTeamResponse" type="tns:addUserToTeamResponseType"/>
+ <xsd:element name="editTeamByArea" type="tns:editTeamByAreaRequestType"/>
+ <xsd:element name="editTeamByAreaResponse" type="tns:editTeamByAreaResponseType"/>
+ <xsd:element name="editTeamByPosition" type="tns:editTeamByPositionRequestType"/>
+ <xsd:element name="editTeamByPositionResponse" type="tns:editTeamByPositionResponseType"/>
+ <xsd:element name="editTeamByUser" type="tns:editTeamByUserRequestType"/>
+ <xsd:element name="editTeamByUserResponse" type="tns:editTeamByUserResponseType"/>
+ <xsd:element name="removeAreaFromTeam" type="tns:removeAreaFromTeamRequestType"/>
+ <xsd:element name="removeAreaFromTeamResponse" type="tns:removeAreaFromTeamResponseType"/>
+ <xsd:element name="removePositionFromTeam" type="tns:removePositionFromTeamRequestType"/>
+ <xsd:element name="removePositionFromTeamResponse" type="tns:removePositionFromTeamResponseType"/>
+ <xsd:element name="newTeam" type="tns:newTeamRequestType"/>
+ <xsd:element name="newTeamResponse" type="tns:newTeamResponseType"/>
+ <xsd:element name="newTeamMember" type="tns:newTeamMemberRequestType"/>
+ <xsd:element name="newTeamMemberResponse" type="tns:newTeamMemberResponseType"/>
+ <xsd:element name="deleteTeamMember" type="tns:deleteTeamMemberRequestType"/>
+ <xsd:element name="deleteTeamMemberResponse" type="tns:deleteTeamMemberResponseType"/>
+</xsd:schema>
+</types>
+<message name="createTeamByUserRequest">
+  <part name="parameters" element="tns:createTeamByUser" /></message>
+<message name="createTeamByUserResponse">
+  <part name="parameters" element="tns:createTeamByUserResponse" /></message>
+<message name="createTeamByPositionRequest">
+  <part name="parameters" element="tns:createTeamByPosition" /></message>
+<message name="createTeamByPositionResponse">
+  <part name="parameters" element="tns:createTeamByPositionResponse" /></message>
+<message name="createTeamByAreaRequest">
+  <part name="parameters" element="tns:createTeamByArea" /></message>
+<message name="createTeamByAreaResponse">
+  <part name="parameters" element="tns:createTeamByAreaResponse" /></message>
+<message name="newRoleRequest">
+  <part name="parameters" element="tns:newRole" /></message>
+<message name="newRoleResponse">
+  <part name="parameters" element="tns:newRoleResponse" /></message>
+<message name="removeTeamRequest">
+  <part name="parameters" element="tns:removeTeam" /></message>
+<message name="removeTeamResponse">
+  <part name="parameters" element="tns:removeTeamResponse" /></message>
+<message name="removeUserFromTeamRequest">
+  <part name="parameters" element="tns:removeUserFromTeam" /></message>
+<message name="removeUserFromTeamResponse">
+  <part name="parameters" element="tns:removeUserFromTeamResponse" /></message>
+<message name="removeUserFromRoleRequest">
+  <part name="parameters" element="tns:removeUserFromRole" /></message>
+<message name="removeUserFromRoleResponse">
+  <part name="parameters" element="tns:removeUserFromRoleResponse" /></message>
+<message name="addUserToRoleRequest">
+  <part name="parameters" element="tns:addUserToRole" /></message>
+<message name="addUserToRoleResponse">
+  <part name="parameters" element="tns:addUserToRoleResponse" /></message>
+<message name="addAreaToTeamRequest">
+  <part name="parameters" element="tns:addAreaToTeam" /></message>
+<message name="addAreaToTeamResponse">
+  <part name="parameters" element="tns:addAreaToTeamResponse" /></message>
+<message name="addPositionToTeamRequest">
+  <part name="parameters" element="tns:addPositionToTeam" /></message>
+<message name="addPositionToTeamResponse">
+  <part name="parameters" element="tns:addPositionToTeamResponse" /></message>
+<message name="addUserToTeamRequest">
+  <part name="parameters" element="tns:addUserToTeam" /></message>
+<message name="addUserToTeamResponse">
+  <part name="parameters" element="tns:addUserToTeamResponse" /></message>
+<message name="editTeamByAreaRequest">
+  <part name="parameters" element="tns:editTeamByArea" /></message>
+<message name="editTeamByAreaResponse">
+  <part name="parameters" element="tns:editTeamByAreaResponse" /></message>
+<message name="editTeamByPositionRequest">
+  <part name="parameters" element="tns:editTeamByPosition" /></message>
+<message name="editTeamByPositionResponse">
+  <part name="parameters" element="tns:editTeamByPositionResponse" /></message>
+<message name="editTeamByUserRequest">
+  <part name="parameters" element="tns:editTeamByUser" /></message>
+<message name="editTeamByUserResponse">
+  <part name="parameters" element="tns:editTeamByUserResponse" /></message>
+<message name="removeAreaFromTeamRequest">
+  <part name="parameters" element="tns:removeAreaFromTeam" /></message>
+<message name="removeAreaFromTeamResponse">
+  <part name="parameters" element="tns:removeAreaFromTeamResponse" /></message>
+<message name="removePositionFromTeamRequest">
+  <part name="parameters" element="tns:removePositionFromTeam" /></message>
+<message name="removePositionFromTeamResponse">
+  <part name="parameters" element="tns:removePositionFromTeamResponse" /></message>
+<message name="newTeamRequest">
+  <part name="parameters" element="tns:newTeam" /></message>
+<message name="newTeamResponse">
+  <part name="parameters" element="tns:newTeamResponse" /></message>
+<message name="newTeamMemberRequest">
+  <part name="parameters" element="tns:newTeamMember" /></message>
+<message name="newTeamMemberResponse">
+  <part name="parameters" element="tns:newTeamMemberResponse" /></message>
+<message name="deleteTeamMemberRequest">
+  <part name="parameters" element="tns:deleteTeamMember" /></message>
+<message name="deleteTeamMemberResponse">
+  <part name="parameters" element="tns:deleteTeamMemberResponse" /></message>
+<portType name="GenericPortType">
+  <operation name="createTeamByUser">
+    <documentation>İçinde Bulunan Kullanıcıları Bilgilendiren Bir Ekip Oluşturun&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup Tanımlayıcisı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMADI - &gt; Ekip Adı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;KULLANICILAR - &gt; Kullanıcıların ID # lerini İçeren &quot;,&quot; ile Ayrılmış Dize : (&quot;Kullanıcı1, kullanıcı2&quot;);&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BILESEN -&gt; Dize Bileşenleri Kodları &quot;,&quot; ile ayrılmış örn : (&quot;109,107,73&quot;) ;</documentation>
+    <input message="tns:createTeamByUserRequest"/>
+    <output message="tns:createTeamByUserResponse"/>
+  </operation>
+  <operation name="createTeamByPosition">
+    <documentation>İçinde Bulunan Raporlama Fonksiyonları İçeren Bir Ekip Oluşturun&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup Tanımlayıcisı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMADI - &gt; Ekip Adı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;POZISYONLAR - &gt; Fonksiyonların Tanımlayıcıları &quot;,&quot; ile Ayrılmış Dize. Ex : (&quot;, fonksiyon 1 fonksiyon2&quot;)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BILESEN -&gt; Dize Bileşenleri Kodları &quot;,&quot; ile ayrılmış örn : (&quot;109,107,73&quot;) ;</documentation>
+    <input message="tns:createTeamByPositionRequest"/>
+    <output message="tns:createTeamByPositionResponse"/>
+  </operation>
+  <operation name="createTeamByArea">
+    <documentation>İçerdiği alanlarda bir danışmanlık ekibi oluşturur&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup Tanımlayıcisı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMADI - &gt; Ekip Adı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ALANLAR -&gt; &quot;,&quot; ile ayrılmış dize alanların tanımlayıcılarını içerir ÖR : (&quot;Alan1,Alan2&quot;);&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BILESEN -&gt; Dize Bileşenleri Kodları &quot;,&quot; ile ayrılmış örn : (&quot;109,107,73&quot;) ;</documentation>
+    <input message="tns:createTeamByAreaRequest"/>
+    <output message="tns:createTeamByAreaResponse"/>
+  </operation>
+  <operation name="newRole">
+    <documentation>Add a new functional role&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IdRole                     -&gt; Functional role ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NmRole                     -&gt; Fonksiyonel Rol Adı &lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IdRoleOwner                -&gt; Upper level functional role ID # &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Description                -&gt; Functional role description &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Components                 -&gt; Components to be associated &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı 1:    &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata -1 : Beklenmeyen Hata   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 43 : ID # nin değeri yoktur   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 44 : Adın değeri yoktur   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 45 : Mevcut Kayıt   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 46 : The upper level functional role does not exist   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 47 : Invalid component   &lt;BR&gt;</documentation>
+    <input message="tns:newRoleRequest"/>
+    <output message="tns:newRoleResponse"/>
+  </operation>
+  <operation name="removeTeam">
+    <documentation>Bir Ekip Çıkarın&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup ID# Silinecek ;&lt;BR&gt;GERIDONUS: &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Boş takım ID #!&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Takım bulunamadı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Kayıt Silinemez İlişkili veriler var&lt;BR&gt;</documentation>
+    <input message="tns:removeTeamRequest"/>
+    <output message="tns:removeTeamResponse"/>
+  </operation>
+  <operation name="removeUserFromTeam">
+    <documentation>Bir Ekibin Alanlarını Kaldır&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup ID# Silinecek ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;KULLANICILAR - &gt; Kullanıcıların ID # lerini İçeren &quot;,&quot; ile Ayrılmış Dize : (&quot;Kullanıcı1, kullanıcı2&quot;);</documentation>
+    <input message="tns:removeUserFromTeamRequest"/>
+    <output message="tns:removeUserFromTeamResponse"/>
+  </operation>
+  <operation name="removeUserFromRole">
+    <documentation>Disassociate a user from a functional role&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IdRole -&gt;Functional role ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IdUser -&gt;Kullanıcı ID #&lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı 1 : Başarıyla ilişkisi kesilen kayıt.   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata -1 : Beklenmeyen Hata   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 7 : Anlamsız kullanıcı ID #   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 12 : Kullanıcı bulunamıyor   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 48 : Varolmayan Fonksiyonel Rol   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 49 : Functional role not entered   &lt;BR&gt;</documentation>
+    <input message="tns:removeUserFromRoleRequest"/>
+    <output message="tns:removeUserFromRoleResponse"/>
+  </operation>
+  <operation name="addUserToRole">
+    <documentation>Associate a user with a functional role&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Functional role ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Kullanıcı ID #&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Varsayılan olarak kullan &lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı 1: Kayıt eklendi&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 49 : Functional role not entered&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 48 : Varolmayan Fonksiyonel Rol&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 7 : Anlamsız kullanıcı ID #&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 12 : Kullanıcı bulunamıyor&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata 30 : Geçersiz Değer Alan: IsDefault&lt;BR&gt;</documentation>
+    <input message="tns:addUserToRoleRequest"/>
+    <output message="tns:addUserToRoleResponse"/>
+  </operation>
+  <operation name="addAreaToTeam">
+    <documentation>Bir Grup Alanlarını Ekler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID-&gt; Alanları Eklemek İstediğiniz Ekibin Tanımlayıcısı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ALANLAR -&gt; &quot;,&quot; ile ayrılmış dize alanların tanımlayıcılarını içerir ÖR : (&quot;Alan1,Alan2&quot;);</documentation>
+    <input message="tns:addAreaToTeamRequest"/>
+    <output message="tns:addAreaToTeamResponse"/>
+  </operation>
+  <operation name="addPositionToTeam">
+    <documentation>Bir Grup Alanlarını Ekler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID-&gt; Alanları Eklemek İstediğiniz Ekibin Tanımlayıcısı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;POZISYONLAR - &gt; Fonksiyonların Tanımlayıcıları &quot;,&quot; ile Ayrılmış Dize. Ex : (&quot;, fonksiyon 1 fonksiyon2&quot;)</documentation>
+    <input message="tns:addPositionToTeamRequest"/>
+    <output message="tns:addPositionToTeamResponse"/>
+  </operation>
+  <operation name="addUserToTeam">
+    <documentation>Bir Grup Alanlarını Ekler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID-&gt; Alanları Eklemek İstediğiniz Ekibin Tanımlayıcısı&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;KULLANICILAR - &gt; Kullanıcıların ID # lerini İçeren &quot;,&quot; ile Ayrılmış Dize : (&quot;Kullanıcı1, kullanıcı2&quot;);</documentation>
+    <input message="tns:addUserToTeamRequest"/>
+    <output message="tns:addUserToTeamResponse"/>
+  </operation>
+  <operation name="editTeamByArea">
+    <documentation>İçerdiği alanlarda danışmanlık ekibini düzenler.&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID_ESKI -&gt; Değiştirmek İstediğiniz Ekip ID # ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID_YENI -&gt; Yeni takımın ID# değiştirmek isterseniz, tanımlayıcı kalırsa düzenlenmekte olanın aynısı bilgilendirilmelidir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMADI - &gt; Ekip Adı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ALANLAR -&gt; &quot;,&quot; ile ayrılmış dize alanların tanımlayıcılarını içerir ÖR : (&quot;Alan1,Alan2&quot;);&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BILESEN -&gt; Dize Bileşenleri Kodları &quot;,&quot; ile ayrılmış örn : (&quot;109,107,73&quot;) ;</documentation>
+    <input message="tns:editTeamByAreaRequest"/>
+    <output message="tns:editTeamByAreaResponse"/>
+  </operation>
+  <operation name="editTeamByPosition">
+    <documentation>İçerdiği bir grup raporlama fonksiyonlarını düzenler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID_ESKI -&gt; Değiştirmek İstediğiniz Ekip ID # ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID_YENI -&gt; Yeni takımın ID# değiştirmek isterseniz, tanımlayıcı kalırsa düzenlenmekte olanın aynısı bilgilendirilmelidir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMADI - &gt; Ekip Adı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;POZISYONLAR - &gt; Fonksiyonların Tanımlayıcıları &quot;,&quot; ile Ayrılmış Dize. Ex : (&quot;, fonksiyon 1 fonksiyon2&quot;)&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BILESEN -&gt; Dize Bileşenleri Kodları &quot;,&quot; ile ayrılmış örn : (&quot;109,107,73&quot;) ;</documentation>
+    <input message="tns:editTeamByPositionRequest"/>
+    <output message="tns:editTeamByPositionResponse"/>
+  </operation>
+  <operation name="editTeamByUser">
+    <documentation>İçerdiği kullanıcıları bildiren bir ekip düzenler&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID_ESKI -&gt; Değiştirmek İstediğiniz Ekip ID # ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID_YENI -&gt; Yeni takımın ID# değiştirmek isterseniz, tanımlayıcı kalırsa düzenlenmekte olanın aynısı bilgilendirilmelidir&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMADI - &gt; Ekip Adı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;KULLANICILAR - &gt; Kullanıcıların ID # lerini İçeren &quot;,&quot; ile Ayrılmış Dize : (&quot;Kullanıcı1, kullanıcı2&quot;);&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BILESEN -&gt; Dize Bileşenleri Kodları &quot;,&quot; ile ayrılmış örn : (&quot;109,107,73&quot;) ;</documentation>
+    <input message="tns:editTeamByUserRequest"/>
+    <output message="tns:editTeamByUserResponse"/>
+  </operation>
+  <operation name="removeAreaFromTeam">
+    <documentation>Bir Ekibin Alanlarını Kaldır&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup ID# Silinecek ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ALANLAR -&gt; &quot;,&quot; ile ayrılmış dize alanların tanımlayıcılarını içerir ÖR : (&quot;Alan1,Alan2&quot;);</documentation>
+    <input message="tns:removeAreaFromTeamRequest"/>
+    <output message="tns:removeAreaFromTeamResponse"/>
+  </operation>
+  <operation name="removePositionFromTeam">
+    <documentation>Bir Ekibin Alanlarını Kaldır&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup ID# Silinecek ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;POZISYONLAR - &gt; Fonksiyonların Tanımlayıcıları &quot;,&quot; ile Ayrılmış Dize. Ex : (&quot;, fonksiyon 1 fonksiyon2&quot;)</documentation>
+    <input message="tns:removePositionFromTeamRequest"/>
+    <output message="tns:removePositionFromTeamResponse"/>
+  </operation>
+  <operation name="newTeam">
+    <documentation>Takımlar&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup Tanımlayıcisı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMADI - &gt; Ekip Adı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BILESEN -&gt; Dize Bileşenleri Kodları &quot;,&quot; ile ayrılmış örn : (&quot;109,107,73&quot;) ;&lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı:   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Status : SUCCESS  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Code : Kayıt kodu method ile eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Detail : Kayıt başarıyla eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RecordID : Method ile eklenen kaydın ID #  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata:   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Status : FAILURE  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Code : -1  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Detail : ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:newTeamRequest"/>
+    <output message="tns:newTeamResponse"/>
+  </operation>
+  <operation name="newTeamMember">
+    <documentation>Takım Üyeleri&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup Tanımlayıcisı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGTYPE -&gt; Takım üyesinin tipini tanımlar [1- Departman; 2 - Pozisyon; 3 - Bölüm / Görev; 4 - Kullanıcı];&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDEPARTMENT -&gt; Department ID # (FGTYPE = 1 veya FGTYPE = 3 olduğunda gereklidir);&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPOSITION -&gt; Function ID # (FGTYPE = 2 veya FGTYPE = 3 olduğunda gereklidir);&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUSER -&gt; Kullanıcı Kimliği # (FGTYPE = 4 olduğunda gereklidir);&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SUBLEVELS -&gt; İlişkili bölümün alt düzeylerinin dikkate alınacağını gösterir [1 - Evet; 2 - Hayır] (Varsayılan değer = 2);&lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı:   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Status : SUCCESS  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Code : Kayıt kodu method ile eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Detail : Kayıt başarıyla eklendi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RecordID : Method ile eklenen kaydın ID #  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata:   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Status : FAILURE  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Code : -1  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Detail : ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:newTeamMemberRequest"/>
+    <output message="tns:newTeamMemberResponse"/>
+  </operation>
+  <operation name="deleteTeamMember">
+    <documentation>Sil&amp;nbsp;Takım Üyeleri&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TAKIMID -&gt; Grup Tanımlayıcisı ;&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FGTYPE -&gt; Takım üyesinin tipini tanımlar [1- Departman; 2 - Pozisyon; 3 - Bölüm / Görev; 4 - Kullanıcı];&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDDEPARTMENT -&gt; Department ID # (FGTYPE = 1 veya FGTYPE = 3 olduğunda gereklidir);&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDPOSITION -&gt; Function ID # (FGTYPE = 2 veya FGTYPE = 3 olduğunda gereklidir);&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IDUSER -&gt; Kullanıcı Kimliği # (FGTYPE = 4 olduğunda gereklidir);&lt;BR&gt;GERIDONUS:                 &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Başarı:   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Status : SUCCESS  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Code : 1  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Detail : Kayıt başarıyla silindi  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hata:   &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Status : FAILURE  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Code : -1  &lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Detail : ARIZA halinde, arıza ile birlikte bir mesaj geri döner.  &lt;BR&gt;</documentation>
+    <input message="tns:deleteTeamMemberRequest"/>
+    <output message="tns:deleteTeamMemberResponse"/>
+  </operation>
+</portType>
+<binding name="GenericBinding" type="tns:GenericPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="createTeamByUser">
+    <soap:operation soapAction="urn:generic#createTeamByUser" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="createTeamByPosition">
+    <soap:operation soapAction="urn:generic#createTeamByPosition" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="createTeamByArea">
+    <soap:operation soapAction="urn:generic#createTeamByArea" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="newRole">
+    <soap:operation soapAction="urn:generic#newRole" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="removeTeam">
+    <soap:operation soapAction="urn:generic#removeTeam" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="removeUserFromTeam">
+    <soap:operation soapAction="urn:generic#removeUserFromTeam" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="removeUserFromRole">
+    <soap:operation soapAction="urn:generic#removeUserFromRole" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="addUserToRole">
+    <soap:operation soapAction="urn:generic#addUserToRole" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="addAreaToTeam">
+    <soap:operation soapAction="urn:generic#addAreaToTeam" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="addPositionToTeam">
+    <soap:operation soapAction="urn:generic#addPositionToTeam" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="addUserToTeam">
+    <soap:operation soapAction="urn:generic#addUserToTeam" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="editTeamByArea">
+    <soap:operation soapAction="urn:generic#editTeamByArea" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="editTeamByPosition">
+    <soap:operation soapAction="urn:generic#editTeamByPosition" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="editTeamByUser">
+    <soap:operation soapAction="urn:generic#editTeamByUser" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="removeAreaFromTeam">
+    <soap:operation soapAction="urn:generic#removeAreaFromTeam" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="removePositionFromTeam">
+    <soap:operation soapAction="urn:generic#removePositionFromTeam" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="newTeam">
+    <soap:operation soapAction="urn:generic#newTeam" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="newTeamMember">
+    <soap:operation soapAction="urn:generic#newTeamMember" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+  <operation name="deleteTeamMember">
+    <soap:operation soapAction="urn:generic#deleteTeamMember" style="document"/>
+    <input><soap:body use="literal" namespace="urn:generic"/></input>
+    <output><soap:body use="literal" namespace="urn:generic"/></output>
+  </operation>
+</binding>
+<service name="Generic">
+  <port name="GenericPort" binding="tns:GenericBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/gn_ws.php"/>
+  </port>
+</service>
+</definitions>

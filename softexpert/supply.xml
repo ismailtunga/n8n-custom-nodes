@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:sp" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:sp">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:sp"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="createEditSupplyRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="NMOBJECT" type="xsd:string"/>
+   <xsd:element name="IDOBJECTTYPE" type="xsd:string"/>
+   <xsd:element name="IDTEAM" type="xsd:string"/>
+   <xsd:element name="MNCOST" type="xsd:string"/>
+   <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+   <xsd:element name="DTREVISION" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createEditSupplyResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteSupplyRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteSupplyResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_attrib_assocRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="NMLABEL" type="xsd:string"/>
+   <xsd:element name="VALUE" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="NMATTRIBUTE" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_attrib_assocResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addSupplyStructureRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="IDOBJECTOWNER" type="xsd:string"/>
+   <xsd:element name="IDREVISIONOWNER" type="xsd:string"/>
+   <xsd:element name="VLQUANTITY" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addSupplyStructureResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteSupplyStructureRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDREVISION" type="xsd:string"/>
+   <xsd:element name="IDOBJECTOWNER" type="xsd:string"/>
+   <xsd:element name="IDREVISIONOWNER" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteSupplyStructureResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createSupplyTypeRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECTTYPE" type="xsd:string"/>
+   <xsd:element name="NMOBJECTTYPE" type="xsd:string"/>
+   <xsd:element name="IDOBJECTTYPEOWNER" type="xsd:string"/>
+   <xsd:element name="IDMASK" type="xsd:string"/>
+   <xsd:element name="FGEDITID" type="xsd:string"/>
+   <xsd:element name="FGUSEREVISIONOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGTYPEREVISIONOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVROUTETYPEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="IDREVISIONROUTEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="IDPROCESSOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVIDOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGTYPECYCLEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="QTREVRETENTIONOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVRETENTIONMODEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGTYPEUPDATEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVAPPROVALMODEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVRELEASEMODEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVELABCLAUSEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVCONSCLAUSEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVAPROVCLAUSEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGREVHOMOLOGCLAUSEOBJTYPE" type="xsd:string"/>
+   <xsd:element name="FGEXPLANATIONOBJTYPE" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createSupplyTypeResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addEditSupplyWarehouseRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDSTOREROOM" type="xsd:string"/>
+   <xsd:element name="VLOPTIMUM" type="xsd:string"/>
+   <xsd:element name="VLREPLACEMENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addEditSupplyWarehouseResponseType">
+  <xsd:all>
+   <xsd:element name="Status" type="xsd:string"/>
+   <xsd:element name="Detail" type="xsd:string"/>
+   <xsd:element name="RecordID" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteSupplyWarehouseRequestType">
+  <xsd:all>
+   <xsd:element name="IDOBJECT" type="xsd:string"/>
+   <xsd:element name="IDSTOREROOM" type="xsd:string"/>
+   <xsd:element name="VLOPTIMUM" type="xsd:string"/>
+   <xsd:element name="VLREPLACEMENT" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="deleteSupplyWarehouseResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="createEditSupply" type="tns:createEditSupplyRequestType"/>
+ <xsd:element name="createEditSupplyResponse" type="tns:createEditSupplyResponseType"/>
+ <xsd:element name="deleteSupply" type="tns:deleteSupplyRequestType"/>
+ <xsd:element name="deleteSupplyResponse" type="tns:deleteSupplyResponseType"/>
+ <xsd:element name="import_attrib_assoc" type="tns:import_attrib_assocRequestType"/>
+ <xsd:element name="import_attrib_assocResponse" type="tns:import_attrib_assocResponseType"/>
+ <xsd:element name="addSupplyStructure" type="tns:addSupplyStructureRequestType"/>
+ <xsd:element name="addSupplyStructureResponse" type="tns:addSupplyStructureResponseType"/>
+ <xsd:element name="deleteSupplyStructure" type="tns:deleteSupplyStructureRequestType"/>
+ <xsd:element name="deleteSupplyStructureResponse" type="tns:deleteSupplyStructureResponseType"/>
+ <xsd:element name="createSupplyType" type="tns:createSupplyTypeRequestType"/>
+ <xsd:element name="createSupplyTypeResponse" type="tns:createSupplyTypeResponseType"/>
+ <xsd:element name="addEditSupplyWarehouse" type="tns:addEditSupplyWarehouseRequestType"/>
+ <xsd:element name="addEditSupplyWarehouseResponse" type="tns:addEditSupplyWarehouseResponseType"/>
+ <xsd:element name="deleteSupplyWarehouse" type="tns:deleteSupplyWarehouseRequestType"/>
+ <xsd:element name="deleteSupplyWarehouseResponse" type="tns:deleteSupplyWarehouseResponseType"/>
+</xsd:schema>
+</types>
+<message name="createEditSupplyRequest">
+  <part name="parameters" element="tns:createEditSupply" /></message>
+<message name="createEditSupplyResponse">
+  <part name="parameters" element="tns:createEditSupplyResponse" /></message>
+<message name="deleteSupplyRequest">
+  <part name="parameters" element="tns:deleteSupply" /></message>
+<message name="deleteSupplyResponse">
+  <part name="parameters" element="tns:deleteSupplyResponse" /></message>
+<message name="import_attrib_assocRequest">
+  <part name="parameters" element="tns:import_attrib_assoc" /></message>
+<message name="import_attrib_assocResponse">
+  <part name="parameters" element="tns:import_attrib_assocResponse" /></message>
+<message name="addSupplyStructureRequest">
+  <part name="parameters" element="tns:addSupplyStructure" /></message>
+<message name="addSupplyStructureResponse">
+  <part name="parameters" element="tns:addSupplyStructureResponse" /></message>
+<message name="deleteSupplyStructureRequest">
+  <part name="parameters" element="tns:deleteSupplyStructure" /></message>
+<message name="deleteSupplyStructureResponse">
+  <part name="parameters" element="tns:deleteSupplyStructureResponse" /></message>
+<message name="createSupplyTypeRequest">
+  <part name="parameters" element="tns:createSupplyType" /></message>
+<message name="createSupplyTypeResponse">
+  <part name="parameters" element="tns:createSupplyTypeResponse" /></message>
+<message name="addEditSupplyWarehouseRequest">
+  <part name="parameters" element="tns:addEditSupplyWarehouse" /></message>
+<message name="addEditSupplyWarehouseResponse">
+  <part name="parameters" element="tns:addEditSupplyWarehouseResponse" /></message>
+<message name="deleteSupplyWarehouseRequest">
+  <part name="parameters" element="tns:deleteSupplyWarehouse" /></message>
+<message name="deleteSupplyWarehouseResponse">
+  <part name="parameters" element="tns:deleteSupplyWarehouseResponse" /></message>
+<portType name="SupplyPortType">
+  <operation name="createEditSupply">
+    <documentation>Tedarik Oluşturur;Gerekli Parametreler :OBJEID -&gt;Nesne ID # ;OBJEADI -&gt; Nesne Adı ;OBJETIPIID -&gt; Nesne Tipi ID # ;TAKIMID -&gt; Sorumlu Ekip ID # ;OLCUMBIRIMID -&gt; Ölçüm Birimi ;DTREVISION = Revision date</documentation>
+    <input message="tns:createEditSupplyRequest"/>
+    <output message="tns:createEditSupplyResponse"/>
+  </operation>
+  <operation name="deleteSupply">
+    <documentation>Tedariği Ortadan Kaldırır ;Gerekli Parametreler :OBJEID -&gt;Nesne ID # ;</documentation>
+    <input message="tns:deleteSupplyRequest"/>
+    <output message="tns:deleteSupplyResponse"/>
+  </operation>
+  <operation name="import_attrib_assoc">
+    <documentation>EkAlanaları ilişkilendir&lt;BR&gt;Gerekli Parametreler :&lt;BR&gt;OBJEID -&gt;Nesne ID # ;&lt;BR&gt;ETIKETADI -&gt;Ek Alan Etiketi ;&lt;BR&gt;DEGER -&gt;Ek Alan etiketi, FGVERITIPI´in ilgili Ek Alanı ise 1 - EKALANADI, 2 - EKALANDEGERI, 3 - DTEKALAN;&lt;BR&gt;Gereksiz Parametreler&lt;BR&gt;REVIZYONID -&gt; Revizyon ID # ;&lt;BR&gt;EKALANADI-&gt; Ek Alan Adı ;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;</documentation>
+    <input message="tns:import_attrib_assocRequest"/>
+    <output message="tns:import_attrib_assocResponse"/>
+  </operation>
+  <operation name="addSupplyStructure">
+    <documentation>Bir tedarik yapısı oluşturur ;Gerekli Parametreler :OBJEID -&gt;Nesne ID # ;REVIZYONID -&gt; Revizyon ID # ;NESNESAHIBIID =&gt; ID Sayısı [Üst seviye nesne] ; REVIZYONSAHIBIID =&gt; Revizyon [Üst Seviye Nesne] ; VLMIKTAR =&gt; Miktar ;</documentation>
+    <input message="tns:addSupplyStructureRequest"/>
+    <output message="tns:addSupplyStructureResponse"/>
+  </operation>
+  <operation name="deleteSupplyStructure">
+    <documentation>Bir tedarik yapısını ortadan kaldırır ;Gerekli Parametreler :OBJEID -&gt;Nesne ID # ;REVIZYONID -&gt; Revizyon ID # ;NESNESAHIBIID =&gt; ID # [Üst Seviye Nesne] ; REVIZYONSAHIBIID =&gt; Revizyon [Üst Seviye Nesne] ;</documentation>
+    <input message="tns:deleteSupplyStructureRequest"/>
+    <output message="tns:deleteSupplyStructureResponse"/>
+  </operation>
+  <operation name="createSupplyType">
+    <documentation>Bir Tedarik Tipi Oluşturur ;Gerekli Parametreler :OBJETIPIID -&gt; Nesne Tipi ID # ;NMNESNETIPI -&gt; Nesne Tipi Adı ;FGKULLANICIREVIZYONOBJTIPI -&gt; İşaretleme, sınıfın revizyona sahip olup olmadığını tanımlamak için kullanılır : 1 - Revizyon Var 2 - Revizyon Yok ;Gereksiz ParametrelerMASKEID - &gt; Maskeleme ID # ;NESNETIPSAHID=&gt; Üst Seviye Öğe Tipi ;FGDUZENLEMEID -&gt; Revizyon ID # : 1 - Metin, 2 - Sayısal, 3 - Uyarlanmış, FGUSEREVIZYONNESTIPI 1 ise gerekli olacaktır ;FGREVNESTIP =&gt; Revizyon Tipi : 1 - ISO9000 - Tabanlı, 2 - Revizyon ile İş Akışı Süreci ; FGREVROTATIP =&gt;Rota Tipi ; REVIZTORANESNEID =&gt; Rota ID # ; SURECOBJTIPID =&gt; Faaliyet ID # ;FGREVIDOBJTYP &gt;FGUSEREVIZYONNESTIPIE 1 ise, revizyonID sayısı gerekli olacaktır ;FGCEVRIMTIPNESTIP =&gt; Revizyon Çevrimi: 1 - Sayısal 2 - Metin ;FGREVRETENTIONMODEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, eski revizyonların saklama frekansı gerekli olacaktır ;DEGISIKLIKNESTIP =&gt; Değişiklik : Varsayılan Sayısal ; FGREVONAYMODNESTIP =&gt; Onay Tipi : 1- Sıralı Onay ; 2 - Çevrimsel Onay ; FGREVKAPAMAMODNESTIPE =&gt; Kapama Tipi : 1 - Otomatik, 2 - Manuel ;FGREVELABCLAUSEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, taslak adımında revizyon kabulü gerekli olacaktır ;FGREVCONSCLAUSEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, revizyon onayı incelemede gerekli olacaktır ;FGREVAPROVCLAUSEOBJTYPE - FGUSEREVIZYONNESTIPI 1 ise, revizyon kabulü onay adımında gerekli olacaktır ;FGREVBITAKMATIP =&gt; Revizyon Bırakma Tipi : 1 - VE , 2 - VEYA ; FGACIKLAMATIP =&gt; Revizyon Nedeninin Doldurulması Zorunludur [Başlangıçta] : 1 - Gerekli, 2, ANLAMSIZ - Gerekli Değil ;</documentation>
+    <input message="tns:createSupplyTypeRequest"/>
+    <output message="tns:createSupplyTypeResponse"/>
+  </operation>
+  <operation name="addEditSupplyWarehouse">
+    <documentation>Bir depoyu bir tedarik ile ilişkilendirir ;Gerekli Parametreler :OBJEID -&gt;Nesne ID # ;AMBARID -&gt; İlişkilendirilecek Ambar ID # ;Gereksiz ParametrelerOPTIMUMMIK-&gt; Optimum Miktar ; YEDEKDEG -&gt; Minimum Yedek Miktar ;</documentation>
+    <input message="tns:addEditSupplyWarehouseRequest"/>
+    <output message="tns:addEditSupplyWarehouseResponse"/>
+  </operation>
+  <operation name="deleteSupplyWarehouse">
+    <documentation>Bir tedarik yapısını ortadan kaldırır ;Gerekli Parametreler :OBJEID -&gt;Nesne ID # ;AMBARID -&gt; İlişkilendirilecek Ambar ID # ;Gereksiz ParametrelerOPTIMUMMIK-&gt; Optimum Miktar ; YEDEKDEG -&gt; Minimum Yedek Miktar ;</documentation>
+    <input message="tns:deleteSupplyWarehouseRequest"/>
+    <output message="tns:deleteSupplyWarehouseResponse"/>
+  </operation>
+</portType>
+<binding name="SupplyBinding" type="tns:SupplyPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="createEditSupply">
+    <soap:operation soapAction="urn:sp#createEditSupply" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="deleteSupply">
+    <soap:operation soapAction="urn:sp#deleteSupply" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="import_attrib_assoc">
+    <soap:operation soapAction="urn:sp#import_attrib_assoc" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="addSupplyStructure">
+    <soap:operation soapAction="urn:sp#addSupplyStructure" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="deleteSupplyStructure">
+    <soap:operation soapAction="urn:sp#deleteSupplyStructure" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="createSupplyType">
+    <soap:operation soapAction="urn:sp#createSupplyType" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="addEditSupplyWarehouse">
+    <soap:operation soapAction="urn:sp#addEditSupplyWarehouse" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+  <operation name="deleteSupplyWarehouse">
+    <soap:operation soapAction="urn:sp#deleteSupplyWarehouse" style="document"/>
+    <input><soap:body use="literal" namespace="urn:sp"/></input>
+    <output><soap:body use="literal" namespace="urn:sp"/></output>
+  </operation>
+</binding>
+<service name="Supply">
+  <port name="SupplyPort" binding="tns:SupplyBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/sp_ws.php"/>
+  </port>
+</service>
+</definitions>

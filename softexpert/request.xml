@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:srequest" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:srequest">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:srequest"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="requestStatusReturn">
+  <xsd:all>
+   <xsd:element name="NMUSEREMIT" type="xsd:string"/>
+   <xsd:element name="DTREQUEST" type="xsd:string"/>
+   <xsd:element name="FGPHASE" type="xsd:int"/>
+   <xsd:element name="CANCELREASON" type="xsd:string"/>
+   <xsd:element name="KEYWORDCREATED" type="xsd:string"/>
+   <xsd:element name="ERROR" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newKeyWordRequestRequestType">
+  <xsd:all>
+   <xsd:element name="idrequest" type="xsd:string"/>
+   <xsd:element name="nmrequest" type="xsd:string"/>
+   <xsd:element name="idrequesttype" type="xsd:string"/>
+   <xsd:element name="iduseremit" type="xsd:string"/>
+   <xsd:element name="dsrequest" type="xsd:string"/>
+   <xsd:element name="dsreason" type="xsd:string"/>
+   <xsd:element name="dtrequestenddate" type="xsd:string"/>
+   <xsd:element name="attributes" type="xsd:string"/>
+   <xsd:element name="idapprovalroute" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="newKeyWordRequestResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="sendRequestToApprovRequestType">
+  <xsd:all>
+   <xsd:element name="idrequest" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="sendRequestToApprovResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getKeyWordRequestStatusRequestType">
+  <xsd:all>
+   <xsd:element name="idrequest" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getKeyWordRequestStatusResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="tns:requestStatusReturn"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="newKeyWordRequest" type="tns:newKeyWordRequestRequestType"/>
+ <xsd:element name="newKeyWordRequestResponse" type="tns:newKeyWordRequestResponseType"/>
+ <xsd:element name="sendRequestToApprov" type="tns:sendRequestToApprovRequestType"/>
+ <xsd:element name="sendRequestToApprovResponse" type="tns:sendRequestToApprovResponseType"/>
+ <xsd:element name="getKeyWordRequestStatus" type="tns:getKeyWordRequestStatusRequestType"/>
+ <xsd:element name="getKeyWordRequestStatusResponse" type="tns:getKeyWordRequestStatusResponseType"/>
+</xsd:schema>
+</types>
+<message name="newKeyWordRequestRequest">
+  <part name="parameters" element="tns:newKeyWordRequest" /></message>
+<message name="newKeyWordRequestResponse">
+  <part name="parameters" element="tns:newKeyWordRequestResponse" /></message>
+<message name="sendRequestToApprovRequest">
+  <part name="parameters" element="tns:sendRequestToApprov" /></message>
+<message name="sendRequestToApprovResponse">
+  <part name="parameters" element="tns:sendRequestToApprovResponse" /></message>
+<message name="getKeyWordRequestStatusRequest">
+  <part name="parameters" element="tns:getKeyWordRequestStatus" /></message>
+<message name="getKeyWordRequestStatusResponse">
+  <part name="parameters" element="tns:getKeyWordRequestStatusResponse" /></message>
+<portType name="RequestPortType">
+  <operation name="newKeyWordRequest">
+    <documentation>Bir anahtar kelime talebi oluşturGerekli parametreler: NMREQUEST -&gt; Talep adı; IDREQUESTTYPE -&gt; Talep tipi ID #; IDUSEREMIT -&gt; Talebi yayınlanan kullanıcının ID#; DSREQUEST -&gt; Talebin tanımı;DSREASON -&gt;Talep nedeni.Talep tipi doldurulmak için bir neden gerektiriyorsa parametrenin DSREASON olması gereklidir;OZNITELIKLER - &gt; Taleplerin EkAlanlari . Örnek : OZNITELIK1_ID# =OZNITELIK1_DEGER; OZNITELIK2_ID#=OZNITELIK2_DEGER; OZNITELIK3_ID#=OZNITELIK3_DEGER.Birden fazla değerli EkAlan (Ayırıcı kullanıcı birden fazla değerli EkAlan değerleri için kullanılan ´,´ ) : OZNITELIK1_ID# =OZNITELIK1_VALUE1,OZNITELIK1_VALUE2, OZNITELIK1_VALUE3.Not: Sayısal değeri olan EkAlanlar için ´.´ ondalık noktası olarak kullan. Tarih alanları için değer &quot;Y - M - D&quot; ( Yıl - Ay - Gün ) formatı izlenmeliIDAPPROVALROUTE -&gt; Onay rotası ID#. Taleplerin onaya gitmesi için gereklidirGereksiz ParametrelerDTREQUESTENDDATE -&gt; Talebin kapanış tarihi. Tarih formatı &quot; Y - A - G &quot; ( Yıl - Ay - Gün ) olmalıdır.BASARI halinde, sistem bir mesaj görüntülenir ´ID_REQUEST_CREATED: ´Taleb başarıyla oluşturuldu ´. BASRISIZLIK durumunda hatayı gösteren mesaj görüntülenir.</documentation>
+    <input message="tns:newKeyWordRequestRequest"/>
+    <output message="tns:newKeyWordRequestResponse"/>
+  </operation>
+  <operation name="sendRequestToApprov">
+    <documentation>Talebi bir sonraki adıma gönder.Gerekli parametreler şunlardır : IDREQUEST-&gt; Talep ID#;BASARI durumunda sistem ´ operasyon başarıyla gerçekleşti ´ mesajını gösterir. BASARISIZLIK durumunda hatayı gösteren bir mesaj görülür.</documentation>
+    <input message="tns:sendRequestToApprovRequest"/>
+    <output message="tns:sendRequestToApprovResponse"/>
+  </operation>
+  <operation name="getKeyWordRequestStatus">
+    <documentation>Anahtar kelime talep durumları verilerini gösterir.Gerekli parametreleri şunlardır : IDREQUEST- &gt;Talep ID#. BASARI durumunda talep durumları verileriyle bir vektör gösterilir. BASARISIZLIK durumunda hatayı gösteren bir mesaj görülür.NMUSEREMIT : Talebi bildiren kullanıcının adı. DTREQUEST : Talebin tarihi. FGPHASE: Talep Adımı. 1 - Bildirim, 2 - Onay, 3 -Yürütülme, 4 - Yürütülüyor, 5 - Kapanış, 6 - Kapalı, 7 - İptal edildi.CANCELREASON: Talepleri reddetmek veya iptal etmek için nedeni gösterir. KEYWORDCREATED : Talepleri kapatmak için yaratılan anahtar kelimeyi gösterir.</documentation>
+    <input message="tns:getKeyWordRequestStatusRequest"/>
+    <output message="tns:getKeyWordRequestStatusResponse"/>
+  </operation>
+</portType>
+<binding name="RequestBinding" type="tns:RequestPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="newKeyWordRequest">
+    <soap:operation soapAction="urn:srequest#newKeyWordRequest" style="document"/>
+    <input><soap:body use="literal" namespace="urn:srequest"/></input>
+    <output><soap:body use="literal" namespace="urn:srequest"/></output>
+  </operation>
+  <operation name="sendRequestToApprov">
+    <soap:operation soapAction="urn:srequest#sendRequestToApprov" style="document"/>
+    <input><soap:body use="literal" namespace="urn:srequest"/></input>
+    <output><soap:body use="literal" namespace="urn:srequest"/></output>
+  </operation>
+  <operation name="getKeyWordRequestStatus">
+    <soap:operation soapAction="urn:srequest#getKeyWordRequestStatus" style="document"/>
+    <input><soap:body use="literal" namespace="urn:srequest"/></input>
+    <output><soap:body use="literal" namespace="urn:srequest"/></output>
+  </operation>
+</binding>
+<service name="Request">
+  <port name="RequestPort" binding="tns:RequestBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/sr_ws.php"/>
+  </port>
+</service>
+</definitions>

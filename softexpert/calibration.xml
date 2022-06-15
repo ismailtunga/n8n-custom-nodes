@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:calibration" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:calibration">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="urn:calibration"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="import_calibrationRequestType">
+  <xsd:all>
+   <xsd:element name="idplanactivity" type="xsd:string"/>
+   <xsd:element name="nrcertificate" type="xsd:string"/>
+   <xsd:element name="dtstart" type="xsd:string"/>
+   <xsd:element name="hrstart" type="xsd:string"/>
+   <xsd:element name="dtfinish" type="xsd:string"/>
+   <xsd:element name="hrfinish" type="xsd:string"/>
+   <xsd:element name="svccenter" type="xsd:string"/>
+   <xsd:element name="resp" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_calibrationResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_calibrationRequestType">
+  <xsd:all>
+   <xsd:element name="nrcertificate" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_del_calibrationResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_tableRequestType">
+  <xsd:all>
+   <xsd:element name="idplanactivity" type="xsd:string"/>
+   <xsd:element name="nrcertificate" type="xsd:string"/>
+   <xsd:element name="nmtable" type="xsd:string"/>
+   <xsd:element name="type_value" type="xsd:string"/>
+   <xsd:element name="vltend" type="xsd:string"/>
+   <xsd:element name="vlfges" type="xsd:string"/>
+   <xsd:element name="vlfe" type="xsd:string"/>
+   <xsd:element name="vlu95" type="xsd:string"/>
+   <xsd:element name="vlerrup" type="xsd:string"/>
+   <xsd:element name="vlerrdown" type="xsd:string"/>
+   <xsd:element name="vlband" type="xsd:string"/>
+   <xsd:element name="vlaverage" type="xsd:string"/>
+   <xsd:element name="vlreadbig" type="xsd:string"/>
+   <xsd:element name="vlreadsmall" type="xsd:string"/>
+   <xsd:element name="vlhisterese" type="xsd:string"/>
+   <xsd:element name="vlft" type="xsd:string"/>
+   <xsd:element name="idprocess" type="xsd:string"/>
+   <xsd:element name="variable" type="xsd:string"/>
+   <xsd:element name="result" type="xsd:string"/>
+   <xsd:element name="resulttdi" type="xsd:string"/>
+   <xsd:element name="observation" type="xsd:string"/>
+   <xsd:element name="vlvvc" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_tableResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_pointRequestType">
+  <xsd:all>
+   <xsd:element name="idplanactivity" type="xsd:string"/>
+   <xsd:element name="nrcertificate" type="xsd:string"/>
+   <xsd:element name="nmtable" type="xsd:string"/>
+   <xsd:element name="nmpoint" type="xsd:string"/>
+   <xsd:element name="fgupordown" type="xsd:string"/>
+   <xsd:element name="type_value" type="xsd:string"/>
+   <xsd:element name="vltend" type="xsd:string"/>
+   <xsd:element name="vlfges" type="xsd:string"/>
+   <xsd:element name="vlfe" type="xsd:string"/>
+   <xsd:element name="vlu95" type="xsd:string"/>
+   <xsd:element name="vlerrup" type="xsd:string"/>
+   <xsd:element name="vlerrdown" type="xsd:string"/>
+   <xsd:element name="vlband" type="xsd:string"/>
+   <xsd:element name="vlaverage" type="xsd:string"/>
+   <xsd:element name="vlreadbig" type="xsd:string"/>
+   <xsd:element name="vlreadsmall" type="xsd:string"/>
+   <xsd:element name="vlhisterese" type="xsd:string"/>
+   <xsd:element name="vlft" type="xsd:string"/>
+   <xsd:element name="idprocess" type="xsd:string"/>
+   <xsd:element name="variable" type="xsd:string"/>
+   <xsd:element name="vlvvc" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="import_pointResponseType">
+  <xsd:all>
+   <xsd:element name="return" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="import_calibration" type="tns:import_calibrationRequestType"/>
+ <xsd:element name="import_calibrationResponse" type="tns:import_calibrationResponseType"/>
+ <xsd:element name="import_del_calibration" type="tns:import_del_calibrationRequestType"/>
+ <xsd:element name="import_del_calibrationResponse" type="tns:import_del_calibrationResponseType"/>
+ <xsd:element name="import_table" type="tns:import_tableRequestType"/>
+ <xsd:element name="import_tableResponse" type="tns:import_tableResponseType"/>
+ <xsd:element name="import_point" type="tns:import_pointRequestType"/>
+ <xsd:element name="import_pointResponse" type="tns:import_pointResponseType"/>
+</xsd:schema>
+</types>
+<message name="import_calibrationRequest">
+  <part name="parameters" element="tns:import_calibration" /></message>
+<message name="import_calibrationResponse">
+  <part name="parameters" element="tns:import_calibrationResponse" /></message>
+<message name="import_del_calibrationRequest">
+  <part name="parameters" element="tns:import_del_calibration" /></message>
+<message name="import_del_calibrationResponse">
+  <part name="parameters" element="tns:import_del_calibrationResponse" /></message>
+<message name="import_tableRequest">
+  <part name="parameters" element="tns:import_table" /></message>
+<message name="import_tableResponse">
+  <part name="parameters" element="tns:import_tableResponse" /></message>
+<message name="import_pointRequest">
+  <part name="parameters" element="tns:import_point" /></message>
+<message name="import_pointResponse">
+  <part name="parameters" element="tns:import_pointResponse" /></message>
+<portType name="CalibrationPortType">
+  <operation name="import_calibration">
+    <documentation>Yeni bir kalibrasyon ekle veya varolan birini düzenle.&lt;BR&gt;Parametreler:&lt;BR&gt;IDPLANACTIVITY =&gt; Aktivite Planı Tanımlayan; *&lt;BR&gt;SERTIFIKANUMARASI -&gt; Sertifika Numarası.; *&lt;BR&gt;BASLANGICTARIHI -&gt; Başlangıç Tarihi *&lt;BR&gt;BASLANGICSURESI-&gt; Başlangıç Süresi ;*&lt;BR&gt;BITISTARIHI-&gt; Bitiş Tarihi ;*&lt;BR&gt;BITISSURESI-&gt; Bitiş Süresi ;*&lt;BR&gt;SERVISMERK -&gt; Servis Merkezi ;*&lt;BR&gt;SORM -&gt; Sorumlu ; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_calibrationRequest"/>
+    <output message="tns:import_calibrationResponse"/>
+  </operation>
+  <operation name="import_del_calibration">
+    <documentation>Bir kalibrasyon sil&lt;BR&gt;Parametreler:&lt;BR&gt;SERTIFIKANUMARASI -&gt; Sertifika Numarası.; *&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_del_calibrationRequest"/>
+    <output message="tns:import_del_calibrationResponse"/>
+  </operation>
+  <operation name="import_table">
+    <documentation>Tablo Başına Kalibrasyon Sonuçlarının Kaydı&lt;BR&gt;Parametreler:&lt;BR&gt;IDPLANACTIVITY =&gt; Aktivite Planı Tanımlayan*&lt;BR&gt;SERTIFIKANUMARASI -&gt; Sertifika Numarası.; *&lt;BR&gt;TABLOADI -&gt; Tablo Adı ; *&lt;BR&gt;TIP_DEGER -&gt;  1 - Kalibrasyon veya 2 - Ön-kalibrasyon olduğunu gösterir ;*&lt;BR&gt;TRENDDEGERI -&gt; Trend Değeri veya Sistematik Hata [Td] ; *¹&lt;BR&gt;VLFGES -&gt; Akış ve Dönüş Arasındaki Sapmanın Toplam Değeri [Fges] ; *¹&lt;BR&gt;SAPMADEGERI -&gt; Akıştaki Toplam Sapma Değeri [Fe] ; *¹&lt;BR&gt;VLU95 -&gt; Genişletilmiş Belirsizlik Değeri [U95] ; *¹&lt;BR&gt;ARTANHATADEGERI-&gt; Artan Hata Değeri [Yükselen Hata] ; *¹&lt;BR&gt;AZALANHATADEGERI-&gt; Azalan Hata Değeri [Azalan Hata] ; *¹&lt;BR&gt;HATAARALIGIDEGERI -&gt; Hata Aralığı Değeri [Hata Aralığı] ; *¹&lt;BR&gt;ORTALAMADEGER -&gt; Ortalama Değer [Ortalama] *¹&lt;BR&gt;YUKSEKOKUMADEGERI-&gt; Yüksek Okuma Değeri [Yüksek Okuma] ; *¹&lt;BR&gt;DUSUKOKUMADEGERI -&gt;En Düşük Okuma Değeri [Düşük Okuma] ; *¹&lt;BR&gt;HISTERESIZDEGERI -&gt; Histerisiz Değer [Histeresiz] ; *¹&lt;BR&gt;VLVVC -&gt; V. V. C. Değer ; *¹&lt;BR&gt;SURECID -&gt; Süreç ID # ;&lt;BR&gt;DEGISKEN -&gt; Ekstra Değişken. Format Örneği: [Degisken ID #] = DEGER; [Degisken ID sayisi] = DEGER ; Örn: g = 9.81 ; UPAD = 0.01 ;&lt;BR&gt;SONUC -&gt;Öznel Tablo için Kalibrasyon Sonucu : 1 - Onaylandı ; 2 - Reddedildi ;&lt;BR&gt;SONUCID- &gt;Öznel Tablo için Ön Kalibrasyon Sonucu : 1 - Onaylandı ; 2-Reddedildi ;&lt;BR&gt;GOZLEM -&gt; Öznel Tablo Gözlemi ;&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;*¹ Formüle göre zorunlu</documentation>
+    <input message="tns:import_tableRequest"/>
+    <output message="tns:import_tableResponse"/>
+  </operation>
+  <operation name="import_point">
+    <documentation>Nokta Başına Kalibrasyon Sonucu Kaydı&lt;BR&gt;Parametreler:&lt;BR&gt;IDPLANACTIVITY =&gt; Aktivite Planı Tanımlayan*&lt;BR&gt;SERTIFIKANUMARASI -&gt; Sertifika Numarası.; *&lt;BR&gt;TABLOADI -&gt; Tablo Adı ; *&lt;BR&gt;NOKTAADI-&gt; Nokta Adı ; *&lt;BR&gt;FGYUKSVEYAINIS -&gt; Histerezis varsa, bir yükseliş veya iniş noktası olduğunu gösterir : 1 - Yükseliş ; 2 - İniş ; *¹&lt;BR&gt;TIP_DEGER -&gt;  1 - Kalibrasyon veya 2 - Ön-kalibrasyon olduğunu gösterir ;*&lt;BR&gt;TRENDDEGERI -&gt; Trend Değeri veya Sistematik Hata [Td] ; *²&lt;BR&gt;VLFGES -&gt; Akış ve Dönüş Arasındaki Sapmanın Toplam Değeri [Fges] ; *²&lt;BR&gt;SAPMADEGERI -&gt; Akıştaki Toplam Sapma Değeri [Fe] ; *²&lt;BR&gt;VLU95 -&gt; Genişletilmiş Belirsizlik Değeri [U95] ; *²&lt;BR&gt;ARTANHATADEGERI-&gt; Artan Hata Değeri [Yükselen Hata] ; *²&lt;BR&gt;AZALANHATADEGERI-&gt; Azalan Hata Değeri [Azalan Hata] ; *²&lt;BR&gt;HATAARALIGIDEGERI -&gt; Hata Aralığı Değeri [Hata Aralığı] ; *²&lt;BR&gt;ORTALAMADEGER -&gt; Ortalama Değer [Ortalama] *²&lt;BR&gt;YUKSEKOKUMADEGERI-&gt; Yüksek Okuma Değeri [Yüksek Okuma] ; *²&lt;BR&gt;DUSUKOKUMADEGERI -&gt;En Düşük Okuma Değeri [Düşük Okuma] ; *²&lt;BR&gt;HISTERESIZDEGERI -&gt; Histerisiz Değer [Histeresiz] ; *²&lt;BR&gt;FTDEGERI -&gt; FT Değeri [FT] ; *²&lt;BR&gt;SURECID -&gt; Süreç ID # ; *²&lt;BR&gt;DEGISKEN -&gt; Ekstra Değişken. Format Örneği: [Degisken ID #] = DEGER; [Degisken ID sayisi] = DEGER ; Örn: g = 9.81 ; UPAD = 0.01 ; *²&lt;BR&gt;VLVVC -&gt; V. V. C. Değer ; *²&lt;BR&gt;BAŞARI halinde: 1;&lt;BR&gt;ARIZA halinde, arıza ile birlikte bir mesaj geri döner.&lt;BR&gt;* Zorunlu.&lt;BR&gt;*¹ Gecikme durumunda zorunludur.&lt;BR&gt;*² Formüle göre zorunlu.&lt;BR&gt;</documentation>
+    <input message="tns:import_pointRequest"/>
+    <output message="tns:import_pointResponse"/>
+  </operation>
+</portType>
+<binding name="CalibrationBinding" type="tns:CalibrationPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="import_calibration">
+    <soap:operation soapAction="urn:calibration#import_calibration" style="document"/>
+    <input><soap:body use="literal" namespace="urn:calibration"/></input>
+    <output><soap:body use="literal" namespace="urn:calibration"/></output>
+  </operation>
+  <operation name="import_del_calibration">
+    <soap:operation soapAction="urn:calibration#import_del_calibration" style="document"/>
+    <input><soap:body use="literal" namespace="urn:calibration"/></input>
+    <output><soap:body use="literal" namespace="urn:calibration"/></output>
+  </operation>
+  <operation name="import_table">
+    <soap:operation soapAction="urn:calibration#import_table" style="document"/>
+    <input><soap:body use="literal" namespace="urn:calibration"/></input>
+    <output><soap:body use="literal" namespace="urn:calibration"/></output>
+  </operation>
+  <operation name="import_point">
+    <soap:operation soapAction="urn:calibration#import_point" style="document"/>
+    <input><soap:body use="literal" namespace="urn:calibration"/></input>
+    <output><soap:body use="literal" namespace="urn:calibration"/></output>
+  </operation>
+</binding>
+<service name="Calibration">
+  <port name="CalibrationPort" binding="tns:CalibrationBinding">
+    <soap:address location="https://demo.surecmerkezi.com/softexpert/webserviceproxy/se/ws/cl_ws.php"/>
+  </port>
+</service>
+</definitions>

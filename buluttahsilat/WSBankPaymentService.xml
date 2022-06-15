@@ -1,0 +1,2629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="BankPaymentList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BankPaymentListResult" type="tns:ArrayOfBankPaymentListItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBankPaymentListItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankPaymentListItem" nillable="true" type="tns:BankPaymentListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankPaymentListItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankIBAN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SenderFirmID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmBankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmBankIBAN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Explanation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentTypeExplantion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentStatusTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentStatusTypeExplantion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentExpCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchFirmID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchFirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchFirmTaxNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountCurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountRelationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmBusinessArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmAccountingCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmReservedField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomField1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomField2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FunctionCode1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FunctionCode2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BankPaymentListDebit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListDebitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BankPaymentListDebitResult" type="tns:ArrayOfBankPaymentListItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BankPaymentListAllResult" type="tns:ArrayOfBankPaymentListItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListAllSubFirm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListAllSubFirmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BankPaymentListAllSubFirmResult" type="tns:ArrayOfBankPaymentListItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListAllWithFeature">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListAllWithFeatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BankPaymentListAllWithFeatureResult" type="tns:ArrayOfBankPaymentListItemWithFeature" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBankPaymentListItemWithFeature">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankPaymentListItemWithFeature" nillable="true" type="tns:BankPaymentListItemWithFeature" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankPaymentListItemWithFeature">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankIBAN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SenderFirmID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmBankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmBankIBAN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Explanation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentTypeExplantion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentStatusTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentStatusTypeExplantion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentExpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountingCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReservedField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BankPaymentListForCustomFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankPaymentListForCustomFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BankPaymentListForCustomFieldsResult" type="tns:ArrayOfBankPaymentListItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePaymentStatusInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePaymentStatusInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePaymentStatusInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePaymentStatusInfoWithPaymentExpCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePaymentStatusInfoWithPaymentExpCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePaymentStatusInfoWithPaymentExpCodeResult" type="tns:ResponseUpdatePaymentStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseUpdatePaymentStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdatePaymentStatusInfoWithPaymentIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentIDs" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdatePaymentStatusInfoWithPaymentIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePaymentStatusInfoWithPaymentIDListResult" type="tns:ResponseUpdatePaymentStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePaymentStatusInfoWithERPRefNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentStatusTypeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="eRPRefNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePaymentStatusInfoWithERPRefNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePaymentStatusInfoWithERPRefNoResult" type="tns:ResponseUpdatePaymentStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmAddNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subFirm" type="tns:SubFirm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SubFirm">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxOffice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthPersName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthPersSurname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthPersGSM" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AuthPersGenderID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:EnumStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="DealerCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountingCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReservedField" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EnumStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Active" />
+          <s:enumeration value="Passive" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SubFirmAddNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubFirmAddNewResult" type="tns:ResponseSubFirm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseSubFirm">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubFirmReturn" type="tns:SubFirmReturn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubFirmReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FirmID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentExpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSubFirmInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSubFirmInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSubFirmInfoResult" type="tns:ResponseGetSubFirmInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseGetSubFirmInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubFirm" type="tns:SubFirm" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubFirmList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubFirmListResult" type="tns:ArrayOfSubFirmReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSubFirmReturn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubFirmReturn" nillable="true" type="tns:SubFirmReturn" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubFirmUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subFirm" type="tns:SubFirm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubFirmUpdateResult" type="tns:ResponseSubFirm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmIBANAddNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iban" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmIBANAddNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubFirmIBANAddNewResult" type="tns:ResponseSubFirmIBAN" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseSubFirmIBAN">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubFirmIBANDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iban" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmIBANDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubFirmIBANDeleteResult" type="tns:ResponseSubFirmIBAN" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmVKNAddNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vkn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="surname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmVKNAddNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubFirmVKNAddNewResult" type="tns:ResponseSubFirmVKN" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseSubFirmVKN">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubFirmVKNID" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubFirmVKNDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vkn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmVKNDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubFirmVKNDeleteResult" type="tns:ResponseSubFirmVKN" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmGetPaymentChannel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubFirmGetPaymentChannelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubFirmGetPaymentChannelResult" type="tns:ResponseGetPaymentChannel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseGetPaymentChannel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentExpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IBANList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="VKNList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCKNList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RuleSETList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="FormulaList" type="tns:ArrayOfFormula" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFormula">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Formula" nillable="true" type="tns:Formula" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Formula">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FormulaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetPaymentStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankIBAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Explanation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentDirectionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderFirmIBAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchFirmName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteAllMatchingCriteria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAllMatchingCriteriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteAllMatchingCriteriaResult" type="tns:ResponseDeleteMatchingCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseDeleteMatchingCriteria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeleteCountIBANMatch" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeleteCountTCTaxMatch" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeleteCountRuleSet" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeleteCountFormula" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFirmBankBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iban" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBankBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBankBalanceResult" type="tns:FirmBankBalance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FirmBankBalance">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankList" type="tns:ArrayOfBankBalance" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBankBalance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankBalance" nillable="true" type="tns:BankBalance" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankBalance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankBranchName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankNickName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankAccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankIBAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmBankCurrencyUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastTimeStamp" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlockedBalance" nillable="true" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFirmBankBalanceSubFirm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iban" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBankBalanceSubFirmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBankBalanceSubFirmResult" type="tns:FirmBankBalance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBankDailyBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmAPICode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iban" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBankDailyBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBankDailyBalanceResult" type="tns:FirmBankBalance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PosPaymentList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PosPaymentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PosPaymentListResult" type="tns:ResponsePosPaymentList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponsePosPaymentList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PosPaymentList" type="tns:ArrayOfPOSPaymentListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPOSPaymentListItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="POSPaymentListItem" nillable="true" type="tns:POSPaymentListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="POSPaymentListItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PosPaymentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubFirmID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubFirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubFirmVKN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="GrossAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCommission" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommissionRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankServiceCommission" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="OtherCommission" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TerminalID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InstallmentNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnIBAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PosReservedField" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndOfDay" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardBankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardBankName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PosPaymentListWithValorDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorEndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PosPaymentListWithValorDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PosPaymentListWithValorDateResult" type="tns:ResponsePosPaymentList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PosPaymentSUM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sumDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="sumDateTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PosPaymentSUMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PosPaymentSUMResult" type="tns:ResponsePosPaymentSUM" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponsePosPaymentSUM">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PosPaymentSUMList" type="tns:ArrayOfPosPaymentSUM" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPosPaymentSUM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PosPaymentSUM" nillable="true" type="tns:PosPaymentSUM" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PosPaymentSUM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberBranchName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberBranchIBAN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SUMGrossAmount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SUMNetAmount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SUMTotalCommission" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SUMBankServiceCommission" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SUMOtherCommission" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowCount" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PosReturnList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PosReturnListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PosReturnListResult" type="tns:ResponseValorPaymentList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseValorPaymentList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PosReturnList" type="tns:ArrayOfPosReturnListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPosReturnListItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PosReturnListItem" nillable="true" type="tns:PosReturnListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PosReturnListItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PosReturnID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubFirmID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubFirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubFirmVKN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="GrossAmount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCommission" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommissionRate" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankServiceCommission" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="OtherCommission" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TerminalID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InstallmentNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnIBAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PosReservedField" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndOfDay" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFirmManagerList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmManagerListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmManagerListResult" type="tns:ResponseFirmManagerList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseFirmManagerList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmManagerList" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FirmManagerAddNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="managerUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmManagerAddNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FirmManagerAddNewResult" type="tns:GeneralResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GeneralResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FirmManagerDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentExpCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="managerUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmManagerDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FirmManagerDeleteResult" type="tns:GeneralResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmDebtInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmDebtInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmDebtInfoResult" type="tns:ResponseFirmDebtInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseFirmDebtInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInDebt" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DebtDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RemainedDays" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastPaymentDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EFTCompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EFTBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EFTBankBranchName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EFTBankBranchCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EFTAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EFTIBAN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetVPosTransactionList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firmApiCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="transactionStatusID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVPosTransactionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVPosTransactionListResult" type="tns:ResponseVPosTransactionList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseVPosTransactionList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VPosTransactionList" type="tns:ArrayOfVPosTransactionListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVPosTransactionListItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VPosTransactionListItem" nillable="true" type="tns:VPosTransactionListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VPosTransactionListItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPaymentAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InstallmentNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdditionalInstallmentNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionStatusID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentExpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardHoldersFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaskedCreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PosBankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PosBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardBankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardBankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubFirmProgressPayment" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceProviderCommissionRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FirmCommissionRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountingCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmReservedField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Explanation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionReservedField" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTransactionCancel" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentVPosTransactionID" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="VPosProductTypeID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VPosProductTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchFirmID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchFirmName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchFirmTaxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VPosBankMerchantID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderRefNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderGuidCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderBankNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfBankPaymentListItem" nillable="true" type="tns:ArrayOfBankPaymentListItem" />
+      <s:element name="ArrayOfBankPaymentListItemWithFeature" nillable="true" type="tns:ArrayOfBankPaymentListItemWithFeature" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ResponseUpdatePaymentStatus" nillable="true" type="tns:ResponseUpdatePaymentStatus" />
+      <s:element name="ResponseGetSubFirmInfo" nillable="true" type="tns:ResponseGetSubFirmInfo" />
+      <s:element name="ArrayOfSubFirmReturn" nillable="true" type="tns:ArrayOfSubFirmReturn" />
+      <s:element name="ResponseSubFirmIBAN" nillable="true" type="tns:ResponseSubFirmIBAN" />
+      <s:element name="ResponseSubFirmVKN" nillable="true" type="tns:ResponseSubFirmVKN" />
+      <s:element name="ResponseGetPaymentChannel" nillable="true" type="tns:ResponseGetPaymentChannel" />
+      <s:element name="ResponseDeleteMatchingCriteria" nillable="true" type="tns:ResponseDeleteMatchingCriteria" />
+      <s:element name="FirmBankBalance" nillable="true" type="tns:FirmBankBalance" />
+      <s:element name="ResponsePosPaymentList" nillable="true" type="tns:ResponsePosPaymentList" />
+      <s:element name="ResponsePosPaymentSUM" nillable="true" type="tns:ResponsePosPaymentSUM" />
+      <s:element name="ResponseValorPaymentList" nillable="true" type="tns:ResponseValorPaymentList" />
+      <s:element name="ResponseFirmManagerList" nillable="true" type="tns:ResponseFirmManagerList" />
+      <s:element name="GeneralResponse" nillable="true" type="tns:GeneralResponse" />
+      <s:element name="ResponseFirmDebtInfo" nillable="true" type="tns:ResponseFirmDebtInfo" />
+      <s:element name="ResponseVPosTransactionList" nillable="true" type="tns:ResponseVPosTransactionList" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BankPaymentListSoapIn">
+    <wsdl:part name="parameters" element="tns:BankPaymentList" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListSoapOut">
+    <wsdl:part name="parameters" element="tns:BankPaymentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListDebitSoapIn">
+    <wsdl:part name="parameters" element="tns:BankPaymentListDebit" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListDebitSoapOut">
+    <wsdl:part name="parameters" element="tns:BankPaymentListDebitResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllSoapIn">
+    <wsdl:part name="parameters" element="tns:BankPaymentListAll" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllSoapOut">
+    <wsdl:part name="parameters" element="tns:BankPaymentListAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllSubFirmSoapIn">
+    <wsdl:part name="parameters" element="tns:BankPaymentListAllSubFirm" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllSubFirmSoapOut">
+    <wsdl:part name="parameters" element="tns:BankPaymentListAllSubFirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllWithFeatureSoapIn">
+    <wsdl:part name="parameters" element="tns:BankPaymentListAllWithFeature" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllWithFeatureSoapOut">
+    <wsdl:part name="parameters" element="tns:BankPaymentListAllWithFeatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListForCustomFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:BankPaymentListForCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListForCustomFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:BankPaymentListForCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentStatusInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentStatusInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithPaymentExpCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentStatusInfoWithPaymentExpCode" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithPaymentExpCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentStatusInfoWithPaymentExpCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithPaymentIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentStatusInfoWithPaymentIDList" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithPaymentIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentStatusInfoWithPaymentIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithERPRefNoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentStatusInfoWithERPRefNo" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithERPRefNoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentStatusInfoWithERPRefNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmAddNewSoapIn">
+    <wsdl:part name="parameters" element="tns:SubFirmAddNew" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmAddNewSoapOut">
+    <wsdl:part name="parameters" element="tns:SubFirmAddNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSubFirmInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSubFirmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSubFirmInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSubFirmInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmListSoapIn">
+    <wsdl:part name="parameters" element="tns:SubFirmList" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmListSoapOut">
+    <wsdl:part name="parameters" element="tns:SubFirmListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:SubFirmUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:SubFirmUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmIBANAddNewSoapIn">
+    <wsdl:part name="parameters" element="tns:SubFirmIBANAddNew" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmIBANAddNewSoapOut">
+    <wsdl:part name="parameters" element="tns:SubFirmIBANAddNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmIBANDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:SubFirmIBANDelete" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmIBANDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:SubFirmIBANDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmVKNAddNewSoapIn">
+    <wsdl:part name="parameters" element="tns:SubFirmVKNAddNew" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmVKNAddNewSoapOut">
+    <wsdl:part name="parameters" element="tns:SubFirmVKNAddNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmVKNDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:SubFirmVKNDelete" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmVKNDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:SubFirmVKNDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmGetPaymentChannelSoapIn">
+    <wsdl:part name="parameters" element="tns:SubFirmGetPaymentChannel" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmGetPaymentChannelSoapOut">
+    <wsdl:part name="parameters" element="tns:SubFirmGetPaymentChannelResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllMatchingCriteriaSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAllMatchingCriteria" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllMatchingCriteriaSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAllMatchingCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBankBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBankBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankBalanceSubFirmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBankBalanceSubFirm" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankBalanceSubFirmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBankBalanceSubFirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankDailyBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBankDailyBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankDailyBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBankDailyBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentListSoapIn">
+    <wsdl:part name="parameters" element="tns:PosPaymentList" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentListSoapOut">
+    <wsdl:part name="parameters" element="tns:PosPaymentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentListWithValorDateSoapIn">
+    <wsdl:part name="parameters" element="tns:PosPaymentListWithValorDate" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentListWithValorDateSoapOut">
+    <wsdl:part name="parameters" element="tns:PosPaymentListWithValorDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentSUMSoapIn">
+    <wsdl:part name="parameters" element="tns:PosPaymentSUM" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentSUMSoapOut">
+    <wsdl:part name="parameters" element="tns:PosPaymentSUMResponse" />
+  </wsdl:message>
+  <wsdl:message name="PosReturnListSoapIn">
+    <wsdl:part name="parameters" element="tns:PosReturnList" />
+  </wsdl:message>
+  <wsdl:message name="PosReturnListSoapOut">
+    <wsdl:part name="parameters" element="tns:PosReturnListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmManagerListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmManagerList" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmManagerListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmManagerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmManagerAddNewSoapIn">
+    <wsdl:part name="parameters" element="tns:FirmManagerAddNew" />
+  </wsdl:message>
+  <wsdl:message name="FirmManagerAddNewSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmManagerAddNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmManagerDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:FirmManagerDelete" />
+  </wsdl:message>
+  <wsdl:message name="FirmManagerDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmManagerDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmDebtInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmDebtInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmDebtInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmDebtInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVPosTransactionListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVPosTransactionList" />
+  </wsdl:message>
+  <wsdl:message name="GetVPosTransactionListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVPosTransactionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmCode" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBankPaymentListItem" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListDebitHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmCode" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListDebitHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBankPaymentListItem" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmCode" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBankPaymentListItem" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllSubFirmHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmCode" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+    <wsdl:part name="taxNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllSubFirmHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBankPaymentListItem" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllWithFeatureHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmCode" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListAllWithFeatureHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBankPaymentListItemWithFeature" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListForCustomFieldsHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmCode" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BankPaymentListForCustomFieldsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBankPaymentListItem" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmCode" type="s:string" />
+    <wsdl:part name="paymentID" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithPaymentExpCodeHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="paymentID" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithPaymentExpCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseUpdatePaymentStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithERPRefNoHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="paymentID" type="s:string" />
+    <wsdl:part name="paymentStatusTypeID" type="s:string" />
+    <wsdl:part name="eRPRefNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentStatusInfoWithERPRefNoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseUpdatePaymentStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetSubFirmInfoHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSubFirmInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseGetSubFirmInfo" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmListHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSubFirmReturn" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmIBANAddNewHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+    <wsdl:part name="iban" type="s:string" />
+    <wsdl:part name="bankCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmIBANAddNewHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseSubFirmIBAN" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmIBANDeleteHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+    <wsdl:part name="iban" type="s:string" />
+    <wsdl:part name="bankCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmIBANDeleteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseSubFirmIBAN" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmVKNAddNewHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+    <wsdl:part name="vkn" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="surname" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmVKNAddNewHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseSubFirmVKN" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmVKNDeleteHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+    <wsdl:part name="vkn" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmVKNDeleteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseSubFirmVKN" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmGetPaymentChannelHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubFirmGetPaymentChannelHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseGetPaymentChannel" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllMatchingCriteriaHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllMatchingCriteriaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseDeleteMatchingCriteria" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankBalanceHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="iban" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankBalanceHttpGetOut">
+    <wsdl:part name="Body" element="tns:FirmBankBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankBalanceSubFirmHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="iban" type="s:string" />
+    <wsdl:part name="taxNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankBalanceSubFirmHttpGetOut">
+    <wsdl:part name="Body" element="tns:FirmBankBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankDailyBalanceHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmAPICode" type="s:string" />
+    <wsdl:part name="iban" type="s:string" />
+    <wsdl:part name="date" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBankDailyBalanceHttpGetOut">
+    <wsdl:part name="Body" element="tns:FirmBankBalance" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentListHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponsePosPaymentList" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentListWithValorDateHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="valorStartDate" type="s:string" />
+    <wsdl:part name="valorEndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentListWithValorDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponsePosPaymentList" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentSUMHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="sumDate" type="s:string" />
+    <wsdl:part name="sumDateTypeID" type="s:string" />
+    <wsdl:part name="processType" type="s:string" />
+    <wsdl:part name="bankCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PosPaymentSUMHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponsePosPaymentSUM" />
+  </wsdl:message>
+  <wsdl:message name="PosReturnListHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PosReturnListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseValorPaymentList" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmManagerListHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmManagerListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseFirmManagerList" />
+  </wsdl:message>
+  <wsdl:message name="FirmManagerAddNewHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+    <wsdl:part name="managerUserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FirmManagerAddNewHttpGetOut">
+    <wsdl:part name="Body" element="tns:GeneralResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmManagerDeleteHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="paymentExpCode" type="s:string" />
+    <wsdl:part name="managerUserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FirmManagerDeleteHttpGetOut">
+    <wsdl:part name="Body" element="tns:GeneralResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmDebtInfoHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmDebtInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseFirmDebtInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetVPosTransactionListHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firmApiCode" type="s:string" />
+    <wsdl:part name="transactionStatusID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVPosTransactionListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResponseVPosTransactionList" />
+  </wsdl:message>
+  <wsdl:portType name="WSBankPaymentServiceSoap">
+    <wsdl:operation name="BankPaymentList">
+      <wsdl:input message="tns:BankPaymentListSoapIn" />
+      <wsdl:output message="tns:BankPaymentListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListDebit">
+      <wsdl:input message="tns:BankPaymentListDebitSoapIn" />
+      <wsdl:output message="tns:BankPaymentListDebitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAll">
+      <wsdl:input message="tns:BankPaymentListAllSoapIn" />
+      <wsdl:output message="tns:BankPaymentListAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllSubFirm">
+      <wsdl:input message="tns:BankPaymentListAllSubFirmSoapIn" />
+      <wsdl:output message="tns:BankPaymentListAllSubFirmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllWithFeature">
+      <wsdl:input message="tns:BankPaymentListAllWithFeatureSoapIn" />
+      <wsdl:output message="tns:BankPaymentListAllWithFeatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListForCustomFields">
+      <wsdl:input message="tns:BankPaymentListForCustomFieldsSoapIn" />
+      <wsdl:output message="tns:BankPaymentListForCustomFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfo">
+      <wsdl:input message="tns:UpdatePaymentStatusInfoSoapIn" />
+      <wsdl:output message="tns:UpdatePaymentStatusInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithPaymentExpCode">
+      <wsdl:input message="tns:UpdatePaymentStatusInfoWithPaymentExpCodeSoapIn" />
+      <wsdl:output message="tns:UpdatePaymentStatusInfoWithPaymentExpCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithPaymentIDList">
+      <wsdl:input message="tns:UpdatePaymentStatusInfoWithPaymentIDListSoapIn" />
+      <wsdl:output message="tns:UpdatePaymentStatusInfoWithPaymentIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithERPRefNo">
+      <wsdl:input message="tns:UpdatePaymentStatusInfoWithERPRefNoSoapIn" />
+      <wsdl:output message="tns:UpdatePaymentStatusInfoWithERPRefNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmAddNew">
+      <wsdl:input message="tns:SubFirmAddNewSoapIn" />
+      <wsdl:output message="tns:SubFirmAddNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubFirmInfo">
+      <wsdl:input message="tns:GetSubFirmInfoSoapIn" />
+      <wsdl:output message="tns:GetSubFirmInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmList">
+      <wsdl:input message="tns:SubFirmListSoapIn" />
+      <wsdl:output message="tns:SubFirmListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmUpdate">
+      <wsdl:input message="tns:SubFirmUpdateSoapIn" />
+      <wsdl:output message="tns:SubFirmUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANAddNew">
+      <wsdl:input message="tns:SubFirmIBANAddNewSoapIn" />
+      <wsdl:output message="tns:SubFirmIBANAddNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANDelete">
+      <wsdl:input message="tns:SubFirmIBANDeleteSoapIn" />
+      <wsdl:output message="tns:SubFirmIBANDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNAddNew">
+      <wsdl:input message="tns:SubFirmVKNAddNewSoapIn" />
+      <wsdl:output message="tns:SubFirmVKNAddNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNDelete">
+      <wsdl:input message="tns:SubFirmVKNDeleteSoapIn" />
+      <wsdl:output message="tns:SubFirmVKNDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmGetPaymentChannel">
+      <wsdl:input message="tns:SubFirmGetPaymentChannelSoapIn" />
+      <wsdl:output message="tns:SubFirmGetPaymentChannelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllMatchingCriteria">
+      <wsdl:input message="tns:DeleteAllMatchingCriteriaSoapIn" />
+      <wsdl:output message="tns:DeleteAllMatchingCriteriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalance">
+      <wsdl:input message="tns:GetFirmBankBalanceSoapIn" />
+      <wsdl:output message="tns:GetFirmBankBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalanceSubFirm">
+      <wsdl:input message="tns:GetFirmBankBalanceSubFirmSoapIn" />
+      <wsdl:output message="tns:GetFirmBankBalanceSubFirmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankDailyBalance">
+      <wsdl:input message="tns:GetFirmBankDailyBalanceSoapIn" />
+      <wsdl:output message="tns:GetFirmBankDailyBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentList">
+      <wsdl:input message="tns:PosPaymentListSoapIn" />
+      <wsdl:output message="tns:PosPaymentListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentListWithValorDate">
+      <wsdl:input message="tns:PosPaymentListWithValorDateSoapIn" />
+      <wsdl:output message="tns:PosPaymentListWithValorDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentSUM">
+      <wsdl:input message="tns:PosPaymentSUMSoapIn" />
+      <wsdl:output message="tns:PosPaymentSUMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PosReturnList">
+      <wsdl:input message="tns:PosReturnListSoapIn" />
+      <wsdl:output message="tns:PosReturnListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmManagerList">
+      <wsdl:input message="tns:GetFirmManagerListSoapIn" />
+      <wsdl:output message="tns:GetFirmManagerListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerAddNew">
+      <wsdl:input message="tns:FirmManagerAddNewSoapIn" />
+      <wsdl:output message="tns:FirmManagerAddNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerDelete">
+      <wsdl:input message="tns:FirmManagerDeleteSoapIn" />
+      <wsdl:output message="tns:FirmManagerDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmDebtInfo">
+      <wsdl:input message="tns:GetFirmDebtInfoSoapIn" />
+      <wsdl:output message="tns:GetFirmDebtInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVPosTransactionList">
+      <wsdl:input message="tns:GetVPosTransactionListSoapIn" />
+      <wsdl:output message="tns:GetVPosTransactionListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSBankPaymentServiceHttpGet">
+    <wsdl:operation name="BankPaymentList">
+      <wsdl:input message="tns:BankPaymentListHttpGetIn" />
+      <wsdl:output message="tns:BankPaymentListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListDebit">
+      <wsdl:input message="tns:BankPaymentListDebitHttpGetIn" />
+      <wsdl:output message="tns:BankPaymentListDebitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAll">
+      <wsdl:input message="tns:BankPaymentListAllHttpGetIn" />
+      <wsdl:output message="tns:BankPaymentListAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllSubFirm">
+      <wsdl:input message="tns:BankPaymentListAllSubFirmHttpGetIn" />
+      <wsdl:output message="tns:BankPaymentListAllSubFirmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllWithFeature">
+      <wsdl:input message="tns:BankPaymentListAllWithFeatureHttpGetIn" />
+      <wsdl:output message="tns:BankPaymentListAllWithFeatureHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListForCustomFields">
+      <wsdl:input message="tns:BankPaymentListForCustomFieldsHttpGetIn" />
+      <wsdl:output message="tns:BankPaymentListForCustomFieldsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfo">
+      <wsdl:input message="tns:UpdatePaymentStatusInfoHttpGetIn" />
+      <wsdl:output message="tns:UpdatePaymentStatusInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithPaymentExpCode">
+      <wsdl:input message="tns:UpdatePaymentStatusInfoWithPaymentExpCodeHttpGetIn" />
+      <wsdl:output message="tns:UpdatePaymentStatusInfoWithPaymentExpCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithERPRefNo">
+      <wsdl:input message="tns:UpdatePaymentStatusInfoWithERPRefNoHttpGetIn" />
+      <wsdl:output message="tns:UpdatePaymentStatusInfoWithERPRefNoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubFirmInfo">
+      <wsdl:input message="tns:GetSubFirmInfoHttpGetIn" />
+      <wsdl:output message="tns:GetSubFirmInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmList">
+      <wsdl:input message="tns:SubFirmListHttpGetIn" />
+      <wsdl:output message="tns:SubFirmListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANAddNew">
+      <wsdl:input message="tns:SubFirmIBANAddNewHttpGetIn" />
+      <wsdl:output message="tns:SubFirmIBANAddNewHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANDelete">
+      <wsdl:input message="tns:SubFirmIBANDeleteHttpGetIn" />
+      <wsdl:output message="tns:SubFirmIBANDeleteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNAddNew">
+      <wsdl:input message="tns:SubFirmVKNAddNewHttpGetIn" />
+      <wsdl:output message="tns:SubFirmVKNAddNewHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNDelete">
+      <wsdl:input message="tns:SubFirmVKNDeleteHttpGetIn" />
+      <wsdl:output message="tns:SubFirmVKNDeleteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmGetPaymentChannel">
+      <wsdl:input message="tns:SubFirmGetPaymentChannelHttpGetIn" />
+      <wsdl:output message="tns:SubFirmGetPaymentChannelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllMatchingCriteria">
+      <wsdl:input message="tns:DeleteAllMatchingCriteriaHttpGetIn" />
+      <wsdl:output message="tns:DeleteAllMatchingCriteriaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalance">
+      <wsdl:input message="tns:GetFirmBankBalanceHttpGetIn" />
+      <wsdl:output message="tns:GetFirmBankBalanceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalanceSubFirm">
+      <wsdl:input message="tns:GetFirmBankBalanceSubFirmHttpGetIn" />
+      <wsdl:output message="tns:GetFirmBankBalanceSubFirmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankDailyBalance">
+      <wsdl:input message="tns:GetFirmBankDailyBalanceHttpGetIn" />
+      <wsdl:output message="tns:GetFirmBankDailyBalanceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentList">
+      <wsdl:input message="tns:PosPaymentListHttpGetIn" />
+      <wsdl:output message="tns:PosPaymentListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentListWithValorDate">
+      <wsdl:input message="tns:PosPaymentListWithValorDateHttpGetIn" />
+      <wsdl:output message="tns:PosPaymentListWithValorDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentSUM">
+      <wsdl:input message="tns:PosPaymentSUMHttpGetIn" />
+      <wsdl:output message="tns:PosPaymentSUMHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PosReturnList">
+      <wsdl:input message="tns:PosReturnListHttpGetIn" />
+      <wsdl:output message="tns:PosReturnListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmManagerList">
+      <wsdl:input message="tns:GetFirmManagerListHttpGetIn" />
+      <wsdl:output message="tns:GetFirmManagerListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerAddNew">
+      <wsdl:input message="tns:FirmManagerAddNewHttpGetIn" />
+      <wsdl:output message="tns:FirmManagerAddNewHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerDelete">
+      <wsdl:input message="tns:FirmManagerDeleteHttpGetIn" />
+      <wsdl:output message="tns:FirmManagerDeleteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmDebtInfo">
+      <wsdl:input message="tns:GetFirmDebtInfoHttpGetIn" />
+      <wsdl:output message="tns:GetFirmDebtInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVPosTransactionList">
+      <wsdl:input message="tns:GetVPosTransactionListHttpGetIn" />
+      <wsdl:output message="tns:GetVPosTransactionListHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSBankPaymentServiceSoap" type="tns:WSBankPaymentServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BankPaymentList">
+      <soap:operation soapAction="http://tempuri.org/BankPaymentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListDebit">
+      <soap:operation soapAction="http://tempuri.org/BankPaymentListDebit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAll">
+      <soap:operation soapAction="http://tempuri.org/BankPaymentListAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllSubFirm">
+      <soap:operation soapAction="http://tempuri.org/BankPaymentListAllSubFirm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllWithFeature">
+      <soap:operation soapAction="http://tempuri.org/BankPaymentListAllWithFeature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListForCustomFields">
+      <soap:operation soapAction="http://tempuri.org/BankPaymentListForCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfo">
+      <soap:operation soapAction="http://tempuri.org/UpdatePaymentStatusInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithPaymentExpCode">
+      <soap:operation soapAction="http://tempuri.org/UpdatePaymentStatusInfoWithPaymentExpCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithPaymentIDList">
+      <soap:operation soapAction="http://tempuri.org/UpdatePaymentStatusInfoWithPaymentIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithERPRefNo">
+      <soap:operation soapAction="http://tempuri.org/UpdatePaymentStatusInfoWithERPRefNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmAddNew">
+      <soap:operation soapAction="http://tempuri.org/SubFirmAddNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubFirmInfo">
+      <soap:operation soapAction="http://tempuri.org/GetSubFirmInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmList">
+      <soap:operation soapAction="http://tempuri.org/SubFirmList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmUpdate">
+      <soap:operation soapAction="http://tempuri.org/SubFirmUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANAddNew">
+      <soap:operation soapAction="http://tempuri.org/SubFirmIBANAddNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANDelete">
+      <soap:operation soapAction="http://tempuri.org/SubFirmIBANDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNAddNew">
+      <soap:operation soapAction="http://tempuri.org/SubFirmVKNAddNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNDelete">
+      <soap:operation soapAction="http://tempuri.org/SubFirmVKNDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmGetPaymentChannel">
+      <soap:operation soapAction="http://tempuri.org/SubFirmGetPaymentChannel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllMatchingCriteria">
+      <soap:operation soapAction="http://tempuri.org/DeleteAllMatchingCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalance">
+      <soap:operation soapAction="http://tempuri.org/GetFirmBankBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalanceSubFirm">
+      <soap:operation soapAction="http://tempuri.org/GetFirmBankBalanceSubFirm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankDailyBalance">
+      <soap:operation soapAction="http://tempuri.org/GetFirmBankDailyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentList">
+      <soap:operation soapAction="http://tempuri.org/PosPaymentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentListWithValorDate">
+      <soap:operation soapAction="http://tempuri.org/PosPaymentListWithValorDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentSUM">
+      <soap:operation soapAction="http://tempuri.org/PosPaymentSUM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosReturnList">
+      <soap:operation soapAction="http://tempuri.org/PosReturnList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmManagerList">
+      <soap:operation soapAction="http://tempuri.org/GetFirmManagerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerAddNew">
+      <soap:operation soapAction="http://tempuri.org/FirmManagerAddNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerDelete">
+      <soap:operation soapAction="http://tempuri.org/FirmManagerDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmDebtInfo">
+      <soap:operation soapAction="http://tempuri.org/GetFirmDebtInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVPosTransactionList">
+      <soap:operation soapAction="http://tempuri.org/GetVPosTransactionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSBankPaymentServiceSoap12" type="tns:WSBankPaymentServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BankPaymentList">
+      <soap12:operation soapAction="http://tempuri.org/BankPaymentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListDebit">
+      <soap12:operation soapAction="http://tempuri.org/BankPaymentListDebit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAll">
+      <soap12:operation soapAction="http://tempuri.org/BankPaymentListAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllSubFirm">
+      <soap12:operation soapAction="http://tempuri.org/BankPaymentListAllSubFirm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllWithFeature">
+      <soap12:operation soapAction="http://tempuri.org/BankPaymentListAllWithFeature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListForCustomFields">
+      <soap12:operation soapAction="http://tempuri.org/BankPaymentListForCustomFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfo">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePaymentStatusInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithPaymentExpCode">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePaymentStatusInfoWithPaymentExpCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithPaymentIDList">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePaymentStatusInfoWithPaymentIDList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithERPRefNo">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePaymentStatusInfoWithERPRefNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmAddNew">
+      <soap12:operation soapAction="http://tempuri.org/SubFirmAddNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubFirmInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetSubFirmInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmList">
+      <soap12:operation soapAction="http://tempuri.org/SubFirmList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmUpdate">
+      <soap12:operation soapAction="http://tempuri.org/SubFirmUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANAddNew">
+      <soap12:operation soapAction="http://tempuri.org/SubFirmIBANAddNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANDelete">
+      <soap12:operation soapAction="http://tempuri.org/SubFirmIBANDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNAddNew">
+      <soap12:operation soapAction="http://tempuri.org/SubFirmVKNAddNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNDelete">
+      <soap12:operation soapAction="http://tempuri.org/SubFirmVKNDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmGetPaymentChannel">
+      <soap12:operation soapAction="http://tempuri.org/SubFirmGetPaymentChannel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllMatchingCriteria">
+      <soap12:operation soapAction="http://tempuri.org/DeleteAllMatchingCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalance">
+      <soap12:operation soapAction="http://tempuri.org/GetFirmBankBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalanceSubFirm">
+      <soap12:operation soapAction="http://tempuri.org/GetFirmBankBalanceSubFirm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankDailyBalance">
+      <soap12:operation soapAction="http://tempuri.org/GetFirmBankDailyBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentList">
+      <soap12:operation soapAction="http://tempuri.org/PosPaymentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentListWithValorDate">
+      <soap12:operation soapAction="http://tempuri.org/PosPaymentListWithValorDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentSUM">
+      <soap12:operation soapAction="http://tempuri.org/PosPaymentSUM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosReturnList">
+      <soap12:operation soapAction="http://tempuri.org/PosReturnList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmManagerList">
+      <soap12:operation soapAction="http://tempuri.org/GetFirmManagerList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerAddNew">
+      <soap12:operation soapAction="http://tempuri.org/FirmManagerAddNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerDelete">
+      <soap12:operation soapAction="http://tempuri.org/FirmManagerDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmDebtInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetFirmDebtInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVPosTransactionList">
+      <soap12:operation soapAction="http://tempuri.org/GetVPosTransactionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSBankPaymentServiceHttpGet" type="tns:WSBankPaymentServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="BankPaymentList">
+      <http:operation location="/BankPaymentList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListDebit">
+      <http:operation location="/BankPaymentListDebit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAll">
+      <http:operation location="/BankPaymentListAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllSubFirm">
+      <http:operation location="/BankPaymentListAllSubFirm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListAllWithFeature">
+      <http:operation location="/BankPaymentListAllWithFeature" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPaymentListForCustomFields">
+      <http:operation location="/BankPaymentListForCustomFields" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfo">
+      <http:operation location="/UpdatePaymentStatusInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithPaymentExpCode">
+      <http:operation location="/UpdatePaymentStatusInfoWithPaymentExpCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentStatusInfoWithERPRefNo">
+      <http:operation location="/UpdatePaymentStatusInfoWithERPRefNo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubFirmInfo">
+      <http:operation location="/GetSubFirmInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmList">
+      <http:operation location="/SubFirmList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANAddNew">
+      <http:operation location="/SubFirmIBANAddNew" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmIBANDelete">
+      <http:operation location="/SubFirmIBANDelete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNAddNew">
+      <http:operation location="/SubFirmVKNAddNew" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmVKNDelete">
+      <http:operation location="/SubFirmVKNDelete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubFirmGetPaymentChannel">
+      <http:operation location="/SubFirmGetPaymentChannel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllMatchingCriteria">
+      <http:operation location="/DeleteAllMatchingCriteria" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalance">
+      <http:operation location="/GetFirmBankBalance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankBalanceSubFirm">
+      <http:operation location="/GetFirmBankBalanceSubFirm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBankDailyBalance">
+      <http:operation location="/GetFirmBankDailyBalance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentList">
+      <http:operation location="/PosPaymentList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentListWithValorDate">
+      <http:operation location="/PosPaymentListWithValorDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosPaymentSUM">
+      <http:operation location="/PosPaymentSUM" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PosReturnList">
+      <http:operation location="/PosReturnList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmManagerList">
+      <http:operation location="/GetFirmManagerList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerAddNew">
+      <http:operation location="/FirmManagerAddNew" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmManagerDelete">
+      <http:operation location="/FirmManagerDelete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmDebtInfo">
+      <http:operation location="/GetFirmDebtInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVPosTransactionList">
+      <http:operation location="/GetVPosTransactionList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSBankPaymentService">
+    <wsdl:port name="WSBankPaymentServiceSoap" binding="tns:WSBankPaymentServiceSoap">
+      <soap:address location="https://portal.buluttahsilat.com/WebService/WSBankPaymentService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSBankPaymentServiceSoap12" binding="tns:WSBankPaymentServiceSoap12">
+      <soap12:address location="https://portal.buluttahsilat.com/WebService/WSBankPaymentService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSBankPaymentServiceHttpGet" binding="tns:WSBankPaymentServiceHttpGet">
+      <http:address location="https://portal.buluttahsilat.com/WebService/WSBankPaymentService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

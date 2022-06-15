@@ -1,0 +1,14 @@
+n11CategoryService.wsdl.xml
+n11CityService.wsdl.xml
+n11ClaimCancelService.wsdl.xml
+n11ClaimExchangeService.wsdl.xml
+n11OrderService.wsdl.xml
+n11ProductSellingService.wsdl.xml
+n11ProductStockService.wsdl.xml
+n11ReturnService.wsdl.xml
+n11SapBankStatementEInvoiceService.wsdl.xml
+n11SapCommissionEInvoiceDetailService.wsdl.xml
+n11SettlementService.wsdl.xml
+n11ShipmentCompanyService.wsdl.xml
+n11ShipmentService.wsdl.xml
+n11TicketService.wsdl.xml
