@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "iyzipay": "git://github.com/ismailtunga/iyzipay-node.git",
-    "node-html-to-image": "^3.0.1",
-    "soap": "^0.31.0"
+    "@google-cloud/dialogflow": "^3.3.0",
+    "cron": "^1.8.2",
+    "kafkajs": "^1.15.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.32",
+    "node-ews": "^3.4.2",
+    "node-html-to-image": "^3.1.0",
+    "oracledb": "^5.1.0",
+    "puppeteer": "^5.5.0",
+    "soap": "^0.31.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {},
   "scripts": {
